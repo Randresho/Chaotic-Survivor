@@ -21,5 +21,8 @@ public class LifeAdder : MonoBehaviour
             Debug.Log("Se añadio " + addLife + " de vida");
             FindObjectOfType<LevelManager>().SpawnLife();
         }
+
+        if(obj.GetComponent<HitObject>() != null)
+            FindObjectOfType<LevelManager>().SpawnLife();
     }
 }

@@ -101,7 +101,7 @@ public class GameManager : MonoBehaviour
         isPause = false;
 
         transitionManager.TransitionScene(0, transitionTimer);
-        transitionManager.TransitionMusic(0, transitionTimer);
+        transitionManager.TransitionMusicMainMenuStart(0, transitionTimer);
 
         playerCurLevel = playerAdCurLevel;
     }

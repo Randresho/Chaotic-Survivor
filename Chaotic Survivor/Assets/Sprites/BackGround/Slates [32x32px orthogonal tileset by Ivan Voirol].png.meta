@@ -5377,7 +5377,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slates [32x32px orthogonal tileset by Ivan Voirol]_280
+      name: Tent_0
       rect:
         serializedVersion: 2
         x: 1280
@@ -5388,7 +5388,13 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -16, y: 16}
+        - {x: -16, y: -16}
+        - {x: -3, y: -16}
+        - {x: -3, y: -1}
+        - {x: 16, y: -1}
+        - {x: 16, y: 16}
       tessellationDetail: 0
       bones: []
       spriteID: 98d2b721b26dd53428297ee0913785ec
@@ -5398,7 +5404,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slates [32x32px orthogonal tileset by Ivan Voirol]_281
+      name: Tent_1
       rect:
         serializedVersion: 2
         x: 1312
@@ -5409,7 +5415,13 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -16, y: 16}
+        - {x: -16, y: 0}
+        - {x: 2, y: 0}
+        - {x: 2, y: -16}
+        - {x: 16, y: -16}
+        - {x: 16, y: 16}
       tessellationDetail: 0
       bones: []
       spriteID: 65340fad76d157d499ea9d386537c5a4
@@ -5419,7 +5431,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slates [32x32px orthogonal tileset by Ivan Voirol]_282
+      name: Tent_2
       rect:
         serializedVersion: 2
         x: 1344
@@ -5430,7 +5442,13 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -16, y: 16}
+        - {x: -16, y: -16}
+        - {x: -3, y: -16}
+        - {x: -3, y: -1}
+        - {x: 16, y: -1}
+        - {x: 16, y: 16}
       tessellationDetail: 0
       bones: []
       spriteID: 4c31cb325b91be74092926373f0901d1
@@ -5440,7 +5458,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slates [32x32px orthogonal tileset by Ivan Voirol]_283
+      name: Tent_3
       rect:
         serializedVersion: 2
         x: 1376
@@ -5451,7 +5469,13 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -16, y: 16}
+        - {x: -16, y: -1}
+        - {x: 3, y: -1}
+        - {x: 3, y: -16}
+        - {x: 16, y: -16}
+        - {x: 16, y: 16}
       tessellationDetail: 0
       bones: []
       spriteID: ad7dc7274b4d1e54c9821bb21cc093cc
@@ -6410,7 +6434,11 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: 10, y: 16}
+        - {x: 10, y: -1}
+        - {x: 16, y: -1}
+        - {x: 16, y: 16}
       tessellationDetail: 0
       bones: []
       spriteID: 0597157722d4c5045a34a790733adc97
@@ -6431,7 +6459,15 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -16, y: 16}
+        - {x: -16, y: -1}
+        - {x: -11, y: -1}
+        - {x: -11, y: 16}
+      - - {x: 10, y: 16}
+        - {x: 10, y: -1}
+        - {x: 16, y: -1}
+        - {x: 16, y: 16}
       tessellationDetail: 0
       bones: []
       spriteID: d37dd247a4551f54f892364a17011d1d
@@ -6452,7 +6488,11 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -16, y: 16}
+        - {x: -16, y: -1}
+        - {x: -11, y: -1}
+        - {x: -11, y: 16}
       tessellationDetail: 0
       bones: []
       spriteID: ab3285a12c0ee4e4c822c0021c4c8ff4
@@ -7501,7 +7541,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slates [32x32px orthogonal tileset by Ivan Voirol]_376
+      name: Tent_12
       rect:
         serializedVersion: 2
         x: 1280
@@ -7512,7 +7552,11 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -16, y: 16}
+        - {x: -16, y: -2}
+        - {x: 16, y: -2}
+        - {x: 16, y: 16}
       tessellationDetail: 0
       bones: []
       spriteID: 9aeb8d86057f54d4596513c6e3e5cb12
@@ -7522,7 +7566,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slates [32x32px orthogonal tileset by Ivan Voirol]_377
+      name: Tent_13
       rect:
         serializedVersion: 2
         x: 1312
@@ -7533,7 +7577,11 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -16, y: 16}
+        - {x: -16, y: -2}
+        - {x: 16, y: -2}
+        - {x: 16, y: 16}
       tessellationDetail: 0
       bones: []
       spriteID: 55dd2f1364c62df42b0972ec20188b0d
@@ -7543,7 +7591,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slates [32x32px orthogonal tileset by Ivan Voirol]_378
+      name: Tent_14
       rect:
         serializedVersion: 2
         x: 1344
@@ -7554,7 +7602,11 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -16, y: 16}
+        - {x: -16, y: -2}
+        - {x: 16, y: -2}
+        - {x: 16, y: 16}
       tessellationDetail: 0
       bones: []
       spriteID: 66cac672d4362ae448cd0c3725860813
@@ -7564,7 +7616,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slates [32x32px orthogonal tileset by Ivan Voirol]_379
+      name: Tent_15
       rect:
         serializedVersion: 2
         x: 1376
@@ -7575,7 +7627,11 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -16, y: 16}
+        - {x: -16, y: -2}
+        - {x: 16, y: -2}
+        - {x: 16, y: 16}
       tessellationDetail: 0
       bones: []
       spriteID: 46f44299903772045b93f010fe10c2f8
@@ -8631,7 +8687,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slates [32x32px orthogonal tileset by Ivan Voirol]_424
+      name: Tent_4
       rect:
         serializedVersion: 2
         x: 1280
@@ -8642,7 +8698,12 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: 12, y: 16}
+        - {x: 2, y: 10}
+        - {x: 2, y: -16}
+        - {x: 16, y: -16}
+        - {x: 16, y: 16}
       tessellationDetail: 0
       bones: []
       spriteID: 8cafccbd6ccb6be488497793b3e696bc
@@ -8652,7 +8713,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slates [32x32px orthogonal tileset by Ivan Voirol]_425
+      name: Tent_5
       rect:
         serializedVersion: 2
         x: 1312
@@ -8663,7 +8724,12 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -16, y: 16}
+        - {x: -16, y: -16}
+        - {x: -2, y: -16}
+        - {x: -2, y: 10}
+        - {x: -11, y: 16}
       tessellationDetail: 0
       bones: []
       spriteID: 1a98095327f0ff6498879b76a139a427
@@ -8673,7 +8739,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slates [32x32px orthogonal tileset by Ivan Voirol]_426
+      name: Tent_8
       rect:
         serializedVersion: 2
         x: 1344
@@ -8684,7 +8750,12 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: 2, y: -6}
+        - {x: 2, y: -16}
+        - {x: 16, y: -16}
+        - {x: 16, y: 2}
+        - {x: 15, y: 2}
       tessellationDetail: 0
       bones: []
       spriteID: 0ff8e7388f3ab4b4a8d0cabeb1db3b8a
@@ -8694,7 +8765,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slates [32x32px orthogonal tileset by Ivan Voirol]_427
+      name: Tent_9
       rect:
         serializedVersion: 2
         x: 1376
@@ -8705,7 +8776,12 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -16, y: 2}
+        - {x: -16, y: -16}
+        - {x: -2, y: -16}
+        - {x: -2, y: -6}
+        - {x: -13, y: 2}
       tessellationDetail: 0
       bones: []
       spriteID: 6a47c7e366c052845895391c9adc3c8a
@@ -9818,7 +9894,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slates [32x32px orthogonal tileset by Ivan Voirol]_472
+      name: Tent_6
       rect:
         serializedVersion: 2
         x: 1280
@@ -9829,7 +9905,11 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: 2, y: 16}
+        - {x: 2, y: -16}
+        - {x: 16, y: -16}
+        - {x: 16, y: 16}
       tessellationDetail: 0
       bones: []
       spriteID: 11242cd21b405c2488c3689436d47412
@@ -9839,7 +9919,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slates [32x32px orthogonal tileset by Ivan Voirol]_473
+      name: Tent_7
       rect:
         serializedVersion: 2
         x: 1312
@@ -9850,7 +9930,11 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -2, y: -16}
+        - {x: -2, y: 16}
+        - {x: -16, y: 16}
+        - {x: -16, y: -16}
       tessellationDetail: 0
       bones: []
       spriteID: a8f1b0f621e7708459d34ac7974b4744
@@ -9860,7 +9944,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slates [32x32px orthogonal tileset by Ivan Voirol]_474
+      name: Tent_10
       rect:
         serializedVersion: 2
         x: 1344
@@ -9871,7 +9955,13 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: 2, y: 16}
+        - {x: 2, y: 6}
+        - {x: 4, y: 2}
+        - {x: 13, y: 0}
+        - {x: 16, y: 0}
+        - {x: 16, y: 16}
       tessellationDetail: 0
       bones: []
       spriteID: 685fc77eeb9291b43b65f655d3646d80
@@ -9881,7 +9971,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slates [32x32px orthogonal tileset by Ivan Voirol]_475
+      name: Tent_11
       rect:
         serializedVersion: 2
         x: 1376
@@ -9892,7 +9982,12 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -16, y: 16}
+        - {x: -16, y: 0}
+        - {x: -11, y: 0}
+        - {x: -2, y: 4}
+        - {x: -2, y: 16}
       tessellationDetail: 0
       bones: []
       spriteID: 5e4ce02d8e6db3c43849e5c9490bcdee
@@ -16045,7 +16140,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slates [32x32px orthogonal tileset by Ivan Voirol]_740
+      name: FarmFench_0
       rect:
         serializedVersion: 2
         x: 640
@@ -16056,7 +16151,11 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -12, y: -4}
+        - {x: -12, y: -16}
+        - {x: 16, y: -16}
+        - {x: 16, y: -4}
       tessellationDetail: 0
       bones: []
       spriteID: 0c7edef496e745b45bc9c8ed6381db11
@@ -16066,7 +16165,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slates [32x32px orthogonal tileset by Ivan Voirol]_741
+      name: FarmFench_1
       rect:
         serializedVersion: 2
         x: 672
@@ -16077,7 +16176,11 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -16, y: -4}
+        - {x: -16, y: -16}
+        - {x: 16, y: -16}
+        - {x: 16, y: -4}
       tessellationDetail: 0
       bones: []
       spriteID: bcb58b721b79f3d4785c59b991ac8de1
@@ -16087,7 +16190,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slates [32x32px orthogonal tileset by Ivan Voirol]_742
+      name: FarmFench_2
       rect:
         serializedVersion: 2
         x: 704
@@ -16098,7 +16201,11 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -5, y: -16}
+        - {x: -5, y: -4}
+        - {x: -16, y: -4}
+        - {x: -16, y: -16}
       tessellationDetail: 0
       bones: []
       spriteID: 5a222b24e3c533440af2bb1e193ad445
@@ -16108,7 +16215,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slates [32x32px orthogonal tileset by Ivan Voirol]_743
+      name: FarmFench_9
       rect:
         serializedVersion: 2
         x: 736
@@ -16119,7 +16226,13 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -10, y: 2}
+        - {x: -12, y: -1}
+        - {x: -12, y: -16}
+        - {x: -5, y: -16}
+        - {x: -5, y: -1}
+        - {x: -7, y: 2}
       tessellationDetail: 0
       bones: []
       spriteID: 66e5ef1eadeea6b4593678efe0bcee54
@@ -17192,7 +17305,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slates [32x32px orthogonal tileset by Ivan Voirol]_788
+      name: FarmFench_3
       rect:
         serializedVersion: 2
         x: 640
@@ -17203,7 +17316,13 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -12, y: 16}
+        - {x: -12, y: -16}
+        - {x: 16, y: -16}
+        - {x: 16, y: -4}
+        - {x: -5, y: -4}
+        - {x: -5, y: 16}
       tessellationDetail: 0
       bones: []
       spriteID: 3e9a03b2e3d6be044b7fba0cdc0cc700
@@ -17213,7 +17332,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slates [32x32px orthogonal tileset by Ivan Voirol]_789
+      name: FarmFench_4
       rect:
         serializedVersion: 2
         x: 672
@@ -17224,7 +17343,15 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -12, y: 16}
+        - {x: -12, y: -4}
+        - {x: -16, y: -4}
+        - {x: -16, y: -16}
+        - {x: 16, y: -16}
+        - {x: 16, y: -4}
+        - {x: -5, y: -4}
+        - {x: -5, y: 16}
       tessellationDetail: 0
       bones: []
       spriteID: 47077fe0131e8d74fb6c9a8d2c3041d4
@@ -17234,7 +17361,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slates [32x32px orthogonal tileset by Ivan Voirol]_790
+      name: FarmFench_5
       rect:
         serializedVersion: 2
         x: 704
@@ -17245,7 +17372,15 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -12, y: 16}
+        - {x: -12, y: -4}
+        - {x: -16, y: -4}
+        - {x: -16, y: -12.942078}
+        - {x: -12, y: -13}
+        - {x: -12, y: -16}
+        - {x: -5, y: -16}
+        - {x: -5, y: 16}
       tessellationDetail: 0
       bones: []
       spriteID: fa5720828a5d91542ae0b5309d20157d
@@ -17255,7 +17390,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slates [32x32px orthogonal tileset by Ivan Voirol]_791
+      name: FarmFench_10
       rect:
         serializedVersion: 2
         x: 736
@@ -17266,7 +17401,11 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -12, y: 16}
+        - {x: -12, y: -16}
+        - {x: -5, y: -16}
+        - {x: -5, y: 16}
       tessellationDetail: 0
       bones: []
       spriteID: 98a9e6bd90e84a9458ac4639eacd9a6e
@@ -18287,7 +18426,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slates [32x32px orthogonal tileset by Ivan Voirol]_836
+      name: FarmFench_6
       rect:
         serializedVersion: 2
         x: 640
@@ -18298,7 +18437,13 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -12, y: 16}
+        - {x: -12, y: -16}
+        - {x: 16, y: -16}
+        - {x: 16, y: -4}
+        - {x: -5, y: -4}
+        - {x: -5, y: 16}
       tessellationDetail: 0
       bones: []
       spriteID: c421e1ba657c0e7498ab290bed4593c9
@@ -18308,7 +18453,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slates [32x32px orthogonal tileset by Ivan Voirol]_837
+      name: FarmFench_7
       rect:
         serializedVersion: 2
         x: 672
@@ -18319,7 +18464,15 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -12, y: 16}
+        - {x: -12, y: -4}
+        - {x: -16, y: -4}
+        - {x: -16, y: -16}
+        - {x: 16, y: -16}
+        - {x: 16, y: -4}
+        - {x: -5, y: -4}
+        - {x: -5, y: 16}
       tessellationDetail: 0
       bones: []
       spriteID: 7e60c3a3a05fae4479c1d36e57577908
@@ -18329,7 +18482,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slates [32x32px orthogonal tileset by Ivan Voirol]_838
+      name: FarmFench_8
       rect:
         serializedVersion: 2
         x: 704
@@ -18340,7 +18493,13 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -12, y: 16}
+        - {x: -12, y: -4}
+        - {x: -16, y: -4}
+        - {x: -16, y: -16}
+        - {x: -5, y: -16}
+        - {x: -5, y: 16}
       tessellationDetail: 0
       bones: []
       spriteID: f92495ac14aa3cc4a93e399d1d4806f1
@@ -18350,7 +18509,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slates [32x32px orthogonal tileset by Ivan Voirol]_839
+      name: FarmFench_11
       rect:
         serializedVersion: 2
         x: 736
@@ -18361,7 +18520,11 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -12, y: 16}
+        - {x: -12, y: -16}
+        - {x: -5, y: -16}
+        - {x: -5, y: 16}
       tessellationDetail: 0
       bones: []
       spriteID: 449e4908d79e5534199336f9e738fa66
@@ -19421,7 +19584,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slates [32x32px orthogonal tileset by Ivan Voirol]_884
+      name: FarmFench_12
       rect:
         serializedVersion: 2
         x: 640
@@ -19432,7 +19595,11 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -12, y: -4}
+        - {x: -12, y: -16}
+        - {x: 16, y: -16}
+        - {x: 16, y: -4}
       tessellationDetail: 0
       bones: []
       spriteID: 8e734453ff6c12a4aaaabbcb7ad1294e
@@ -19442,7 +19609,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slates [32x32px orthogonal tileset by Ivan Voirol]_885
+      name: FarmFench_13
       rect:
         serializedVersion: 2
         x: 672
@@ -19453,7 +19620,11 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -16, y: -4}
+        - {x: -16, y: -16}
+        - {x: 16, y: -16}
+        - {x: 16, y: -4}
       tessellationDetail: 0
       bones: []
       spriteID: 975d0679edb81354dbd689c0293b0422
@@ -19463,7 +19634,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slates [32x32px orthogonal tileset by Ivan Voirol]_886
+      name: FarmFench_14
       rect:
         serializedVersion: 2
         x: 704
@@ -19474,7 +19645,11 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -16, y: -4}
+        - {x: -16, y: -16}
+        - {x: -5, y: -16}
+        - {x: -5, y: -4}
       tessellationDetail: 0
       bones: []
       spriteID: 6e8065a2223b3d744a6dc3d73c97e0de
@@ -19484,7 +19659,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slates [32x32px orthogonal tileset by Ivan Voirol]_887
+      name: FarmFench_18
       rect:
         serializedVersion: 2
         x: 736
@@ -19495,7 +19670,11 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -12, y: -4}
+        - {x: -12, y: -16}
+        - {x: 11, y: -16}
+        - {x: 11, y: -4}
       tessellationDetail: 0
       bones: []
       spriteID: 47c3afaedd031b84889c84389d7e1b0d
@@ -20494,7 +20673,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slates [32x32px orthogonal tileset by Ivan Voirol]_932
+      name: FarmFench_15
       rect:
         serializedVersion: 2
         x: 640
@@ -20505,7 +20684,17 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: 10, y: 0}
+        - {x: 3, y: 2}
+        - {x: -4, y: 2}
+        - {x: -11, y: 0}
+        - {x: -12, y: -4}
+        - {x: -16, y: -4}
+        - {x: -16, y: -16}
+        - {x: 16, y: -16}
+        - {x: 16, y: -4}
+        - {x: 11, y: -4}
       tessellationDetail: 0
       bones: []
       spriteID: 00067e05473f67a4eb0f05ac8342419d
@@ -20515,7 +20704,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slates [32x32px orthogonal tileset by Ivan Voirol]_933
+      name: FarmFench_16
       rect:
         serializedVersion: 2
         x: 672
@@ -20526,7 +20715,17 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -16, y: -16}
+        - {x: -4, y: -16}
+        - {x: -4, y: 12}
+        - {x: -7, y: 12}
+        - {x: -7, y: -4}
+        - {x: -16, y: -4}
+      - - {x: 5, y: -4}
+        - {x: 5, y: -16}
+        - {x: 16, y: -16}
+        - {x: 16, y: -4}
       tessellationDetail: 0
       bones: []
       spriteID: 4b7a42e750713584ba2f27043835a528
@@ -20536,7 +20735,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slates [32x32px orthogonal tileset by Ivan Voirol]_934
+      name: FarmFench_17
       rect:
         serializedVersion: 2
         x: 704
@@ -20547,7 +20746,15 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -16, y: -4}
+        - {x: -16, y: -16}
+        - {x: -6, y: -16}
+        - {x: -6, y: -4}
+      - - {x: 5, y: -4}
+        - {x: 5, y: -16}
+        - {x: 16, y: -16}
+        - {x: 16, y: -4}
       tessellationDetail: 0
       bones: []
       spriteID: cab8a7aae17e722468bc4bf3176fd6cb
@@ -24400,7 +24607,6 @@ TextureImporter:
       TreePine_39: 287838429
       WaterFall_0: -409153151
       Floor_27: 951931391
-      House_173: 2060280717
       Grass_20: -373519657
       Sand_14: -1802196436
       Grass_2: 1869001499
@@ -24409,6 +24615,7 @@ TextureImporter:
       TreePine_3: 222051568
       RockBigHole_12: 704788918
       Torch_2: -1511691073
+      Slates [32x32px orthogonal tileset by Ivan Voirol]_567: 915929133
       Slates [32x32px orthogonal tileset by Ivan Voirol]_537: 1277289791
       House_179: 1333918866
       Stairs_33: -779562186
@@ -24422,7 +24629,6 @@ TextureImporter:
       Stairs_26: -2139256826
       House_205: -930503794
       Bridge_63: 1430193316
-      Slates [32x32px orthogonal tileset by Ivan Voirol]_426: -1405125855
       Slates [32x32px orthogonal tileset by Ivan Voirol]_612: 1426979135
       Slates [32x32px orthogonal tileset by Ivan Voirol]_12: 888934012
       Slates [32x32px orthogonal tileset by Ivan Voirol]_1094: -851066181
@@ -24440,10 +24646,10 @@ TextureImporter:
       Overlay_4: -1042858097
       Slates [32x32px orthogonal tileset by Ivan Voirol]_479: 1773217716
       Slates [32x32px orthogonal tileset by Ivan Voirol]_997: -216859056
-      Slates [32x32px orthogonal tileset by Ivan Voirol]_887: 230326565
       House_99: 1626575595
       House_56: 1883967077
       House_58: -750963221
+      Tent_0: -342343571
       EarthRamp_4: -1191313611
       Sand_16: -91086045
       Rock_5: 442586284
@@ -24459,19 +24665,18 @@ TextureImporter:
       House_113: -1432878529
       House_1: 1810059639
       SandRamp_12: 815863621
+      Tree_10: -298960454
       Tree_24: -920844194
-      GrassBorders_61: -925244349
       Bridge_64: 936492455
-      Overlay_26: 1238165266
+      GrassBorders_61: -925244349
       House_77: -240319148
       House_76: 1152483905
-      Slates [32x32px orthogonal tileset by Ivan Voirol]_932: -573291332
+      Overlay_26: 1238165266
       TreePine_14: -701252632
       House_0: -1485326116
-      Tree_10: -298960454
       RockBottomSand_0: -1305941300
       House_197: -692226940
-      Slates [32x32px orthogonal tileset by Ivan Voirol]_280: -935004211
+      Bridge_14: 858891487
       Grass_0: 1613135339
       SandRamp_13: 886787687
       Floor_44: 1569098298
@@ -24483,14 +24688,14 @@ TextureImporter:
       GrassRamp_15: -1332344225
       SandRamp_8: 1773217716
       Overlay_28: -1381108400
-      Bridge_14: 858891487
+      Overlay_9: 1698926419
+      Tent_7: 897934712
       Slates [32x32px orthogonal tileset by Ivan Voirol]_614: -2011911385
       WaterWall_0: 220984070
       Slates [32x32px orthogonal tileset by Ivan Voirol]_709: 1309723869
       Bridge_6: -829811437
-      Overlay_9: 1698926419
-      GrassBorders_23: -120106011
       House_18: -1142891758
+      GrassBorders_23: -120106011
       Sand_7: 32420393
       WaterBorderSand_9: -2135608116
       Rock_11: 689558961
@@ -24501,6 +24706,7 @@ TextureImporter:
       Rock_8: 1588600255
       Tree_22: -1129675015
       Slates [32x32px orthogonal tileset by Ivan Voirol]_759: 1322994064
+      FarmFench_12: 1561284170
       House_32: 414971467
       Slates [32x32px orthogonal tileset by Ivan Voirol]_996: -233977023
       Rock_13: 1065989961
@@ -24545,6 +24751,7 @@ TextureImporter:
       Slates [32x32px orthogonal tileset by Ivan Voirol]_19: -1889729361
       GrassBorders_16: 612239500
       WaterWallSand_3: 1992173010
+      FarmFench_11: 1978362730
       RockHole_1: 1901426491
       Slates [32x32px orthogonal tileset by Ivan Voirol]_1076: 1940448801
       Slates [32x32px orthogonal tileset by Ivan Voirol]_38: 1153527546
@@ -24556,13 +24763,14 @@ TextureImporter:
       RockHole_11: -641041355
       MillWater_4: 1322362223
       Overlay_13: -1985642486
+      Tent_1: -1558808934
       House_164: 870724547
       House_33: -768202712
       RockBottomEarthTopGrass_2: -268594797
       Stairs_20: -1984334798
-      Barco_12: -1615395061
-      Bridge_23: -363694008
       Bridge_57: -1339060842
+      Bridge_23: -363694008
+      Barco_12: -1615395061
       Slates [32x32px orthogonal tileset by Ivan Voirol]_663: -319685040
       Grass_3: -1309188179
       SandRamp_1: 1248059227
@@ -24573,16 +24781,15 @@ TextureImporter:
       Overlay_20: 189393062
       RockBottomEarthTopGrass_3: 115403200
       EarthRamp_2: -1346991530
-      Slates [32x32px orthogonal tileset by Ivan Voirol]_743: -1189882170
       GrassBorders_43: -2010879792
       MillWind_15: 50013470
       House_131: -1707472566
       WaterBorderSand_0: -236972866
       House_146: -1135417790
+      Tent_15: -2016079821
       House_71: 763036009
       Slates [32x32px orthogonal tileset by Ivan Voirol]_39: -363694008
       Bridge_38: 149628831
-      Slates [32x32px orthogonal tileset by Ivan Voirol]_790: -1819999065
       Bridge_25: -502153341
       Grass_23: -1395608594
       Floor_35: -1841561132
@@ -24593,7 +24800,6 @@ TextureImporter:
       MillWater_24: 463344073
       Stairs_8: -1086416401
       Stairs_34: -53956621
-      Slates [32x32px orthogonal tileset by Ivan Voirol]_379: 1351464887
       Slates [32x32px orthogonal tileset by Ivan Voirol]_4: -415869767
       Bridge_37: 290809137
       House_24: 786823842
@@ -24606,13 +24812,11 @@ TextureImporter:
       RockBottomFloorTopGrass_3: 1768601040
       TreePine_27: 667589381
       WaterFall_2: -91889131
-      Slates [32x32px orthogonal tileset by Ivan Voirol]_281: 49371561
+      WaterBorderSand_13: 597793947
       GrassBorders_37: 834586425
       Slates [32x32px orthogonal tileset by Ivan Voirol]_989: 1669289096
-      Slates [32x32px orthogonal tileset by Ivan Voirol]_885: 907307073
       Bridge_54: -1204219881
       House_221: 671142027
-      WaterBorderSand_13: 597793947
       Stairs_21: -573291332
       Overlay_15: 837292166
       House_34: 894323463
@@ -24630,6 +24834,7 @@ TextureImporter:
       Earth_3: -558501299
       Bridge_69: 392233293
       House_110: -1865488688
+      FarmFench_2: -640802618
       Sand_1: 1725445329
       House_194: 1411307892
       Bridge_67: -1896058315
@@ -24658,13 +24863,12 @@ TextureImporter:
       House_67: -1806341188
       MillWind_3: -205157030
       GrassBorders_38: -1226170232
-      Slates [32x32px orthogonal tileset by Ivan Voirol]_789: 76081434
-      GrassBorders_39: -1800129912
       Tree_18: -592264707
+      GrassBorders_39: -1800129912
       House_74: 1798190520
+      SandRamp_11: -625954641
       Tree_5: 1575997742
       GrassBorders_33: 2008568255
-      SandRamp_11: -625954641
       Earth_0: 1065989961
       Slates [32x32px orthogonal tileset by Ivan Voirol]_14: 2095147488
       Bridge_43: 646878885
@@ -24672,13 +24876,13 @@ TextureImporter:
       House_199: -89232411
       WaterBorderSand_3: -537858384
       House_9: -1060320157
-      Slates [32x32px orthogonal tileset by Ivan Voirol]_839: 68445769
+      House_169: 144247607
       House_60: -843641094
       MillWater_1: -1048364051
       House_11: -217610737
       MillWater_30: -1774698638
+      FarmFench_16: -792441267
       Barco_10: 1571375649
-      House_169: 144247607
       House_44: -1633090854
       Slates [32x32px orthogonal tileset by Ivan Voirol]_95: -705546631
       Bridge_50: -903896830
@@ -24699,13 +24903,13 @@ TextureImporter:
       MillWater_25: -866685764
       GrassBorders_65: 1721989549
       TreePine_8: 522748977
+      Slates [32x32px orthogonal tileset by Ivan Voirol]_35: 286253149
       House_72: 402505565
-      GrassBorders_57: -668910652
       Slates [32x32px orthogonal tileset by Ivan Voirol]_25: -752149027
+      GrassBorders_57: -668910652
       Slates [32x32px orthogonal tileset by Ivan Voirol]_1031: 1415384927
       House_38: -2076894675
       Floor_32: 1965303826
-      Slates [32x32px orthogonal tileset by Ivan Voirol]_35: 286253149
       WaterBorderSand_1: -232634501
       Slates [32x32px orthogonal tileset by Ivan Voirol]_565: 1042530762
       House_151: -438486750
@@ -24713,7 +24917,7 @@ TextureImporter:
       MillWind_12: -499221230
       SandMovingRock_3: 1020048075
       Bridge_26: -1838159780
-      Slates [32x32px orthogonal tileset by Ivan Voirol]_282: -1381108400
+      FarmFench_4: -1758975788
       Tree_35: -1915960726
       Earth_11: 2069567659
       House_132: 674329913
@@ -24721,22 +24925,23 @@ TextureImporter:
       RockBigHole_5: -77164573
       Slates [32x32px orthogonal tileset by Ivan Voirol]_619: -377871715
       RockHole_10: 837292166
+      FarmFench_0: 1330705430
       House_178: 1359786824
       MillWater_15: -412526136
-      Slates [32x32px orthogonal tileset by Ivan Voirol]_886: -1602997550
       TreePine_20: 1847885836
+      Tent_9: -1633777120
       MillWind_7: -815318350
       Slates [32x32px orthogonal tileset by Ivan Voirol]_804: -928251385
       GrassBorders_1: 1725445329
       Grass_9: 804709251
-      House_65: -2009404772
       MillWind_11: 1100274537
       Floor_16: 1937595777
-      House_176: 1190789202
+      House_65: -2009404772
       SandMoving_1: -1674155400
+      House_176: 1190789202
       Bridge_16: -2008565881
-      House_45: -893831723
       Slates [32x32px orthogonal tileset by Ivan Voirol]_661: 1986394972
+      House_45: -893831723
       GrassRamp_10: 92158683
       Slates [32x32px orthogonal tileset by Ivan Voirol]_36: 1798190520
       Tree_39: 200267236
@@ -24766,7 +24971,6 @@ TextureImporter:
       TreePine_9: 490688579
       House_160: -922822313
       Rock_2: -1753830009
-      Slates [32x32px orthogonal tileset by Ivan Voirol]_472: 1559716136
       GrassBorders_64: 1294389663
       WaterWallSand_1: -2035279391
       RockHole_2: 250588283
@@ -24785,7 +24989,6 @@ TextureImporter:
       GrassBorders_19: 905007165
       Sand_13: 689558961
       TreePine_4: 2010931579
-      Slates [32x32px orthogonal tileset by Ivan Voirol]_742: 1163740832
       EarthRamp_5: 1196367766
       House_162: 1003233857
       WaterWall_3: -1404221472
@@ -24799,10 +25002,12 @@ TextureImporter:
       Bridge_56: -1511154121
       GrassBorders_15: 1978419041
       GrassBorders_14: 1961288827
+      Tent_6: -1753830009
       EarthRamp_6: 64397606
       Slates [32x32px orthogonal tileset by Ivan Voirol]_988: -1827422088
       Slates [32x32px orthogonal tileset by Ivan Voirol]_11: 761954607
       GrassRamp_8: 694077937
+      Tent_5: -641883512
       SandRamp_15: 81717708
       House_94: 447438112
       Barco_27: 1698937293
@@ -24829,11 +25034,11 @@ TextureImporter:
       GrassBorders_17: -782277923
       Stairs_16: -1978173870
       House_163: -97732819
-      Slates [32x32px orthogonal tileset by Ivan Voirol]_473: 330877639
-      WaterRockGrass_3: 703465659
       Grass_39: -814230560
-      Slates [32x32px orthogonal tileset by Ivan Voirol]_43: -409153151
+      WaterRockGrass_3: 703465659
       TreePine_16: -1285522286
+      Slates [32x32px orthogonal tileset by Ivan Voirol]_43: -409153151
+      Barco_14: -1837127673
       Barco_23: 707050548
       House_154: -1110179129
       Bridge_47: 909124514
@@ -24845,6 +25050,7 @@ TextureImporter:
       House_96: 480952062
       Floor_31: 786131912
       Floor_26: 1325969080
+      Tent_10: 1637617306
       Grass_29: -2110387376
       SandMoving_10: -1326136401
       Stairs_0: 1294087017
@@ -24855,14 +25061,15 @@ TextureImporter:
       Slates [32x32px orthogonal tileset by Ivan Voirol]_20: 1533917452
       Sand_6: -415869767
       WaterRockSand_1: 222777455
-      Barco_14: -1837127673
       Grass_25: -1475987237
       SandRamp_4: -2035547003
       Bridge_36: -1668058102
       WaterBorderSand_8: -213135162
       Tree_27: -1893034453
       GrassBorders_12: 1100274537
+      Tent_14: -1990600971
       SandRamp_14: -271133574
+      Tent_12: -468693062
       House_142: 2077485823
       Grass_24: 1901911250
       GrassBorders_53: 1569098298
@@ -24873,7 +25080,6 @@ TextureImporter:
       GrassBorders_40: 230378557
       Barco_13: 1865044416
       House_206: -1013410197
-      Slates [32x32px orthogonal tileset by Ivan Voirol]_424: 438633520
       Floor_22: -925102321
       Bridge_21: 900907835
       MillWind_0: -881282173
@@ -24881,6 +25087,7 @@ TextureImporter:
       Slates [32x32px orthogonal tileset by Ivan Voirol]_902: -2003924743
       RockHole_6: 1792168840
       MillWind_13: 213582892
+      Tent_2: 1042530762
       Grass_6: 2087345924
       Stairs_14: -1769963870
       Grass_10: -1826974438
@@ -24916,10 +25123,12 @@ TextureImporter:
       SandRamp_7: -1913775875
       House_50: -169963233
       Slates [32x32px orthogonal tileset by Ivan Voirol]_854: 463344073
+      FarmFench_7: 1110813975
       MillWater_28: -1815726408
       WaterRock_0: -1771330552
       Slates [32x32px orthogonal tileset by Ivan Voirol]_757: 1411307892
       Slates [32x32px orthogonal tileset by Ivan Voirol]_527: 823694462
+      FarmFench_18: -216859056
       Earth_15: 1385708269
       Grass_19: 1253645514
       Slates [32x32px orthogonal tileset by Ivan Voirol]_588: 1338501433
@@ -24933,6 +25142,7 @@ TextureImporter:
       Stairs_24: -1545111376
       House_212: -1625477189
       Grass_36: 7126123
+      FarmFench_3: 1970159568
       EarthRamp_7: 460225180
       Overlay_33: 1576533853
       House_35: -1763814239
@@ -24942,18 +25152,15 @@ TextureImporter:
       Water_0: -1855849325
       Sand_3: 1420522749
       Earth_6: 1729531225
-      Slates [32x32px orthogonal tileset by Ivan Voirol]_740: 1927406553
       House_79: 1333432274
       TreePine_30: 1283738692
       Slates [32x32px orthogonal tileset by Ivan Voirol]_516: -396581070
       RockBottomFloor_1: -2101466513
-      Slates [32x32px orthogonal tileset by Ivan Voirol]_884: 1986306407
       Earth_2: -1565993958
       House_161: 1376298527
       Slates [32x32px orthogonal tileset by Ivan Voirol]_586: 829777666
       House_10: 1874324401
       House_180: -1866070214
-      Slates [32x32px orthogonal tileset by Ivan Voirol]_475: 588039374
       RockBottomEarth_1: 1218436617
       Slates [32x32px orthogonal tileset by Ivan Voirol]_94: 1689893896
       House_166: -795618567
@@ -24990,7 +25197,6 @@ TextureImporter:
       Stairs_11: 703480267
       Slates [32x32px orthogonal tileset by Ivan Voirol]_1079: 229756487
       WaterWall_6: -995305861
-      Slates [32x32px orthogonal tileset by Ivan Voirol]_377: 2069567659
       Floor_29: -1996316570
       TreePine_6: 1873404511
       House_66: 761954607
@@ -25006,11 +25212,11 @@ TextureImporter:
       Slates [32x32px orthogonal tileset by Ivan Voirol]_40: -985831658
       Tree_31: -1535769140
       RockHole_0: -161232223
-      Slates [32x32px orthogonal tileset by Ivan Voirol]_838: -1717409177
-      House_2: -306910374
       House_12: -1548039327
+      House_2: -306910374
       Tree_29: 1613102026
       Stairs_1: 974573581
+      FarmFench_9: 256983987
       RockBottomSandTopGrass_2: -1181501373
       Slates [32x32px orthogonal tileset by Ivan Voirol]_571: -71567667
       Overlay_7: -1282719510
@@ -25033,13 +25239,14 @@ TextureImporter:
       House_95: 356309621
       MillWater_21: -2115357120
       Sand_0: 888959526
-      Slates [32x32px orthogonal tileset by Ivan Voirol]_425: -1040311051
+      FarmFench_17: -1342163971
       Slates [32x32px orthogonal tileset by Ivan Voirol]_1093: -2052483714
       WaterFall_5: 1434194653
-      EarthRamp_14: 3319635
       Stairs_10: -1807392031
-      House_47: -1721092447
+      FarmFench_13: 1669289096
+      EarthRamp_14: 3319635
       Floor_34: -330390445
+      House_47: -1721092447
       House_103: -1014768992
       House_168: -1053517517
       House_16: 1107403720
@@ -25059,39 +25266,40 @@ TextureImporter:
       WaterRockGrass_0: -1959733358
       RockBigHole_0: -294254432
       MillWater_20: 133682092
-      Slates [32x32px orthogonal tileset by Ivan Voirol]_526: -1985642486
+      Tree_17: -875818018
       House_26: 764415862
       Slates [32x32px orthogonal tileset by Ivan Voirol]_713: -1633777120
       Bridge_59: 862745125
-      Slates [32x32px orthogonal tileset by Ivan Voirol]_427: -1945906085
-      Tree_17: -875818018
+      House_195: 1206372071
+      Bridge_60: -2096360304
       RockBigHole_1: 1336470766
       Slates [32x32px orthogonal tileset by Ivan Voirol]_613: -145312935
       Slates [32x32px orthogonal tileset by Ivan Voirol]_32: -499221230
-      Bridge_20: 1100145394
       House_202: -120106011
       Overlay_0: 32844885
       Bridge_55: -1512441403
-      Bridge_60: -2096360304
-      House_195: 1206372071
+      Slates [32x32px orthogonal tileset by Ivan Voirol]_526: -1985642486
       SandRamp_3: 1707379299
       RockBottomFloorTopGrass_1: 946783456
       TreePine_15: 94143538
       SandRamp_9: -929429706
       Overlay_5: 448864589
-      Slates [32x32px orthogonal tileset by Ivan Voirol]_536: 1407268913
       Rock_6: 2010619280
       Stairs_23: -1919349424
+      Slates [32x32px orthogonal tileset by Ivan Voirol]_536: 1407268913
       Slates [32x32px orthogonal tileset by Ivan Voirol]_805: -1240274094
+      Bridge_20: 1100145394
       WaterRock_1: -1295132909
       House_191: -1494740352
       Slates [32x32px orthogonal tileset by Ivan Voirol]_712: -313729920
-      Slates [32x32px orthogonal tileset by Ivan Voirol]_852: 796372783
       Tree_7: 1264841363
+      Slates [32x32px orthogonal tileset by Ivan Voirol]_852: 796372783
       GrassRamp_7: -1245291501
       Floor_18: 178920963
       Bridge_9: -1352814358
       House_62: 1726062702
+      FarmFench_1: -62856460
+      Tent_4: 230378557
       Sand_5: 440037538
       Tree_2: 1857856247
       House_91: -1863900692
@@ -25110,8 +25318,6 @@ TextureImporter:
       MillWater_8: -1155107338
       Stairs_2: 766757965
       Overlay_12: -889086002
-      Slates [32x32px orthogonal tileset by Ivan Voirol]_837: -792441267
-      Slates [32x32px orthogonal tileset by Ivan Voirol]_933: -1615395061
       SandRamp_2: 1019527226
       TreePine_31: 469121307
       GrassRamp_11: 1937417558
@@ -25145,19 +25351,17 @@ TextureImporter:
       Slates [32x32px orthogonal tileset by Ivan Voirol]_44: -750963221
       House_93: -464886325
       RockHole_3: -523077602
-      Slates [32x32px orthogonal tileset by Ivan Voirol]_836: 1190789202
+      MillWater_11: 1659471306
       House_167: -1800129912
       Stairs_31: 610612223
-      MillWater_11: 1659471306
+      Floor_36: -921391371
       House_118: -145312935
       House_115: 119185117
       House_64: -928251385
       GrassBorders_58: 1730868498
       Floor_39: 1250627684
       Floor_30: 929655337
-      Floor_36: -921391371
       MillWater_10: -1682927293
-      Slates [32x32px orthogonal tileset by Ivan Voirol]_474: -1006232838
       Slates [32x32px orthogonal tileset by Ivan Voirol]_1092: -1053517517
       Barco_28: -1143666013
       Bridge_27: -248757093
@@ -25184,8 +25388,8 @@ TextureImporter:
       GrassBorders_26: -1524742346
       Slates [32x32px orthogonal tileset by Ivan Voirol]_806: -940176114
       RockHole_4: 50024843
-      Slates [32x32px orthogonal tileset by Ivan Voirol]_283: -1404221472
       SandMoving_14: -813206953
+      FarmFench_15: -1239565910
       Barco_4: -1190206917
       Barco_0: -77164573
       Slates [32x32px orthogonal tileset by Ivan Voirol]_518: 290809137
@@ -25214,7 +25418,9 @@ TextureImporter:
       Slates [32x32px orthogonal tileset by Ivan Voirol]_477: 586556331
       MillWater_26: -1408984724
       MillWater_3: -1951639226
+      FarmFench_6: -1574162607
       House_85: -1435214454
+      Tent_13: 229756487
       Slates [32x32px orthogonal tileset by Ivan Voirol]_1028: -1625477189
       Floor_43: 186159864
       MillWater_31: -1117439190
@@ -25275,6 +25481,7 @@ TextureImporter:
       GrassBorders_28: -1533983240
       House_201: -2119688771
       Tree_26: -1827953178
+      FarmFench_5: -2010879792
       GrassRamp_14: 709648294
       Tree_12: 529201634
       House_78: 1796341510
@@ -25297,10 +25504,10 @@ TextureImporter:
       TreePine_36: -1426832274
       Tree_19: -2043504370
       House_159: -67654836
-      Slates [32x32px orthogonal tileset by Ivan Voirol]_376: -1361319762
       House_3: 1723399586
       Tree_3: -62142346
       RockBottomEarth_2: 1486987973
+      FarmFench_8: -161232223
       MillWater_18: 447438112
       Slates [32x32px orthogonal tileset by Ivan Voirol]_232: 1572696887
       House_28: 1447467062
@@ -25312,7 +25519,6 @@ TextureImporter:
       House_86: 1024076561
       House_39: -2076723662
       House_134: 1559366104
-      Slates [32x32px orthogonal tileset by Ivan Voirol]_741: 1588600255
       GrassBorders_66: -2076233887
       GrassRamp_5: 206018811
       RockHole_13: 26685756
@@ -25321,14 +25527,13 @@ TextureImporter:
       Earth_5: 928186431
       Slates [32x32px orthogonal tileset by Ivan Voirol]_980: -403016110
       TreePine_11: 461888294
-      Slates [32x32px orthogonal tileset by Ivan Voirol]_934: -1485326116
-      House_198: -501277396
       Grass_27: -464146386
-      Torch_1: 1541162079
+      House_198: -501277396
       Floor_37: -1929899543
+      Torch_1: 1541162079
+      Bridge_66: -1041038812
       WaterRockGrass_2: 1873403796
       House_102: 2092148986
-      Bridge_66: -1041038812
       Earth_13: 2105506678
       Grass_34: -2113132922
       Floor_21: -308960067
@@ -25336,6 +25541,7 @@ TextureImporter:
       Slates [32x32px orthogonal tileset by Ivan Voirol]_981: -1830828832
       Stairs_3: -2140066594
       Slates [32x32px orthogonal tileset by Ivan Voirol]_710: 791413397
+      FarmFench_14: 928519835
       MillWater_6: -481987867
       GrassBorders_21: 891415379
       House_140: -1533983240
@@ -25392,6 +25598,7 @@ TextureImporter:
       Grass_13: -1644443457
       MillWind_2: -2000059097
       Overlay_32: 1075058195
+      Tent_8: -1405125855
       House_203: 388583824
       House_141: -784111059
       SandMoving_12: -1496219577
@@ -25399,6 +25606,7 @@ TextureImporter:
       RockBottomFloor_0: -1151109282
       House_5: -700550890
       Slates [32x32px orthogonal tileset by Ivan Voirol]_519: 671804221
+      Tent_11: 2108511018
       GrassRamp_12: 1507262141
       House_17: -1976530307
       Slates [32x32px orthogonal tileset by Ivan Voirol]_708: -1427206885
@@ -25407,11 +25615,10 @@ TextureImporter:
       Barco_5: -1644443457
       Barco_25: 1842086935
       Floor_28: -886576483
-      Slates [32x32px orthogonal tileset by Ivan Voirol]_791: 614274035
       MillWater_23: -363618206
+      House_19: -1819532976
       Stairs_19: -1838159780
       Slates [32x32px orthogonal tileset by Ivan Voirol]_124: 414780576
-      House_19: -1819532976
       House_174: -1221755540
       GrassBorders_52: -1749651727
       TreePine_29: -1781433887
@@ -25451,7 +25658,6 @@ TextureImporter:
       GrassBorders_50: -995305861
       House_90: -2041788608
       GrassBorders_22: 81717708
-      Slates [32x32px orthogonal tileset by Ivan Voirol]_378: 2121772551
       Barco_6: -170857704
       EarthRamp_10: -108637041
       Slates [32x32px orthogonal tileset by Ivan Voirol]_539: -1332344225
@@ -25483,22 +25689,23 @@ TextureImporter:
       Earth_14: -1483939152
       WaterFall_6: -1247230466
       GrassRamp_1: -268594797
-      Earth_9: 526958695
+      Tent_3: 50024843
       MillWater_16: -1495643809
       House_27: -2027849943
-      House_29: 865629255
+      Earth_9: 526958695
       House_186: -624046575
+      House_29: 865629255
+      FarmFench_10: -1427206885
       TreePine_38: -787042434
-      House_119: -396581070
-      Slates [32x32px orthogonal tileset by Ivan Voirol]_567: 915929133
-      WaterBorderSand_6: 1827768008
-      Slates [32x32px orthogonal tileset by Ivan Voirol]_853: 60761201
-      GrassBorders_56: -1395608594
-      GrassBorders_59: 672475783
-      Slates [32x32px orthogonal tileset by Ivan Voirol]_0: 383007907
-      WaterRock_2: -1221755540
       RockHole_5: 1302184636
-      Slates [32x32px orthogonal tileset by Ivan Voirol]_788: 1970159568
+      GrassBorders_59: 672475783
+      WaterBorderSand_6: 1827768008
+      House_119: -396581070
+      Slates [32x32px orthogonal tileset by Ivan Voirol]_853: 60761201
+      Slates [32x32px orthogonal tileset by Ivan Voirol]_0: 383007907
+      GrassBorders_56: -1395608594
+      WaterRock_2: -1221755540
+      House_173: 2060280717
       House_69: -1452966705
   spritePackingTag: 
   pSDRemoveMatte: 0
