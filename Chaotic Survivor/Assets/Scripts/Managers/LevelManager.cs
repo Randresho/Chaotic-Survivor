@@ -55,6 +55,10 @@ public class LevelManager : MonoBehaviour
     public GameObject[] lifePrefab;
     public Transform[] lifeSpawnPoint;
     public int spawnPointLifeNumber;
+    [Space]
+    public GameObject[] levelUpItemPrefab;
+    public Transform[] levelUpItemSpawnPoint;
+    public int spawnPointlevelUpItemNumber;
 
     [Space]
     [SerializeField] private AbilityScriptableObject abilityScriptable;
@@ -80,6 +84,7 @@ public class LevelManager : MonoBehaviour
         offScreenIndicator.Awake();
         levelPlayer();
         SpawnLife();
+        SpawnLevelUpItem();
     }
 
     // Update is called once per frame
@@ -220,12 +225,19 @@ public class LevelManager : MonoBehaviour
     }
     #endregion
 
-    #region Spawn life 
+    #region Spawners
     public void SpawnLife()
     {
         spawnPointLifeNumber = Random.Range(0, lifeSpawnPoint.Length);
 
         Instantiate(lifePrefab[Random.Range(0, lifePrefab.Length)], lifeSpawnPoint[spawnPointLifeNumber].position, Quaternion.identity);
+    }
+
+    public void SpawnLevelUpItem()
+    {
+        spawnPointlevelUpItemNumber = Random.Range(0, levelUpItemSpawnPoint.Length);
+
+        Instantiate(levelUpItemPrefab[Random.Range(0, levelUpItemPrefab.Length)], levelUpItemSpawnPoint[spawnPointlevelUpItemNumber].position, Quaternion.identity);
     }
     #endregion
 

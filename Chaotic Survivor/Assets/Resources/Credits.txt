@@ -1,5 +1,6 @@
 #These do nothing,#comnents
-!Maria's Field
+!Chaotic Survivor
+
 
 
 
@@ -13,23 +14,36 @@
 !Game Design
 Randres
 
+
 !Level Design
 Randres
 
-!Ui Animations & Design
-Randres
-Easy UI Animator - Gaba Games
-
-!Music
-xDeviruchi
 
 !Programming
 Randres
 
+
+!Ui Animations & Design
+Randres
+Easy UI Animator - Gaba Games
+Studios SoulAres
+
+!Music
+xDeviruchi
+
+
 !Pixel Art
 Ivan Voirol
+Bonsaiheldin
+Atelier Pixerelia
 
 
+!Game Testers
+Dewva
+Inu945
+Lunor
+Aluciga
+Rodo
 
 
 

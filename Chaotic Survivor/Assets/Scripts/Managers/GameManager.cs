@@ -56,6 +56,8 @@ public class GameManager : MonoBehaviour
         saveNLoad = FindObjectOfType<SaveNLoad>();
         #endregion
 
+        
+
         #region Player
         playerActions = FindObjectOfType<PlayerActions>();
         abilities = FindObjectOfType<PlayerAbilities>();
@@ -80,7 +82,7 @@ public class GameManager : MonoBehaviour
         saveNLoad.LoadGameData();
         saveNLoad.LoadOptions();
         uiManager.PlayAnimations();
-
+        
         if (saveNLoad.firstTimePlayingInt == 0)
             firstTimePlaying = true;
     }
@@ -89,6 +91,7 @@ public class GameManager : MonoBehaviour
     {
 
     }
+
 
     #region Load scenes
     //Main Menu

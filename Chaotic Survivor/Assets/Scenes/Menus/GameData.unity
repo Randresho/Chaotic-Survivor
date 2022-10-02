@@ -1615,7 +1615,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9971005ad008e8f48883289551861129, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clearData: 1
+  clearData: 0
   timerData: 0
   enemiesKilledData: 0
   coinGrabData: 0
