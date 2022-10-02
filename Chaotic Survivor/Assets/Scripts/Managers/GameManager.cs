@@ -54,9 +54,7 @@ public class GameManager : MonoBehaviour
         soundManager = FindObjectOfType<SoundManager>();
         levelManager = FindObjectOfType<LevelManager>();
         saveNLoad = FindObjectOfType<SaveNLoad>();
-        #endregion
-
-        
+        #endregion        
 
         #region Player
         playerActions = FindObjectOfType<PlayerActions>();
