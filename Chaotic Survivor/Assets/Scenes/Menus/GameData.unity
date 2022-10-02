@@ -1615,7 +1615,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9971005ad008e8f48883289551861129, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clearData: 0
+  clearData: 1
   timerData: 0
   enemiesKilledData: 0
   coinGrabData: 0
@@ -2302,8 +2302,8 @@ MonoBehaviour:
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 0}
-  startColor: {r: 0, g: 0, b: 0, a: 0}
-  finalColor: {r: 0, g: 0, b: 0, a: 0.5882353}
+  startColor: {r: 1, g: 1, b: 1, a: 0}
+  finalColor: {r: 1, g: 1, b: 1, a: 1}
   delay: 0
   duration: 0.2
   max:
@@ -2335,14 +2335,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.5882353}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 25f02bde23c33b54a9af0c4ee8283630, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3496,7 +3496,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 399}
+  m_AnchoredPosition: {x: 0, y: 465}
   m_SizeDelta: {x: 700, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &492460800
@@ -3554,7 +3554,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startV3: {x: 0.5, y: 2, z: 0}
-  finalV3: {x: 0.5, y: 0.8694444, z: 0}
+  finalV3: {x: 0.5, y: 0.9305555, z: 0}
   startColor: {r: 1, g: 1, b: 1, a: 1}
   finalColor: {r: 1, g: 1, b: 1, a: 1}
   fixedAnimations: []

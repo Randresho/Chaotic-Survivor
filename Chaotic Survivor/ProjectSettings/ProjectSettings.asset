@@ -14,7 +14,7 @@ PlayerSettings:
   accelerometerFrequency: 60
   companyName: LOST TRAIN STUDIO'S
   productName: Chaotic Survivor
-  defaultCursor: {fileID: 0}
+  defaultCursor: {fileID: 2800000, guid: ef37d0822d9c52641a4e747b6bd78ee1, type: 3}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0, g: 0, b: 0, a: 1}
   m_ShowUnitySplashScreen: 1
