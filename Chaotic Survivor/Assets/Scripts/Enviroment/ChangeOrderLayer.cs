@@ -36,6 +36,11 @@ public class ChangeOrderLayer : MonoBehaviour
         {
             obj.GetComponent<SpriteRenderer>().sortingOrder = gameObject.GetComponent<Renderer>().sortingOrder - 1;
         }
+
+        if(obj.GetComponent<PlayerActions>() != null)
+        {
+            obj.GetComponent<PlayerActions>().playerHP -= 5f * Time.fixedDeltaTime;
+        }
     }
 
     private void OnTriggerExit2D(Collider2D other)
