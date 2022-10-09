@@ -71,6 +71,11 @@ public class UiManager : MonoBehaviour
     [Header("Timer")]
     public string[] infoTextString = null;
 
+
+    [Header("Loading")]
+    public Slider loadingSlider = null;
+    public Text loadingText = null;
+
     private void Awake()
     {
         gameManager = FindObjectOfType<GameManager>();

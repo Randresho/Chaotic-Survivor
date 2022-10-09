@@ -8,6 +8,7 @@ public enum enemyType { Ghost, Slime, Spider, Bat}
 public class EnemyScriptableObject : MonoBehaviour
 {
     [SerializeField] private LevelManager levelManager;
+    [SerializeField] private ObjectPolling objectPolling;
     [Header("Enemy Type")]
     [SerializeField] private enemyType enemyType;
     [SerializeField] private Canvas canvas;
@@ -24,6 +25,7 @@ public class EnemyScriptableObject : MonoBehaviour
     [SerializeField] private Animator animator;
     [Space]
     [SerializeField] private float hp;
+    [SerializeField] private float maxHp;
     [SerializeField] private Slider hpSlider;
     [SerializeField] private SpriteRenderer spriteRenderer;
     [Space]
@@ -42,17 +44,37 @@ public class EnemyScriptableObject : MonoBehaviour
     [SerializeField] private Animator deadVfx = null;
     [SerializeField] private AudioSource deadSound;
 
+    [Header("Hit FX")]
+    [SerializeField] private Material flashMaterial;
+    [SerializeField] private float duration;
+    [SerializeField] private Material originalMaterial;
+    private Coroutine flashRoutine;
+
     // Start is called before the first frame update
     void Awake()
     {
         levelManager = FindObjectOfType<LevelManager>();
+        objectPolling = FindObjectOfType<ObjectPolling>();
         m_rigidbodys = GetComponent<Rigidbody2D>();
         playerPos = FindObjectOfType<PlayerMovement>().transform;
         canvas.worldCamera = FindObjectOfType<Camera>();
-        hpSlider.maxValue = hp;
         levelManager.enemies.Add(this);
-        maxSpeed = speed;
         collider = GetComponent<Collider2D>();
+        maxSpeed = speed;
+        originalMaterial = spriteRenderer.material;
+        //ActiveEnemy();
+    }
+
+    private void Start()
+    {
+        ActiveEnemy();
+    }
+
+    public void ActiveEnemy()
+    {
+        transform.position = levelManager.outsideCam;
+        hp = maxHp;
+        hpSlider.maxValue = hp;
         collider.enabled = true;
         deadObjVfx.SetActive(false);
         moveRight = false;
@@ -122,16 +144,27 @@ public class EnemyScriptableObject : MonoBehaviour
         }
     }
 
-    IEnumerator DestroyObj()
-    {       
+    public IEnumerator DestroyObj()
+    {
         yield return new WaitForSeconds(timerToDestroy);
         levelManager.enemiesSpawned--;
         levelManager.enemiesKilled++;
-        levelManager.enemies.Remove(this);
+        //levelManager.enemies.Remove(this);
         levelManager.playerLevelFloat += experience;
         levelManager.levelPlayer();
-        Instantiate(itemDropPrefab[Random.Range(0, itemDropPrefab.Length)], transform.position, transform.rotation, levelManager.transform);
-        Destroy(gameObject);
+
+        //Instantiate(itemDropPrefab[Random.Range(0, itemDropPrefab.Length)], transform.position, transform.rotation, levelManager.transform);
+        GameObject coinObj = ObjectPoolCoins.instance.GetPooledObject();
+        if (coinObj != null)
+        {
+            coinObj.transform.position = transform.position;
+            coinObj.transform.rotation = Quaternion.identity;
+            coinObj.SetActive(true);
+        }
+
+        gameObject.SetActive(false);
+        ActiveEnemy();
+        //Destroy(gameObject);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -140,11 +173,30 @@ public class EnemyScriptableObject : MonoBehaviour
         if (obj.GetComponent<BulletBehavior>() != null)
         {
             hp -= obj.GetComponent<BulletBehavior>().damage;
+            Flash();
             if (hp <= 0.06)
             {
                 deadSound.Play();
-                spriteRenderer.enabled = false;
+                spriteRenderer.enabled = false;                
             }
         }
+    }
+
+    public void Flash()
+    {
+        if( flashRoutine != null)
+        {
+            StopCoroutine(flashRoutine);
+        }
+
+        flashRoutine = StartCoroutine(FlashRoutine());
+    }
+
+    private IEnumerator FlashRoutine()
+    {
+        spriteRenderer.material = flashMaterial;
+        yield return new WaitForSeconds(duration);
+        spriteRenderer.material = originalMaterial;
+        flashRoutine = null;
     }
 }

@@ -7,6 +7,7 @@ public class PlayerActions : MonoBehaviour
 {
     private PlayerInput m_PlayerInput;
     [SerializeField] private LevelManager m_LevelManager;
+    [SerializeField] private ObjectPolling objectPolling;
     [SerializeField] private AbilityScriptableObject m_AbilityScriptableObject;
     [Header("Rotate Aim")]
     [SerializeField] private Transform shootPoint;
@@ -31,6 +32,7 @@ public class PlayerActions : MonoBehaviour
     {
         m_PlayerInput = new PlayerInput();
         m_LevelManager = FindObjectOfType<LevelManager>();
+        objectPolling = FindObjectOfType<ObjectPolling>();
         m_AbilityScriptableObject = FindObjectOfType<AbilityScriptableObject>();
         m_LevelManager.playerActions = this;
         m_camera = FindObjectOfType<Camera>();
@@ -120,7 +122,9 @@ public class PlayerActions : MonoBehaviour
         {
             playerHP -= obj.GetComponent<EnemyScriptableObject>().damagePlayer;
             m_LevelManager.enemiesSpawned--;
-            m_LevelManager.enemies.Remove(obj.GetComponent<EnemyScriptableObject>());
+            obj.GetComponent<EnemyScriptableObject>().gameObject.SetActive(false);
+            //obj.GetComponent<EnemyScriptableObject>().StartCoroutine(obj.GetComponent<EnemyScriptableObject>().DestroyObj());
+            //m_LevelManager.enemies.Remove(obj.GetComponent<EnemyScriptableObject>());
 
             if (playerHP < 0.05)
                 m_LevelManager.GameOver();
@@ -130,7 +134,8 @@ public class PlayerActions : MonoBehaviour
                 Debug.Log("Aun no me muero");
             }
 
-            Destroy(obj);
+            //objectPolling.SpawnFromPool("Enemy", m_LevelManager.outsideCam, Quaternion.identity);
+            //Destroy(obj);
         }
     }
 

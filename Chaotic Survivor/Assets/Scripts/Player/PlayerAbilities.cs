@@ -64,7 +64,16 @@ public class PlayerAbilities : MonoBehaviour
         else
         {
             shootSound.Play();
-            Instantiate(bulletsPrefabs[shootType], bulletPoint.position, shootPoint.rotation, bulletsParent);
+            //Instantiate(bulletsPrefabs[shootType], bulletPoint.position, shootPoint.rotation, bulletsParent);
+
+            GameObject bullet = ObjectPoolNormalBullet.instance.GetPooledObject();
+            if( bullet != null)
+            {
+                bullet.transform.position = bulletPoint.position;
+                bullet.transform.rotation = shootPoint.rotation;
+                bullet.SetActive(true);
+            }
+
             timerToSpawnCurrent = timerToSpawn;
         }
     }

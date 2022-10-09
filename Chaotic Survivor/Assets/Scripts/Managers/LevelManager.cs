@@ -23,7 +23,7 @@ public class LevelManager : MonoBehaviour
     public Camera cameraMain = null;
     [SerializeField] private float timerToSpawn = 0;
     [SerializeField] private GameObject[] enemyPrefab = null;
-    [SerializeField] private Vector3 outsideCam;
+    public Vector3 outsideCam;
     [SerializeField] private Transform enemyParent = null;
     public int enemiesSpawned;
     public int maxEnemiesSpawn;
@@ -50,6 +50,7 @@ public class LevelManager : MonoBehaviour
     public bool canShoot = true;
     public bool leveUp = false;
     public AudioSource levelUpSound = null;
+    public float[] outsideCamValues;
 
     [Header("Life Spawner")]
     public GameObject[] lifePrefab;
@@ -83,8 +84,12 @@ public class LevelManager : MonoBehaviour
         offScreenIndicator = FindObjectOfType<OffScreenIndicator>();
         offScreenIndicator.Awake();
         levelPlayer();
+    }
+
+    private void Start()
+    {
         SpawnLife();
-        SpawnLevelUpItem();
+        SpawnLevelUpItem();        
     }
 
     // Update is called once per frame
@@ -206,7 +211,7 @@ public class LevelManager : MonoBehaviour
     #region Enemies 
     private void UpdateCameraSpawner()
     {
-        outsideCam = cameraMain.ViewportToWorldPoint(new Vector3(Random.Range(-3, 3), Random.Range(-3, 3), 10));
+        outsideCam = cameraMain.ViewportToWorldPoint(new Vector3(Random.Range(outsideCamValues[0], outsideCamValues[1]), Random.Range(outsideCamValues[0], outsideCamValues[1]), 10));
     }
 
     private void SpawnEnemies()
@@ -217,11 +222,47 @@ public class LevelManager : MonoBehaviour
                 timerToSpawnCurrent -= Time.fixedDeltaTime;
             else
             {
-                Instantiate(enemyPrefab[Random.Range(0, enemyPrefab.Length)], outsideCam, Quaternion.identity, enemyParent);
+                //Bat
+                GameObject enemyBatObj = ObjectPoolingEnemyBat.instance.GetPooledObject();
+                if (enemyBatObj != null)
+                {
+                    enemyBatObj.transform.position = outsideCam;
+                    enemyBatObj.transform.rotation = Quaternion.identity;
+                    enemyBatObj.SetActive(true);
+                }
+
+                //Ghost
+                GameObject enemyGhostObj = ObjectPoolEnemyGhost.instance.GetPooledObject();
+                if (enemyGhostObj != null)
+                {
+                    enemyGhostObj.transform.position = outsideCam;
+                    enemyGhostObj.transform.rotation = Quaternion.identity;
+                    enemyGhostObj.SetActive(true);
+                }
+
+                //Slime
+                GameObject enemySlimeObj = ObjectPoolEnemySlime.instance.GetPooledObject();
+                if (enemySlimeObj != null)
+                {
+                    enemySlimeObj.transform.position = outsideCam;
+                    enemySlimeObj.transform.rotation = Quaternion.identity;
+                    enemySlimeObj.SetActive(true);
+                }
+
+                //Spider
+                GameObject enemySpiderObj = ObjectPoolEnemySpider.instance.GetPooledObject();
+                if (enemySpiderObj != null)
+                {
+                    enemySpiderObj.transform.position = outsideCam;
+                    enemySpiderObj.transform.rotation = Quaternion.identity;
+                    enemySpiderObj.SetActive(true);
+                }
+
                 enemiesSpawned++;
                 timerToSpawnCurrent = timerToSpawn;
             }
         }
+
     }
     #endregion
 
@@ -230,14 +271,30 @@ public class LevelManager : MonoBehaviour
     {
         spawnPointLifeNumber = Random.Range(0, lifeSpawnPoint.Length);
 
-        Instantiate(lifePrefab[Random.Range(0, lifePrefab.Length)], lifeSpawnPoint[spawnPointLifeNumber].position, Quaternion.identity);
+        //Instantiate(lifePrefab[Random.Range(0, lifePrefab.Length)], lifeSpawnPoint[spawnPointLifeNumber].position, Quaternion.identity);
+
+        GameObject lifeItem = ObjectPoolLife.instance.GetPooledObject();
+        if (lifeItem != null)
+        {
+            lifeItem.transform.position = lifeSpawnPoint[spawnPointLifeNumber].position;
+            lifeItem.transform.rotation = Quaternion.identity;
+            lifeItem.SetActive(true);
+        }
     }
 
     public void SpawnLevelUpItem()
     {
         spawnPointlevelUpItemNumber = Random.Range(0, levelUpItemSpawnPoint.Length);
 
-        Instantiate(levelUpItemPrefab[Random.Range(0, levelUpItemPrefab.Length)], levelUpItemSpawnPoint[spawnPointlevelUpItemNumber].position, Quaternion.identity);
+        //Instantiate(levelUpItemPrefab[Random.Range(0, levelUpItemPrefab.Length)], levelUpItemSpawnPoint[spawnPointlevelUpItemNumber].position, Quaternion.identity);
+
+        GameObject levelUpItem = ObjectPoolLevel.instance.GetPooledObject();
+        if (levelUpItem != null)
+        {
+            levelUpItem.transform.position = levelUpItemSpawnPoint[spawnPointlevelUpItemNumber].position;
+            levelUpItem.transform.rotation = Quaternion.identity;
+            levelUpItem.SetActive(true);
+        }
     }
     #endregion
 

@@ -18,11 +18,14 @@ public class ObjectPolling : MonoBehaviour
     public Dictionary<string, Queue<GameObject>> poolDictionary;
     [Space]
     [SerializeField] private int repeat;
+    [SerializeField] private Transform enemiesParent;
+    private LevelManager levelManager;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         poolDictionary = new Dictionary<string, Queue<GameObject>>();
+        levelManager = FindObjectOfType<LevelManager>();
 
         foreach (Pool pool in pools)
         {
@@ -32,7 +35,7 @@ public class ObjectPolling : MonoBehaviour
             {
                 for (int j = 0; j < pool.gamePrefab.Length; j++)
                 {
-                    GameObject obj = Instantiate(pool.gamePrefab[j]);
+                    GameObject obj = Instantiate(pool.gamePrefab[j], levelManager.outsideCam, Quaternion.identity, enemiesParent);
                     obj.SetActive(false);
                     objectPool.Enqueue(obj);
                 }
@@ -50,6 +53,8 @@ public class ObjectPolling : MonoBehaviour
             Debug.LogError("Pool type: " + type + " doesn't exist");
             return null;
         }
+
+        levelManager.outsideCam = levelManager.cameraMain.ViewportToWorldPoint(new Vector3(Random.Range(levelManager.outsideCamValues[0], levelManager.outsideCamValues[1]), Random.Range(levelManager.outsideCamValues[0], levelManager.outsideCamValues[1]), 10));
         GameObject objectToSpawn = poolDictionary[type].Dequeue();
         objectToSpawn.SetActive(true);
         objectToSpawn.transform.position = position;

@@ -102,6 +102,7 @@ public class GameManager : MonoBehaviour
         isPause = false;
 
         transitionManager.TransitionScene(0, transitionTimer);
+        //transitionManager.TransitionAsyncScenes(0);
         transitionManager.TransitionMusicMainMenuStart(0, transitionTimer);
 
         playerCurLevel = playerAdCurLevel;
@@ -115,6 +116,7 @@ public class GameManager : MonoBehaviour
         isPause = false;
 
         transitionManager.TransitionScene(0, transitionTimer);
+        //transitionManager.TransitionAsyncScenes(0);
         transitionManager.TransitionMusic(0, transitionTimer);
 
         saveNLoad.LoadData();
@@ -134,14 +136,14 @@ public class GameManager : MonoBehaviour
         if (!firstTimePlaying)
         {
             transitionManager.TransitionScene(currentLevelNumber, transitionTimer);
+            //transitionManager.TransitionAsyncScenes(currentLevelNumber);
             transitionManager.TransitionMusic(currentLevelNumber, transitionTimer);
             uiManager.ActiveAnimation(0);
         }
         else
         {
             uiManager.ActiveAnimation(instruccionInt);
-            ActiveContinue(true);
-            Debug.Log("Es la primera vez que se juega");            
+            ActiveContinue(true);          
         }
     }
 

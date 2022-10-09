@@ -14,6 +14,8 @@ public class TransitionManager : MonoBehaviour
     [Header("Transitions")]
     [SerializeField] private Animator transitionScene = null;
     [SerializeField] private Animator transitionMusic = null;
+    [Space]
+    [SerializeField] private GameObject loadingScreen; 
 
     [Header("Scenes & Levels")]
     [SerializeField] private string[] scenes = null;
@@ -31,11 +33,53 @@ public class TransitionManager : MonoBehaviour
 
     //Scenes
     #region Main Menu & Levels
-    public void TransitionScene(int idx, float timer)
+    public void TransitionAsyncScenes(int idx)
     {
-        StartCoroutine(LoadScene(idx, timer));
+        StartCoroutine(LoadAsynchronously(idx));
     }
 
+    IEnumerator LoadAsynchronously(int idx)
+    {
+        AsyncOperation operation;
+
+        loadingScreen.SetActive(true);
+
+        if (gameManager.isInGame)
+        {
+            operation = SceneManager.LoadSceneAsync("Scenes/Levels/" + levels[idx]);
+            //SceneManager.LoadScene("Scenes/Levels/" + levels[idx]);
+            //Ui
+            while (!operation.isDone)
+            {
+                float progress = Mathf.Clamp01(operation.progress / .9f);
+
+                uiManager.loadingSlider.value = progress;
+                uiManager.loadingText.text = progress * 100f + "%";
+
+                yield return null;
+            }
+        }
+        else
+        {
+            operation = SceneManager.LoadSceneAsync("Scenes/Menus/" + scenes[idx]);
+            //SceneManager.LoadScene("Scenes/Menus/" + scenes[idx]);
+            //Ui
+            while (!operation.isDone)
+            {
+                float progress = Mathf.Clamp01(operation.progress / .9f);
+
+                uiManager.loadingSlider.value = progress;
+                uiManager.loadingText.text = progress * 100f + "%";
+
+                yield return null;
+            }
+        }
+    }
+
+    public void TransitionScene(int idx, float timer)
+    {
+       StartCoroutine(LoadScene(idx, timer));
+    }
     IEnumerator LoadScene(int idx, float timer)
     {
         transitionScene.SetTrigger("Start");

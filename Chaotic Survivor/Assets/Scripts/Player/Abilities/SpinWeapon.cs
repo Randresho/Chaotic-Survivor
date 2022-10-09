@@ -64,7 +64,14 @@ public class SpinWeapon : MonoBehaviour
 
             for (int i = currentBulletPoint; i < bulletPoint.Length; i++)
             {
-                Instantiate(bulletsPrefabs[playerWeapon], bulletPoint[i].transform.position, bulletPoint[i].transform.rotation, bulletsParent);
+                //Instantiate(bulletsPrefabs[playerWeapon], bulletPoint[i].transform.position, bulletPoint[i].transform.rotation, bulletsParent);
+                GameObject bullet = ObjectoPoolSpinWeapon.instance.GetPooledObject();
+                if (bullet != null)
+                {
+                    bullet.transform.position = bulletPoint[i].transform.position;
+                    bullet.transform.rotation = bulletPoint[i].transform.rotation;
+                    bullet.SetActive(true);
+                }
             }
             timerToSpawnCurrent = timerToSpawn;
         }

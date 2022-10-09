@@ -43,10 +43,10 @@ public class BulletBehavior : MonoBehaviour
         }
         else
         {
-            if (timerToDestroy > 0)
+            /*if (timerToDestroy > 0)
                 timerToDestroy -= Time.fixedDeltaTime;
             else
-                DestroyNRemove();
+                DestroyNRemove();*/
 
         }
 
@@ -77,7 +77,9 @@ public class BulletBehavior : MonoBehaviour
 
     public void DestroyNRemove()
     {
-        levelManager.bullets.Remove(this);
-        Destroy(gameObject);
+        //levelManager.bullets.Remove(this);
+        //Destroy(gameObject);
+        gameObject.SetActive(false);
+        enemiesHit = 0;
     }
 }

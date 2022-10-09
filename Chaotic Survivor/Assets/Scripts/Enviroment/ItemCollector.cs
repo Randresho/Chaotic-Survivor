@@ -39,6 +39,11 @@ public class ItemCollector : MonoBehaviour
         {
             spriteRenderer.enabled = true;
         }
+
+        /*if (timerToDestroy > 0)
+            timerToDestroy -= Time.fixedDeltaTime;
+        else
+            Destroy(gameObject);*/
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -51,14 +56,14 @@ public class ItemCollector : MonoBehaviour
             levelManager.coinsGrab++;
 
             levelManager.levelPlayer();
-            levelManager.items.Remove(this);
+            //levelManager.items.Remove(this);
 
             StartCoroutine(DestroyObj());
         }
 
         if (obj.GetComponent<HitObject>() != null)
         {
-            Destroy(gameObject);
+            StartCoroutine(DestroyObj());
         }
 
         if(obj.GetComponent<MagnetItem>() != null)
@@ -72,7 +77,8 @@ public class ItemCollector : MonoBehaviour
     IEnumerator DestroyObj()
     {
         yield return new WaitForSeconds(timerToDestroy);
-        Destroy(gameObject);
+        //Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 
     private void OnTriggerStay2D(Collider2D other)

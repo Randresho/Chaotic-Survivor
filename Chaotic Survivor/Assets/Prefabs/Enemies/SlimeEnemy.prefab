@@ -522,7 +522,7 @@ Rigidbody2D:
   m_UseAutoMass: 1
   m_Mass: 0.12570372
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0.2
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
@@ -542,6 +542,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelManager: {fileID: 0}
+  objectPolling: {fileID: 0}
   enemyType: 1
   canvas: {fileID: 8745797923487352531}
   playerPos: {fileID: 0}
@@ -552,6 +553,7 @@ MonoBehaviour:
   maxSpeed: 0
   animator: {fileID: 6422796217561084374}
   hp: 15
+  maxHp: 15
   hpSlider: {fileID: 1494199850668813352}
   spriteRenderer: {fileID: 8149112976765644672}
   experience: 0.15
@@ -564,6 +566,9 @@ MonoBehaviour:
   deadObjVfx: {fileID: 2872528776338685364}
   deadVfx: {fileID: 2872528776338685363}
   deadSound: {fileID: 4543740272756421517}
+  flashMaterial: {fileID: 2100000, guid: 9d4393a001826c246b7a5a48b3b9127a, type: 2}
+  duration: 0.02
+  originalMaterial: {fileID: 0}
 --- !u!82 &4543740272756421517
 AudioSource:
   m_ObjectHideFlags: 0
