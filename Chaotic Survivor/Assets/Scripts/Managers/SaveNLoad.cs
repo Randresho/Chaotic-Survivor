@@ -58,14 +58,21 @@ public class SaveNLoad : MonoBehaviour
         PlayerPrefs.SetInt("FirstTimePlaying", firstTimePlayingInt);
     }
 
-    public void SaveOptions()
+    public void SaveMilliseconds()
     {
         millisecondsOn = optionsManager.millisecondsInt;
-        musicOn = optionsManager.musicInt;
-        sfxOn = optionsManager.sfxInt;
-
         PlayerPrefs.SetInt("MillisecondsSave", millisecondsOn);
+    }
+
+    public void SaveMusic()
+    {
+        musicOn = optionsManager.musicInt;
         PlayerPrefs.SetFloat("MusicSave", musicOn);
+    }
+
+    public void SaveSFX()
+    {
+        sfxOn = optionsManager.sfxInt;
         PlayerPrefs.SetFloat("SFXSave", sfxOn);
     }
 

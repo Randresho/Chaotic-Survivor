@@ -56,7 +56,7 @@ public class OptionsManager : MonoBehaviour
         else
             millisecondsInt = 0;
 
-        saveNLoad.SaveOptions();
+        saveNLoad.SaveMilliseconds();
     }
 
     public void MuteMusicDisplay()
@@ -65,7 +65,7 @@ public class OptionsManager : MonoBehaviour
 
         musicInt = uiManager.musicSlider.value;
 
-        saveNLoad.SaveOptions();
+        saveNLoad.SaveMusic();
     }
 
     public void MuteSFXDisplay()
@@ -74,6 +74,6 @@ public class OptionsManager : MonoBehaviour
 
         sfxInt = uiManager.sfxSlider.value;
 
-        saveNLoad.SaveOptions();
+        saveNLoad.SaveSFX();
     }
 }

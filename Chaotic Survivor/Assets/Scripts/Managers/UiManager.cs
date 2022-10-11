@@ -53,6 +53,7 @@ public class UiManager : MonoBehaviour
     public Slider sfxSlider = null;
     public Text musicVolumeTxt = null;
     public Text sfxVolumeTxt = null;
+    public Dropdown dropdownLanguage = null;
 
     [Header("InGame")]
     public Text timerTxt = null;

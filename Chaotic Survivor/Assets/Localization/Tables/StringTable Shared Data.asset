@@ -1,0 +1,116 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: StringTable Shared Data
+  m_EditorClassIdentifier: 
+  m_TableCollectionName: StringTable
+  m_TableCollectionNameGuidString: 8aaa5603220a31c4a8c30d72834d33ba
+  m_Entries:
+  - m_Id: 41405132800
+    m_Key: Play
+    m_Metadata:
+      m_Items: []
+  - m_Id: 224255815680
+    m_Key: Options
+    m_Metadata:
+      m_Items: []
+  - m_Id: 293923205120
+    m_Key: HTP
+    m_Metadata:
+      m_Items: []
+  - m_Id: 373333962752
+    m_Key: Credits
+    m_Metadata:
+      m_Items: []
+  - m_Id: 440279248896
+    m_Key: Exit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 511049740288
+    m_Key: Version
+    m_Metadata:
+      m_Items: []
+  - m_Id: 639177338880
+    m_Key: LastMatch
+    m_Metadata:
+      m_Items: []
+  - m_Id: 837765050368
+    m_Key: Highscore
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1019525214208
+    m_Key: Time
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1091138760704
+    m_Key: Level
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1212123459584
+    m_Key: Enemy
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1308827332608
+    m_Key: SocialMedia
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1457326665728
+    m_Key: Coins
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1532568285184
+    m_Key: Milliseconds
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1733320257536
+    m_Key: Music
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1827469799424
+    m_Key: Effects
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2341611778048
+    m_Key: Back
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2419785216000
+    m_Key: Change
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2510398959616
+    m_Key: Continue
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2565788938240
+    m_Key: Retry
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2654632685568
+    m_Key: MainMenu
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2785864069120
+    m_Key: Language
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 4489640478710694133
+  references:
+    version: 2
+    RefIds:
+    - rid: 4489640478710694133
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1665466423552
