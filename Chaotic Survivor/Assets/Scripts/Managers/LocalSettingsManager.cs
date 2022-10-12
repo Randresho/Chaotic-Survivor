@@ -6,18 +6,23 @@ using UnityEngine.Localization.Settings;
 public class LocalSettingsManager : MonoBehaviour
 {
     [SerializeField] private UiManager uiManager;
+    [SerializeField] private GameManager gameManager;
     [SerializeField] private bool active = false;
     public int languageNumber;
 
     private void Awake()
     {
         uiManager = FindObjectOfType<UiManager>();
+        gameManager = FindObjectOfType<GameManager>();
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        languageNumber = PlayerPrefs.GetInt("Language", 0);
+        if(!gameManager.firstTimePlaying)
+            languageNumber = PlayerPrefs.GetInt("Language", 0);
+
+
         ChangeLocale(languageNumber);
     }
 

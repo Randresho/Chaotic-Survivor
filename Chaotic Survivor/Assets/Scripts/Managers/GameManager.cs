@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     private SoundManager soundManager = null;
     private SaveNLoad saveNLoad = null;
     private AbilityScriptableObject abilityScriptableObject = null;
+    private LocalSettingsManager localSettingsManager = null;
     [SerializeField] private LevelManager levelManager = null;
     #endregion
 
@@ -54,6 +55,7 @@ public class GameManager : MonoBehaviour
         soundManager = FindObjectOfType<SoundManager>();
         levelManager = FindObjectOfType<LevelManager>();
         saveNLoad = FindObjectOfType<SaveNLoad>();
+        localSettingsManager = FindObjectOfType<LocalSettingsManager>();
         #endregion        
 
         #region Player
@@ -83,6 +85,40 @@ public class GameManager : MonoBehaviour
         
         if (saveNLoad.firstTimePlayingInt == 0)
             firstTimePlaying = true;
+
+        if(firstTimePlaying)
+        {
+            switch (Application.systemLanguage) 
+            {
+                case SystemLanguage.English:
+                    Debug.Log("El idioma original es Ingles");
+                    localSettingsManager.languageNumber = 0;
+                    break;
+                case SystemLanguage.French:
+                    Debug.Log("El idioma original es Frances");
+                    localSettingsManager.languageNumber = 1;
+                    break;
+                case SystemLanguage.German:
+                    Debug.Log("El idioma original es Aleman");
+                    localSettingsManager.languageNumber = 2;
+                    break;
+                case SystemLanguage.Italian:
+                    Debug.Log("El idioma original es Italiano");
+                    localSettingsManager.languageNumber = 3;
+                    break;
+                case SystemLanguage.Norwegian:
+                    Debug.Log("El idioma original es Noruego");
+                    localSettingsManager.languageNumber = 4;
+                    break;
+                case SystemLanguage.Spanish:
+                    Debug.Log("El idioma original es Spañol");
+                    localSettingsManager.languageNumber = 5;
+                    break;
+                default:
+                    localSettingsManager.languageNumber = 0;
+                    break;
+            }
+        }
     }
 
     public void Player(PlayerAbilities playerAbilities)
