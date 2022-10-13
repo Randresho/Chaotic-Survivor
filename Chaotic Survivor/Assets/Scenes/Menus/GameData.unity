@@ -1732,7 +1732,6 @@ GameObject:
   - component: {fileID: 248982131}
   - component: {fileID: 248982133}
   - component: {fileID: 248982132}
-  - component: {fileID: 248982134}
   m_Layer: 0
   m_Name: LevelUpTxt
   m_TagString: Untagged
@@ -1802,46 +1801,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 248982130}
   m_CullTransparentMesh: 1
---- !u!114 &248982134
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 248982130}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56eb0353ae6e5124bb35b17aff880f16, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_StringReference:
-    m_TableReference:
-      m_TableCollectionName: GUID:8aaa5603220a31c4a8c30d72834d33ba
-    m_TableEntryReference:
-      m_KeyId: 392428774240256
-      m_Key: 
-    m_FallbackState: 0
-    m_WaitForCompletion: 0
-    m_LocalVariables: []
-  m_FormatArguments: []
-  m_UpdateString:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 248982132}
-        m_TargetAssemblyTypeName: UnityEngine.UI.Text, UnityEngine.UI
-        m_MethodName: set_text
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  references:
-    version: 2
-    RefIds: []
 --- !u!1 &251192086
 GameObject:
   m_ObjectHideFlags: 0
@@ -5816,7 +5775,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 350}
-  m_SizeDelta: {x: 300, y: 75}
+  m_SizeDelta: {x: 500, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &631227000
 MonoBehaviour:
@@ -7213,9 +7172,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_StringReference:
     m_TableReference:
-      m_TableCollectionName: 
+      m_TableCollectionName: GUID:8aaa5603220a31c4a8c30d72834d33ba
     m_TableEntryReference:
-      m_KeyId: 0
+      m_KeyId: 646636630978560
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
@@ -10601,6 +10560,7 @@ GameObject:
   - component: {fileID: 1152027247}
   - component: {fileID: 1152027249}
   - component: {fileID: 1152027248}
+  - component: {fileID: 1152027250}
   m_Layer: 0
   m_Name: Level
   m_TagString: Untagged
@@ -10670,6 +10630,46 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1152027246}
   m_CullTransparentMesh: 1
+--- !u!114 &1152027250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1152027246}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56eb0353ae6e5124bb35b17aff880f16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_StringReference:
+    m_TableReference:
+      m_TableCollectionName: GUID:8aaa5603220a31c4a8c30d72834d33ba
+    m_TableEntryReference:
+      m_KeyId: 1091138760704
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  m_FormatArguments: []
+  m_UpdateString:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1152027248}
+        m_TargetAssemblyTypeName: UnityEngine.UI.Text, UnityEngine.UI
+        m_MethodName: set_text
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  references:
+    version: 2
+    RefIds: []
 --- !u!1 &1174205179
 GameObject:
   m_ObjectHideFlags: 0
@@ -18667,6 +18667,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelManager: {fileID: 0}
+  localSettingsManager: {fileID: 0}
   buttons:
   - {fileID: 205543409}
   - {fileID: 1502803050}
@@ -18687,52 +18688,133 @@ MonoBehaviour:
   increaseMaxMagnet: 2.8
   magnetCurChoose: 1
   magnetChoose: 0
-  magnetSprite:
-  - {fileID: 21300000, guid: 57e7748627faedf4684ccf9d411423ba, type: 3}
-  - {fileID: 21300000, guid: 57e7748627faedf4684ccf9d411423ba, type: 3}
-  magnetTitle:
-  - Active Magnet
-  - Add Magnet Range
+  magnetSprite: {fileID: 21300000, guid: 57e7748627faedf4684ccf9d411423ba, type: 3}
+  magnetTitle: Item Magnet
   magnetDescription:
   - Active the item magnet
   - Add more range to the magnet
+  _magnetLanguage:
+  - name: EN
+    title: Item Magnet
+    description:
+    - Active the item magnet
+    - Add more range to the magnet
+  - name: FR
+    title: 
+    description:
+    - 
+    - 
+  - name: DE
+    title: 
+    description:
+    - 
+    - 
+  - name: IT
+    title: 
+    description:
+    - 
+    - 
+  - name: NO
+    title: 
+    description:
+    - 
+    - 
+  - name: ES
+    title: Iman de objetos
+    description:
+    - "Activa el im\xE1n de objetos"
+    - "A\xF1ade mas rango al im\xE1n"
   spinWeapon: {fileID: 0}
   increaseWeapon: 1
   increaseSpinSpeed: 10
   increaseSpinMaxSpeed: 300
   spinCurChoose: 1
   spinChoose: 0
-  spinSprite:
-  - {fileID: 21300000, guid: 6773c53503e3a7e4b87a7c189a29ad33, type: 3}
-  - {fileID: 21300000, guid: 6773c53503e3a7e4b87a7c189a29ad33, type: 3}
-  - {fileID: 21300000, guid: 6773c53503e3a7e4b87a7c189a29ad33, type: 3}
-  - {fileID: 21300000, guid: 6773c53503e3a7e4b87a7c189a29ad33, type: 3}
-  spinTitle:
-  - Spin Weapon
-  - Spin Weapon
-  - Spin Weapon
-  - Spin Weapon
+  spinSprite: {fileID: 21300000, guid: 6773c53503e3a7e4b87a7c189a29ad33, type: 3}
+  spinTitle: Spin Weapon
   spinDescription:
   - Add Spin weapon
   - Add one more weapon
   - 'Increase rotation speed '
   - Reduce timer fire shoot
+  spinLanguage:
+  - name: EN
+    title: Spin Weapon
+    description:
+    - Active Spin weapon
+    - Add one more weapon
+    - 'Increase rotation speed '
+    - Reduce timer fire shoot
+  - name: FR
+    title: 
+    description:
+    - 
+    - 
+    - 
+    - 
+  - name: DE
+    title: 
+    description:
+    - 
+    - 
+    - 
+    - 
+  - name: IT
+    title: 
+    description:
+    - 
+    - 
+    - 
+    - 
+  - name: NO
+    title: 
+    description:
+    - 
+    - 
+    - 
+    - 
+  - name: ES
+    title: Arma Giratoria
+    description:
+    - Activa el arma giratoria
+    - "A\xF1ade un arma extra"
+    - "Incrementa la velocidad de rotaci\xF3n"
+    - Reduce el tiempo de disparo
   abilities: {fileID: 0}
   normalSprite: {fileID: 21300000, guid: 75f218ab889fffd42b4cfcdf1eb2340f, type: 3}
   normalTitle: Primary Weapon
   normalDescription: Reduce fire shoot timer
+  _normalLanguage:
+  - name: EN
+    title: Primary Weapon
+    description:
+    - Reduce fire shoot timer
+  - name: FR
+    title: Primary Weapon
+    description:
+    - 
+  - name: DE
+    title: Primary Weapon
+    description:
+    - 
+  - name: IT
+    title: Primary Weapon
+    description:
+    - 
+  - name: NO
+    title: Primary Weapon
+    description:
+    - 
+  - name: ES
+    title: Arma principal
+    description:
+    - Reduce el tiempo de disparo
   lifeRandom: 0
   lifeCurChoose: 0
   lifeChoose: 0
   lifeAdder: 4b000000960000002c010000
-  lifeSprite:
-  - {fileID: 21300000, guid: 1d375e9d71fc95b4cbd98484b38e678d, type: 3}
-  - {fileID: 21300000, guid: d7684bb00c1c0bf46bc3f57dad7014d9, type: 3}
-  - {fileID: 21300000, guid: c88eefa887d4bc047b9954e16575b35d, type: 3}
-  lifeTitle:
-  - Add 75 pt of HP
-  - Add 150 pt of HP
-  - Restor All HP
+  lifeSprite: {fileID: 0}
+  lifeTitle: 
   lifeDescription:
   - 
   - 
@@ -18740,18 +18822,49 @@ MonoBehaviour:
   bulletPrefab:
   - {fileID: 8812460182515355615, guid: e00e0a97e6023b749b788f283c5718aa, type: 3}
   - {fileID: 8812460182515355615, guid: 40e693d114f6abb429e24aa018340f1f, type: 3}
-  bulletSprite:
-  - {fileID: 21300000, guid: d01f45b2c1382b543824664b4596ca7b, type: 3}
-  - {fileID: 21300000, guid: d01f45b2c1382b543824664b4596ca7b, type: 3}
-  - {fileID: 21300000, guid: d01f45b2c1382b543824664b4596ca7b, type: 3}
-  bulletTitle:
-  - Bullets
-  - Bullets
-  - Bullets
+  bulletSprite: {fileID: 21300000, guid: d01f45b2c1382b543824664b4596ca7b, type: 3}
+  bulletTitle: Bullet
   bulletDescription:
   - 'Increase Damage '
   - Increase Max Enemies Hit
   - Increase Speed
+  bulletLanguage:
+  - name: EN
+    title: Bullet
+    description:
+    - 'Increase Damage '
+    - Increase Max Enemies Hit
+    - Increase Speed
+  - name: FR
+    title: Bullet
+    description:
+    - 
+    - 
+    - 
+  - name: DE
+    title: Bullet
+    description:
+    - 
+    - 
+    - 
+  - name: IT
+    title: Bullet
+    description:
+    - 
+    - 
+    - 
+  - name: NO
+    title: Bullet
+    description:
+    - 
+    - 
+    - 
+  - name: ES
+    title: Balas
+    description:
+    - "Incrementa da\xF1o"
+    - Incrementa maximo de golpes a los enemigos
+    - Incrementa la velocidad
   optionsButtons:
   - {fileID: 205543404}
   - {fileID: 1502803048}

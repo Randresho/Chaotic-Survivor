@@ -115,6 +115,14 @@ MonoBehaviour:
     m_Key: Game Over
     m_Metadata:
       m_Items: []
+  - m_Id: 646636630978560
+    m_Key: AbilityTitle
+    m_Metadata:
+      m_Items: []
+  - m_Id: 653035775733760
+    m_Key: AbilityDescription
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

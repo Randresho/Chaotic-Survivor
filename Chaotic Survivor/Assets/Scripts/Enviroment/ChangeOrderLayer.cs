@@ -39,7 +39,8 @@ public class ChangeOrderLayer : MonoBehaviour
 
         if(obj.GetComponent<PlayerActions>() != null)
         {
-            obj.GetComponent<PlayerActions>().playerHP -= 5f * Time.fixedDeltaTime;
+            if(obj.GetComponent<PlayerActions>().playerHP > 0.05)
+                obj.GetComponent<PlayerActions>().playerHP -= 5f * Time.fixedDeltaTime;
         }
     }
 

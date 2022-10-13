@@ -32,7 +32,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 639177338880
-    m_Localized: Siste spill
+    m_Localized: Siste runde
     m_Metadata:
       m_Items: []
   - m_Id: 1019525214208
@@ -52,11 +52,11 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 1532568285184
-    m_Localized: Bruk millisekunder
+    m_Localized: Vis millisekunder
     m_Metadata:
       m_Items: []
   - m_Id: 1733320257536
-    m_Localized: Musikkvolum
+    m_Localized: Musikk volum
     m_Metadata:
       m_Items: []
   - m_Id: 2341611778048
@@ -80,10 +80,42 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 392428774240256
-    m_Localized: 
+    m_Localized: "Niv\xE5 {0} -> {1}"
     m_Metadata:
       m_Items:
       - rid: 4489640505429458970
+  - m_Id: 1457326665728
+    m_Localized: 'Mynter:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 511049740288
+    m_Localized: Versjon
+    m_Metadata:
+      m_Items: []
+  - m_Id: 392500823994368
+    m_Localized: Resultater
+    m_Metadata:
+      m_Items: []
+  - m_Id: 392922787753984
+    m_Localized: Spillet er slutt
+    m_Metadata:
+      m_Items: []
+  - m_Id: 224255815680
+    m_Localized: Innstillinger
+    m_Metadata:
+      m_Items: []
+  - m_Id: 373333962752
+    m_Localized: Kreds
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1827469799424
+    m_Localized: Lydeffekt volum
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2419785216000
+    m_Localized: Justeringer
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:

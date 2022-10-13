@@ -108,7 +108,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 392428774240256
-    m_Localized: 
+    m_Localized: Nivel {0} -> {1}
     m_Metadata:
       m_Items:
       - rid: 4489640505429458971

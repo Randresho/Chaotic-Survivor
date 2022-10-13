@@ -22,12 +22,12 @@ public class LocalSettingsManager : MonoBehaviour
         if(!gameManager.firstTimePlaying)
             languageNumber = PlayerPrefs.GetInt("Language", 0);
 
-
         ChangeLocale(languageNumber);
     }
 
     public void ChangeLocale(int idx)
     {
+        languageNumber = idx;
         if (active)
             return;
         StartCoroutine(SetLocal(idx));
@@ -38,7 +38,7 @@ public class LocalSettingsManager : MonoBehaviour
         active = true;
         yield return LocalizationSettings.InitializationOperation;
         LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[idx];
-        PlayerPrefs.SetInt("Language", idx);
+        PlayerPrefs.SetInt("Language", languageNumber);
         active = false;
     }
 }

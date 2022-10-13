@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
 public enum enemyType { Ghost, Slime, Spider, Bat}
 //[CreateAssetMenu(fileName = "EnemyType",menuName = "Enemy/Enemy")]
 public class EnemyScriptableObject : MonoBehaviour

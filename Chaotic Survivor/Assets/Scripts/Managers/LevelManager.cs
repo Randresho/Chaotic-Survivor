@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Localization;
 using UnityEngine.UI;
 
 public class LevelManager : MonoBehaviour
@@ -37,7 +38,7 @@ public class LevelManager : MonoBehaviour
     public float playerLevelMaxFloat = 0;
     public PlayerActions playerActions = null;
     public PlayerMovement playerMovement = null;
-    [SerializeField] private Animator animator;
+    [SerializeField] private Animator animator;    
 
     [Header("Game Data")]
     public int enemiesKilled = 0;
@@ -51,6 +52,8 @@ public class LevelManager : MonoBehaviour
     public bool leveUp = false;
     public AudioSource levelUpSound = null;
     public float[] outsideCamValues;
+    [Space]
+    [SerializeField] private LocalizedString localizedStringLevelUp;
 
     [Header("Life Spawner")]
     public GameObject[] lifePrefab;
@@ -89,7 +92,7 @@ public class LevelManager : MonoBehaviour
     private void Start()
     {
         SpawnLife();
-        SpawnLevelUpItem();        
+        SpawnLevelUpItem();
     }
 
     // Update is called once per frame
@@ -147,7 +150,7 @@ public class LevelManager : MonoBehaviour
 
         uiManager.levelSlider.value = playerLevelFloat;
         uiManager.levelSlider.maxValue = playerLevelMaxFloat;
-        uiManager.levelNumber.text = " " + playerLevel;
+        uiManager.levelNumber.text = "" + playerLevel;
     }
 
     //Level Up
@@ -171,7 +174,8 @@ public class LevelManager : MonoBehaviour
             items[i].collider2D.enabled = false;
         }
 
-        uiManager.levelUpTxt.text = "LEVEL " + (playerLevel) + " -> " + (playerLevel + 1);
+        ShowLevelUpMsg();
+       
 
         timerRunning = false;
         canShoot = false;
@@ -327,6 +331,32 @@ public class LevelManager : MonoBehaviour
         uiManager.DisplayMatchInfo(uiManager.scoreLevelTxt, playerLevel, uiManager.scoreEnemiesTxt, enemiesKilled, uiManager.scoreCoinsTxt, coinsGrab);
 
         uiManager.ActiveAnimation(gameOverAnimator);      
+    }
+    #endregion
+
+    #region LevelUpText
+    private void OnEnable()
+    {
+        localizedStringLevelUp.Arguments = new object[] { playerLevel, playerLevel + 1 };
+        localizedStringLevelUp.StringChanged += UpdateText;
+    }
+
+    private void OnDisable()
+    {
+        localizedStringLevelUp.StringChanged -= UpdateText;
+    }
+
+    public void ShowLevelUpMsg()
+    {
+        localizedStringLevelUp.Arguments[0] = playerLevel;
+        localizedStringLevelUp.Arguments[1] = playerLevel + 1;
+        localizedStringLevelUp.RefreshString();
+        //uiManager.levelUpTxt.text = "LEVEL " + (playerLevel) + " -> " + (playerLevel + 1);
+    }
+
+    private void UpdateText(string value)
+    {
+        uiManager.levelUpTxt.text = value;
     }
     #endregion
 }

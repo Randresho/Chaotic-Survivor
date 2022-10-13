@@ -27,6 +27,13 @@ public class PlayerActions : MonoBehaviour
     public float timerToReduceLife = 1;
     [SerializeField] private float reducerLife = 0.5f;
 
+    [Header("Hit FX")]
+    [SerializeField] private SpriteRenderer spriteRenderer = null;
+    [SerializeField] private Material flashMaterial;
+    [SerializeField] private float duration;
+    [SerializeField] private Material originalMaterial;
+    private Coroutine flashRoutine;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -41,6 +48,8 @@ public class PlayerActions : MonoBehaviour
         playerCollider.enabled = true;
         m_AbilityScriptableObject.SetPlayerActions(this);
         playerMovement = GetComponent<PlayerMovement>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        originalMaterial = spriteRenderer.material;
     }
 
     // Update is called once per frame
@@ -123,20 +132,33 @@ public class PlayerActions : MonoBehaviour
             playerHP -= obj.GetComponent<EnemyScriptableObject>().damagePlayer;
             m_LevelManager.enemiesSpawned--;
             obj.GetComponent<EnemyScriptableObject>().gameObject.SetActive(false);
-            //obj.GetComponent<EnemyScriptableObject>().StartCoroutine(obj.GetComponent<EnemyScriptableObject>().DestroyObj());
-            //m_LevelManager.enemies.Remove(obj.GetComponent<EnemyScriptableObject>());
 
             if (playerHP < 0.05)
                 m_LevelManager.GameOver();
 
             if(playerHP > 0)
             {
-                Debug.Log("Aun no me muero");
+                Flash();
             }
-
-            //objectPolling.SpawnFromPool("Enemy", m_LevelManager.outsideCam, Quaternion.identity);
-            //Destroy(obj);
         }
+    }
+
+    public void Flash()
+    {
+        if (flashRoutine != null)
+        {
+            StopCoroutine(flashRoutine);
+        }
+
+        flashRoutine = StartCoroutine(FlashRoutine());
+    }
+
+    private IEnumerator FlashRoutine()
+    {
+        spriteRenderer.material = flashMaterial;
+        yield return new WaitForSeconds(duration);
+        spriteRenderer.material = originalMaterial;
+        flashRoutine = null;
     }
 
     /*private void OnCollisionStay2D(Collision2D other)

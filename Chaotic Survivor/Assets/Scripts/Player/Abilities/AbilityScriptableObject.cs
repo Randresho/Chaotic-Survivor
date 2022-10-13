@@ -1,11 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Localization;
+using UnityEngine.Localization.Components;
 
 public enum AbilityType { Bullet, Normal, Spin, Magnet, }
 public class AbilityScriptableObject : MonoBehaviour
 {
     [SerializeField] private LevelManager levelManager;
+    [SerializeField] private LocalSettingsManager localSettingsManager;
+
+    [System.Serializable]
+    public class Language
+    {
+        public string name;
+        public string title;
+        public string[] description;
+    }
 
     public AbiltyButtonInfo[] buttons;
     
@@ -28,9 +39,10 @@ public class AbilityScriptableObject : MonoBehaviour
     [Space]
     [SerializeField] private int magnetCurChoose;
     [SerializeField] private int magnetChoose;
-    [SerializeField] private Sprite[] magnetSprite;
-    [SerializeField] private string[] magnetTitle;
+    [SerializeField] private Sprite magnetSprite;
+    [SerializeField] private string magnetTitle;
     [SerializeField] private string[] magnetDescription;
+    [SerializeField] private Language[] _magnetLanguage;
    
 
     [Header("Spin")]
@@ -41,9 +53,10 @@ public class AbilityScriptableObject : MonoBehaviour
     [Space]
     [SerializeField] private int spinCurChoose;
     [SerializeField] private int spinChoose;
-    [SerializeField] private Sprite[] spinSprite;
-    [SerializeField] private string[] spinTitle;
+    [SerializeField] private Sprite spinSprite;
+    [SerializeField] private string spinTitle;
     [SerializeField] private string[] spinDescription;
+    [SerializeField] private Language[] spinLanguage;
 
     [Header("Normal Shoot")]
     [SerializeField] private PlayerAbilities abilities;
@@ -51,22 +64,24 @@ public class AbilityScriptableObject : MonoBehaviour
     [SerializeField] private Sprite normalSprite;
     [SerializeField] private string normalTitle;
     [SerializeField] private string normalDescription;
+    [SerializeField] private Language[] _normalLanguage;
 
-    [Header("Life")]
+    /*[Header("Life")]
     [SerializeField] private int lifeRandom;
     [Space]
     [SerializeField] private int lifeCurChoose;
     [SerializeField] private int lifeChoose;
     [SerializeField] private int[] lifeAdder;
-    [SerializeField] private Sprite[] lifeSprite;
-    [SerializeField] private string[] lifeTitle;
-    [SerializeField] private string[] lifeDescription;
+    [SerializeField] private Sprite lifeSprite;
+    [SerializeField] private string lifeTitle;
+    [SerializeField] private string[] lifeDescription;*/
 
     [Header("Buttons")]
     [SerializeField] private GameObject[] bulletPrefab;
-    [SerializeField] private Sprite[] bulletSprite;
-    [SerializeField] private string[] bulletTitle;
+    [SerializeField] private Sprite bulletSprite;
+    [SerializeField] private string bulletTitle;
     [SerializeField] private string[] bulletDescription;
+    [SerializeField] private Language[] bulletLanguage;
     [Space]
     public GameObject[] optionsButtons;
     public float shootTimer = 0.05f;
@@ -82,16 +97,17 @@ public class AbilityScriptableObject : MonoBehaviour
     public int abiltityRandomA;
     public int abiltityRandomB;
 
-
     [Space]
     [SerializeField] private int ChangeOption;
     [SerializeField] private int maxChangeOption = 3;
     public GameObject changeOptionsObj;
+
     
     [SerializeField] private PlayerActions playerActions;
 
     private void Awake()
     {
+        localSettingsManager = FindObjectOfType<LocalSettingsManager>();
         changeOptionsObj.SetActive(false);
     }
 
@@ -121,7 +137,7 @@ public class AbilityScriptableObject : MonoBehaviour
         {
             buttons[0].type = (AbilityType)abiltityRandomA;
             buttons[1].type = AbilityType.Spin;
-            maxCurAbilities = 2;
+            maxCurAbilities = 3;
         }
         else if(!isMagnetActive && isSpinActive)
         {
@@ -131,22 +147,21 @@ public class AbilityScriptableObject : MonoBehaviour
         else
         {
             changeOptionsObj.SetActive(false);
-            Debug.Log("No se a activado ninguna abilididad");
         }
 
         switch (buttons[0].type)
         {
             case AbilityType.Bullet:
-                buttons[0].SetInfo(bulletSprite[bulletChoose], bulletTitle[bulletChoose], bulletDescription[bulletChoose]);
+                buttons[0].SetInfo(bulletSprite, bulletLanguage[localSettingsManager.languageNumber].title, bulletLanguage[localSettingsManager.languageNumber].description[bulletChoose]);
                 break;
             case AbilityType.Normal:
-                buttons[0].SetInfo(normalSprite, normalTitle, normalDescription);
+                buttons[0].SetInfo(normalSprite, _normalLanguage[localSettingsManager.languageNumber].title, _normalLanguage[localSettingsManager.languageNumber].description[0]);
                 break;
             case AbilityType.Spin:
-                buttons[0].SetInfo(spinSprite[spinChoose], spinTitle[spinChoose], spinDescription[spinChoose]);
+                buttons[0].SetInfo(spinSprite, spinLanguage[localSettingsManager.languageNumber].title, spinLanguage[localSettingsManager.languageNumber].description[spinChoose]);
                 break;
             case AbilityType.Magnet:
-                buttons[0].SetInfo(magnetSprite[magnetChoose], magnetTitle[magnetChoose], magnetDescription[magnetChoose]);
+                buttons[0].SetInfo(magnetSprite, _magnetLanguage[localSettingsManager.languageNumber].title, _magnetLanguage[localSettingsManager.languageNumber].description[magnetChoose]);
                 break;
             default:
                 break;
@@ -155,16 +170,16 @@ public class AbilityScriptableObject : MonoBehaviour
         switch (buttons[1].type)
         {
             case AbilityType.Bullet:
-                buttons[1].SetInfo(bulletSprite[bulletChoose], bulletTitle[bulletChoose], bulletDescription[bulletChoose]);
+                buttons[1].SetInfo(bulletSprite, bulletLanguage[localSettingsManager.languageNumber].title, bulletLanguage[localSettingsManager.languageNumber].description[bulletChoose]);
                 break;
             case AbilityType.Normal:
-                buttons[1].SetInfo(normalSprite, normalTitle, normalDescription);
+                buttons[1].SetInfo(normalSprite, _normalLanguage[localSettingsManager.languageNumber].title, _normalLanguage[localSettingsManager.languageNumber].description[0]);
                 break;
             case AbilityType.Spin:
-                buttons[1].SetInfo(spinSprite[spinChoose], spinTitle[spinChoose], spinDescription[spinChoose]);
+                buttons[1].SetInfo(spinSprite, spinLanguage[localSettingsManager.languageNumber].title, spinLanguage[localSettingsManager.languageNumber].description[spinChoose]);
                 break;
             case AbilityType.Magnet:
-                buttons[1].SetInfo(magnetSprite[magnetChoose], magnetTitle[magnetChoose], magnetDescription[magnetChoose]);
+                buttons[1].SetInfo(magnetSprite, _magnetLanguage[localSettingsManager.languageNumber].title, _magnetLanguage[localSettingsManager.languageNumber].description[magnetChoose]);
                 break;
             default:
                 break;
@@ -227,16 +242,17 @@ public class AbilityScriptableObject : MonoBehaviour
         //Random
         abiltityRandomA = Random.Range(minCurAbilities, maxCurAbilities);
         abiltityRandomB = Random.Range(minCurAbilities, maxCurAbilities);
-        lifeRandom = Random.Range(0, buttons.Length);
-        bulletChoose = Random.Range(0, bulletTitle.Length);
-        magnetChoose = Random.Range(magnetCurChoose, magnetTitle.Length);
-        spinChoose = Random.Range(spinCurChoose, spinTitle.Length);
-        lifeChoose = Random.Range(lifeCurChoose, lifeTitle.Length);
+        //lifeRandom = Random.Range(0, buttons.Length);
+        bulletChoose = Random.Range(0, bulletDescription.Length);
+        magnetChoose = Random.Range(magnetCurChoose, magnetDescription.Length);
+        spinChoose = Random.Range(spinCurChoose, spinDescription.Length);
+        //lifeChoose = Random.Range(lifeCurChoose, lifeTitle.Length);
 
         //Acctive Magnet
         if (!isMagnetActive)
         {
-            buttonsAcivator[0].SetInfo(magnetSprite[0], magnetTitle[0], magnetDescription[0]);
+            //buttonsAcivator[0].SetInfo(magnetSprite, magnetTitle, magnetDescription[0]);
+            buttonsAcivator[0].SetInfo(magnetSprite, _magnetLanguage[localSettingsManager.languageNumber].title, _magnetLanguage[localSettingsManager.languageNumber].description[0]);
             buttonActivatorObj[0].SetActive(true);
             //optionsButtons[0].SetActive(false);
         }
@@ -244,7 +260,8 @@ public class AbilityScriptableObject : MonoBehaviour
         //Active Spin
         if (!isSpinActive)
         {
-            buttonsAcivator[1].SetInfo(spinSprite[0], spinTitle[0], spinDescription[0]);
+            //buttonsAcivator[1].SetInfo(spinSprite, spinTitle, spinDescription[0]);
+            buttonsAcivator[1].SetInfo(spinSprite, spinLanguage[localSettingsManager.languageNumber].title, spinLanguage[localSettingsManager.languageNumber].description[0]);
             buttonActivatorObj[1].SetActive(true);
             //optionsButtons[1].SetActive(false);
         }
@@ -275,6 +292,7 @@ public class AbilityScriptableObject : MonoBehaviour
     {
         isMagnetActive = true;
         buttonActivatorObj[0].SetActive(false);
+        //buttonsAcivator[0].SetInfo(spinSprite, spinLanguage[localSettingsManager.languageNumber].title, spinLanguage[localSettingsManager.languageNumber].description[spinChoose]);
         abilities.enableAbilities[1] = true;
         ChangeOption = 0;
     }
@@ -283,6 +301,7 @@ public class AbilityScriptableObject : MonoBehaviour
     {
         isSpinActive = true;
         buttonActivatorObj[1].SetActive(false);
+        //buttonsAcivator[1].SetInfo(spinSprite, spinLanguage[localSettingsManager.languageNumber].title, spinLanguage[localSettingsManager.languageNumber].description[spinChoose]);
         spinWeapon.currentBulletPoint -= increaseWeapon;
         ChangeOption = 0;
     }

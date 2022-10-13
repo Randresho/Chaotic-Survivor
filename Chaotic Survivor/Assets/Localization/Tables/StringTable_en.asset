@@ -17,14 +17,14 @@ MonoBehaviour:
   m_SharedData: {fileID: 11400000, guid: 8aaa5603220a31c4a8c30d72834d33ba, type: 2}
   m_Metadata:
     m_Items:
-    - rid: 4489640505429458966
+    - rid: 4489640517910921276
   m_TableData:
   - m_Id: 41405132800
     m_Localized: Play
     m_Metadata:
       m_Items: []
   - m_Id: 224255815680
-    m_Localized: Setting
+    m_Localized: Settings
     m_Metadata:
       m_Items: []
   - m_Id: 293923205120
@@ -108,10 +108,10 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 392428774240256
-    m_Localized: 
+    m_Localized: Level {0} -> {1}
     m_Metadata:
       m_Items:
-      - rid: 4489640505429458966
+      - rid: 4489640517910921276
   - m_Id: 392500823994368
     m_Localized: Match Resume
     m_Metadata:
@@ -120,10 +120,15 @@ MonoBehaviour:
     m_Localized: Game Over!
     m_Metadata:
       m_Items: []
+  - m_Id: 646636630978560
+    m_Localized: 
+    m_Metadata:
+      m_Items:
+      - rid: 4489640517910921276
   references:
     version: 2
     RefIds:
-    - rid: 4489640505429458966
+    - rid: 4489640517910921276
       type: {class: SmartFormatTag, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
       data:
-        m_Entries: 0030b071e9640100
+        m_Entries: 0030b071e96401000030b0d21c4c0200
