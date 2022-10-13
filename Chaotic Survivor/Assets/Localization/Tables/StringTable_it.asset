@@ -20,10 +20,106 @@ MonoBehaviour:
     - rid: 4489640505429458969
   m_TableData:
   - m_Id: 392428774240256
-    m_Localized: 
+    m_Localized: Livello {0} -> {1}
     m_Metadata:
       m_Items:
       - rid: 4489640505429458969
+  - m_Id: 41405132800
+    m_Localized: Giocare
+    m_Metadata:
+      m_Items: []
+  - m_Id: 224255815680
+    m_Localized: Impostazioni
+    m_Metadata:
+      m_Items: []
+  - m_Id: 293923205120
+    m_Localized: Come giocare
+    m_Metadata:
+      m_Items: []
+  - m_Id: 373333962752
+    m_Localized: Crediti
+    m_Metadata:
+      m_Items: []
+  - m_Id: 440279248896
+    m_Localized: Uscita
+    m_Metadata:
+      m_Items: []
+  - m_Id: 511049740288
+    m_Localized: Versione
+    m_Metadata:
+      m_Items: []
+  - m_Id: 639177338880
+    m_Localized: Ultima partita
+    m_Metadata:
+      m_Items: []
+  - m_Id: 837765050368
+    m_Localized: Punteggio alto
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1019525214208
+    m_Localized: 'Volta:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1091138760704
+    m_Localized: 'Livello:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1212123459584
+    m_Localized: 'Nemici:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1308827332608
+    m_Localized: Seguici su
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1457326665728
+    m_Localized: 'Monete:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1532568285184
+    m_Localized: Usa millisecondi
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1733320257536
+    m_Localized: Volume della musica
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1827469799424
+    m_Localized: Volume dell'effetto sonoro
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2341611778048
+    m_Localized: Di ritorno
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2419785216000
+    m_Localized: Cambia opzioni
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2510398959616
+    m_Localized: Continua
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2565788938240
+    m_Localized: Riprova
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2654632685568
+    m_Localized: Menu principale
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2785864069120
+    m_Localized: Lingua
+    m_Metadata:
+      m_Items: []
+  - m_Id: 392500823994368
+    m_Localized: Curriculum partita
+    m_Metadata:
+      m_Items: []
+  - m_Id: 392922787753984
+    m_Localized: Gioco finito!
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:

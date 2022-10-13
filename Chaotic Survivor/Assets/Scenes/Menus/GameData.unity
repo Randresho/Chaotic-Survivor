@@ -18823,10 +18823,10 @@ MonoBehaviour:
     - 
     - 
   - name: IT
-    title: 
+    title: Articolo Magnete
     description:
-    - 
-    - 
+    - Attiva il magnete dell'oggetto
+    - "Aggiungi pi\xF9 portata al magnete"
   - name: NO
     title: 
     description:
@@ -18873,12 +18873,12 @@ MonoBehaviour:
     - 
     - 
   - name: IT
-    title: 
+    title: Arma rotante
     description:
-    - 
-    - 
-    - 
-    - 
+    - Arma a rotazione attiva
+    - Aggiungi un'altra arma
+    - "Aumenta la velocit\xE0 di rotazione"
+    - Riduci il tiro con il timer
   - name: NO
     title: 
     description:
@@ -18911,9 +18911,9 @@ MonoBehaviour:
     description:
     - 
   - name: IT
-    title: Primary Weapon
+    title: Arma primaria
     description:
-    - 
+    - Riduci il tiro con il timer
   - name: NO
     title: Primary Weapon
     description:
@@ -18953,9 +18953,9 @@ MonoBehaviour:
   - name: IT
     title: Bullet
     description:
-    - 
-    - 
-    - 
+    - Aumenta il danno
+    - Aumenta il numero massimo di nemici colpiti
+    - "Aumentare la velocit\xE0"
   - name: NO
     title: Bullet
     description:
