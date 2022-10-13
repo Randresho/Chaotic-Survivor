@@ -120,11 +120,6 @@ MonoBehaviour:
     m_Localized: Game Over!
     m_Metadata:
       m_Items: []
-  - m_Id: 646636630978560
-    m_Localized: 
-    m_Metadata:
-      m_Items:
-      - rid: 4489640517910921276
   references:
     version: 2
     RefIds:

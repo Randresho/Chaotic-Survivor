@@ -24,7 +24,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 293923205120
-    m_Localized: Spillinstruksjoner
+    m_Localized: Instruksjoner
     m_Metadata:
       m_Items: []
   - m_Id: 440279248896
@@ -105,7 +105,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 373333962752
-    m_Localized: Kreds
+    m_Localized: Bidragsytere
     m_Metadata:
       m_Items: []
   - m_Id: 1827469799424

@@ -3560,6 +3560,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1783978351}
+        m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
+        m_MethodName: OnPressButton
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: 795bbeda782f97948929554d7c8bfa98, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &421397040
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4125,6 +4137,7 @@ GameObject:
   - component: {fileID: 492460801}
   - component: {fileID: 492460800}
   - component: {fileID: 492460802}
+  - component: {fileID: 492460803}
   m_Layer: 0
   m_Name: HowToPlayTitle
   m_TagString: Untagged
@@ -4150,7 +4163,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 465}
-  m_SizeDelta: {x: 700, y: 150}
+  m_SizeDelta: {x: 1000, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &492460800
 MonoBehaviour:
@@ -4173,12 +4186,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 2906b2e76b36d4b4ea3892d784fa50dd, type: 3}
+    m_Font: {fileID: 12800000, guid: 58059d60355664f499c41a8846c1dca9, type: 3}
     m_FontSize: 14
     m_FontStyle: 0
     m_BestFit: 1
     m_MinSize: 10
-    m_MaxSize: 40
+    m_MaxSize: 80
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -4226,6 +4239,46 @@ MonoBehaviour:
   mod: 0
   effect: 0
   loop: 0
+--- !u!114 &492460803
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 492460798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56eb0353ae6e5124bb35b17aff880f16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_StringReference:
+    m_TableReference:
+      m_TableCollectionName: GUID:8aaa5603220a31c4a8c30d72834d33ba
+    m_TableEntryReference:
+      m_KeyId: 293923205120
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  m_FormatArguments: []
+  m_UpdateString:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 492460800}
+        m_TargetAssemblyTypeName: UnityEngine.UI.Text, UnityEngine.UI
+        m_MethodName: set_text
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  references:
+    version: 2
+    RefIds: []
 --- !u!1 &492505930
 GameObject:
   m_ObjectHideFlags: 0
@@ -8367,6 +8420,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1783978351}
+        m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
+        m_MethodName: OnPressButton
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: 795bbeda782f97948929554d7c8bfa98, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &852716299
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9850,6 +9915,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1783978351}
+        m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
+        m_MethodName: OnPressButton
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: 795bbeda782f97948929554d7c8bfa98, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1045877549
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10059,6 +10136,18 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1783978351}
+        m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
+        m_MethodName: OnPressButton
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: 795bbeda782f97948929554d7c8bfa98, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -17028,6 +17117,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1783978351}
+        m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
+        m_MethodName: OnPressButton
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: 795bbeda782f97948929554d7c8bfa98, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1765777475
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18482,6 +18583,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1783978351}
+        m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
+        m_MethodName: OnPressButton
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: 795bbeda782f97948929554d7c8bfa98, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1859276451
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18700,10 +18813,10 @@ MonoBehaviour:
     - Active the item magnet
     - Add more range to the magnet
   - name: FR
-    title: 
+    title: Article Aimant
     description:
-    - 
-    - 
+    - Activer l'aimant d'article
+    - "Ajouter plus de port\xE9e \xE0 l'aimant"
   - name: DE
     title: 
     description:
@@ -18746,12 +18859,12 @@ MonoBehaviour:
     - 'Increase rotation speed '
     - Reduce timer fire shoot
   - name: FR
-    title: 
+    title: Arme rotative
     description:
-    - 
-    - 
-    - 
-    - 
+    - Arme de rotation active
+    - Ajouter une arme de plus
+    - Augmenter la vitesse de rotation
+    - "R\xE9duire le tir de minuterie"
   - name: DE
     title: 
     description:
@@ -18790,9 +18903,9 @@ MonoBehaviour:
     description:
     - Reduce fire shoot timer
   - name: FR
-    title: Primary Weapon
+    title: Arme principale
     description:
-    - 
+    - "R\xE9duire le tir de minuterie"
   - name: DE
     title: Primary Weapon
     description:
@@ -18809,16 +18922,6 @@ MonoBehaviour:
     title: Arma principal
     description:
     - Reduce el tiempo de disparo
-  lifeRandom: 0
-  lifeCurChoose: 0
-  lifeChoose: 0
-  lifeAdder: 4b000000960000002c010000
-  lifeSprite: {fileID: 0}
-  lifeTitle: 
-  lifeDescription:
-  - 
-  - 
-  - 
   bulletPrefab:
   - {fileID: 8812460182515355615, guid: e00e0a97e6023b749b788f283c5718aa, type: 3}
   - {fileID: 8812460182515355615, guid: 40e693d114f6abb429e24aa018340f1f, type: 3}
@@ -18830,17 +18933,17 @@ MonoBehaviour:
   - Increase Speed
   bulletLanguage:
   - name: EN
-    title: Bullet
+    title: Bullets
     description:
     - 'Increase Damage '
     - Increase Max Enemies Hit
     - Increase Speed
   - name: FR
-    title: Bullet
+    title: Balles
     description:
-    - 
-    - 
-    - 
+    - "Augmenter les d\xE9g\xE2ts"
+    - "Augmenter le nombre maximum d'ennemis touch\xE9s"
+    - Augmenter la vitesse
   - name: DE
     title: Bullet
     description:
@@ -19420,11 +19523,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   path: Credits
   animationCreditNumber: 5
-  m_font: {fileID: 12800000, guid: 2906b2e76b36d4b4ea3892d784fa50dd, type: 3}
+  m_font: {fileID: 12800000, guid: 58059d60355664f499c41a8846c1dca9, type: 3}
   headerColor: {r: 0.5566038, g: 0.20550118, b: 0.123398006, a: 1}
   nameColor: {r: 1, g: 1, b: 1, a: 1}
-  headerSize: 35
-  nameSize: 20
+  headerSize: 55
+  nameSize: 35
   scrollSpeed: 7
   spaceDivisions: 20
   distanceScreenToDestroy: 1
