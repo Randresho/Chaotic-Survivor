@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class PlayerActions : MonoBehaviour
@@ -15,6 +16,8 @@ public class PlayerActions : MonoBehaviour
     private Vector3 m_MousePos;
     private Vector3 mouseWorlPos;
     private Vector3 targetDir;
+    private Vector2 mousePos;
+    private Vector2 mouseWorlPos2;
 
     [Header("Player Data")]
     [SerializeField] private int playerLevel = 0;
@@ -55,8 +58,10 @@ public class PlayerActions : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        //vector 3D
         m_MousePos = m_PlayerInput.PlayerMovement.ShootPoint.ReadValue<Vector2>();
         mouseWorlPos = m_camera.ScreenToWorldPoint(m_MousePos);
+        
 
         if(playerHP > 0.05f)
         {
@@ -92,6 +97,29 @@ public class PlayerActions : MonoBehaviour
         float angle = Mathf.Atan2(-targetDir.y, -targetDir.x) * Mathf.Rad2Deg;
         shootPoint.rotation = Quaternion.Euler(0, 0, angle);
     }
+
+    #region Vector 2D
+    public void ReadMouseInput(InputAction.CallbackContext context)
+    {
+        //Vector 2D
+        mousePos = m_PlayerInput.PlayerMovement.ShootPoint.ReadValue<Vector2>();
+        mouseWorlPos2 = (Vector2) m_camera.WorldToScreenPoint(transform.position);
+        Vector2 direction = (mousePos-mouseWorlPos2).normalized;
+        //mouseWorlPos2 = m_camera.ScreenToWorldPoint(mousePos);
+    }
+
+    public void ReadStick(InputAction.CallbackContext context)
+    {
+        Vector2 stickDirection = context.ReadValue<Vector2>().normalized;
+        RotateAim(stickDirection);
+    }
+
+    public void RotateAim(Vector2 directon)
+    {
+        float angle = Mathf.Atan2(directon.y, directon.x) * Mathf.Rad2Deg;
+        shootPoint.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+    }
+    #endregion
 
     private void UpdateHp()
     {

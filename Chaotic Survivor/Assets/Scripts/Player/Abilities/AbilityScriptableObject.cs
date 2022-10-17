@@ -119,7 +119,7 @@ public class AbilityScriptableObject : MonoBehaviour
         //Update
         if (isMagnetActive && isSpinActive)
         {
-            Debug.Log("Ambas armas estan activadas");
+            //Debug.Log("Ambas armas estan activadas");
 
             buttons[0].type = (AbilityType)abiltityRandomA;
             buttons[1].type = (AbilityType)abiltityRandomB;
