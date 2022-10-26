@@ -1,0 +1,129 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: StringTable_es
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: es
+  m_SharedData: {fileID: 11400000, guid: 8aaa5603220a31c4a8c30d72834d33ba, type: 2}
+  m_Metadata:
+    m_Items:
+    - rid: 4489640505429458971
+  m_TableData:
+  - m_Id: 41405132800
+    m_Localized: Jugar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 224255815680
+    m_Localized: Ajustes
+    m_Metadata:
+      m_Items: []
+  - m_Id: 293923205120
+    m_Localized: Como jugar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 373333962752
+    m_Localized: "Cr\xE9ditos"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 440279248896
+    m_Localized: Salir
+    m_Metadata:
+      m_Items: []
+  - m_Id: 511049740288
+    m_Localized: "Versi\xF3n"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 639177338880
+    m_Localized: "\xDAltima partida"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 837765050368
+    m_Localized: "Puntaje m\xE1ximo"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1019525214208
+    m_Localized: 'Tiempo:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1091138760704
+    m_Localized: 'Nivel:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1212123459584
+    m_Localized: 'Enemigos:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1308827332608
+    m_Localized: Siguenos en
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1457326665728
+    m_Localized: 'Monedas:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1532568285184
+    m_Localized: Usar milisegundos
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1733320257536
+    m_Localized: "Volum\xE9n de la m\xFAsica"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1827469799424
+    m_Localized: "Volum\xE9n de efectos de sonido"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2341611778048
+    m_Localized: Atras
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2419785216000
+    m_Localized: Cambiar opciones
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2510398959616
+    m_Localized: Continuar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2565788938240
+    m_Localized: Reintentar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2654632685568
+    m_Localized: "Men\xFA principal"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2785864069120
+    m_Localized: Idioma
+    m_Metadata:
+      m_Items: []
+  - m_Id: 392428774240256
+    m_Localized: Nivel {0} -> {1}
+    m_Metadata:
+      m_Items:
+      - rid: 4489640505429458971
+  - m_Id: 392500823994368
+    m_Localized: Resumen de la partida
+    m_Metadata:
+      m_Items: []
+  - m_Id: 392922787753984
+    m_Localized: "\xA1Fin del juego!"
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds:
+    - rid: 4489640505429458971
+      type: {class: SmartFormatTag, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_Entries: 0030b071e9640100

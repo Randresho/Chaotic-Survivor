@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Localization-Assets-Norwegian (no)
+  m_EditorClassIdentifier: 
+  m_GroupName: Localization-Assets-Norwegian (no)
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 407448c88b8710f4681b6c7f228701e8
+  m_SerializeEntries:
+  - m_GUID: f03ada1eee7fbae49939e93d8cb554e9
+    m_Address: "Hvordan \xE5 spille"
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-no
+  m_ReadOnly: 1
+  m_Settings: {fileID: 11400000, guid: 1d29e2e141a0fee43b51267e5740a02e, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 04a4121075bf22449b68f1134cee69ae, type: 2}
+    - {fileID: 11400000, guid: c76a70c1f34125f439200a7015e34e3a, type: 2}
