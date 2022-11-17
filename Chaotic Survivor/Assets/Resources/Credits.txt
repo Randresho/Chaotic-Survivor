@@ -48,6 +48,7 @@ Aluciga
 !Traductions
 Randres - English(EN) / Spanish(ES) / French(FR)
 Unicorn dash - Norwegian(NO)
+Brat Wurst - German(DE)
 
 
 

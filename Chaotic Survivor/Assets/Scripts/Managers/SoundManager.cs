@@ -7,6 +7,7 @@ using UnityEngine.Audio;
 public class SoundManager : MonoBehaviour
 {
     [SerializeField] private UiManager uiManager;
+    [SerializeField] private GameManager gameManager;
 
     public AudioClip[] menus;
     public AudioClip[] levels;
@@ -16,10 +17,14 @@ public class SoundManager : MonoBehaviour
     [HideInInspector] public AudioSource music = null;
     public AudioSource buttonSFX = null;
 
+    private int musicIdx = 0;
+    public bool isPlayingSong { get; private set; }
+
     void Awake()
     {
         uiManager = FindObjectOfType<UiManager>();
         music = GetComponent<AudioSource>();
+        gameManager = FindObjectOfType<GameManager>();
     }
 
     private void FixedUpdate()
@@ -32,6 +37,11 @@ public class SoundManager : MonoBehaviour
 
         if (uiManager.sfxSlider.value == -20)
             audioMixer.SetFloat("SoundFX", -80f);
+
+        /*if (gameManager.isInGame)
+        {
+            ChangeSong();
+        }*/
 
         #region Music Volume
         switch (uiManager.musicSlider.value)
@@ -179,5 +189,25 @@ public class SoundManager : MonoBehaviour
     {
         buttonSFX.clip = clip;
         buttonSFX.Play();
+    }
+
+    public void ChangeSong()
+    {
+        music.Stop();
+        musicIdx = (musicIdx + 1) % levels.Length;
+        music.clip = levels[musicIdx];
+        music.Play();
+        Debug.Log("Ahora suena " + music.clip.name + " con una duracion de " + music.clip.length);
+        //StartCoroutine(ChangeSongPlaying());
+    }
+
+    private IEnumerator ChangeSongPlaying()
+    {
+        Debug.Log("Ahora suena " + music.clip.name + " con una duracion de " + music.clip.length);
+        yield return new WaitForSeconds(music.clip.length);
+        music.Stop();
+        musicIdx = (musicIdx + 1) % levels.Length;
+        music.clip = levels[musicIdx];
+        music.Play();
     }
 }

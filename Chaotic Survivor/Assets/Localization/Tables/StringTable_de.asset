@@ -24,6 +24,34 @@ MonoBehaviour:
     m_Metadata:
       m_Items:
       - rid: 4489640505429458968
+  - m_Id: 41405132800
+    m_Localized: Start
+    m_Metadata:
+      m_Items: []
+  - m_Id: 293923205120
+    m_Localized: Wie gespielt wird
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1457326665728
+    m_Localized: "M\xFCnzen:"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1212123459584
+    m_Localized: 'Feinde:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2565788938240
+    m_Localized: Noch einmal
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2654632685568
+    m_Localized: "Hauptmen\xFC"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 373333962752
+    m_Localized: Mitwirkende
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:

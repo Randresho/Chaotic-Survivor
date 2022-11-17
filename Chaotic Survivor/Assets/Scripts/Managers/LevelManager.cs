@@ -12,6 +12,7 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private UiManager uiManager;
     [SerializeField] private OptionsManager optionsManager;
     [SerializeField] private SaveNLoad saveNLoad;
+    [SerializeField] private SoundManager soundManager;
     [SerializeField] private int fadeAnimator = 0;
     #endregion
 
@@ -54,6 +55,7 @@ public class LevelManager : MonoBehaviour
     public float[] outsideCamValues;
     [Space]
     [SerializeField] private LocalizedString localizedStringLevelUp;
+    [SerializeField] private float musicTimer;
 
     [Header("Life Spawner")]
     public GameObject[] lifePrefab;
@@ -80,6 +82,7 @@ public class LevelManager : MonoBehaviour
         uiManager.levelSlider.maxValue = playerLevelMaxFloat;
         animator = playerActions.GetComponent<Animator>();
         saveNLoad = FindObjectOfType<SaveNLoad>();
+        soundManager = FindObjectOfType<SoundManager>();
         //uiManager.ActiveAnimation(fadeAnimator);
         timerRunning = true;
         abilityScriptable = FindObjectOfType<AbilityScriptableObject>();
@@ -93,6 +96,7 @@ public class LevelManager : MonoBehaviour
     {
         SpawnLife();
         SpawnLevelUpItem();
+        //soundManager.ChangeSong();
     }
 
     // Update is called once per frame
@@ -117,6 +121,14 @@ public class LevelManager : MonoBehaviour
         UpdateCameraSpawner();
         SpawnEnemies();
 
+        if (musicTimer < soundManager.music.clip.length - 5f)
+            musicTimer += Time.fixedDeltaTime;
+        else
+        {
+            soundManager.ChangeSong();
+            musicTimer = 0f;
+        }
+
         animator.SetFloat("HP", playerActions.playerHP);
 
         for (int i = 0; i < items.Count; i++)
@@ -135,7 +147,6 @@ public class LevelManager : MonoBehaviour
     //Level Player
     public void levelPlayer()
     {
-        if (playerLevelFloat >= playerLevelMaxFloat)
         if (playerLevelFloat >= playerLevelMaxFloat)
         {
             playerLevelFloat = 0;
