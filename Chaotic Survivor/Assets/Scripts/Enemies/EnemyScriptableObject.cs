@@ -76,6 +76,7 @@ public class EnemyScriptableObject : MonoBehaviour
         hpSlider.maxValue = hp;
         collider.enabled = true;
         deadObjVfx.SetActive(false);
+        spriteRenderer.material = originalMaterial;
         moveRight = false;
     }
 

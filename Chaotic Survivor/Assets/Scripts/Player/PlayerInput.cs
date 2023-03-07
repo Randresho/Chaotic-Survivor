@@ -182,7 +182,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""fc35e6ab-7fc8-4442-9cb9-f20609e7b455"",
-                    ""path"": ""<Gamepad>/rightStick"",
+                    ""path"": ""<Gamepad>/leftStick"",
                     ""interactions"": """",
                     ""processors"": ""NormalizeVector2,StickDeadzone"",
                     ""groups"": """",
