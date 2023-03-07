@@ -44,6 +44,15 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""RotateAim"",
+                    ""type"": ""Value"",
+                    ""id"": ""93fb5e44-283d-4eac-99b2-023fabac9e5e"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -182,11 +191,22 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""fc35e6ab-7fc8-4442-9cb9-f20609e7b455"",
-                    ""path"": ""<Gamepad>/rightStick"",
+                    ""path"": ""<Gamepad>/leftStick"",
                     ""interactions"": """",
-                    ""processors"": ""NormalizeVector2,StickDeadzone"",
+                    ""processors"": """",
                     ""groups"": """",
                     ""action"": ""ShootPoint"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1436d5ee-a0fd-4bb2-8b37-8cf4d6e83ad9"",
+                    ""path"": ""<Gamepad>/rightStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""RotateAim"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -205,6 +225,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         m_PlayerMovement = asset.FindActionMap("PlayerMovement", throwIfNotFound: true);
         m_PlayerMovement_Walk = m_PlayerMovement.FindAction("Walk", throwIfNotFound: true);
         m_PlayerMovement_ShootPoint = m_PlayerMovement.FindAction("ShootPoint", throwIfNotFound: true);
+        m_PlayerMovement_RotateAim = m_PlayerMovement.FindAction("RotateAim", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -266,12 +287,14 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
     private IPlayerMovementActions m_PlayerMovementActionsCallbackInterface;
     private readonly InputAction m_PlayerMovement_Walk;
     private readonly InputAction m_PlayerMovement_ShootPoint;
+    private readonly InputAction m_PlayerMovement_RotateAim;
     public struct PlayerMovementActions
     {
         private @PlayerInput m_Wrapper;
         public PlayerMovementActions(@PlayerInput wrapper) { m_Wrapper = wrapper; }
         public InputAction @Walk => m_Wrapper.m_PlayerMovement_Walk;
         public InputAction @ShootPoint => m_Wrapper.m_PlayerMovement_ShootPoint;
+        public InputAction @RotateAim => m_Wrapper.m_PlayerMovement_RotateAim;
         public InputActionMap Get() { return m_Wrapper.m_PlayerMovement; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -287,6 +310,9 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 @ShootPoint.started -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnShootPoint;
                 @ShootPoint.performed -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnShootPoint;
                 @ShootPoint.canceled -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnShootPoint;
+                @RotateAim.started -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnRotateAim;
+                @RotateAim.performed -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnRotateAim;
+                @RotateAim.canceled -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnRotateAim;
             }
             m_Wrapper.m_PlayerMovementActionsCallbackInterface = instance;
             if (instance != null)
@@ -297,6 +323,9 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 @ShootPoint.started += instance.OnShootPoint;
                 @ShootPoint.performed += instance.OnShootPoint;
                 @ShootPoint.canceled += instance.OnShootPoint;
+                @RotateAim.started += instance.OnRotateAim;
+                @RotateAim.performed += instance.OnRotateAim;
+                @RotateAim.canceled += instance.OnRotateAim;
             }
         }
     }
@@ -314,5 +343,6 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
     {
         void OnWalk(InputAction.CallbackContext context);
         void OnShootPoint(InputAction.CallbackContext context);
+        void OnRotateAim(InputAction.CallbackContext context);
     }
 }

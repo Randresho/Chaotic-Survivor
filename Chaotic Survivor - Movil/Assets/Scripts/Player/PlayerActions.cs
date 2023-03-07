@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Animations;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
@@ -59,13 +60,15 @@ public class PlayerActions : MonoBehaviour
     void FixedUpdate()
     {
         //vector 3D
-        m_MousePos = m_PlayerInput.PlayerMovement.ShootPoint.ReadValue<Vector2>();
-        mouseWorlPos = m_camera.ScreenToWorldPoint(m_MousePos);
-        
+        //RotateO();
+        #region Funcional
+        m_MousePos = -m_PlayerInput.PlayerMovement.RotateAim.ReadValue<Vector2>();
+        //mouseWorlPos = m_camera.ScreenToWorldPoint(m_MousePos);
+        #endregion
 
-        if(playerHP > 0.05f)
+        if (playerHP > 0.05f)
         {
-            HoldMousePos(mouseWorlPos);
+            HoldMousePos(m_MousePos);
             playerAbilities.SpawnAbilities();
 
             if(m_LevelManager.canShoot)
@@ -94,17 +97,20 @@ public class PlayerActions : MonoBehaviour
     private void HoldMousePos(Vector3 pos)
     {
         targetDir = pos - shootPoint.position;
-        float angle = Mathf.Atan2(-targetDir.y, -targetDir.x) * Mathf.Rad2Deg;
+        float angle = Mathf.Atan2(targetDir.y, targetDir.x) * Mathf.Rad2Deg;
         shootPoint.rotation = Quaternion.Euler(0, 0, angle);
+        Debug.Log("targetDir: " + targetDir + " Angle: " + angle);
     }
 
-    #region Vector 2D
-    public void ReadMouseInput(InputAction.CallbackContext context)
+    /*#region Vector 2D
+    public void ReadInput(InputAction.CallbackContext context)
     {
         //Vector 2D
-        mousePos = m_PlayerInput.PlayerMovement.ShootPoint.ReadValue<Vector2>();
+        mousePos = context.ReadValue<Vector2>();
         mouseWorlPos2 = (Vector2) m_camera.WorldToScreenPoint(transform.position);
         Vector2 direction = (mousePos-mouseWorlPos2).normalized;
+
+        RotateAim(direction);
         //mouseWorlPos2 = m_camera.ScreenToWorldPoint(mousePos);
     }
 
@@ -119,7 +125,7 @@ public class PlayerActions : MonoBehaviour
         float angle = Mathf.Atan2(directon.y, directon.x) * Mathf.Rad2Deg;
         shootPoint.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
     }
-    #endregion
+    #endregion*/
 
     private void UpdateHp()
     {

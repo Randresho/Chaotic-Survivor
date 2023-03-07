@@ -1,0 +1,46 @@
+{
+    "name": "UIActions",
+    "maps": [
+        {
+            "name": "Touch",
+            "id": "b84ced50-d73b-4bd0-ae2d-995f50ed476b",
+            "actions": [
+                {
+                    "name": "Click",
+                    "type": "Value",
+                    "id": "17ae1727-5a6c-4a52-a03c-342703e5950f",
+                    "expectedControlType": "Touch",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "48d2696f-2bd0-4a3c-a51f-77e2800a5713",
+                    "path": "<Touchscreen>/primaryTouch",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Touch",
+                    "action": "Click",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": [
+        {
+            "name": "Touch",
+            "bindingGroup": "Touch",
+            "devices": [
+                {
+                    "devicePath": "<Touchscreen>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        }
+    ]
+}

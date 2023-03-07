@@ -22,6 +22,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "RotateAim",
+                    "type": "Value",
+                    "id": "93fb5e44-283d-4eac-99b2-023fabac9e5e",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -160,11 +169,22 @@
                 {
                     "name": "",
                     "id": "fc35e6ab-7fc8-4442-9cb9-f20609e7b455",
-                    "path": "<Gamepad>/rightStick",
+                    "path": "<Gamepad>/leftStick",
                     "interactions": "",
-                    "processors": "NormalizeVector2,StickDeadzone",
+                    "processors": "",
                     "groups": "",
                     "action": "ShootPoint",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1436d5ee-a0fd-4bb2-8b37-8cf4d6e83ad9",
+                    "path": "<Gamepad>/rightStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RotateAim",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
