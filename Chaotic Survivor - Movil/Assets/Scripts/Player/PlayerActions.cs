@@ -12,7 +12,7 @@ public class PlayerActions : MonoBehaviour
     [SerializeField] private ObjectPolling objectPolling;
     [SerializeField] private AbilityScriptableObject m_AbilityScriptableObject;
     [Header("Rotate Aim")]
-    [SerializeField] private Transform shootPoint;
+    public Transform shootPoint;
     [SerializeField] private Camera m_camera;
     private Vector3 m_MousePos;
     private Vector3 mouseWorlPos;
@@ -94,12 +94,12 @@ public class PlayerActions : MonoBehaviour
         UpdateHp();
     }
 
-    private void HoldMousePos(Vector3 pos)
+    public void HoldMousePos(Vector2 pos)
     {
-        targetDir = pos - shootPoint.position;
-        float angle = Mathf.Atan2(targetDir.y, targetDir.x) * Mathf.Rad2Deg;
+        mousePos = pos;
+        float angle = Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg;
         shootPoint.rotation = Quaternion.Euler(0, 0, angle);
-        Debug.Log("targetDir: " + targetDir + " Angle: " + angle);
+        //Debug.Log("targetDir: " + targetDir + " Angle: " + angle);
     }
 
     /*#region Vector 2D

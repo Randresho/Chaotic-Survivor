@@ -34,6 +34,7 @@ public class PlayerAbilities : MonoBehaviour
 
     [Header("Abilities")]
     public Abilities[] abilities;
+    private PlayerActions playerActions;
 
     // Start is called before the first frame update
     void Awake()
@@ -43,6 +44,7 @@ public class PlayerAbilities : MonoBehaviour
         abilityScriptableObject = FindObjectOfType<AbilityScriptableObject>();
         abilityScriptableObject.SetPlayerAbilities(this);
         gameManager.SetPlayerAbilities(this);
+        playerActions = FindObjectOfType<PlayerActions>();
 
         enableAbilities = new bool[abilities.Length];
         for (int i = 0; i < enableAbilities.Length; i++)
@@ -70,7 +72,7 @@ public class PlayerAbilities : MonoBehaviour
             if( bullet != null)
             {
                 bullet.transform.position = bulletPoint.position;
-                bullet.transform.rotation = shootPoint.rotation;
+                bullet.transform.rotation = playerActions.shootPoint.rotation;
                 bullet.SetActive(true);
             }
 
