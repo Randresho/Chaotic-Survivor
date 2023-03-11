@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     private AbilityScriptableObject abilityScriptableObject = null;
     private LocalSettingsManager localSettingsManager = null;
     [SerializeField] private LevelManager levelManager = null;
+    [SerializeField] private BackButtonMobile backButton = null;
     #endregion
 
     [Header("Persistent Objects")]
@@ -57,6 +58,7 @@ public class GameManager : MonoBehaviour
         levelManager = FindObjectOfType<LevelManager>();
         saveNLoad = FindObjectOfType<SaveNLoad>();
         localSettingsManager = FindObjectOfType<LocalSettingsManager>();
+        backButton = FindObjectOfType<BackButtonMobile>();
         #endregion        
 
         #region Player
@@ -129,6 +131,8 @@ public class GameManager : MonoBehaviour
 
 
     #region Load scenes
+    
+
     //Main Menu
     public void LoadMainMenuStart()
     {

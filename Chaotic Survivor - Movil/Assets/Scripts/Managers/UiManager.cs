@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class UiManager : MonoBehaviour
 {
@@ -36,8 +37,8 @@ public class UiManager : MonoBehaviour
     [SerializeField] private UiAnimationController[] uiAnimationControllers = null;
 
     [Header("Main Menu")]
-    public Text versionTxt = null;
-    public Text companyNameTxt = null;
+    public TextMeshProUGUI versionTxt = null;
+    public TextMeshProUGUI companyNameTxt = null;
     [Space]
     public Text highscoreTimerTxt = null;
     public Text highscoreTimerInfoTxt = null;
