@@ -23,17 +23,21 @@ Randres
 Randres
 
 
-!Ui Animations & Design
+!Ui Animations
 Randres
-Easy UI Animator - Gaba Games
+Easy UI Animator(Gaba Games)
+
+
+!Ui Design
 Studios SoulAres
+
 
 !Music
 xDeviruchi
 
 
 !Pixel Art
-Ivan Voirol
+Ivan Voirol (Backgronds)
 Bonsaiheldin
 Atelier Pixerelia
 
@@ -46,8 +50,12 @@ Aluciga
 
 
 !Traductions
-Randres - English(EN) / Spanish(ES) / French(FR)
-Unicorn dash - Norwegian(NO)
+!Randres
+English(EN)
+Spanish(ES)
+French(FR)
+!Unicorn dash
+Norwegian(NO)
 
 
 
@@ -56,7 +64,6 @@ Unicorn dash - Norwegian(NO)
 
 
 
-
-
-!Thank You!
+!Thank You
+for playing!
  

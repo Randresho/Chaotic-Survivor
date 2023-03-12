@@ -13,6 +13,7 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private OptionsManager optionsManager;
     [SerializeField] private SaveNLoad saveNLoad;
     [SerializeField] private int fadeAnimator = 0;
+    private BackButtonMobile backButtonMobile = null;
     #endregion
 
     [Header("Timer")]
@@ -80,6 +81,7 @@ public class LevelManager : MonoBehaviour
         uiManager.levelSlider.maxValue = playerLevelMaxFloat;
         animator = playerActions.GetComponent<Animator>();
         saveNLoad = FindObjectOfType<SaveNLoad>();
+        backButtonMobile = FindObjectOfType<BackButtonMobile>();
         //uiManager.ActiveAnimation(fadeAnimator);
         timerRunning = true;
         abilityScriptable = FindObjectOfType<AbilityScriptableObject>();
@@ -330,7 +332,8 @@ public class LevelManager : MonoBehaviour
         uiManager.DisplayTimer(timerValue, uiManager.scoreTimerTxt, uiManager.scoreTimerInfoTxt);
         uiManager.DisplayMatchInfo(uiManager.scoreLevelTxt, playerLevel, uiManager.scoreEnemiesTxt, enemiesKilled, uiManager.scoreCoinsTxt, coinsGrab);
 
-        uiManager.ActiveAnimation(gameOverAnimator);      
+        uiManager.ActiveAnimation(gameOverAnimator);
+        backButtonMobile.ChooseUi(7);
     }
     #endregion
 
