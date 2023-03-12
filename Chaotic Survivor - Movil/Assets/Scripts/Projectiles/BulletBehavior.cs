@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.InputSystem.DefaultInputActions;
 
 public class BulletBehavior : MonoBehaviour
 {
@@ -72,7 +73,14 @@ public class BulletBehavior : MonoBehaviour
 
     private void VfxSpawner()
     {
-        Instantiate(vfxPrefab, transform.position, Quaternion.Euler(Vector2.up));
+        GameObject VFX = ObjectPoolVFX.instance.GetPooledObject();
+
+        if (VFX != null)
+        {
+            VFX.transform.position = transform.position;
+            VFX.transform.rotation = Quaternion.Euler(Vector2.up);
+            VFX.SetActive(true);
+        }
     }
 
     public void DestroyNRemove()

@@ -18,7 +18,7 @@ public class Timer : MonoBehaviour
             switch (timerActions)
             {
                 case timerActions.Destroy:
-                    Destroy(gameObject);
+                    gameObject.SetActive(false);
                     break;
                 case timerActions.Active:
                     //Aun no se que hara

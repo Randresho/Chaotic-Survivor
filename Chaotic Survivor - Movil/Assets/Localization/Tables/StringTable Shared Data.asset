@@ -115,6 +115,10 @@ MonoBehaviour:
     m_Key: Game Over
     m_Metadata:
       m_Items: []
+  - m_Id: 55347791889707008
+    m_Key: Auto Aim
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
