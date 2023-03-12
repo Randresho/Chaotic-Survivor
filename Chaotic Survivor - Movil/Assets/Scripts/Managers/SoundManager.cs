@@ -17,6 +17,9 @@ public class SoundManager : MonoBehaviour
     [HideInInspector] public AudioSource music = null;
     public AudioSource buttonSFX = null;
 
+    private int musicIdx = 0;
+    public bool isPlayingSong { get; private set; }
+
     void Awake()
     {
         uiManager = FindObjectOfType<UiManager>();
@@ -47,5 +50,14 @@ public class SoundManager : MonoBehaviour
     {
         buttonSFX.clip = clip;
         buttonSFX.Play();
+    }
+
+    public void ChangeSong()
+    {
+        music.Stop();
+        musicIdx = (musicIdx + 1) % levels.Length;
+        music.clip = levels[musicIdx];
+        music.Play();
+        Debug.Log("Ahora suena " + music.clip.name + " con una duracion de " + music.clip.length);
     }
 }

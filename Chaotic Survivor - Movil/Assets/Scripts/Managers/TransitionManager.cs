@@ -159,10 +159,15 @@ public class TransitionManager : MonoBehaviour
         transitionMusic.SetTrigger("FadeStart");
         yield return new WaitForSeconds(timer);
         if (gameManager.isInGame)
-            soundManager.music.clip = soundManager.levels[Random.Range(0, soundManager.levels.Length)];
+        {
+            //soundManager.music.clip = soundManager.levels[Random.Range(0, soundManager.levels.Length)];
+            soundManager.ChangeSong();
+        }
         else
+        {
             soundManager.music.clip = soundManager.menus[idx];
-        soundManager.music.Play();
+            soundManager.music.Play();
+        }
         transitionMusic.SetTrigger("FadeEnd");
     }
     #endregion

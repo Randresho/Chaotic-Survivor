@@ -77,9 +77,8 @@ public class EnemyScriptableObject : MonoBehaviour
         collider.enabled = true;
         deadObjVfx.SetActive(false);
         moveRight = false;
-
+        spriteRenderer.material = originalMaterial;
         levelManager.enemyScriptables.Add(this);
-        Flash();
     }
 
     // Update is called once per frame
