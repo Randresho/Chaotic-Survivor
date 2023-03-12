@@ -47,14 +47,13 @@ public class UiManager : MonoBehaviour
     public TextMeshProUGUI highscoreCoinsTxt = null;
 
     [Header("Options")]
-    public Toggle muteMusic = null;
-    public Toggle muteSFX = null;
     public Toggle useMillisecondsTgl = null;
-    public Slider musicSlider = null;
-    public Slider sfxSlider = null;
-    public TextMeshProUGUI musicVolumeTxt = null;
-    public TextMeshProUGUI sfxVolumeTxt = null;
-    public Dropdown dropdownLanguage = null;
+    [Space]
+    public Toggle muteMusic = null;
+    [Space]
+    public Toggle muteSFX = null;
+    [Space]
+    public Toggle easyModTgl = null;
 
     [Header("InGame")]
     public TextMeshProUGUI timerTxt = null;
@@ -69,6 +68,9 @@ public class UiManager : MonoBehaviour
     public TextMeshProUGUI scoreLevelTxt = null;
     public TextMeshProUGUI scoreEnemiesTxt = null;
     public TextMeshProUGUI scoreCoinsTxt = null;
+    [Space]
+    public GameObject[] joystickEasyMode = null;
+    public GameObject oneJoystickEasyMode = null;
 
     [Header("Timer")]
     public string[] infoTextString = null;
@@ -82,6 +84,8 @@ public class UiManager : MonoBehaviour
     {
         gameManager = FindObjectOfType<GameManager>();
         optionsManager = FindObjectOfType<OptionsManager>();
+
+        CheckCanvasScaler();
     }
 
     public void PlayAnimations()
@@ -92,6 +96,17 @@ public class UiManager : MonoBehaviour
             uiAnimationControllers[i].PlayAnimationFixed();
         }
     }
+
+    #region AppChecker
+    private void CheckCanvasScaler()
+    {
+        if (((float)Screen.width / Screen.height) < (9f / 18f))
+            return;
+        CanvasScaler[] scalers = FindObjectsOfType<CanvasScaler>();
+        for (int i = 0; i < scalers.Length; i++)
+            scalers[i].matchWidthOrHeight = 1f;
+    }
+    #endregion
 
     #region Animations Ui
     //No Timer

@@ -77,6 +77,9 @@ public class EnemyScriptableObject : MonoBehaviour
         collider.enabled = true;
         deadObjVfx.SetActive(false);
         moveRight = false;
+
+        levelManager.enemyScriptables.Add(this);
+        Flash();
     }
 
     // Update is called once per frame
@@ -162,6 +165,8 @@ public class EnemyScriptableObject : MonoBehaviour
         }
 
         gameObject.SetActive(false);
+
+        levelManager.enemyScriptables.Remove(this);
         ActiveEnemy();
         //Destroy(gameObject);
     }

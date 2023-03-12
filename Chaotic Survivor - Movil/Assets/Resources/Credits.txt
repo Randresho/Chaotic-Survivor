@@ -50,6 +50,7 @@ Aluciga
 
 
 !Traductions
+
 !Randres
 English(EN)
 Spanish(ES)
@@ -65,5 +66,7 @@ Norwegian(NO)
 
 
 !Thank You
-for playing!
+
+!for playing
+
  

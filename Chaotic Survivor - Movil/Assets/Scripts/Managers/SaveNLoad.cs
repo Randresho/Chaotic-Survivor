@@ -24,8 +24,9 @@ public class SaveNLoad : MonoBehaviour
 
     [Header("Options")]
     public int millisecondsOn;
-    public float musicOn;
-    public float sfxOn;
+    public int musicOn;
+    public int sfxOn;
+    public int easyMod;
 
     [Header("Game Data")]
     public int firstTimePlayingInt;
@@ -67,14 +68,21 @@ public class SaveNLoad : MonoBehaviour
     public void SaveMusic()
     {
         musicOn = optionsManager.musicInt;
-        PlayerPrefs.SetFloat("MusicSave", musicOn);
+        PlayerPrefs.SetInt("MusicSave", musicOn);
     }
 
     public void SaveSFX()
     {
         sfxOn = optionsManager.sfxInt;
-        PlayerPrefs.SetFloat("SFXSave", sfxOn);
+        PlayerPrefs.SetInt("SFXSave", sfxOn);
     }
+
+    public void SaveEasyMode()
+    {
+        easyMod = optionsManager.easyModInt;
+        PlayerPrefs.SetInt("EasyModeSave", easyMod);
+    }
+
 
     public void LoadData()
     {
@@ -94,23 +102,47 @@ public class SaveNLoad : MonoBehaviour
 
     public void LoadOptions()
     {
-        millisecondsOn = PlayerPrefs.GetInt("MillisecondsSave");
-        musicOn = PlayerPrefs.GetFloat("MusicSave");
-        sfxOn = PlayerPrefs.GetFloat("SFXSave");
-
         //Milliseconds
+        millisecondsOn = PlayerPrefs.GetInt("MillisecondsSave");
+
         if(millisecondsOn == 0)
-        {
             optionsManager.useMilliseconds = false;
-        }
         else
-        {
             optionsManager.useMilliseconds = true;
-        }
+
         uiManager.useMillisecondsTgl.isOn = optionsManager.useMilliseconds;
 
-        uiManager.musicSlider.value = musicOn;
-        uiManager.sfxSlider.value = sfxOn;
+        //Music
+        musicOn = PlayerPrefs.GetInt("MusicSave");
+
+        if(musicOn == 0)
+            optionsManager.muteMusic = false;
+        else
+            optionsManager.muteMusic = true;
+
+        uiManager.muteMusic.isOn = optionsManager.muteMusic;
+        soundManager.MuteMusic();
+
+        //Sound FX
+        sfxOn = PlayerPrefs.GetInt("SFXSave");
+
+        if(sfxOn == 0)
+            optionsManager.muteSFX = false;
+        else
+            optionsManager.muteSFX = true;
+
+        uiManager.muteSFX.isOn = optionsManager.muteSFX;
+        soundManager.MuteSFX();
+
+        //Easy mod
+        easyMod = PlayerPrefs.GetInt("EasyModeSave");
+
+        if(easyMod == 0)
+            optionsManager.easyMod = true;
+        else
+            optionsManager.easyMod = false;
+
+        uiManager.easyModTgl.isOn = optionsManager.easyMod;
     }
 
     public void ClearData()

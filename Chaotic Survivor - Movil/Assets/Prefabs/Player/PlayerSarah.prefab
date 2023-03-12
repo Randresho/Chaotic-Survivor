@@ -6311,6 +6311,8 @@ MonoBehaviour:
   m_AbilityScriptableObject: {fileID: 0}
   shootPoint: {fileID: 3509748464279818969}
   m_camera: {fileID: 0}
+  rotationAim: 0
+  rotationSpeed: 100
   playerLevel: 0
   playerHP: 300
   playerMaxHP: 300

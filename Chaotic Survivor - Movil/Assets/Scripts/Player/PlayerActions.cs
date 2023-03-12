@@ -8,6 +8,8 @@ using UnityEngine.UI;
 public class PlayerActions : MonoBehaviour
 {
     private PlayerInput m_PlayerInput;
+    private OptionsManager m_OptionsManager;
+
     [SerializeField] private LevelManager m_LevelManager;
     [SerializeField] private ObjectPolling objectPolling;
     [SerializeField] private AbilityScriptableObject m_AbilityScriptableObject;
@@ -15,10 +17,9 @@ public class PlayerActions : MonoBehaviour
     public Transform shootPoint;
     [SerializeField] private Camera m_camera;
     private Vector3 m_MousePos;
-    private Vector3 mouseWorlPos;
-    private Vector3 targetDir;
+    [SerializeField] private float rotationAim;
+    [SerializeField] private float rotationSpeed;
     private Vector2 mousePos;
-    private Vector2 mouseWorlPos2;
 
     [Header("Player Data")]
     [SerializeField] private int playerLevel = 0;
@@ -41,6 +42,7 @@ public class PlayerActions : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        m_OptionsManager = FindObjectOfType<OptionsManager>();
         m_PlayerInput = new PlayerInput();
         m_LevelManager = FindObjectOfType<LevelManager>();
         objectPolling = FindObjectOfType<ObjectPolling>();
@@ -96,9 +98,20 @@ public class PlayerActions : MonoBehaviour
 
     public void HoldMousePos(Vector2 pos)
     {
-        mousePos = pos;
-        float angle = Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg;
-        shootPoint.rotation = Quaternion.Euler(0, 0, angle);
+        if(m_OptionsManager.easyMod)
+        {
+            mousePos = shootPoint.position - m_LevelManager.enemyScriptables[0].transform.position;
+            float angles = Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg;
+            shootPoint.rotation = Quaternion.Euler(0, 0, angles);
+        }
+        else
+        {
+            mousePos = pos;
+            float angle = Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg;
+            shootPoint.rotation = Quaternion.Euler(0, 0, angle);
+        }
+
+        
         //Debug.Log("targetDir: " + targetDir + " Angle: " + angle);
     }
 

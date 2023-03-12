@@ -11,40 +11,22 @@ public class OptionsManager : MonoBehaviour
     public int millisecondsInt;
     [Space]
     public bool muteMusic = false;
-    public float musicInt;
+    public int musicInt;
     [Space]
     public bool muteSFX = false;
-    public float sfxInt;
+    public int sfxInt;
+    [Space]
+    public bool easyMod = false;
+    public int easyModInt;
 
     [Header("Game Objects")]
     public GameObject continueBtn;
-
-    public bool UseMilliseconds()
-    { 
-        return useMilliseconds; 
-    }
-
-    public bool MuteMusic()
-    {
-        return muteMusic;
-    }
-
-    public bool MuteSFX()
-    {
-        return muteSFX;
-    }
 
     // Start is called before the first frame update
     void Awake()
     {
         uiManager = FindObjectOfType<UiManager>();
         saveNLoad = FindObjectOfType<SaveNLoad>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public void UseMillisecondsDispay()
@@ -61,19 +43,37 @@ public class OptionsManager : MonoBehaviour
 
     public void MuteMusicDisplay()
     {
-        //muteMusic = uiManager.muteMusic.isOn;
-
-        musicInt = uiManager.musicSlider.value;
+        muteMusic = uiManager.muteMusic.isOn;  
+        
+        if(muteMusic)
+            musicInt = 1;
+        else
+            musicInt = 0;
 
         saveNLoad.SaveMusic();
     }
 
     public void MuteSFXDisplay()
     {
-        //muteSFX = uiManager.muteSFX.isOn;
+        muteSFX = uiManager.muteSFX.isOn;
 
-        sfxInt = uiManager.sfxSlider.value;
+        if(muteSFX)
+            sfxInt = 1; 
+        else
+            sfxInt = 0;
 
         saveNLoad.SaveSFX();
+    }
+
+    public void UseEasyMode()
+    {
+        easyMod = uiManager.easyModTgl.isOn;
+
+        if(easyMod)
+            easyModInt = 1;
+        else
+            easyModInt = 0;
+
+        saveNLoad.SaveEasyMode();
     }
 }

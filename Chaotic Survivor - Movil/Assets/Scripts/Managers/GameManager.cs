@@ -131,7 +131,6 @@ public class GameManager : MonoBehaviour
 
 
     #region Load scenes
-    
 
     //Main Menu
     public void LoadMainMenuStart()
@@ -186,6 +185,12 @@ public class GameManager : MonoBehaviour
             uiManager.ActiveAnimation(instruccionInt);
             ActiveContinue(true);          
         }
+
+        for (int i = 0; i < uiManager.joystickEasyMode.Length; i++)
+        {
+            uiManager.joystickEasyMode[i].SetActive(!optionsManager.easyMod);
+        }
+        uiManager.oneJoystickEasyMode.SetActive(optionsManager.easyMod);
     }
 
     public void NofirstTime()
