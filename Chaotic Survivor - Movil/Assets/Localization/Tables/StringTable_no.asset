@@ -56,7 +56,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 1733320257536
-    m_Localized: 
+    m_Localized: "Sl\xE5 av musikk"
     m_Metadata:
       m_Items: []
   - m_Id: 2341611778048
@@ -109,11 +109,15 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 1827469799424
-    m_Localized: 
+    m_Localized: "Sl\xE5 av lydeffekter"
     m_Metadata:
       m_Items: []
   - m_Id: 2419785216000
     m_Localized: Justeringer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 55347791889707008
+    m_Localized: Automatisk sikte
     m_Metadata:
       m_Items: []
   references:

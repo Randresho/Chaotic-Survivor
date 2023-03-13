@@ -81,11 +81,11 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 1733320257536
-    m_Localized: Volume della musica
+    m_Localized: Musica muta
     m_Metadata:
       m_Items: []
   - m_Id: 1827469799424
-    m_Localized: Volume dell'effetto sonoro
+    m_Localized: Effetti sonori muti
     m_Metadata:
       m_Items: []
   - m_Id: 2341611778048
@@ -118,6 +118,10 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 392922787753984
     m_Localized: Gioco finito!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 55347791889707008
+    m_Localized: Mira automatica
     m_Metadata:
       m_Items: []
   references:

@@ -16,13 +16,7 @@ MonoBehaviour:
   m_Data:
     m_SerializedData: []
   m_GUID: 355b5853247bd7c4b93eee454e0c7918
-  m_SerializeEntries:
-  - m_GUID: 25f02bde23c33b54a9af0c4ee8283630
-    m_Address: How To Play
-    m_ReadOnly: 1
-    m_SerializedLabels:
-    - Locale-de
-    - Locale-it
+  m_SerializeEntries: []
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: 1d29e2e141a0fee43b51267e5740a02e, type: 2}
   m_SchemaSet:

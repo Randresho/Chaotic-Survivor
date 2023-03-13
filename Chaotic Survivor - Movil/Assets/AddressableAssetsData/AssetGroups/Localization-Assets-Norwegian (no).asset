@@ -17,8 +17,8 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: 407448c88b8710f4681b6c7f228701e8
   m_SerializeEntries:
-  - m_GUID: f03ada1eee7fbae49939e93d8cb554e9
-    m_Address: "Hvordan \xE5 spille"
+  - m_GUID: 602726fe0d555af4fbfe0d3ec4d7e3e1
+    m_Address: How To Play MobileNO
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-no

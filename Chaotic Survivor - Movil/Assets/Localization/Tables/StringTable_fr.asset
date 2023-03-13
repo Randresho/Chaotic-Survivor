@@ -76,11 +76,11 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 1733320257536
-    m_Localized: Volume de la musique
+    m_Localized: Couper la musique
     m_Metadata:
       m_Items: []
   - m_Id: 1827469799424
-    m_Localized: "Volume d'effets sp\xE9ciaux"
+    m_Localized: Couper les effets sonores
     m_Metadata:
       m_Items: []
   - m_Id: 2341611778048
@@ -118,6 +118,10 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 392922787753984
     m_Localized: "Jeu termin\xE9!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 55347791889707008
+    m_Localized: "Vis\xE9e automatique"
     m_Metadata:
       m_Items: []
   references:

@@ -344,6 +344,8 @@ public class LevelManager : MonoBehaviour
         uiManager.DisplayTimer(timerValue, uiManager.scoreTimerTxt, uiManager.scoreTimerInfoTxt);
         uiManager.DisplayMatchInfo(uiManager.scoreLevelTxt, playerLevel, uiManager.scoreEnemiesTxt, enemiesKilled, uiManager.scoreCoinsTxt, coinsGrab);
 
+        PlayGameLogros.instance.SendScore((int)timerValue);
+
         uiManager.ActiveAnimation(gameOverAnimator);
         backButtonMobile.ChooseUi(7);
     }

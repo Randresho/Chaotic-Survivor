@@ -17,8 +17,8 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: 3ee8064095a05a64ba2d527b864b6d33
   m_SerializeEntries:
-  - m_GUID: d1b94a5450e21204590fe74a07a69324
-    m_Address: comment jouer
+  - m_GUID: 3717acd337d63014da301caeade40cc3
+    m_Address: How To Play MobileFR
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-fr
