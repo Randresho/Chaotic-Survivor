@@ -76,8 +76,9 @@ public class EnemyScriptableObject : MonoBehaviour
         hpSlider.maxValue = hp;
         collider.enabled = true;
         deadObjVfx.SetActive(false);
-        spriteRenderer.material = originalMaterial;
         moveRight = false;
+        spriteRenderer.material = originalMaterial;
+        levelManager.enemyScriptables.Add(this);
     }
 
     // Update is called once per frame
@@ -163,6 +164,8 @@ public class EnemyScriptableObject : MonoBehaviour
         }
 
         gameObject.SetActive(false);
+
+        levelManager.enemyScriptables.Remove(this);
         ActiveEnemy();
         //Destroy(gameObject);
     }

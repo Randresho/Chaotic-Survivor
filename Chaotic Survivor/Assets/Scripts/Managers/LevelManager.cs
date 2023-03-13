@@ -31,6 +31,7 @@ public class LevelManager : MonoBehaviour
     public int maxEnemiesSpawn;
     private float timerToSpawnCurrent = 0;
     private OffScreenIndicator offScreenIndicator;
+    public List<EnemyScriptableObject> enemyScriptables = new List<EnemyScriptableObject>();
 
     [Header ("Player Data")]
     public int playerLevel = 1;

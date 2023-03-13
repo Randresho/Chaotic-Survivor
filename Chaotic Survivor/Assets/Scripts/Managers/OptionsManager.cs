@@ -15,6 +15,9 @@ public class OptionsManager : MonoBehaviour
     [Space]
     public bool muteSFX = false;
     public float sfxInt;
+    [Space]
+    public bool easyMod = false;
+    public int easyModInt;
 
     [Header("Game Objects")]
     public GameObject continueBtn;

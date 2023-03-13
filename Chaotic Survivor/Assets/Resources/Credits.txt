@@ -33,7 +33,7 @@ xDeviruchi
 
 
 !Pixel Art
-Ivan Voirol
+Ivan Voirol (Backgrounds)
 Bonsaiheldin
 Atelier Pixerelia
 
@@ -46,9 +46,15 @@ Aluciga
 
 
 !Traductions
-Randres - English(EN) / Spanish(ES) / French(FR)
-Unicorn dash - Norwegian(NO)
-Brat Wurst - German(DE)
+
+!Randres 
+Spanish(ES)
+English(EN)
+French(FR)
+!Unicorn dash
+Norwegian(NO)
+#!Brat Wurst
+#German(DE)
 
 
 
@@ -59,5 +65,7 @@ Brat Wurst - German(DE)
 
 
 
-!Thank You!
+!Thank You
+
+!for playing!
  

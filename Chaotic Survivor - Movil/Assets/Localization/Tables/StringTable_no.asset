@@ -56,7 +56,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 1733320257536
-    m_Localized: Musikk volum
+    m_Localized: 
     m_Metadata:
       m_Items: []
   - m_Id: 2341611778048
@@ -109,7 +109,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 1827469799424
-    m_Localized: Lydeffekt volum
+    m_Localized: 
     m_Metadata:
       m_Items: []
   - m_Id: 2419785216000

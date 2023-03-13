@@ -37,7 +37,7 @@ xDeviruchi
 
 
 !Pixel Art
-Ivan Voirol (Backgronds)
+Ivan Voirol (Backgrounds)
 Bonsaiheldin
 Atelier Pixerelia
 
@@ -52,11 +52,14 @@ Aluciga
 !Traductions
 
 !Randres
-English(EN)
 Spanish(ES)
+English(EN)
 French(FR)
 !Unicorn dash
 Norwegian(NO)
+#!Brat Wurst
+#German(DE)
+
 
 
 
@@ -67,6 +70,6 @@ Norwegian(NO)
 
 !Thank You
 
-!for playing
+!for playing!
 
  

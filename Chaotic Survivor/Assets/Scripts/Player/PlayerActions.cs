@@ -7,6 +7,8 @@ using UnityEngine.UI;
 public class PlayerActions : MonoBehaviour
 {
     private PlayerInput m_PlayerInput;
+    private OptionsManager m_OptionsManager;
+
     [SerializeField] private LevelManager m_LevelManager;
     [SerializeField] private ObjectPolling objectPolling;
     [SerializeField] private AbilityScriptableObject m_AbilityScriptableObject;
@@ -40,6 +42,7 @@ public class PlayerActions : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        m_OptionsManager = FindObjectOfType<OptionsManager>();
         m_PlayerInput = new PlayerInput();
         m_LevelManager = FindObjectOfType<LevelManager>();
         objectPolling = FindObjectOfType<ObjectPolling>();
@@ -61,7 +64,6 @@ public class PlayerActions : MonoBehaviour
         //vector 3D
         m_MousePos = m_PlayerInput.PlayerMovement.ShootPoint.ReadValue<Vector2>();
         mouseWorlPos = m_camera.ScreenToWorldPoint(m_MousePos);
-        
 
         if(playerHP > 0.05f)
         {
@@ -93,13 +95,22 @@ public class PlayerActions : MonoBehaviour
 
     private void HoldMousePos(Vector3 pos)
     {
-        targetDir = pos - shootPoint.position;
-        float angle = Mathf.Atan2(-targetDir.y, -targetDir.x) * Mathf.Rad2Deg;
-        shootPoint.rotation = Quaternion.Euler(0, 0, angle);
+        if (m_OptionsManager.easyMod)
+        {
+            mousePos = shootPoint.position - m_LevelManager.enemyScriptables[0].transform.position;
+            float angles = Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg;
+            shootPoint.rotation = Quaternion.Euler(0, 0, angles);
+        }
+        else
+        {
+            targetDir = pos - shootPoint.position;
+            float angle = Mathf.Atan2(-targetDir.y, -targetDir.x) * Mathf.Rad2Deg;
+            shootPoint.rotation = Quaternion.Euler(0, 0, angle);
+        }
     }
 
     #region Vector 2D
-    public void ReadMouseInput(InputAction.CallbackContext context)
+    /*public void ReadMouseInput(InputAction.CallbackContext context)
     {
         //Vector 2D
         mousePos = m_PlayerInput.PlayerMovement.ShootPoint.ReadValue<Vector2>();
@@ -118,7 +129,7 @@ public class PlayerActions : MonoBehaviour
     {
         float angle = Mathf.Atan2(directon.y, directon.x) * Mathf.Rad2Deg;
         shootPoint.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
-    }
+    }*/
     #endregion
 
     private void UpdateHp()
