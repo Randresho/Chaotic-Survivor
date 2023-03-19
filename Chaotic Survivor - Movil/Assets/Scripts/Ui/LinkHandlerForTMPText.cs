@@ -5,7 +5,6 @@ using System;
 
 public class LinkHandlerForTMPText : MonoBehaviour, IPointerClickHandler
 {
-    private UiManager uiManager;
     private TMP_Text _tmpTextBox;
     private Camera _camera;
 
@@ -15,7 +14,6 @@ public class LinkHandlerForTMPText : MonoBehaviour, IPointerClickHandler
     // Start is called before the first frame update
     void Awake()
     {
-        uiManager = FindObjectOfType<UiManager>();
         _tmpTextBox = GetComponent<TMP_Text>();
         _camera = FindObjectOfType<Camera>();
     }
