@@ -124,6 +124,20 @@ MonoBehaviour:
     m_Localized: Mira automatica
     m_Metadata:
       m_Items: []
+  - m_Id: 57530737761464320
+    m_Localized: Ho letto e accetto la <u><link="https://www.losttrainstudio.com/privacy-policy">informativa
+      sulla privacy</link></u>
+    m_Metadata:
+      m_Items: []
+  - m_Id: 57573590546001920
+    m_Localized: Accettare
+    m_Metadata:
+      m_Items: []
+  - m_Id: 57573532534583296
+    m_Localized: <u><link="https://www.losttrainstudio.com/privacy-policy">Informativa
+      sulla privacy</link></u>
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:

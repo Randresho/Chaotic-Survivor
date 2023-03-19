@@ -124,6 +124,20 @@ MonoBehaviour:
     m_Localized: "Vis\xE9e automatique"
     m_Metadata:
       m_Items: []
+  - m_Id: 57530737761464320
+    m_Localized: "J'ai lu et j'accepte la <u><link=\"https://www.losttrainstudio.com/privacy-policy\">politique
+      de confidentialit\xE9</link></u>"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 57573590546001920
+    m_Localized: Accepter
+    m_Metadata:
+      m_Items: []
+  - m_Id: 57573532534583296
+    m_Localized: "<u><link=\"https://www.losttrainstudio.com/privacy-policy\">Politique
+      de confidentialit\xE9</link></u>"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:

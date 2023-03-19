@@ -119,6 +119,18 @@ MonoBehaviour:
     m_Key: Auto Aim
     m_Metadata:
       m_Items: []
+  - m_Id: 57530737761464320
+    m_Key: Privacy Policy
+    m_Metadata:
+      m_Items: []
+  - m_Id: 57573532534583296
+    m_Key: PrivacyPolicyMM
+    m_Metadata:
+      m_Items: []
+  - m_Id: 57573590546001920
+    m_Key: Accept
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

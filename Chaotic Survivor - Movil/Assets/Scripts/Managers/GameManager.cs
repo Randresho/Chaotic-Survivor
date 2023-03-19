@@ -92,6 +92,7 @@ public class GameManager : MonoBehaviour
 
         if(firstTimePlaying)
         {
+            uiManager.ActiveAnimationWithTimer(9);
             switch (Application.systemLanguage) 
             {
                 case SystemLanguage.English:
@@ -124,6 +125,10 @@ public class GameManager : MonoBehaviour
                     break;
             }
         }
+    }
+    private void Start()
+    {
+            
     }
 
     public void Player(PlayerAbilities playerAbilities)

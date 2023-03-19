@@ -124,6 +124,20 @@ MonoBehaviour:
     m_Localized: Auto Apuntado
     m_Metadata:
       m_Items: []
+  - m_Id: 57530737761464320
+    m_Localized: "He le\xEDdo y acepto la <u><link=\"https://www.losttrainstudio.com/privacy-policy\">pol\xEDtica
+      de privacidad</link></u>"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 57573590546001920
+    m_Localized: Aceptar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 57573532534583296
+    m_Localized: "<u><link=\"https://www.losttrainstudio.com/privacy-policy\">Pol\xEDtica
+      de privacidad</link></u>"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:

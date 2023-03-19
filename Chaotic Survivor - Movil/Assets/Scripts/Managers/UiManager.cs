@@ -36,6 +36,9 @@ public class UiManager : MonoBehaviour
     [Header("All Animation Controllers")]
     [SerializeField] private UiAnimationController[] uiAnimationControllers = null;
 
+    [Header("")]
+    public TextMeshProUGUI TextLinkInfo = null;
+
     [Header("Main Menu")]
     public TextMeshProUGUI versionTxt = null;
     public TextMeshProUGUI companyNameTxt = null;
