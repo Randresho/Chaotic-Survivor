@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -35,38 +36,40 @@ public class UiManager : MonoBehaviour
     [Header("All Animation Controllers")]
     [SerializeField] private UiAnimationController[] uiAnimationControllers = null;
 
+    [Header("Privacy Polices")]
+    public TextMeshProUGUI TextLinkInfo = null;
+
     [Header("Main Menu")]
-    public Text versionTxt = null;
-    public Text companyNameTxt = null;
+    public TextMeshProUGUI versionTxt = null;
+    public TextMeshProUGUI companyNameTxt = null;
     [Space]
-    public Text highscoreTimerTxt = null;
-    public Text highscoreTimerInfoTxt = null;
-    public Text highscoreLevelTxt = null;
-    public Text highscoreEnemiesTxt = null;
-    public Text highscoreCoinsTxt = null;
+    public TextMeshProUGUI highscoreTimerTxt = null;
+    public TextMeshProUGUI highscoreTimerInfoTxt = null;
+    public TextMeshProUGUI highscoreLevelTxt = null;
+    public TextMeshProUGUI highscoreEnemiesTxt = null;
+    public TextMeshProUGUI highscoreCoinsTxt = null;
 
     [Header("Options")]
-    public Toggle muteMusic = null;
-    public Toggle muteSFX = null;
     public Toggle useMillisecondsTgl = null;
     public Slider musicSlider = null;
     public Slider sfxSlider = null;
-    public Text musicVolumeTxt = null;
-    public Text sfxVolumeTxt = null;
+    public TextMeshProUGUI musicVolumeTxt = null;
+    public TextMeshProUGUI sfxVolumeTxt = null;
+    public Toggle autoAim = null;
 
     [Header("InGame")]
-    public Text timerTxt = null;
-    public Text infoTxt = null;
+    public TextMeshProUGUI timerTxt = null;
+    public TextMeshProUGUI infoTxt = null;
     [Space]
     public Slider levelSlider = null;
-    public Text levelNumber = null;
-    public Text levelUpTxt = null;
+    public TextMeshProUGUI levelNumber = null;
+    public TextMeshProUGUI levelUpTxt = null;
     [Space]
-    public Text scoreTimerTxt = null;
-    public Text scoreTimerInfoTxt = null;
-    public Text scoreLevelTxt = null;
-    public Text scoreEnemiesTxt = null;
-    public Text scoreCoinsTxt = null;
+    public TextMeshProUGUI scoreTimerTxt = null;
+    public TextMeshProUGUI scoreTimerInfoTxt = null;
+    public TextMeshProUGUI scoreLevelTxt = null;
+    public TextMeshProUGUI scoreEnemiesTxt = null;
+    public TextMeshProUGUI scoreCoinsTxt = null;
 
     [Header("Timer")]
     public string[] infoTextString = null;
@@ -114,7 +117,7 @@ public class UiManager : MonoBehaviour
 
     #region Display Texts
     //Timer
-    public void DisplayTimer(float timeToDisplay, Text text, Text infoText)
+    public void DisplayTimer(float timeToDisplay, TextMeshProUGUI text, TextMeshProUGUI infoText)
     {
         if (timeToDisplay < 0)
             timeToDisplay = 0;
@@ -180,7 +183,7 @@ public class UiManager : MonoBehaviour
     }
 
     //Match Data
-    public void DisplayMatchInfo(Text levelTxt, int levelData, Text enemiesTxt, int enemiesData, Text coinsTxt, int coinsData)
+    public void DisplayMatchInfo(TextMeshProUGUI levelTxt, int levelData, TextMeshProUGUI enemiesTxt, int enemiesData, TextMeshProUGUI coinsTxt, int coinsData)
     {
         levelTxt.text = "" + levelData;
         enemiesTxt.text = "" + enemiesData;

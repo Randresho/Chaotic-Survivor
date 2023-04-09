@@ -95,7 +95,7 @@ public class PlayerActions : MonoBehaviour
 
     private void HoldMousePos(Vector3 pos)
     {
-        if (m_OptionsManager.easyMod)
+        if (m_OptionsManager.autoAimBool)
         {
             mousePos = shootPoint.position - m_LevelManager.enemyScriptables[0].transform.position;
             float angles = Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg;

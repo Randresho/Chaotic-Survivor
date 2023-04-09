@@ -120,6 +120,24 @@ MonoBehaviour:
     m_Localized: Game Over!
     m_Metadata:
       m_Items: []
+  - m_Id: 60713400232062976
+    m_Localized: Auto Aim
+    m_Metadata:
+      m_Items: []
+  - m_Id: 60713507492999168
+    m_Localized: I have read and agree to the <u><link="https://www.losttrainstudio.com/privacy-policy">privacy
+      policy</link></u>
+    m_Metadata:
+      m_Items: []
+  - m_Id: 60713657980432384
+    m_Localized: <u><link="https://www.losttrainstudio.com/privacy-policy">Privacy
+      Policy</link></u>
+    m_Metadata:
+      m_Items: []
+  - m_Id: 60713727303888896
+    m_Localized: Accept
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:

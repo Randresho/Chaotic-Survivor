@@ -26,6 +26,7 @@ public class SaveNLoad : MonoBehaviour
     public int millisecondsOn;
     public float musicOn;
     public float sfxOn;
+    public int autoAimOn;
 
     [Header("Game Data")]
     public int firstTimePlayingInt;
@@ -76,6 +77,12 @@ public class SaveNLoad : MonoBehaviour
         PlayerPrefs.SetFloat("SFXSave", sfxOn);
     }
 
+    public void SaveAutoAim()
+    {
+        autoAimOn = optionsManager.autoAimInt;
+        PlayerPrefs.SetInt("AutoAimSave", autoAimOn);
+    }
+
     public void LoadData()
     {
         timerData = PlayerPrefs.GetFloat("Timer");
@@ -109,8 +116,22 @@ public class SaveNLoad : MonoBehaviour
         }
         uiManager.useMillisecondsTgl.isOn = optionsManager.useMilliseconds;
 
+        //Music
         uiManager.musicSlider.value = musicOn;
+
+        //Sound FX
         uiManager.sfxSlider.value = sfxOn;
+
+
+        //Auto Aim
+        autoAimOn = PlayerPrefs.GetInt("AutoAimSave");
+
+        if (autoAimOn == 0)
+            optionsManager.autoAimBool = true;
+        else
+            optionsManager.autoAimBool = false;
+
+        uiManager.autoAim.isOn = optionsManager.autoAimBool;
     }
 
     public void ClearData()

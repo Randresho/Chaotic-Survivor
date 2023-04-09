@@ -120,6 +120,24 @@ MonoBehaviour:
     m_Localized: "\xA1Fin del juego!"
     m_Metadata:
       m_Items: []
+  - m_Id: 60713400232062976
+    m_Localized: Auto Apuntado
+    m_Metadata:
+      m_Items: []
+  - m_Id: 60713507492999168
+    m_Localized: "He le\xEDdo y acepto la <u><link=\"https://www.losttrainstudio.com/privacy-policy\">pol\xEDtica
+      de privacidad</link></u>"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 60713657980432384
+    m_Localized: "<u><link=\"https://www.losttrainstudio.com/privacy-policy\">Pol\xEDtica
+      de privacidad</link></u>"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 60713727303888896
+    m_Localized: Aceptar
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:

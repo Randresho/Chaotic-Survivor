@@ -120,6 +120,23 @@ MonoBehaviour:
     m_Localized: Gioco finito!
     m_Metadata:
       m_Items: []
+  - m_Id: 60713400232062976
+    m_Localized: Mira automatica
+    m_Metadata:
+      m_Items: []
+  - m_Id: 60713507492999168
+    m_Localized: 
+    m_Metadata:
+      m_Items: []
+  - m_Id: 60713657980432384
+    m_Localized: <u><link="https://www.losttrainstudio.com/privacy-policy">Informativa
+      sulla privacy</link></u>
+    m_Metadata:
+      m_Items: []
+  - m_Id: 60713727303888896
+    m_Localized: Accettare
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:

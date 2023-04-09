@@ -16,8 +16,8 @@ public class OptionsManager : MonoBehaviour
     public bool muteSFX = false;
     public float sfxInt;
     [Space]
-    public bool easyMod = false;
-    public int easyModInt;
+    public bool autoAimBool = false;
+    public int autoAimInt;
 
     [Header("Game Objects")]
     public GameObject continueBtn;
@@ -78,5 +78,17 @@ public class OptionsManager : MonoBehaviour
         sfxInt = uiManager.sfxSlider.value;
 
         saveNLoad.SaveSFX();
+    }
+
+    public void UseEasyMode()
+    {
+        autoAimBool = uiManager.autoAim.isOn;
+
+        if (autoAimBool)
+            autoAimInt = 1;
+        else
+            autoAimInt = 0;
+
+        saveNLoad.SaveAutoAim();
     }
 }

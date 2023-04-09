@@ -123,7 +123,7 @@ public class LevelManager : MonoBehaviour
         UpdateCameraSpawner();
         SpawnEnemies();
 
-        if (musicTimer < soundManager.music.clip.length - 5f)
+        if (musicTimer < soundManager.music.clip.length - 2f)
             musicTimer += Time.fixedDeltaTime;
         else
         {
@@ -200,6 +200,10 @@ public class LevelManager : MonoBehaviour
 
         uiManager.ActiveAnimation(UiAnimatorActive);
         levelUpSound.Play();
+
+        //Save Data
+        if (timerValue > saveNLoad.timerData && enemiesKilled > saveNLoad.enemiesKilledData && coinsGrab > saveNLoad.coinGrabData && playerLevel > saveNLoad.levelData)
+            saveNLoad.SaveData(timerValue, enemiesKilled, coinsGrab, playerLevel);
     }
 
     public void ResumeFromLevelUp()
@@ -339,7 +343,11 @@ public class LevelManager : MonoBehaviour
             bullets[i].DestroyNRemove();
         }
 
-        saveNLoad.SaveData(timerValue, enemiesKilled, coinsGrab, playerLevel);
+        //Save Data
+        if (timerValue > saveNLoad.timerData && enemiesKilled > saveNLoad.enemiesKilledData && coinsGrab > saveNLoad.coinGrabData && playerLevel > saveNLoad.levelData)
+            saveNLoad.SaveData(timerValue, enemiesKilled, coinsGrab, playerLevel);
+        else
+            Debug.Log("No se supero el record");
 
         uiManager.DisplayTimer(timerValue, uiManager.scoreTimerTxt, uiManager.scoreTimerInfoTxt);
         uiManager.DisplayMatchInfo(uiManager.scoreLevelTxt, playerLevel, uiManager.scoreEnemiesTxt, enemiesKilled, uiManager.scoreCoinsTxt, coinsGrab);

@@ -120,6 +120,23 @@ MonoBehaviour:
     m_Localized: Automatisk sikte
     m_Metadata:
       m_Items: []
+  - m_Id: 57573590546001920
+    m_Localized: Aksepter
+    m_Metadata:
+      m_Items: []
+  - m_Id: 57573532534583296
+    m_Localized: "<u><link=\"https://www.losttrainstudio.com/privacy-policy\">Personvernerkl\xE6ring</link></u>"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 57530737761464320
+    m_Localized: "Jeg har lest og godkjenner det som st\xE5r i <u><link=\"https://www.losttrainstudio.com/privacy-policy\">og
+      personvernerkl\xE6ringen</link></u>"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 837765050368
+    m_Localized: "H\xF8y poengsum"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:

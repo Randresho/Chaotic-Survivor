@@ -23,10 +23,14 @@ Randres
 Randres
 
 
-!Ui Animations & Design
+!Ui Animations
 Randres
-Easy UI Animator - Gaba Games
+Easy UI Animator(Gaba Games)
+
+
+!Ui Design
 Studios SoulAres
+
 
 !Music
 xDeviruchi
@@ -38,6 +42,11 @@ Bonsaiheldin
 Atelier Pixerelia
 
 
+!Publish stores art
+@kimi65_23
+
+
+
 !Game Testers
 Dewva
 Inu945
@@ -47,7 +56,7 @@ Aluciga
 
 !Traductions
 
-!Randres 
+!Randres
 Spanish(ES)
 English(EN)
 French(FR)
@@ -64,8 +73,8 @@ Norwegian(NO)
 
 
 
-
 !Thank You
 
 !for playing!
+
  

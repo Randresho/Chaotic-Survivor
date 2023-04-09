@@ -22,14 +22,23 @@ public class UiManager : MonoBehaviour
             }
         }
     }
-    
+    #endregion
+    #region Timers
+    [System.Serializable]
+    public class TimerTextInfo
+    {
+        public string timerLanguageName;
+        public string[] infoTextString = null;
+    }
+    #endregion
+
     private GameManager gameManager;
     private OptionsManager optionsManager;
+    private LocalSettingsManager localSettingsManager;
 
     [Header("Transition Controller")]
     public float animationUiTimer = 1f;
 
-    #endregion
     [Header("Animation Controllers By Section")]
     [SerializeField] private AnimationUiController[] animationUiControllers;
 
@@ -77,6 +86,8 @@ public class UiManager : MonoBehaviour
 
     [Header("Timer")]
     public string[] infoTextString = null;
+    public TimerTextInfo[] timerTextInfo = null;
+
 
 
     [Header("Loading")]
@@ -87,6 +98,7 @@ public class UiManager : MonoBehaviour
     {
         gameManager = FindObjectOfType<GameManager>();
         optionsManager = FindObjectOfType<OptionsManager>();
+        localSettingsManager = FindObjectOfType<LocalSettingsManager>();
 
         CheckCanvasScaler();
     }
@@ -150,12 +162,12 @@ public class UiManager : MonoBehaviour
             if (!optionsManager.useMilliseconds)
             {
                 text.text = string.Format("{0:00}", seconds);
-                infoText.text = infoTextString[0];
+                infoText.text = timerTextInfo[localSettingsManager.languageNumber].infoTextString[0];
             }
             else
             {
                 text.text = string.Format("{0:00}:{1:000}", seconds, milliseconds);
-                infoText.text = infoTextString[1];
+                infoText.text = timerTextInfo[localSettingsManager.languageNumber].infoTextString[1];
             }
         }
         if (timeToDisplay > 60f)
@@ -163,12 +175,12 @@ public class UiManager : MonoBehaviour
             if (!optionsManager.useMilliseconds)
             {
                 text.text = string.Format("{0:00}:{1:00}", minutes, seconds);
-                infoText.text = infoTextString[2];
+                infoText.text = timerTextInfo[localSettingsManager.languageNumber].infoTextString[2];
             }
             else
             {
                 text.text = string.Format("{0:00}:{1:00}:{2:000}", minutes, seconds, milliseconds);
-                infoText.text = infoTextString[3];
+                infoText.text = timerTextInfo[localSettingsManager.languageNumber].infoTextString[3];
             }
         }
         if (timeToDisplay > 3600f)
@@ -176,12 +188,12 @@ public class UiManager : MonoBehaviour
             if (!optionsManager.useMilliseconds)
             {
                 text.text = string.Format("{0:00}:{1:00}:{2:00}", hour, minutes, seconds);
-                infoText.text = infoTextString[4];
+                infoText.text = timerTextInfo[localSettingsManager.languageNumber].infoTextString[4];
             }
             else
             {
                 text.text = string.Format("{0:00}:{1:00}:{2:00}:{3:000}", hour, minutes, seconds, milliseconds);
-                infoText.text = infoTextString[5];
+                infoText.text = timerTextInfo[localSettingsManager.languageNumber].infoTextString[5];
             }
         }
         if (timeToDisplay > 86400f)
@@ -189,12 +201,12 @@ public class UiManager : MonoBehaviour
             if (!optionsManager.useMilliseconds)
             {
                 text.text = string.Format("{0:00}:{1:00}:{2:00}:{3:00}", days, hour, minutes, seconds);
-                infoText.text = infoTextString[6];
+                infoText.text = timerTextInfo[localSettingsManager.languageNumber].infoTextString[6];
             }
             else
             {
                 text.text = string.Format("{0:00}:{1:00}:{2:00}:{3:00}:{4:000}", days, hour, minutes, seconds, milliseconds);
-                infoText.text = infoTextString[7];
+                infoText.text = timerTextInfo[localSettingsManager.languageNumber].infoTextString[7];
             }
         }
     }

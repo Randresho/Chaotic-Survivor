@@ -116,6 +116,10 @@ MonoBehaviour:
     m_Localized: Justeringer
     m_Metadata:
       m_Items: []
+  - m_Id: 60713400232062976
+    m_Localized: Automatisk sikte
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:
