@@ -186,9 +186,6 @@ public class GameManager : MonoBehaviour
             //transitionManager.TransitionAsyncScenes(currentLevelNumber);
             transitionManager.TransitionMusic(currentLevelNumber, transitionTimer);
             uiManager.ActiveAnimation(0);
-#if UNITY_ANDROID
-            PlayGameLogros.instance.WinAchivement();
-#endif
         }
         else
         {
