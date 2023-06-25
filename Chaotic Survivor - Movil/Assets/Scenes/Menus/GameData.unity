@@ -21303,6 +21303,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uiManager: {fileID: 0}
   optionsManager: {fileID: 0}
+  transitionManager: {fileID: 0}
   menus:
   - {fileID: 8300000, guid: b6ab95a18270694479512064a8881a69, type: 3}
   - {fileID: 8300000, guid: af125b228488f184bb0379844b4995e5, type: 3}
@@ -21615,10 +21616,13 @@ MonoBehaviour:
   transitionMusic: {fileID: 1783978350}
   loadingScreen: {fileID: 1760736326}
   scenes:
-  - BGData
+  - BGData2
   - GameData
+  - BGData
   levels:
   - Level
+  levelSceneLocation: Scenes/Levels/
+  menuSceneLocation: Scenes/Menus/
 --- !u!4 &1786075453
 Transform:
   m_ObjectHideFlags: 0

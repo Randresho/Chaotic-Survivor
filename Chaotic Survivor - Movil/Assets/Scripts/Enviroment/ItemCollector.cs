@@ -21,7 +21,6 @@ public class ItemCollector : MonoBehaviour
     void Awake()
     {
         levelManager = FindObjectOfType<LevelManager>();
-        levelManager.items.Add(this); 
         m_rigidbodys = GetComponent<Rigidbody2D>();
         playerPos = FindObjectOfType<PlayerMovement>().transform;
         coinSound = GetComponent<AudioSource>();
@@ -56,7 +55,6 @@ public class ItemCollector : MonoBehaviour
             levelManager.coinsGrab++;
 
             levelManager.levelPlayer();
-            //levelManager.items.Remove(this);
 
             StartCoroutine(DestroyObj());
         }

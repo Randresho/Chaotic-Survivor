@@ -8,6 +8,7 @@ public class SoundManager : MonoBehaviour
 {
     [SerializeField] private UiManager uiManager;
     [SerializeField] private OptionsManager optionsManager;
+    [SerializeField] private TransitionManager transitionManager;
 
     public AudioClip[] menus;
     public AudioClip[] levels;
@@ -24,6 +25,7 @@ public class SoundManager : MonoBehaviour
     {
         uiManager = FindObjectOfType<UiManager>();
         optionsManager = FindObjectOfType<OptionsManager>();
+        transitionManager = FindObjectOfType<TransitionManager>();
 
         music = GetComponent<AudioSource>();
     }
@@ -52,12 +54,37 @@ public class SoundManager : MonoBehaviour
         buttonSFX.Play();
     }
 
-    public void ChangeSong()
+    public void ChangeSongInLevel()
     {
+        StartCoroutine(ChangeToNextSongInLevel());
+    }
+
+    IEnumerator ChangeToNextSongInLevel()
+    {
+        transitionManager.transitionMusic.SetTrigger("FadeStart");
+        yield return new WaitForSeconds(0.5f);
         music.Stop();
         musicIdx = (musicIdx + 1) % levels.Length;
         music.clip = levels[musicIdx];
-        music.Play();
         Debug.Log("Ahora suena " + music.clip.name + " con una duracion de " + music.clip.length);
+        music.Play();
+        transitionManager.transitionMusic.SetTrigger("FadeEnd");
+    }
+
+    public void ChangeSongMainMenu()
+    {
+        StartCoroutine(ChangeToNextSongMainMenu());
+    }
+
+    IEnumerator ChangeToNextSongMainMenu()
+    {
+        transitionManager.transitionMusic.SetTrigger("FadeStart");
+        yield return new WaitForSeconds(0.5f);
+        music.Stop();
+        musicIdx = (musicIdx + 1) % menus.Length;
+        music.clip = menus[musicIdx];
+        Debug.Log("Ahora suena " + music.clip.name + " con una duracion de " + music.clip.length);
+        music.Play();
+        transitionManager.transitionMusic.SetTrigger("FadeEnd");
     }
 }

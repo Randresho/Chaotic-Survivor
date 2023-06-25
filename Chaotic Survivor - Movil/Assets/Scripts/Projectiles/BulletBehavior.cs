@@ -42,14 +42,6 @@ public class BulletBehavior : MonoBehaviour
         {
             DestroyNRemove();
         }
-        else
-        {
-            /*if (timerToDestroy > 0)
-                timerToDestroy -= Time.fixedDeltaTime;
-            else
-                DestroyNRemove();*/
-
-        }
 
         Vector2 screenPos = cam.WorldToScreenPoint(rb.position);
         if (screenPos.y > Screen.height || screenPos.y < 0 || screenPos.x > Screen.width || screenPos.x < 0)
@@ -85,8 +77,6 @@ public class BulletBehavior : MonoBehaviour
 
     public void DestroyNRemove()
     {
-        //levelManager.bullets.Remove(this);
-        //Destroy(gameObject);
         gameObject.SetActive(false);
         enemiesHit = 0;
     }

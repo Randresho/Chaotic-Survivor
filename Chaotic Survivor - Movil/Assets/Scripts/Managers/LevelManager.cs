@@ -48,7 +48,6 @@ public class LevelManager : MonoBehaviour
     public int coinsGrab = 0;
     public List<EnemyScriptableObject> enemies = null;
     public List<BulletBehavior> bullets = null;
-    public List<ItemCollector> items = null;
     public int UiAnimatorActive;
     public int gameOverAnimator;
     public bool canShoot = true;
@@ -86,7 +85,6 @@ public class LevelManager : MonoBehaviour
         saveNLoad = FindObjectOfType<SaveNLoad>();
         soundManager = FindObjectOfType<SoundManager>();
         backButtonMobile = FindObjectOfType<BackButtonMobile>();
-        //uiManager.ActiveAnimation(fadeAnimator);
         timerRunning = true;
         abilityScriptable = FindObjectOfType<AbilityScriptableObject>();
         abilityScriptable.SetLevelManager(this);
@@ -99,6 +97,7 @@ public class LevelManager : MonoBehaviour
     {
         SpawnLife();
         SpawnLevelUpItem();
+        UpdateCameraPoint();
     }
 
     // Update is called once per frame
@@ -120,23 +119,14 @@ public class LevelManager : MonoBehaviour
             playerActions.timerToReduceLife = 1f;
 
         //Enemies
-        UpdateCameraSpawner();
         SpawnEnemies();
 
-        if (musicTimer < soundManager.music.clip.length - 2f)
+        if (musicTimer <= soundManager.music.clip.length)
             musicTimer += Time.fixedDeltaTime;
         else
         {
-            soundManager.ChangeSong();
+            soundManager.ChangeSongInLevel();
             musicTimer = 0f;
-        }
-
-        animator.SetFloat("HP", playerActions.playerHP);
-
-        for (int i = 0; i < items.Count; i++)
-        {
-            if (items[i] == null)
-                items.Remove(items[i]);
         }
     }
 
@@ -173,23 +163,12 @@ public class LevelManager : MonoBehaviour
         playerActions.playerCollider.enabled = false;
         abilityScriptable.SelectRandomNumbers();
 
-        for (int i = 0; i < enemies.Count; i++)
-        {
-            enemies[i].speed = 0;
-        }
-
         for (int i = 0;i < bullets.Count; i++)
         {
             bullets[i].DestroyNRemove();
         }
 
-        for (int i = 0; i < items.Count; i++)
-        {
-            items[i].collider2D.enabled = false;
-        }
-
-        ShowLevelUpMsg();
-       
+        ShowLevelUpMsg();       
 
         timerRunning = false;
         canShoot = false;
@@ -215,11 +194,6 @@ public class LevelManager : MonoBehaviour
             enemies[i].speed = enemies[i].maxSpeed;
         }
 
-        for (int i = 0; i < items.Count; i++)
-        {
-            items[i].collider2D.enabled = true;
-        }
-
         timerRunning = true;
         canShoot = true;
         playerMovement.enabled = true;
@@ -231,13 +205,14 @@ public class LevelManager : MonoBehaviour
     #endregion
 
     #region Enemies 
-    private void UpdateCameraSpawner()
+    public void UpdateCameraPoint()
     {
         outsideCam = cameraMain.ViewportToWorldPoint(new Vector3(Random.Range(outsideCamValues[0], outsideCamValues[1]), Random.Range(outsideCamValues[0], outsideCamValues[1]), 10));
     }
 
-    private void SpawnEnemies()
+    public void SpawnEnemies()
     {
+
         if (enemiesSpawned < maxEnemiesSpawn)
         {
             if (timerToSpawnCurrent > 0)
@@ -293,8 +268,6 @@ public class LevelManager : MonoBehaviour
     {
         spawnPointLifeNumber = Random.Range(0, lifeSpawnPoint.Length);
 
-        //Instantiate(lifePrefab[Random.Range(0, lifePrefab.Length)], lifeSpawnPoint[spawnPointLifeNumber].position, Quaternion.identity);
-
         GameObject lifeItem = ObjectPoolLife.instance.GetPooledObject();
         if (lifeItem != null)
         {
@@ -307,8 +280,6 @@ public class LevelManager : MonoBehaviour
     public void SpawnLevelUpItem()
     {
         spawnPointlevelUpItemNumber = Random.Range(0, levelUpItemSpawnPoint.Length);
-
-        //Instantiate(levelUpItemPrefab[Random.Range(0, levelUpItemPrefab.Length)], levelUpItemSpawnPoint[spawnPointlevelUpItemNumber].position, Quaternion.identity);
 
         GameObject levelUpItem = ObjectPoolLevel.instance.GetPooledObject();
         if (levelUpItem != null)

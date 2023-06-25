@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -13,13 +14,16 @@ public class TransitionManager : MonoBehaviour
 
     [Header("Transitions")]
     [SerializeField] private Animator transitionScene = null;
-    [SerializeField] private Animator transitionMusic = null;
+    public Animator transitionMusic = null;
     [Space]
     [SerializeField] private GameObject loadingScreen; 
 
     [Header("Scenes & Levels")]
     [SerializeField] private string[] scenes = null;
     public string[] levels = null;
+    [Space]
+    [SerializeField] private string levelSceneLocation;
+    [SerializeField] private string menuSceneLocation;
 
     // Start is called before the first frame update
     void Awake()
@@ -46,8 +50,7 @@ public class TransitionManager : MonoBehaviour
 
         if (gameManager.isInGame)
         {
-            operation = SceneManager.LoadSceneAsync("Scenes/Levels/" + levels[idx]);
-            //SceneManager.LoadScene("Scenes/Levels/" + levels[idx]);
+            operation = SceneManager.LoadSceneAsync(levelSceneLocation + levels[idx]);
             //Ui
             while (!operation.isDone)
             {
@@ -61,8 +64,7 @@ public class TransitionManager : MonoBehaviour
         }
         else
         {
-            operation = SceneManager.LoadSceneAsync("Scenes/Menus/" + scenes[idx]);
-            //SceneManager.LoadScene("Scenes/Menus/" + scenes[idx]);
+            operation = SceneManager.LoadSceneAsync(menuSceneLocation + scenes[idx]);
             //Ui
             while (!operation.isDone)
             {
@@ -86,46 +88,14 @@ public class TransitionManager : MonoBehaviour
         yield return new WaitForSeconds(timer);
         if (gameManager.isInGame)
         {
-            SceneManager.LoadScene("Scenes/Levels/" + levels[idx]);
+            SceneManager.LoadScene(levelSceneLocation + levels[idx]);
             //Ui
         }
         else
         {
-            SceneManager.LoadScene("Scenes/Menus/" + scenes[idx]);
+            SceneManager.LoadScene(menuSceneLocation + scenes[idx]);
             //Ui
         }
-        transitionScene.SetTrigger("End");
-    }
-    #endregion
-
-    #region Choose Levels
-    public void TransitionChooseLevels(int idx, float timer)
-    {
-        StartCoroutine(LoadChooseLevels(idx, timer));
-    }
-
-    IEnumerator LoadChooseLevels(int idx, float timer)
-    {
-        transitionScene.SetTrigger("Start");
-        yield return new WaitForSeconds(timer);
-        SceneManager.LoadScene("Scenes/Menus" + scenes[idx]);
-        //Ui
-        transitionScene.SetTrigger("End");
-    }
-    #endregion
-
-    #region Winning
-    public void TransitionWinning(int idx, float timer)
-    {
-        StartCoroutine(LoadWinning(idx, timer));
-    }
-
-    IEnumerator LoadWinning(int idx, float timer)
-    {
-        transitionScene.SetTrigger("Start");
-        yield return new WaitForSeconds(timer);
-        SceneManager.LoadScene("Scenes/Menu" + scenes[idx]);
-        //Ui
         transitionScene.SetTrigger("End");
     }
     #endregion
@@ -142,10 +112,13 @@ public class TransitionManager : MonoBehaviour
         transitionMusic.SetTrigger("FadeStart");
         yield return new WaitForSeconds(timer);
         if (gameManager.isInGame)
-            soundManager.music.clip = soundManager.levels[Random.Range(0, soundManager.levels.Length)];
+        {
+            soundManager.ChangeSongInLevel();
+        }
         else
-            soundManager.music.clip = soundManager.menus[Random.Range(0, soundManager.menus.Length)];
-        soundManager.music.Play();
+        {
+            soundManager.ChangeSongMainMenu();
+        }
         transitionMusic.SetTrigger("FadeEnd");
     }
 
@@ -160,8 +133,7 @@ public class TransitionManager : MonoBehaviour
         yield return new WaitForSeconds(timer);
         if (gameManager.isInGame)
         {
-            //soundManager.music.clip = soundManager.levels[Random.Range(0, soundManager.levels.Length)];
-            soundManager.ChangeSong();
+            soundManager.ChangeSongInLevel();
         }
         else
         {

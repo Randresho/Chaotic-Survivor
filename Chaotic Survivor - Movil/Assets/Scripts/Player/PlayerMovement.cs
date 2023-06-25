@@ -28,15 +28,15 @@ public class PlayerMovement : MonoBehaviour
     void FixedUpdate()
     {
         moveInput = m_PlayerInput.PlayerMovement.Walk.ReadValue<Vector2>();
-        SetVelocity(m_PlayerSpeed);
-
-        animator.SetFloat("VelX", m_rigidbody2D.velocity.x);
-        animator.SetFloat("VelY", m_rigidbody2D.velocity.y);
+        SetVelocity(m_PlayerSpeed);        
     }
 
     private void SetVelocity(float speed)
     {
         m_rigidbody2D.velocity = moveInput * speed;
+
+        animator.SetFloat("VelX", m_rigidbody2D.velocity.x);
+        animator.SetFloat("VelY", m_rigidbody2D.velocity.y);
     }
 
     #region Input Enable / Disable

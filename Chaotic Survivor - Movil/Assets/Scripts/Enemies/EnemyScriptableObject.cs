@@ -79,6 +79,8 @@ public class EnemyScriptableObject : MonoBehaviour
         moveRight = false;
         spriteRenderer.material = originalMaterial;
         levelManager.enemyScriptables.Add(this);
+        EnemyLife();
+        levelManager.UpdateCameraPoint();
     }
 
     // Update is called once per frame
@@ -92,8 +94,8 @@ public class EnemyScriptableObject : MonoBehaviour
         {
             speed = 0;
         }
-        
-        EnemyLife();
+
+        MoveEnemy();
     }
 
     private void MoveEnemy()
@@ -112,21 +114,7 @@ public class EnemyScriptableObject : MonoBehaviour
             Vector2 velocity = move * speed * Time.fixedDeltaTime;
             m_rigidbodys.velocity = velocity;
             collider.enabled = false;
-        }        
-    }
-
-    private void EnemyLife()
-    {
-        //Hp
-        hpSlider.value = hp;
-        if (hp <= 0.05)
-        {
-            deadObjVfx.SetActive(true);
-            deadVfx.Play("Anim");
-            StartCoroutine(DestroyObj());
         }
-        else
-            MoveEnemy();
 
         //Sprite Renderer
         Vector2 screenPos = Camera.main.WorldToScreenPoint(m_rigidbodys.position);
@@ -139,10 +127,22 @@ public class EnemyScriptableObject : MonoBehaviour
         else
         {
             if (hp <= 0.05)
-                spriteRenderer.enabled = false; 
+                spriteRenderer.enabled = false;
             else
-                spriteRenderer.enabled = true; 
+                spriteRenderer.enabled = true;
         }
+    }
+
+    private void EnemyLife()
+    {
+        //Hp
+        hpSlider.value = hp;
+        if (hp <= 0.05)
+        {
+            deadObjVfx.SetActive(true);
+            deadVfx.Play("Anim");
+            StartCoroutine(DestroyObj());
+        }      
     }
 
     public IEnumerator DestroyObj()
@@ -176,6 +176,7 @@ public class EnemyScriptableObject : MonoBehaviour
         if (obj.GetComponent<BulletBehavior>() != null)
         {
             hp -= obj.GetComponent<BulletBehavior>().damage;
+            EnemyLife();
             Flash();
             if (hp <= 0.06)
             {

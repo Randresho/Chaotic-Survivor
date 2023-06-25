@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.Animations;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using static UnityEngine.InputSystem.DefaultInputActions;
 
 public class PlayerActions : MonoBehaviour
 {
@@ -31,6 +32,7 @@ public class PlayerActions : MonoBehaviour
     private PlayerMovement playerMovement = null;
     public float timerToReduceLife = 1;
     [SerializeField] private float reducerLife = 0.5f;
+    [SerializeField] private Animator animator = null;
 
     [Header("Hit FX")]
     [SerializeField] private SpriteRenderer spriteRenderer = null;
@@ -56,16 +58,15 @@ public class PlayerActions : MonoBehaviour
         playerMovement = GetComponent<PlayerMovement>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         originalMaterial = spriteRenderer.material;
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
         //vector 3D
-        //RotateO();
         #region Funcional
         m_MousePos = -m_PlayerInput.PlayerMovement.RotateAim.ReadValue<Vector2>();
-        //mouseWorlPos = m_camera.ScreenToWorldPoint(m_MousePos);
         #endregion
 
         if (playerHP > 0.05f)
@@ -96,6 +97,7 @@ public class PlayerActions : MonoBehaviour
         UpdateHp();
     }
 
+    #region Hold Mouse Pos
     public void HoldMousePos(Vector2 pos)
     {
         if(m_OptionsManager.easyMod)
@@ -110,36 +112,10 @@ public class PlayerActions : MonoBehaviour
             float angle = Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg;
             shootPoint.rotation = Quaternion.Euler(0, 0, angle);
         }
-
-        
-        //Debug.Log("targetDir: " + targetDir + " Angle: " + angle);
     }
+    #endregion
 
-    /*#region Vector 2D
-    public void ReadInput(InputAction.CallbackContext context)
-    {
-        //Vector 2D
-        mousePos = context.ReadValue<Vector2>();
-        mouseWorlPos2 = (Vector2) m_camera.WorldToScreenPoint(transform.position);
-        Vector2 direction = (mousePos-mouseWorlPos2).normalized;
-
-        RotateAim(direction);
-        //mouseWorlPos2 = m_camera.ScreenToWorldPoint(mousePos);
-    }
-
-    public void ReadStick(InputAction.CallbackContext context)
-    {
-        Vector2 stickDirection = context.ReadValue<Vector2>().normalized;
-        RotateAim(stickDirection);
-    }
-
-    public void RotateAim(Vector2 directon)
-    {
-        float angle = Mathf.Atan2(directon.y, directon.x) * Mathf.Rad2Deg;
-        shootPoint.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
-    }
-    #endregion*/
-
+    #region Update HP
     private void UpdateHp()
     {
         playerHPSlider.value = playerHP;
@@ -169,7 +145,10 @@ public class PlayerActions : MonoBehaviour
             playerHP = 300;
             Debug.Log("Se tiene la vida completa");
         }
+
+        animator.SetFloat("HP", playerHP);
     }
+    #endregion
 
     private void OnCollisionEnter2D(Collision2D other)
     {
