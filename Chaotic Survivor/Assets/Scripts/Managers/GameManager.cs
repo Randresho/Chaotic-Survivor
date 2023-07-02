@@ -1,6 +1,8 @@
 using System.Collections;
+//using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
@@ -88,6 +90,7 @@ public class GameManager : MonoBehaviour
 
         if(firstTimePlaying)
         {
+            uiManager.ActiveAnimationWithTimer(9);
             switch (Application.systemLanguage) 
             {
                 case SystemLanguage.English:
@@ -100,7 +103,8 @@ public class GameManager : MonoBehaviour
                     break;
                 case SystemLanguage.German:
                     Debug.Log("El idioma original es Aleman");
-                    localSettingsManager.languageNumber = 2;
+                    //localSettingsManager.languageNumber = 2;
+                    localSettingsManager.languageNumber = 0;
                     break;
                 case SystemLanguage.Italian:
                     Debug.Log("El idioma original es Italiano");
@@ -120,6 +124,10 @@ public class GameManager : MonoBehaviour
             }
         }
     }
+    private void Start()
+    {
+            
+    }
 
     public void Player(PlayerAbilities playerAbilities)
     {
@@ -128,6 +136,7 @@ public class GameManager : MonoBehaviour
 
 
     #region Load scenes
+
     //Main Menu
     public void LoadMainMenuStart()
     {
@@ -175,6 +184,9 @@ public class GameManager : MonoBehaviour
             //transitionManager.TransitionAsyncScenes(currentLevelNumber);
             transitionManager.TransitionMusic(currentLevelNumber, transitionTimer);
             uiManager.ActiveAnimation(0);
+#if UNITY_ANDROID
+            PlayGameLogros.instance.WinAchivement();
+#endif
         }
         else
         {

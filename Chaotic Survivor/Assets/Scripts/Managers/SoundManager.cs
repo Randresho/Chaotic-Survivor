@@ -38,11 +38,6 @@ public class SoundManager : MonoBehaviour
         if (uiManager.sfxSlider.value == -20)
             audioMixer.SetFloat("SoundFX", -80f);
 
-        /*if (gameManager.isInGame)
-        {
-            ChangeSong();
-        }*/
-
         #region Music Volume
         switch (uiManager.musicSlider.value)
         {
@@ -191,23 +186,33 @@ public class SoundManager : MonoBehaviour
         buttonSFX.Play();
     }
 
-    public void ChangeSong()
+    public void ChangeSongInLevel()
     {
-        music.Stop();
-        musicIdx = (musicIdx + 1) % levels.Length;
-        music.clip = levels[musicIdx];
-        music.Play();
-        Debug.Log("Ahora suena " + music.clip.name + " con una duracion de " + music.clip.length);
-        //StartCoroutine(ChangeSongPlaying());
+        StartCoroutine(ChangeSongPlayingInLevel());
     }
 
-    private IEnumerator ChangeSongPlaying()
+    private IEnumerator ChangeSongPlayingInLevel()
     {
-        Debug.Log("Ahora suena " + music.clip.name + " con una duracion de " + music.clip.length);
-        yield return new WaitForSeconds(music.clip.length);
+        yield return new WaitForSeconds(0.5f);
         music.Stop();
         musicIdx = (musicIdx + 1) % levels.Length;
         music.clip = levels[musicIdx];
+        Debug.Log("Ahora suena " + music.clip.name + " con una duracion de " + music.clip.length);
+        music.Play();
+    }
+
+    public void ChangeSongMainMenu()
+    {
+        StartCoroutine(ChangeSongPlayingMainMenu());
+    }
+
+    private IEnumerator ChangeSongPlayingMainMenu()
+    {
+        yield return new WaitForSeconds(0.5f);
+        music.Stop();
+        musicIdx = (musicIdx + 1) % menus.Length;
+        music.clip = menus[musicIdx];
+        Debug.Log("Ahora suena " + music.clip.name + " con una duracion de " + music.clip.length);
         music.Play();
     }
 }

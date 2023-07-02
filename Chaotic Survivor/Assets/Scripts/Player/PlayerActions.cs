@@ -13,7 +13,7 @@ public class PlayerActions : MonoBehaviour
     [SerializeField] private ObjectPolling objectPolling;
     [SerializeField] private AbilityScriptableObject m_AbilityScriptableObject;
     [Header("Rotate Aim")]
-    [SerializeField] private Transform shootPoint;
+    public Transform shootPoint;
     [SerializeField] private Camera m_camera;
     private Vector3 m_MousePos;
     private Vector3 mouseWorlPos;
@@ -31,6 +31,7 @@ public class PlayerActions : MonoBehaviour
     private PlayerMovement playerMovement = null;
     public float timerToReduceLife = 1;
     [SerializeField] private float reducerLife = 0.5f;
+    [SerializeField] private Animator animator = null;
 
     [Header("Hit FX")]
     [SerializeField] private SpriteRenderer spriteRenderer = null;
@@ -56,6 +57,7 @@ public class PlayerActions : MonoBehaviour
         playerMovement = GetComponent<PlayerMovement>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         originalMaterial = spriteRenderer.material;
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -88,7 +90,7 @@ public class PlayerActions : MonoBehaviour
             {
                 playerAbilities.abilities[i].ability.SetActive(false);
             }
-        }    
+        }
 
         UpdateHp();
     }
@@ -109,30 +111,7 @@ public class PlayerActions : MonoBehaviour
         }
     }
 
-    #region Vector 2D
-    /*public void ReadMouseInput(InputAction.CallbackContext context)
-    {
-        //Vector 2D
-        mousePos = m_PlayerInput.PlayerMovement.ShootPoint.ReadValue<Vector2>();
-        mouseWorlPos2 = (Vector2) m_camera.WorldToScreenPoint(transform.position);
-        Vector2 direction = (mousePos-mouseWorlPos2).normalized;
-        //mouseWorlPos2 = m_camera.ScreenToWorldPoint(mousePos);
-    }
-
-    public void ReadStick(InputAction.CallbackContext context)
-    {
-        Vector2 stickDirection = context.ReadValue<Vector2>().normalized;
-        RotateAim(stickDirection);
-    }
-
-    public void RotateAim(Vector2 directon)
-    {
-        float angle = Mathf.Atan2(directon.y, directon.x) * Mathf.Rad2Deg;
-        shootPoint.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
-    }*/
-    #endregion
-
-    private void UpdateHp()
+    public void UpdateHp()
     {
         playerHPSlider.value = playerHP;
 
@@ -161,6 +140,8 @@ public class PlayerActions : MonoBehaviour
             playerHP = 300;
             Debug.Log("Se tiene la vida completa");
         }
+
+        animator.SetFloat("HP", playerHP);
     }
 
     private void OnCollisionEnter2D(Collision2D other)
@@ -199,15 +180,6 @@ public class PlayerActions : MonoBehaviour
         spriteRenderer.material = originalMaterial;
         flashRoutine = null;
     }
-
-    /*private void OnCollisionStay2D(Collision2D other)
-    {
-        GameObject obj = other.gameObject;
-        if (obj.GetComponent<EnemyScriptableObject>() != null)
-        {
-            playerHP -= obj.GetComponent<EnemyScriptableObject>().damagePlayer;
-        }
-    }*/
 
     #region Input Enable / Disable
     private void OnEnable()

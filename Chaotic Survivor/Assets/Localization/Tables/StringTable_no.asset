@@ -120,6 +120,10 @@ MonoBehaviour:
     m_Localized: Automatisk sikte
     m_Metadata:
       m_Items: []
+  - m_Id: 837765050368
+    m_Localized: "H\xF8y poengsum"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:

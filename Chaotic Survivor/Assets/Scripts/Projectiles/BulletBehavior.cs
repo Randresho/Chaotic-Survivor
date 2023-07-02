@@ -37,18 +37,7 @@ public class BulletBehavior : MonoBehaviour
     void FixedUpdate()
     {
         rb.velocity = -transform.right * bulletSpeed;
-        if(enemiesHit > maxEnemiesHit)
-        {
-            DestroyNRemove();
-        }
-        else
-        {
-            /*if (timerToDestroy > 0)
-                timerToDestroy -= Time.fixedDeltaTime;
-            else
-                DestroyNRemove();*/
-
-        }
+        
 
         Vector2 screenPos = cam.WorldToScreenPoint(rb.position);
         if (screenPos.y > Screen.height || screenPos.y < 0 || screenPos.x > Screen.width || screenPos.x < 0)
@@ -60,7 +49,10 @@ public class BulletBehavior : MonoBehaviour
         GameObject obj = other.gameObject;
         if(obj.GetComponent<EnemyScriptableObject>() != null)
         {
-            enemiesHit++;
+            if (enemiesHit > maxEnemiesHit)
+                DestroyNRemove();
+            else
+                enemiesHit++;
         }
 
         if(obj.GetComponent<HitObject>() != null)

@@ -98,38 +98,6 @@ public class TransitionManager : MonoBehaviour
     }
     #endregion
 
-    #region Choose Levels
-    public void TransitionChooseLevels(int idx, float timer)
-    {
-        StartCoroutine(LoadChooseLevels(idx, timer));
-    }
-
-    IEnumerator LoadChooseLevels(int idx, float timer)
-    {
-        transitionScene.SetTrigger("Start");
-        yield return new WaitForSeconds(timer);
-        SceneManager.LoadScene("Scenes/Menus" + scenes[idx]);
-        //Ui
-        transitionScene.SetTrigger("End");
-    }
-    #endregion
-
-    #region Winning
-    public void TransitionWinning(int idx, float timer)
-    {
-        StartCoroutine(LoadWinning(idx, timer));
-    }
-
-    IEnumerator LoadWinning(int idx, float timer)
-    {
-        transitionScene.SetTrigger("Start");
-        yield return new WaitForSeconds(timer);
-        SceneManager.LoadScene("Scenes/Menu" + scenes[idx]);
-        //Ui
-        transitionScene.SetTrigger("End");
-    }
-    #endregion
-
     //Music
     #region Music
     public void TransitionMusic(int idx, float timer)
@@ -142,10 +110,9 @@ public class TransitionManager : MonoBehaviour
         transitionMusic.SetTrigger("FadeStart");
         yield return new WaitForSeconds(timer);
         if (gameManager.isInGame)
-            soundManager.music.clip = soundManager.levels[Random.Range(0, soundManager.levels.Length)];
+            soundManager.ChangeSongInLevel();
         else
-            soundManager.music.clip = soundManager.menus[Random.Range(0, soundManager.menus.Length)];
-        soundManager.music.Play();
+            soundManager.ChangeSongMainMenu();
         transitionMusic.SetTrigger("FadeEnd");
     }
 
@@ -160,8 +127,7 @@ public class TransitionManager : MonoBehaviour
         yield return new WaitForSeconds(timer);
         if (gameManager.isInGame)
         {
-            //soundManager.music.clip = soundManager.levels[Random.Range(0, soundManager.levels.Length)];
-            soundManager.ChangeSong();
+            soundManager.ChangeSongInLevel();
         }
         else
         {

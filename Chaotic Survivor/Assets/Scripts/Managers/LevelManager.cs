@@ -12,8 +12,8 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private UiManager uiManager;
     [SerializeField] private OptionsManager optionsManager;
     [SerializeField] private SaveNLoad saveNLoad;
-    [SerializeField] private SoundManager soundManager;
     [SerializeField] private int fadeAnimator = 0;
+    [SerializeField] private SoundManager soundManager;
     #endregion
 
     [Header("Timer")]
@@ -33,21 +33,20 @@ public class LevelManager : MonoBehaviour
     private OffScreenIndicator offScreenIndicator;
     public List<EnemyScriptableObject> enemyScriptables = new List<EnemyScriptableObject>();
 
-    [Header ("Player Data")]
+    [Header("Player Data")]
     public int playerLevel = 1;
     public int playerLevelLate = 1;
     public float playerLevelFloat = 0;
     public float playerLevelMaxFloat = 0;
     public PlayerActions playerActions = null;
     public PlayerMovement playerMovement = null;
-    [SerializeField] private Animator animator;    
+    [SerializeField] private Animator animator;
 
     [Header("Game Data")]
     public int enemiesKilled = 0;
     public int coinsGrab = 0;
     public List<EnemyScriptableObject> enemies = null;
     public List<BulletBehavior> bullets = null;
-    public List<ItemCollector> items = null;
     public int UiAnimatorActive;
     public int gameOverAnimator;
     public bool canShoot = true;
@@ -69,7 +68,7 @@ public class LevelManager : MonoBehaviour
 
     [Space]
     [SerializeField] private AbilityScriptableObject abilityScriptable;
-    
+
 
     // Start is called before the first frame update
     void Awake()
@@ -84,7 +83,6 @@ public class LevelManager : MonoBehaviour
         animator = playerActions.GetComponent<Animator>();
         saveNLoad = FindObjectOfType<SaveNLoad>();
         soundManager = FindObjectOfType<SoundManager>();
-        //uiManager.ActiveAnimation(fadeAnimator);
         timerRunning = true;
         abilityScriptable = FindObjectOfType<AbilityScriptableObject>();
         abilityScriptable.SetLevelManager(this);
@@ -97,14 +95,14 @@ public class LevelManager : MonoBehaviour
     {
         SpawnLife();
         SpawnLevelUpItem();
-        //soundManager.ChangeSong();
+        UpdateCameraPoint();
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
         #region Timer
-        if(timerRunning)
+        if (timerRunning)
         {
             if (timerValue >= 524285)
                 GameOver();
@@ -115,27 +113,18 @@ public class LevelManager : MonoBehaviour
         }
         #endregion
 
-        if(leveUp)
+        if (leveUp)
             playerActions.timerToReduceLife = 1f;
 
         //Enemies
-        UpdateCameraSpawner();
         SpawnEnemies();
 
-        if (musicTimer < soundManager.music.clip.length - 5f)
+        if (musicTimer <= soundManager.music.clip.length)
             musicTimer += Time.fixedDeltaTime;
         else
         {
-            soundManager.ChangeSong();
+            soundManager.ChangeSongInLevel();
             musicTimer = 0f;
-        }
-
-        animator.SetFloat("HP", playerActions.playerHP);
-
-        for (int i = 0; i < items.Count; i++)
-        {
-            if (items[i] == null)
-                items.Remove(items[i]);
         }
     }
 
@@ -149,16 +138,17 @@ public class LevelManager : MonoBehaviour
     public void levelPlayer()
     {
         if (playerLevelFloat >= playerLevelMaxFloat)
-        {
-            playerLevelFloat = 0;
-            playerLevelMaxFloat += (playerLevelMaxFloat / gameManager.porcentageLevel);
-                if(playerLevel == gameManager.playerCurLevel-1)
+            if (playerLevelFloat >= playerLevelMaxFloat)
+            {
+                playerLevelFloat = 0;
+                playerLevelMaxFloat += (playerLevelMaxFloat / gameManager.porcentageLevel);
+                if (playerLevel == gameManager.playerCurLevel - 1)
                 {
                     LevelUp();
                     gameManager.playerCurLevel += gameManager.playerAdCurLevel;
                 }
-            playerLevel++;
-        }
+                playerLevel++;
+            }
 
         uiManager.levelSlider.value = playerLevelFloat;
         uiManager.levelSlider.maxValue = playerLevelMaxFloat;
@@ -171,23 +161,12 @@ public class LevelManager : MonoBehaviour
         playerActions.playerCollider.enabled = false;
         abilityScriptable.SelectRandomNumbers();
 
-        for (int i = 0; i < enemies.Count; i++)
-        {
-            enemies[i].speed = 0;
-        }
-
-        for (int i = 0;i < bullets.Count; i++)
+        for (int i = 0; i < bullets.Count; i++)
         {
             bullets[i].DestroyNRemove();
         }
 
-        for (int i = 0; i < items.Count; i++)
-        {
-            items[i].collider2D.enabled = false;
-        }
-
         ShowLevelUpMsg();
-       
 
         timerRunning = false;
         canShoot = false;
@@ -198,6 +177,10 @@ public class LevelManager : MonoBehaviour
 
         uiManager.ActiveAnimation(UiAnimatorActive);
         levelUpSound.Play();
+
+        //Save Data
+        if (timerValue > saveNLoad.timerData && enemiesKilled > saveNLoad.enemiesKilledData && coinsGrab > saveNLoad.coinGrabData && playerLevel > saveNLoad.levelData)
+            saveNLoad.SaveData(timerValue, enemiesKilled, coinsGrab, playerLevel);
     }
 
     public void ResumeFromLevelUp()
@@ -207,11 +190,6 @@ public class LevelManager : MonoBehaviour
         for (int i = 0; i < enemies.Count; i++)
         {
             enemies[i].speed = enemies[i].maxSpeed;
-        }
-
-        for (int i = 0; i < items.Count; i++)
-        {
-            items[i].collider2D.enabled = true;
         }
 
         timerRunning = true;
@@ -225,13 +203,14 @@ public class LevelManager : MonoBehaviour
     #endregion
 
     #region Enemies 
-    private void UpdateCameraSpawner()
+    public void UpdateCameraPoint()
     {
         outsideCam = cameraMain.ViewportToWorldPoint(new Vector3(Random.Range(outsideCamValues[0], outsideCamValues[1]), Random.Range(outsideCamValues[0], outsideCamValues[1]), 10));
     }
 
-    private void SpawnEnemies()
+    public void SpawnEnemies()
     {
+
         if (enemiesSpawned < maxEnemiesSpawn)
         {
             if (timerToSpawnCurrent > 0)
@@ -287,8 +266,6 @@ public class LevelManager : MonoBehaviour
     {
         spawnPointLifeNumber = Random.Range(0, lifeSpawnPoint.Length);
 
-        //Instantiate(lifePrefab[Random.Range(0, lifePrefab.Length)], lifeSpawnPoint[spawnPointLifeNumber].position, Quaternion.identity);
-
         GameObject lifeItem = ObjectPoolLife.instance.GetPooledObject();
         if (lifeItem != null)
         {
@@ -301,8 +278,6 @@ public class LevelManager : MonoBehaviour
     public void SpawnLevelUpItem()
     {
         spawnPointlevelUpItemNumber = Random.Range(0, levelUpItemSpawnPoint.Length);
-
-        //Instantiate(levelUpItemPrefab[Random.Range(0, levelUpItemPrefab.Length)], levelUpItemSpawnPoint[spawnPointlevelUpItemNumber].position, Quaternion.identity);
 
         GameObject levelUpItem = ObjectPoolLevel.instance.GetPooledObject();
         if (levelUpItem != null)
@@ -337,12 +312,15 @@ public class LevelManager : MonoBehaviour
             bullets[i].DestroyNRemove();
         }
 
-        saveNLoad.SaveData(timerValue, enemiesKilled, coinsGrab, playerLevel);
+        //Save Data
+        if (timerValue > saveNLoad.timerData && enemiesKilled > saveNLoad.enemiesKilledData && coinsGrab > saveNLoad.coinGrabData && playerLevel > saveNLoad.levelData)
+            saveNLoad.SaveData(timerValue, enemiesKilled, coinsGrab, playerLevel);
+        else
+            Debug.Log("No se supero el record");
 
         uiManager.DisplayTimer(timerValue, uiManager.scoreTimerTxt, uiManager.scoreTimerInfoTxt);
         uiManager.DisplayMatchInfo(uiManager.scoreLevelTxt, playerLevel, uiManager.scoreEnemiesTxt, enemiesKilled, uiManager.scoreCoinsTxt, coinsGrab);
-
-        uiManager.ActiveAnimation(gameOverAnimator);      
+        uiManager.ActiveAnimation(gameOverAnimator);
     }
     #endregion
 

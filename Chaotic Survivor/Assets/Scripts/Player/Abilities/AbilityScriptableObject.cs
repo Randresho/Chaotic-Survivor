@@ -113,6 +113,13 @@ public class AbilityScriptableObject : MonoBehaviour
 
     private void FixedUpdate()
     {
+        
+
+       
+    }
+
+    private void UpdateData()
+    {
         if (abiltityRandomB == abiltityRandomA)
             abiltityRandomB = Random.Range(minAbilities, maxAbilities);
 
@@ -133,13 +140,13 @@ public class AbilityScriptableObject : MonoBehaviour
                 changeOptionsObj.SetActive(true);
             }
         }
-        else if(isMagnetActive && !isSpinActive)
+        else if (isMagnetActive && !isSpinActive)
         {
             buttons[0].type = (AbilityType)abiltityRandomA;
             buttons[1].type = AbilityType.Spin;
             maxCurAbilities = 3;
         }
-        else if(!isMagnetActive && isSpinActive)
+        else if (!isMagnetActive && isSpinActive)
         {
             buttons[0].type = AbilityType.Magnet;
             buttons[1].type = (AbilityType)abiltityRandomB;
@@ -226,6 +233,8 @@ public class AbilityScriptableObject : MonoBehaviour
     #region Select Options
     public void SelectRandomNumbers()
     {
+        UpdateData();
+
         //Magnet Check
         if (magnetItem.transform.localScale.x <= increaseMaxMagnet || magnetItem.transform.localScale.y <= increaseMaxMagnet || magnetItem.transform.localScale.z <= increaseMaxMagnet)
             maxCurAbilities = 3;

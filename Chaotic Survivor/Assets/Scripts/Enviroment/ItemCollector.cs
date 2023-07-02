@@ -21,7 +21,6 @@ public class ItemCollector : MonoBehaviour
     void Awake()
     {
         levelManager = FindObjectOfType<LevelManager>();
-        levelManager.items.Add(this); 
         m_rigidbodys = GetComponent<Rigidbody2D>();
         playerPos = FindObjectOfType<PlayerMovement>().transform;
         coinSound = GetComponent<AudioSource>();
@@ -39,11 +38,6 @@ public class ItemCollector : MonoBehaviour
         {
             spriteRenderer.enabled = true;
         }
-
-        /*if (timerToDestroy > 0)
-            timerToDestroy -= Time.fixedDeltaTime;
-        else
-            Destroy(gameObject);*/
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -56,7 +50,6 @@ public class ItemCollector : MonoBehaviour
             levelManager.coinsGrab++;
 
             levelManager.levelPlayer();
-            //levelManager.items.Remove(this);
 
             StartCoroutine(DestroyObj());
         }
@@ -66,7 +59,7 @@ public class ItemCollector : MonoBehaviour
             StartCoroutine(DestroyObj());
         }
 
-        if(obj.GetComponent<MagnetItem>() != null)
+        if (obj.GetComponent<MagnetItem>() != null)
         {
             Vector2 move = playerPos.position - transform.position;
             Vector2 velocity = move * speedMagnet * Time.fixedDeltaTime;
