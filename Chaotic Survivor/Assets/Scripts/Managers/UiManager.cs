@@ -74,6 +74,12 @@ public class UiManager : MonoBehaviour
     public TextMeshProUGUI levelNumber = null;
     public TextMeshProUGUI levelUpTxt = null;
     [Space]
+    public Slider manaSlider = null;
+    public Button manaButton = null;
+    public Image manaRandomAbility = null;
+    public Sprite[] manaNewImage = null;
+    public Image manaCoolDown = null;
+    [Space]
     public TextMeshProUGUI scoreTimerTxt = null;
     public TextMeshProUGUI scoreTimerInfoTxt = null;
     public TextMeshProUGUI scoreLevelTxt = null;

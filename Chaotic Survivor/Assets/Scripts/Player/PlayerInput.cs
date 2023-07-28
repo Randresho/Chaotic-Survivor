@@ -44,6 +44,15 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""UseAbilities"",
+                    ""type"": ""Button"",
+                    ""id"": ""38e4abdc-5ee0-497d-b468-8ae44448a142"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -189,6 +198,61 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""action"": ""ShootPoint"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""cccb5905-bc0e-4786-ae73-aef40156d5b5"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""UseAbilities"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b573c698-489c-4d87-a646-73eeb3aabac7"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""UseAbilities"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b3019f91-e710-47f6-9855-55be7e3294d3"",
+                    ""path"": ""<DualShockGamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""UseAbilities"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""68586f6c-e237-463f-9e68-077fd8b069bb"",
+                    ""path"": ""<SwitchProControllerHID>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""UseAbilities"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ba950ee4-abd7-4d61-bb2e-307230986b8c"",
+                    ""path"": ""<XInputController>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""UseAbilities"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -205,6 +269,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         m_PlayerMovement = asset.FindActionMap("PlayerMovement", throwIfNotFound: true);
         m_PlayerMovement_Walk = m_PlayerMovement.FindAction("Walk", throwIfNotFound: true);
         m_PlayerMovement_ShootPoint = m_PlayerMovement.FindAction("ShootPoint", throwIfNotFound: true);
+        m_PlayerMovement_UseAbilities = m_PlayerMovement.FindAction("UseAbilities", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -266,12 +331,14 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
     private IPlayerMovementActions m_PlayerMovementActionsCallbackInterface;
     private readonly InputAction m_PlayerMovement_Walk;
     private readonly InputAction m_PlayerMovement_ShootPoint;
+    private readonly InputAction m_PlayerMovement_UseAbilities;
     public struct PlayerMovementActions
     {
         private @PlayerInput m_Wrapper;
         public PlayerMovementActions(@PlayerInput wrapper) { m_Wrapper = wrapper; }
         public InputAction @Walk => m_Wrapper.m_PlayerMovement_Walk;
         public InputAction @ShootPoint => m_Wrapper.m_PlayerMovement_ShootPoint;
+        public InputAction @UseAbilities => m_Wrapper.m_PlayerMovement_UseAbilities;
         public InputActionMap Get() { return m_Wrapper.m_PlayerMovement; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -287,6 +354,9 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 @ShootPoint.started -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnShootPoint;
                 @ShootPoint.performed -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnShootPoint;
                 @ShootPoint.canceled -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnShootPoint;
+                @UseAbilities.started -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnUseAbilities;
+                @UseAbilities.performed -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnUseAbilities;
+                @UseAbilities.canceled -= m_Wrapper.m_PlayerMovementActionsCallbackInterface.OnUseAbilities;
             }
             m_Wrapper.m_PlayerMovementActionsCallbackInterface = instance;
             if (instance != null)
@@ -297,6 +367,9 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 @ShootPoint.started += instance.OnShootPoint;
                 @ShootPoint.performed += instance.OnShootPoint;
                 @ShootPoint.canceled += instance.OnShootPoint;
+                @UseAbilities.started += instance.OnUseAbilities;
+                @UseAbilities.performed += instance.OnUseAbilities;
+                @UseAbilities.canceled += instance.OnUseAbilities;
             }
         }
     }
@@ -314,5 +387,6 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
     {
         void OnWalk(InputAction.CallbackContext context);
         void OnShootPoint(InputAction.CallbackContext context);
+        void OnUseAbilities(InputAction.CallbackContext context);
     }
 }

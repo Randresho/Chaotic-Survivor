@@ -44,6 +44,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private PlayerAbilities abilities = null;
     [SerializeField] private MagnetItem magnetItem = null;
     [SerializeField] private SpinWeapon spinWeapon = null;
+    [SerializeField] private RandomAbilities randomAbilities = null;
     #region Non in the inspector
     [HideInInspector] public bool isInGame = false;
     #endregion
@@ -303,6 +304,17 @@ public class GameManager : MonoBehaviour
     public void SelectSpin(int option)
     {
 
+    }
+
+    //Random Abilities
+    public void RandomAbilities(RandomAbilities newAbilities)
+    {
+        randomAbilities = newAbilities;
+    }
+
+    public void UseRandomAbility()
+    {
+        randomAbilities.UseAbility();
     }
     #endregion
 

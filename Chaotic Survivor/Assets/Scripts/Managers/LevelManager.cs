@@ -21,6 +21,11 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private string[] infoTextString = null;
     [SerializeField] private bool timerRunning = false;
 
+    public bool TimerRunning
+    {
+        get { return timerRunning; }
+    }
+
     [Header("Camera Spawner")]
     public Camera cameraMain = null;
     [SerializeField] private float timerToSpawn = 0;
@@ -57,7 +62,7 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private LocalizedString localizedStringLevelUp;
     [SerializeField] private float musicTimer;
 
-    [Header("Life Spawner")]
+    [Header("Items Spawners")]
     public GameObject[] lifePrefab;
     public Transform[] lifeSpawnPoint;
     public int spawnPointLifeNumber;
@@ -65,6 +70,10 @@ public class LevelManager : MonoBehaviour
     public GameObject[] levelUpItemPrefab;
     public Transform[] levelUpItemSpawnPoint;
     public int spawnPointlevelUpItemNumber;
+    [Space]
+    public GameObject[] manaItemPrefab;
+    public Transform[] manaItemSpawnPoint;
+    public int spawnManaNumber;
 
     [Space]
     [SerializeField] private AbilityScriptableObject abilityScriptable;

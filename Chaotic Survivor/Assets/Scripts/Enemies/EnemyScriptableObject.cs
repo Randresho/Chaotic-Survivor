@@ -8,6 +8,7 @@ public class EnemyScriptableObject : MonoBehaviour
 {
     [SerializeField] private LevelManager levelManager;
     [SerializeField] private ObjectPolling objectPolling;
+    [SerializeField] private RandomAbilities randomAbilities;
     [Header("Enemy Type")]
     [SerializeField] private enemyType enemyType;
     [SerializeField] private Canvas canvas;
@@ -35,6 +36,7 @@ public class EnemyScriptableObject : MonoBehaviour
     [Space]
     public bool moveRight;
     [SerializeField] private float timerToDestroy;
+    [SerializeField] private RandomAbilityEnum randomAbilityEnum;
 
     [Header("Spawner Item")]
     [SerializeField] private GameObject[] itemDropPrefab;
@@ -54,6 +56,7 @@ public class EnemyScriptableObject : MonoBehaviour
     {
         levelManager = FindObjectOfType<LevelManager>();
         objectPolling = FindObjectOfType<ObjectPolling>();
+        randomAbilities = FindObjectOfType<RandomAbilities>();
         m_rigidbodys = GetComponent<Rigidbody2D>();
         playerPos = FindObjectOfType<PlayerMovement>().transform;
         canvas.worldCamera = FindObjectOfType<Camera>();
@@ -133,6 +136,30 @@ public class EnemyScriptableObject : MonoBehaviour
         }
     }
 
+    public void AbilityReaction()
+    {
+        randomAbilityEnum = randomAbilities.RandomAbility;
+
+        switch (randomAbilityEnum) 
+        {
+            case RandomAbilityEnum.ElectroShock:
+                Debug.Log("Se uso eletro shock");
+                break;
+
+            case RandomAbilityEnum.Freeze:
+                Debug.Log("Se uso freeze");
+                break;
+
+            case RandomAbilityEnum.Burn:
+                Debug.Log("Se uso burn");
+                break;
+
+            case RandomAbilityEnum.InstantKill:
+                StartCoroutine(DestroyObj());
+                break;
+        }
+    }
+
     private void EnemyLife()
     {
         //Hp
@@ -182,6 +209,28 @@ public class EnemyScriptableObject : MonoBehaviour
             {
                 deadSound.Play();
                 spriteRenderer.enabled = false;
+            }
+        }
+
+        if(obj.GetComponent<RandomAbilities>() != null) 
+        {
+            if(randomAbilities.enemyCount <= randomAbilities.enemyCountLimit)
+            {
+                randomAbilities.enemyScripts.Add(this);
+                randomAbilities.enemyCount++;
+            }
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        GameObject obj = collision.gameObject;
+        if(obj.GetComponent<RandomAbilities>() != null)
+        {
+            if (obj.GetComponent<RandomAbilities>().enemyScripts.Contains(this))
+            {
+                randomAbilities.enemyScripts.Remove(this);
+                randomAbilities.enemyCount--;
             }
         }
     }
