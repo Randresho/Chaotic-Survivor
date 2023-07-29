@@ -74,6 +74,7 @@ public class UiManager : MonoBehaviour
     public TextMeshProUGUI levelNumber = null;
     public TextMeshProUGUI levelUpTxt = null;
     [Space]
+    public TextMeshProUGUI enemiesManaCount = null;
     public Slider manaSlider = null;
     public Button manaButton = null;
     public Image manaRandomAbility = null;

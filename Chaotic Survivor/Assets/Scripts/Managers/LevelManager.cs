@@ -75,6 +75,16 @@ public class LevelManager : MonoBehaviour
     public Transform[] manaItemSpawnPoint;
     public int spawnManaNumber;
 
+    [Header("New Random Abilies")]
+    public float playerMana = 0f;
+    public float playerMaxMana = 0f;
+    [Space]
+    public float maxFreezeTimer = 20f;
+    [Space]
+    public float maxBurningTimer = 15f;
+    public float maxNextBurning = 5f;
+    public float burnDamage = 2f;
+
     [Space]
     [SerializeField] private AbilityScriptableObject abilityScriptable;
 

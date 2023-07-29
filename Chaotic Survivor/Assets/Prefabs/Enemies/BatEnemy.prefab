@@ -506,6 +506,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelManager: {fileID: 0}
   objectPolling: {fileID: 0}
+  randomAbilities: {fileID: 0}
   enemyType: 3
   canvas: {fileID: 4336610508236255993}
   playerPos: {fileID: 0}
@@ -524,6 +525,7 @@ MonoBehaviour:
   damagePlayer: 15
   moveRight: 0
   timerToDestroy: 0.4
+  randomAbilityEnum: 0
   itemDropPrefab:
   - {fileID: 69398331145423285, guid: 8300606583916694eb2374a7ab5cb91f, type: 3}
   deadObjVfx: {fileID: 6958761773932474935}
@@ -532,6 +534,7 @@ MonoBehaviour:
   flashMaterial: {fileID: 2100000, guid: 9d4393a001826c246b7a5a48b3b9127a, type: 2}
   duration: 0.05
   originalMaterial: {fileID: 0}
+  freezeMaterial: {fileID: 2100000, guid: 6c4b49f5b36065e4692f4302bd3ccdac, type: 2}
 --- !u!82 &337712396530752283
 AudioSource:
   m_ObjectHideFlags: 0

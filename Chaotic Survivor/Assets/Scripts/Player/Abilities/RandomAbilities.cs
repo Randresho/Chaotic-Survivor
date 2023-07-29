@@ -72,6 +72,8 @@ public class RandomAbilities : MonoBehaviour
                     UseAbility();
             }
         }
+
+        uiManager.enemiesManaCount.text = "x" + enemyScripts.Count;
     }
     public void UseAbility()
     {

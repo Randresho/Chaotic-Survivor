@@ -46,10 +46,26 @@ public class EnemyScriptableObject : MonoBehaviour
     [SerializeField] private AudioSource deadSound;
 
     [Header("Hit FX")]
+    
     [SerializeField] private Material flashMaterial;
     [SerializeField] private float duration;
     [SerializeField] private Material originalMaterial;
     private Coroutine flashRoutine;
+
+    [Header("Reations Effects")]
+    //Electro Shock
+
+    //Freeze
+    [SerializeField] private Material freezeMaterial;
+    private float timeFreezed;
+    private bool isFreezeActive;
+
+    //Burn
+    [Space]
+    private float timeBurning;
+    private float burning;
+    private bool isBurnActive;
+    //Instant Kill
 
     // Start is called before the first frame update
     void Awake()
@@ -74,26 +90,38 @@ public class EnemyScriptableObject : MonoBehaviour
 
     public void ActiveEnemy()
     {
+        isBurnActive = false;
+        isFreezeActive = false;
+
+
         transform.position = levelManager.outsideCam;
+
         hp = maxHp;
         hpSlider.maxValue = hp;
+        hpSlider.value = hp;
+
         collider.enabled = true;
+        m_rigidbodys.bodyType = RigidbodyType2D.Dynamic;
+
         deadObjVfx.SetActive(false);
+
         moveRight = false;
+
         spriteRenderer.material = originalMaterial;
+
         levelManager.enemyScriptables.Add(this);
-        EnemyLife();
         levelManager.UpdateCameraPoint();
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (!levelManager.leveUp)
+        if (!levelManager.leveUp || !isFreezeActive)
         {
             speed = maxSpeed;
         }
-        else
+
+        if (levelManager.leveUp || isFreezeActive)
         {
             speed = 0;
         }
@@ -135,43 +163,7 @@ public class EnemyScriptableObject : MonoBehaviour
                 spriteRenderer.enabled = true;
         }
     }
-
-    public void AbilityReaction()
-    {
-        randomAbilityEnum = randomAbilities.RandomAbility;
-
-        switch (randomAbilityEnum) 
-        {
-            case RandomAbilityEnum.ElectroShock:
-                Debug.Log("Se uso eletro shock");
-                break;
-
-            case RandomAbilityEnum.Freeze:
-                Debug.Log("Se uso freeze");
-                break;
-
-            case RandomAbilityEnum.Burn:
-                Debug.Log("Se uso burn");
-                break;
-
-            case RandomAbilityEnum.InstantKill:
-                StartCoroutine(DestroyObj());
-                break;
-        }
-    }
-
-    private void EnemyLife()
-    {
-        //Hp
-        hpSlider.value = hp;
-        if (hp <= 0.05)
-        {
-            deadObjVfx.SetActive(true);
-            deadVfx.Play("Anim");
-            StartCoroutine(DestroyObj());
-        }
-    }
-
+    
     public IEnumerator DestroyObj()
     {
         yield return new WaitForSeconds(timerToDestroy);
@@ -194,22 +186,15 @@ public class EnemyScriptableObject : MonoBehaviour
 
         levelManager.enemyScriptables.Remove(this);
         ActiveEnemy();
-        //Destroy(gameObject);
     }
 
+    #region Triggers
     private void OnTriggerEnter2D(Collider2D other)
     {
         GameObject obj = other.gameObject;
         if (obj.GetComponent<BulletBehavior>() != null)
         {
-            hp -= obj.GetComponent<BulletBehavior>().damage;
-            EnemyLife();
-            Flash();
-            if (hp <= 0.06)
-            {
-                deadSound.Play();
-                spriteRenderer.enabled = false;
-            }
+            ReciveDamage(obj.GetComponent<BulletBehavior>().damage);
         }
 
         if(obj.GetComponent<RandomAbilities>() != null) 
@@ -221,6 +206,7 @@ public class EnemyScriptableObject : MonoBehaviour
             }
         }
     }
+
 
     private void OnTriggerExit2D(Collider2D collision)
     {
@@ -234,7 +220,9 @@ public class EnemyScriptableObject : MonoBehaviour
             }
         }
     }
+    #endregion
 
+    #region Flash enemy
     public void Flash()
     {
         if (flashRoutine != null)
@@ -242,14 +230,116 @@ public class EnemyScriptableObject : MonoBehaviour
             StopCoroutine(flashRoutine);
         }
 
-        flashRoutine = StartCoroutine(FlashRoutine());
+        flashRoutine = StartCoroutine(FlashRoutine(flashMaterial));
     }
 
-    private IEnumerator FlashRoutine()
+    private IEnumerator FlashRoutine(Material flashing)
     {
-        spriteRenderer.material = flashMaterial;
+        spriteRenderer.material = flashing;
         yield return new WaitForSeconds(duration);
         spriteRenderer.material = originalMaterial;
         flashRoutine = null;
     }
+    #endregion
+
+    private void ReciveDamage(float damage)
+    {
+        hp -= damage;
+        hpSlider.value = hp;
+
+        Flash();
+
+        if (hp <= 0.05)
+        {
+            deadSound.Play();
+            spriteRenderer.enabled = false;
+
+            deadObjVfx.SetActive(true);
+            deadVfx.Play("Anim");
+            StartCoroutine(DestroyObj());
+        }
+    }
+
+    #region Reations
+    public void AbilityReaction()
+    {
+        randomAbilityEnum = randomAbilities.RandomAbility;
+
+        switch (randomAbilityEnum)
+        {
+            case RandomAbilityEnum.ElectroShock:
+                Debug.Log("Se uso eletro shock");
+                break;
+
+            case RandomAbilityEnum.Freeze:
+                StartCoroutine(Freezed());
+                break;
+
+            case RandomAbilityEnum.Burn:
+                isBurnActive = true;
+                StartCoroutine(ReciveBurnDamage());
+                break;
+
+            case RandomAbilityEnum.InstantKill:
+                InstantKill();
+                break;
+        }
+    }
+
+    #region Electro Shock
+
+    #endregion
+
+    #region Freeze
+    private IEnumerator Freezed()
+    {
+        isFreezeActive = true;
+        spriteRenderer.material = freezeMaterial;
+        m_rigidbodys.bodyType = RigidbodyType2D.Static;
+        //Efecto de congelacion
+        //Sonido de congelado
+
+        yield return new WaitForSeconds(levelManager.maxFreezeTimer);
+
+        spriteRenderer.material = originalMaterial;
+
+        isFreezeActive = false;
+
+        m_rigidbodys.bodyType = RigidbodyType2D.Dynamic;
+    }    
+    #endregion
+
+    #region Burn
+    private IEnumerator ReciveBurnDamage()
+    {
+        while(isBurnActive)
+        {       
+            do
+            {
+                timeBurning += 5f;
+                Debug.Log("Estoy apunto de quemarme");
+                yield return new WaitForSeconds(levelManager.maxNextBurning);
+                ReciveDamage(levelManager.burnDamage);
+                Debug.Log("Me quemo");
+                //Efecto de fuego
+                //Sonido de quemadura
+            }
+            while (timeBurning <= levelManager.maxBurningTimer);
+
+            yield return new WaitForSeconds(levelManager.maxBurningTimer);
+            timeBurning = 0f;
+            Debug.Log("Ya no me quemo");
+            isBurnActive = false;
+        }
+    }
+    #endregion
+
+    #region Instant Kill
+    private void InstantKill()
+    {
+        //Sonido de instant kill
+        StartCoroutine(DestroyObj());
+    }
+    #endregion
+    #endregion
 }
