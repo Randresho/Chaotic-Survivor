@@ -36,7 +36,6 @@ public class EnemyScriptableObject : MonoBehaviour
     [Space]
     public bool moveRight;
     [SerializeField] private float timerToDestroy;
-    [SerializeField] private RandomAbilityEnum randomAbilityEnum;
 
     [Header("Spawner Item")]
     [SerializeField] private GameObject[] itemDropPrefab;
@@ -54,6 +53,9 @@ public class EnemyScriptableObject : MonoBehaviour
 
     [Header("Reations Effects")]
     //Electro Shock
+    public float electroShocktimer;
+    public float electroShockDamage = 5f;
+    private bool isElectroShocking;
 
     //Freeze
     [SerializeField] private Material freezeMaterial;
@@ -129,6 +131,7 @@ public class EnemyScriptableObject : MonoBehaviour
         MoveEnemy();
     }
 
+    #region Move
     private void MoveEnemy()
     {
         //Move
@@ -163,7 +166,28 @@ public class EnemyScriptableObject : MonoBehaviour
                 spriteRenderer.enabled = true;
         }
     }
-    
+    #endregion
+
+    #region Damage
+    private void ReciveDamage(float damage)
+    {
+        hp -= damage;
+        hpSlider.value = hp;
+
+        if (!isFreezeActive)
+            Flash();
+
+        if (hp <= 0.05)
+        {
+            deadSound.Play();
+            spriteRenderer.enabled = false;
+
+            deadObjVfx.SetActive(true);
+            deadVfx.Play("Anim");
+            StartCoroutine(DestroyObj());
+        }
+    }
+
     public IEnumerator DestroyObj()
     {
         yield return new WaitForSeconds(timerToDestroy);
@@ -171,6 +195,7 @@ public class EnemyScriptableObject : MonoBehaviour
         levelManager.enemiesKilled++;
         //levelManager.enemies.Remove(this);
         levelManager.playerLevelFloat += experience;
+        levelManager.AddMana(1f);
         levelManager.levelPlayer();
 
         //Instantiate(itemDropPrefab[Random.Range(0, itemDropPrefab.Length)], transform.position, transform.rotation, levelManager.transform);
@@ -187,6 +212,7 @@ public class EnemyScriptableObject : MonoBehaviour
         levelManager.enemyScriptables.Remove(this);
         ActiveEnemy();
     }
+    #endregion
 
     #region Triggers
     private void OnTriggerEnter2D(Collider2D other)
@@ -240,35 +266,15 @@ public class EnemyScriptableObject : MonoBehaviour
         spriteRenderer.material = originalMaterial;
         flashRoutine = null;
     }
-    #endregion
-
-    private void ReciveDamage(float damage)
-    {
-        hp -= damage;
-        hpSlider.value = hp;
-
-        Flash();
-
-        if (hp <= 0.05)
-        {
-            deadSound.Play();
-            spriteRenderer.enabled = false;
-
-            deadObjVfx.SetActive(true);
-            deadVfx.Play("Anim");
-            StartCoroutine(DestroyObj());
-        }
-    }
+    #endregion   
 
     #region Reations
     public void AbilityReaction()
     {
-        randomAbilityEnum = randomAbilities.RandomAbility;
-
-        switch (randomAbilityEnum)
+        switch (randomAbilities.RandomAbility)
         {
             case RandomAbilityEnum.ElectroShock:
-                Debug.Log("Se uso eletro shock");
+                StartCoroutine(ElectroShocking());
                 break;
 
             case RandomAbilityEnum.Freeze:
@@ -281,13 +287,25 @@ public class EnemyScriptableObject : MonoBehaviour
                 break;
 
             case RandomAbilityEnum.InstantKill:
-                InstantKill();
+                StartCoroutine(InstantKill());
                 break;
         }
     }
 
     #region Electro Shock
-
+    private IEnumerator ElectroShocking()
+    {
+        while (electroShocktimer <= levelManager.maxElectroShockTimer)
+        {
+            electroShocktimer += Time.fixedDeltaTime;
+            ReciveDamage(electroShockDamage);
+            //Efectos de rayos
+            //Sonido de rayos
+            isFreezeActive = true;
+        }
+        yield return new WaitForSeconds(levelManager.maxElectroShockTimer);
+        isFreezeActive = false;
+    }
     #endregion
 
     #region Freeze
@@ -335,10 +353,11 @@ public class EnemyScriptableObject : MonoBehaviour
     #endregion
 
     #region Instant Kill
-    private void InstantKill()
+    private IEnumerator InstantKill()
     {
         //Sonido de instant kill
         StartCoroutine(DestroyObj());
+        yield return null;
     }
     #endregion
     #endregion

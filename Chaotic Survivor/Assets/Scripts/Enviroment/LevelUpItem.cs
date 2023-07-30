@@ -5,7 +5,7 @@ using UnityEngine;
 public class LevelUpItem : MonoBehaviour
 {
     private GameManager gameManager;
-    public float addLevel = 0;
+    [SerializeField] private float addLevel = 0;
     [SerializeField] private Target target;
 
     private void Awake()

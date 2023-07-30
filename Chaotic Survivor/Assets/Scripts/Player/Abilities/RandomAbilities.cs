@@ -23,6 +23,9 @@ public class RandomAbilities : MonoBehaviour
         get { return randomAbilities; }
     }
     [HideInInspector] public CircleCollider2D circleCollider;
+    public float electroShockManaUse;
+    public float FreezeManaUse;
+    public float BurnManaUse;
 
     [Header("Enemies")]
     public List<EnemyScriptableObject> enemyScripts;
@@ -35,6 +38,12 @@ public class RandomAbilities : MonoBehaviour
     private int randomAbiltyNumber;
     private float fillAmount;
     private bool canActive = false;
+    [SerializeField] private float flashTimer;
+
+    public bool CanActive 
+    { 
+        get { return canActive; }
+    }
 
     void Awake()
     {
@@ -66,40 +75,79 @@ public class RandomAbilities : MonoBehaviour
                 else
                     CanUseAbility();
             }
-            else
-            {
-                if (m_PlayerInput.PlayerMovement.UseAbilities.IsPressed())
-                    UseAbility();
-            }
         }
 
         uiManager.enemiesManaCount.text = "x" + enemyScripts.Count;
     }
+
     public void UseAbility()
     {
+        if (canActive)
+            return;
+
         //Check if are enemies around
         if (enemyScripts.Count <= 0)
         {
-            Debug.Log("No hay enemigos para atacar");
+            StartCoroutine(FlashMana());
             return;
-        }        
+        }
+
+        //Check if have mana
+        if (levelManager.playerMana <= 0)
+        {
+            StartCoroutine(FlashMana());
+            return;
+        }
 
         //Use ability
+        switch (randomAbilities)
+        {
+            case RandomAbilityEnum.ElectroShock:
+                if (levelManager.playerMana < electroShockManaUse)
+                {
+                    StartCoroutine(FlashMana());
+                    return;
+                }
+
+                levelManager.ManaUsage(electroShockManaUse);
+                break;
+
+            case RandomAbilityEnum.Freeze:
+                if (levelManager.playerMana < FreezeManaUse)
+                {
+                    StartCoroutine(FlashMana());
+                    return;
+                }
+
+                levelManager.ManaUsage(FreezeManaUse);
+                break;
+
+            case RandomAbilityEnum.Burn:
+                if (levelManager.playerMana < BurnManaUse)
+                {
+                    StartCoroutine(FlashMana());
+                    return;
+                }
+
+                levelManager.ManaUsage(BurnManaUse);
+                break;
+
+            case RandomAbilityEnum.InstantKill:
+                levelManager.ManaUsage(levelManager.playerMana);
+                break;
+
+            default:
+                break;
+        }
 
         foreach (var enemyScriptableObject in enemyScripts) 
-        {
             enemyScriptableObject.AbilityReaction();
-        }
 
         SetNewAbility();
     }
 
     private void SetNewAbility()
     {
-        //Set new cycle
-        canActive = true;
-        timerToShowNewAbility = 0;
-
         //Reset Graphics
         uiManager.manaButton.interactable = false;
         uiManager.manaCoolDown.fillAmount = 1f;
@@ -108,24 +156,45 @@ public class RandomAbilities : MonoBehaviour
         randomAbiltyNumber = Random.Range(0, uiManager.manaNewImage.Length);
         randomAbilities = (RandomAbilityEnum)randomAbiltyNumber;
         uiManager.manaRandomAbility.sprite = uiManager.manaNewImage[randomAbiltyNumber];
+
+        //Set new cycle
+        canActive = true;
+        timerToShowNewAbility = 0;
     }
 
     private void CanUseAbility()
     {
         uiManager.manaButton.interactable = true;
-
         uiManager.manaCoolDown.fillAmount = 0f;
         canActive = false;
     }
+
+    #region Flash
+    private IEnumerator FlashMana()
+    {
+        uiManager.manaButton.interactable = false;
+        levelManager.ManaUsage(1f);
+        yield return new WaitForSeconds(flashTimer);
+        uiManager.manaButton.interactable = true;
+    }
+    #endregion
 
     #region Input Enable / Disable
     private void OnEnable()
     {
         m_PlayerInput.Enable();
+        m_PlayerInput.PlayerMovement.UseAbilities.performed += UsAbilty;
     }
+
+    private void UsAbilty(InputAction.CallbackContext obj)
+    {
+        UseAbility();
+    }
+
     private void OnDisable()
     {
         m_PlayerInput.Disable();
+        m_PlayerInput.PlayerMovement.UseAbilities.performed -= UsAbilty;
     }
     #endregion
 }

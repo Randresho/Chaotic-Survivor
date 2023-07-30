@@ -508,7 +508,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: shiny_rpg_potions_16x16_18
+      name: Mana 10
       rect:
         serializedVersion: 2
         x: 5
@@ -529,7 +529,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: shiny_rpg_potions_16x16_19
+      name: Mana 25
       rect:
         serializedVersion: 2
         x: 20
@@ -550,7 +550,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: shiny_rpg_potions_16x16_20
+      name: Mana 50
       rect:
         serializedVersion: 2
         x: 35
@@ -571,7 +571,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: shiny_rpg_potions_16x16_21
+      name: Mana 75
       rect:
         serializedVersion: 2
         x: 50
@@ -1894,7 +1894,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: shiny_rpg_potions_16x16_84
+      name: Mana Full
       rect:
         serializedVersion: 2
         x: 65
@@ -2247,7 +2247,6 @@ TextureImporter:
       shiny_rpg_potions_16x16_70: -1413219634
       shiny_rpg_potions_16x16_99: 579471589
       shiny_rpg_potions_16x16_66: -994188949
-      shiny_rpg_potions_16x16_18: -879498107
       shiny_rpg_potions_16x16_65: 359191836
       shiny_rpg_potions_16x16_74: 970759120
       shiny_rpg_potions_16x16_68: 1810843146
@@ -2258,6 +2257,7 @@ TextureImporter:
       shiny_rpg_potions_16x16_32: 2099090918
       shiny_rpg_potions_16x16_13: -760590361
       shiny_rpg_potions_16x16_78: -1690086968
+      Mana 25: -1710204127
       shiny_rpg_potions_16x16_22: 1524544975
       shiny_rpg_potions_16x16_30: 1841307581
       shiny_rpg_potions_16x16_91: -1280075393
@@ -2271,16 +2271,16 @@ TextureImporter:
       Level 50: -771071087
       shiny_rpg_potions_16x16_25: 1753528530
       Life 75: -2010584239
-      shiny_rpg_potions_16x16_20: 1205272786
       shiny_rpg_potions_16x16_72: -1598270714
       shiny_rpg_potions_16x16_54: 1517716859
+      Mana 10: -879498107
+      Mana Full: -332178233
       shiny_rpg_potions_16x16_98: -1038391993
       shiny_rpg_potions_16x16_38: -1685582444
       shiny_rpg_potions_16x16_42: -1566409185
       shiny_rpg_potions_16x16_12: -1629406223
       shiny_rpg_potions_16x16_16: -1094527100
       shiny_rpg_potions_16x16_39: -1011743784
-      shiny_rpg_potions_16x16_84: -332178233
       shiny_rpg_potions_16x16_14: -1683266342
       shiny_rpg_potions_16x16_85: 752339731
       shiny_rpg_potions_16x16_24: -1587682329
@@ -2303,8 +2303,8 @@ TextureImporter:
       shiny_rpg_potions_16x16_56: -836744862
       shiny_rpg_potions_16x16_75: -462603508
       shiny_rpg_potions_16x16_8: -706310879
+      Mana 75: -1687378035
       shiny_rpg_potions_16x16_92: 1982453868
-      shiny_rpg_potions_16x16_21: -1687378035
       shiny_rpg_potions_16x16_80: -1803477532
       shiny_rpg_potions_16x16_44: -250042961
       shiny_rpg_potions_16x16_81: -933632621
@@ -2322,6 +2322,7 @@ TextureImporter:
       shiny_rpg_potions_16x16_58: -1527689283
       shiny_rpg_potions_16x16_31: -2059565741
       shiny_rpg_potions_16x16_83: 1741196244
+      Mana 50: 1205272786
       shiny_rpg_potions_16x16_43: -1460491883
       shiny_rpg_potions_16x16_87: 1168107071
       shiny_rpg_potions_16x16_57: 1220956034
@@ -2333,10 +2334,9 @@ TextureImporter:
       shiny_rpg_potions_16x16_33: -989819629
       shiny_rpg_potions_16x16_47: -260507219
       f: 642484919
-      shiny_rpg_potions_16x16_19: -1710204127
+      shiny_rpg_potions_16x16_61: 1317336911
       shiny_rpg_potions_16x16_63: 529096350
       shiny_rpg_potions_16x16_40: -478777227
-      shiny_rpg_potions_16x16_61: 1317336911
       shiny_rpg_potions_16x16_89: 1113972973
       shiny_rpg_potions_16x16_49: -580758260
       shiny_rpg_potions_16x16_7: -149039558

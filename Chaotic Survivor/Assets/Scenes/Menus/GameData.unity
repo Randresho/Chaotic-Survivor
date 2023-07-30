@@ -935,14 +935,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 1558365215, guid: 5dacdb611f2f9ee48922667a9389cc75, type: 3}
+  m_Sprite: {fileID: 1900541832, guid: 2f448b6c05d69c44da881b21222a5667, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -14487,7 +14487,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1247828511}
   m_Layer: 0
-  m_Name: LifePosition
+  m_Name: ItemsPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18513,8 +18513,8 @@ RectTransform:
   m_Children:
   - {fileID: 1974867864}
   - {fileID: 1381303276}
-  - {fileID: 1247828511}
   - {fileID: 552223427}
+  - {fileID: 1247828511}
   - {fileID: 1659081749}
   m_Father: {fileID: 1370837229}
   m_RootOrder: -1

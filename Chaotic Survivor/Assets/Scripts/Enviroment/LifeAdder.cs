@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class LifeAdder : MonoBehaviour
 {
-    public float addLife = 0;
+    [SerializeField] private  float addLife = 0;
     [SerializeField] private Target target;
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -13,7 +13,6 @@ public class LifeAdder : MonoBehaviour
         if (obj.GetComponent<PlayerActions>() != null)
         {
             obj.GetComponent<PlayerActions>().playerHP += addLife;
-            Debug.Log("Se añadio " + addLife + " de vida");
             FindObjectOfType<LevelManager>().SpawnLife();
         }
 

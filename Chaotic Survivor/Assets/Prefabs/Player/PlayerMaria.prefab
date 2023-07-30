@@ -61,12 +61,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe677804fc30ad442a8aab924d0bd4c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomAbilities: 0
   circleCollider: {fileID: 0}
+  electroShockManaUse: 30
+  FreezeManaUse: 50
+  BurnManaUse: 40
   enemyScripts: []
   enemyCount: 0
   enemyCountLimit: 9
-  timerToRestartAbility: 1
   maxTimerToShowNewAbility: 10
+  flashTimer: 0.1
 --- !u!1 &7192554645051107758
 GameObject:
   m_ObjectHideFlags: 0
