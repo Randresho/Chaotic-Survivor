@@ -26,6 +26,7 @@ public class EnemyScriptableObject : MonoBehaviour
     [Space]
     [SerializeField] private float hp;
     [SerializeField] private float maxHp;
+    [SerializeField] private float hpAdder;
     [SerializeField] private Slider hpSlider;
     [SerializeField] private SpriteRenderer spriteRenderer;
     [Space]
@@ -54,22 +55,17 @@ public class EnemyScriptableObject : MonoBehaviour
     [Header("Reations Effects")]
     //Electro Shock
     public float electroShocktimer;
-    public float electroShockDamage = 5f;
-    private bool isElectroShocking;
 
     //Freeze
+    [Space]
     [SerializeField] private Material freezeMaterial;
-    private float timeFreezed;
     private bool isFreezeActive;
 
     //Burn
     [Space]
     private float timeBurning;
-    private float burning;
     private bool isBurnActive;
-    //Instant Kill
 
-    // Start is called before the first frame update
     void Awake()
     {
         levelManager = FindObjectOfType<LevelManager>();
@@ -210,6 +206,9 @@ public class EnemyScriptableObject : MonoBehaviour
         gameObject.SetActive(false);
 
         levelManager.enemyScriptables.Remove(this);
+
+        maxHp += hpAdder;
+
         ActiveEnemy();
     }
     #endregion
@@ -285,25 +284,21 @@ public class EnemyScriptableObject : MonoBehaviour
                 isBurnActive = true;
                 StartCoroutine(ReciveBurnDamage());
                 break;
-
-            case RandomAbilityEnum.InstantKill:
-                StartCoroutine(InstantKill());
-                break;
         }
     }
 
     #region Electro Shock
     private IEnumerator ElectroShocking()
     {
-        while (electroShocktimer <= levelManager.maxElectroShockTimer)
+        while (electroShocktimer <= randomAbilities.maxElectroShockTimer)
         {
             electroShocktimer += Time.fixedDeltaTime;
-            ReciveDamage(electroShockDamage);
+            ReciveDamage(randomAbilities.electroShockDamage);
             //Efectos de rayos
             //Sonido de rayos
             isFreezeActive = true;
         }
-        yield return new WaitForSeconds(levelManager.maxElectroShockTimer);
+        yield return new WaitForSeconds(randomAbilities.maxElectroShockTimer);
         isFreezeActive = false;
     }
     #endregion
@@ -317,7 +312,7 @@ public class EnemyScriptableObject : MonoBehaviour
         //Efecto de congelacion
         //Sonido de congelado
 
-        yield return new WaitForSeconds(levelManager.maxFreezeTimer);
+        yield return new WaitForSeconds(randomAbilities.maxFreezeTimer);
 
         spriteRenderer.material = originalMaterial;
 
@@ -335,18 +330,18 @@ public class EnemyScriptableObject : MonoBehaviour
             do
             {
                 timeBurning += 5f;
-                Debug.Log("Estoy apunto de quemarme");
-                yield return new WaitForSeconds(levelManager.maxNextBurning);
-                ReciveDamage(levelManager.burnDamage);
-                Debug.Log("Me quemo");
+                //Debug.Log("Estoy apunto de quemarme");
+                yield return new WaitForSeconds(randomAbilities.MaxNextBurning);
+                ReciveDamage(randomAbilities.burnDamage);
+                //Debug.Log("Me quemo");
                 //Efecto de fuego
                 //Sonido de quemadura
             }
-            while (timeBurning <= levelManager.maxBurningTimer);
+            while (timeBurning <= randomAbilities.maxBurningTimer);
 
-            yield return new WaitForSeconds(levelManager.maxBurningTimer);
+            yield return new WaitForSeconds(randomAbilities.maxBurningTimer);
             timeBurning = 0f;
-            Debug.Log("Ya no me quemo");
+            //Debug.Log("Ya no me quemo");
             isBurnActive = false;
         }
     }

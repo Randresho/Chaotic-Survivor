@@ -63,9 +63,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   randomAbilities: 0
   circleCollider: {fileID: 0}
+  electroShockDamage: 5
   electroShockManaUse: 30
+  maxElectroShockTimer: 3
   FreezeManaUse: 50
-  BurnManaUse: 40
+  maxFreezeTimer: 20
+  maxBurningTimer: 15
+  burnManaUse: 40
+  burnDamage: 2
   enemyScripts: []
   enemyCount: 0
   enemyCountLimit: 9

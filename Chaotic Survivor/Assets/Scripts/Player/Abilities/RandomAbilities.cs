@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering;
 
-public enum RandomAbilityEnum{ElectroShock, Freeze, Burn, InstantKill}
+public enum RandomAbilityEnum{ElectroShock, Freeze, Burn, }
 
 [RequireComponent(typeof(CircleCollider2D))]
 public class RandomAbilities : MonoBehaviour
@@ -14,6 +14,7 @@ public class RandomAbilities : MonoBehaviour
     private GameManager gameManager;
     private UiManager uiManager;
     private LevelManager levelManager;
+    private AbilityScriptableObject abilityScriptableObject;
     #endregion
 
     [Header("Abilities")]
@@ -23,9 +24,25 @@ public class RandomAbilities : MonoBehaviour
         get { return randomAbilities; }
     }
     [HideInInspector] public CircleCollider2D circleCollider;
+    //Electro Shock
+    [Space]
+    public float electroShockDamage = 5f;
     public float electroShockManaUse;
+    public float maxElectroShockTimer = 3f;
+    //Freeze
+    [Space]
     public float FreezeManaUse;
-    public float BurnManaUse;
+    public float maxFreezeTimer = 20f;
+    //Burn
+    [Space]
+    public float maxBurningTimer = 15f;
+    public float burnManaUse;
+    public float burnDamage = 2f;
+    private float maxNextBurning = 5f;
+    public float MaxNextBurning
+    {
+        get { return maxNextBurning; }
+    }
 
     [Header("Enemies")]
     public List<EnemyScriptableObject> enemyScripts;
@@ -36,6 +53,10 @@ public class RandomAbilities : MonoBehaviour
     public float maxTimerToShowNewAbility;
     private float timerToShowNewAbility;
     private int randomAbiltyNumber;
+    public int RandomAbilityNumber
+    {
+        get { return randomAbiltyNumber; }
+    }
     private float fillAmount;
     private bool canActive = false;
     [SerializeField] private float flashTimer;
@@ -48,12 +69,15 @@ public class RandomAbilities : MonoBehaviour
     void Awake()
     {
         m_PlayerInput = new PlayerInput();
+
         gameManager = FindObjectOfType<GameManager>();
         gameManager.RandomAbilities(this);
         uiManager = FindObjectOfType<UiManager>();
         levelManager = FindObjectOfType<LevelManager>();
+        abilityScriptableObject = FindObjectOfType<AbilityScriptableObject>();
+        abilityScriptableObject.SetRandomAbilities(this);
+        
         circleCollider = GetComponent<CircleCollider2D>();
-
         circleCollider.radius = 2f;
 
         SetNewAbility();
@@ -78,6 +102,7 @@ public class RandomAbilities : MonoBehaviour
         }
 
         uiManager.enemiesManaCount.text = "x" + enemyScripts.Count;
+        uiManager.manaText.text = levelManager.playerMana + "/" + levelManager.playerMaxMana;
     }
 
     public void UseAbility()
@@ -123,19 +148,14 @@ public class RandomAbilities : MonoBehaviour
                 break;
 
             case RandomAbilityEnum.Burn:
-                if (levelManager.playerMana < BurnManaUse)
+                if (levelManager.playerMana < burnManaUse)
                 {
                     StartCoroutine(FlashMana());
                     return;
                 }
 
-                levelManager.ManaUsage(BurnManaUse);
+                levelManager.ManaUsage(burnManaUse);
                 break;
-
-            case RandomAbilityEnum.InstantKill:
-                levelManager.ManaUsage(levelManager.playerMana);
-                break;
-
             default:
                 break;
         }
@@ -151,6 +171,7 @@ public class RandomAbilities : MonoBehaviour
         //Reset Graphics
         uiManager.manaButton.interactable = false;
         uiManager.manaCoolDown.fillAmount = 1f;
+        uiManager.manaConsume.text = "";
 
         //Set a random new ability
         randomAbiltyNumber = Random.Range(0, uiManager.manaNewImage.Length);
@@ -166,6 +187,21 @@ public class RandomAbilities : MonoBehaviour
     {
         uiManager.manaButton.interactable = true;
         uiManager.manaCoolDown.fillAmount = 0f;
+
+        switch (randomAbilities)
+        {
+            case RandomAbilityEnum.ElectroShock:
+                uiManager.manaConsume.text = electroShockManaUse.ToString();
+                break;
+            case RandomAbilityEnum.Freeze:
+                uiManager.manaConsume.text = FreezeManaUse.ToString();
+                break;
+            case RandomAbilityEnum.Burn:
+                uiManager.manaConsume.text = burnManaUse.ToString();
+                break;
+            default:
+                break;
+        }
         canActive = false;
     }
 

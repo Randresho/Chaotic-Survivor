@@ -74,17 +74,10 @@ public class LevelManager : MonoBehaviour
 
     [Header("New Random Abilies")]
     public float playerMana = 0f;
-    public float playerMaxMana = 0f;
-    [Space]
-    public float maxElectroShockTimer = 3f;
-    [Space]
-    public float maxFreezeTimer = 20f;
-    [Space]
-    public float maxBurningTimer = 15f;
-    public float maxNextBurning = 5f;
-    public float burnDamage = 2f;
+    public float playerMaxMana = 0f;   
 
     [Space]
+    [Header("Abilities")]
     [SerializeField] private AbilityScriptableObject abilityScriptable;
 
 

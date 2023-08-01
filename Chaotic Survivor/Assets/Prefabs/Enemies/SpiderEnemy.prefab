@@ -479,6 +479,7 @@ MonoBehaviour:
   animator: {fileID: 6422796217561084374}
   hp: 5
   maxHp: 5
+  hpAdder: 1
   hpSlider: {fileID: 8699216880093949425}
   spriteRenderer: {fileID: 8149112976765644672}
   experience: 0.15
@@ -486,7 +487,6 @@ MonoBehaviour:
   damagePlayer: 5
   moveRight: 0
   timerToDestroy: 0.4
-  randomAbilityEnum: 0
   itemDropPrefab:
   - {fileID: 69398331145423285, guid: 8300606583916694eb2374a7ab5cb91f, type: 3}
   deadObjVfx: {fileID: 5166036043238550530}
@@ -495,6 +495,7 @@ MonoBehaviour:
   flashMaterial: {fileID: 2100000, guid: 9d4393a001826c246b7a5a48b3b9127a, type: 2}
   duration: 0.05
   originalMaterial: {fileID: 0}
+  electroShocktimer: 0
   freezeMaterial: {fileID: 2100000, guid: 6c4b49f5b36065e4692f4302bd3ccdac, type: 2}
 --- !u!82 &-8628344890511215257
 AudioSource:

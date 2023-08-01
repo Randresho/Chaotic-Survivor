@@ -80,6 +80,8 @@ public class UiManager : MonoBehaviour
     public Image manaRandomAbility = null;
     public Sprite[] manaNewImage = null;
     public Image manaCoolDown = null;
+    public TextMeshProUGUI manaConsume = null;
+    public TextMeshProUGUI manaText = null;
     [Space]
     public TextMeshProUGUI scoreTimerTxt = null;
     public TextMeshProUGUI scoreTimerInfoTxt = null;
