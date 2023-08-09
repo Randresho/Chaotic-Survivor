@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 490514241934926867}
   - component: {fileID: 490514241934926865}
   - component: {fileID: 4818334700267383778}
-  - component: {fileID: -759362304265247858}
+  - component: {fileID: -1248338638908263820}
   m_Layer: 0
   m_Name: Mana 10
   m_TagString: Untagged
@@ -261,7 +261,7 @@ MonoBehaviour:
   needArrowIndicator: 1
   needDistanceText: 1
   indicator: {fileID: 0}
---- !u!114 &-759362304265247858
+--- !u!114 &-1248338638908263820
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -270,8 +270,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 490514241934926879}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 074542a06515d5544ace225e14e93fdb, type: 3}
+  m_Script: {fileID: 11500000, guid: e1d552c9557e81d40afc735ec933bb67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  addMana: 25
-  target: {fileID: 0}
+  flaskType: 3
+  flaskSize: 0

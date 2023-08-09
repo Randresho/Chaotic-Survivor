@@ -14,6 +14,8 @@ public class ObjectPoolVFX : MonoBehaviour
     [SerializeField] private GameObject objectPrefab;
     [SerializeField] private Transform parentBullet;
 
+    [SerializeField] private int random;
+
     private void Awake()
     {
         if (instance == null)

@@ -259,7 +259,6 @@ public class LevelManager : MonoBehaviour
 
     public void SpawnEnemies()
     {
-
         if (enemiesSpawned < maxEnemiesSpawn)
         {
             if (timerToSpawnCurrent > 0)

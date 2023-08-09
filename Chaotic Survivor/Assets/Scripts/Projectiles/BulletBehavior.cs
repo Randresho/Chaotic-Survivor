@@ -56,15 +56,21 @@ public class BulletBehavior : MonoBehaviour
         }
 
         if(obj.GetComponent<HitObject>() != null)
-        {
-            VfxSpawner();
+        {            
             DestroyNRemove();
         }
     }
 
     private void VfxSpawner()
     {
-        Instantiate(vfxPrefab, transform.position, Quaternion.Euler(Vector2.up));
+        //Instantiate(vfxPrefab, transform.position, Quaternion.Euler(Vector2.up));
+        GameObject bulletFX = ObjectPoolVFX.instance.GetPooledObject();
+        if(bulletFX != null )
+        {
+            bulletFX.transform.position = transform.position;
+            bulletFX.transform.rotation = Quaternion.identity;
+            bulletFX.SetActive(true);
+        }
     }
 
     public void DestroyNRemove()
@@ -73,5 +79,6 @@ public class BulletBehavior : MonoBehaviour
         //Destroy(gameObject);
         gameObject.SetActive(false);
         enemiesHit = 0;
+        VfxSpawner();
     }
 }

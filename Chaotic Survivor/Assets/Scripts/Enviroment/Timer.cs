@@ -6,19 +6,21 @@ public enum timerActions { Destroy, Active, }
 public class Timer : MonoBehaviour
 {
     [SerializeField] private float setTimer = 0f;
+    [SerializeField] private float setMaxTimer = 0f;
     [SerializeField] private timerActions timerActions;
     
     // Update is called once per frame
     void FixedUpdate()
     {
-        if(setTimer > 0f)
-            setTimer -= Time.fixedDeltaTime;
+        if(setTimer < setMaxTimer)
+            setTimer += Time.fixedDeltaTime;
         else
         {
             switch (timerActions)
             {
                 case timerActions.Destroy:
-                    Destroy(gameObject);
+                    gameObject.SetActive(false);
+                    setTimer = 0f;
                     break;
                 case timerActions.Active:
                     //Aun no se que hara

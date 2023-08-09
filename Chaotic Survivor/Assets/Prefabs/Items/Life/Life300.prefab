@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 490514241934926868}
   - component: {fileID: 490514241934926867}
   - component: {fileID: 490514241934926865}
-  - component: {fileID: 490514241934926864}
   - component: {fileID: -6029372356244779493}
+  - component: {fileID: 5312192007714484564}
   m_Layer: 0
   m_Name: Life300
   m_TagString: Untagged
@@ -244,20 +244,6 @@ MonoBehaviour:
   collider2D: {fileID: 0}
   playerPos: {fileID: 0}
   spriteRenderer: {fileID: 490514241934926870}
---- !u!114 &490514241934926864
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 490514241934926879}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 66913b216bfba924d888e3b4b437b328, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  addLife: 300
-  target: {fileID: 0}
 --- !u!114 &-6029372356244779493
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -275,3 +261,17 @@ MonoBehaviour:
   needArrowIndicator: 1
   needDistanceText: 1
   indicator: {fileID: 0}
+--- !u!114 &5312192007714484564
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 490514241934926879}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1d552c9557e81d40afc735ec933bb67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flaskType: 1
+  flaskSize: 4

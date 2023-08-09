@@ -118,5 +118,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06490972842892f4a84818615673edef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  setTimer: 0.3
+  setTimer: 0
+  setMaxTimer: 0.3
   timerActions: 0

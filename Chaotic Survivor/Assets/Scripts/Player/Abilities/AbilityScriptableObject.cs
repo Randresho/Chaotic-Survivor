@@ -467,7 +467,6 @@ public class AbilityScriptableObject : MonoBehaviour
                     switch(randomAbilityChoose)
                     { 
                         case 0: //Electro Shock
-                            Debug.Log("Ahora tenemos electro shock");
                             switch(randomAbilityCurChoose)
                             {
                                 case 0:
@@ -481,7 +480,6 @@ public class AbilityScriptableObject : MonoBehaviour
                             }
                             break;
                         case 1: //Freeze
-                            Debug.Log("Ahora tenemos Freeze");
                             switch (randomAbilityCurChoose)
                             {
                                 case 0:
@@ -492,7 +490,6 @@ public class AbilityScriptableObject : MonoBehaviour
                             }
                             break;
                         case 2: //Burn
-                            Debug.Log("Ahora tenemos Burn");
                             switch (randomAbilityCurChoose)
                             {
                                 case 0:
@@ -506,7 +503,6 @@ public class AbilityScriptableObject : MonoBehaviour
                             }
                             break;
                         case 3: //Enemies
-                            Debug.Log("Ahora tenemos enemigos");
                             switch (randomAbilityCurChoose)
                             {
                                 case 0:
@@ -518,7 +514,6 @@ public class AbilityScriptableObject : MonoBehaviour
                             break;
 
                         case 4: //Mana
-                            Debug.Log("Ahora tenemos mana");
                             switch (randomAbilityCurChoose)
                             {
                                 case 0:
