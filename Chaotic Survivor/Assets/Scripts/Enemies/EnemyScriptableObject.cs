@@ -45,8 +45,7 @@ public class EnemyScriptableObject : MonoBehaviour
     [SerializeField] private Animator deadVfx = null;
     [SerializeField] private AudioSource deadSound;
 
-    [Header("Hit FX")]
-    
+    [Header("Hit FX")]    
     [SerializeField] private Material flashMaterial;
     [SerializeField] private float duration;
     [SerializeField] private Material originalMaterial;
@@ -65,7 +64,9 @@ public class EnemyScriptableObject : MonoBehaviour
     [Space]
     private float timeBurning;
     private bool isBurnActive;
-
+    [SerializeField] private GameObject burnFX;
+    [SerializeField] private Animator burnAnimator;
+    [SerializeField] private AudioSource burnSound;
     void Awake()
     {
         levelManager = FindObjectOfType<LevelManager>();
@@ -102,6 +103,7 @@ public class EnemyScriptableObject : MonoBehaviour
         m_rigidbodys.bodyType = RigidbodyType2D.Dynamic;
 
         deadObjVfx.SetActive(false);
+        burnFX.SetActive(false);
 
         moveRight = false;
 
@@ -309,6 +311,7 @@ public class EnemyScriptableObject : MonoBehaviour
         isFreezeActive = true;
         spriteRenderer.material = freezeMaterial;
         m_rigidbodys.bodyType = RigidbodyType2D.Static;
+        animator.speed = 0f;
         //Efecto de congelacion
         //Sonido de congelado
 
@@ -319,6 +322,7 @@ public class EnemyScriptableObject : MonoBehaviour
         isFreezeActive = false;
 
         m_rigidbodys.bodyType = RigidbodyType2D.Dynamic;
+        animator.speed = 1f;
     }    
     #endregion
 
@@ -331,11 +335,13 @@ public class EnemyScriptableObject : MonoBehaviour
             {
                 timeBurning += 5f;
                 //Debug.Log("Estoy apunto de quemarme");
+                burnFX.SetActive(false);
                 yield return new WaitForSeconds(randomAbilities.MaxNextBurning);
                 ReciveDamage(randomAbilities.burnDamage);
                 //Debug.Log("Me quemo");
-                //Efecto de fuego
-                //Sonido de quemadura
+                burnFX.SetActive(true);
+                burnAnimator.Play("BurnFX");
+                burnSound.Play();
             }
             while (timeBurning <= randomAbilities.maxBurningTimer);
 

@@ -89,6 +89,11 @@ public class UiManager : MonoBehaviour
     public TextMeshProUGUI scoreEnemiesTxt = null;
     public TextMeshProUGUI scoreCoinsTxt = null;
 
+    [Header("Total Game Info")]
+    public TextMeshProUGUI totalEnemies = null;
+    public TextMeshProUGUI totalCoins = null;
+    public TextMeshProUGUI totalDeads = null;
+
     [Header("Timer")]
     public string[] infoTextString = null;
     public TimerTextInfo[] timerTextInfo = null;
@@ -206,6 +211,14 @@ public class UiManager : MonoBehaviour
         levelTxt.text = "" + levelData;
         enemiesTxt.text = "" + enemiesData;
         coinsTxt.text = "" + coinsData;
+    }
+
+    //Stats
+    public void DisplayStats()
+    {
+        totalCoins.text = "" + gameManager.coinsAmount;
+        totalEnemies.text = "" + gameManager.enemiesAmount;
+        totalDeads.text = "" + gameManager.deadsAmount;
     }
     #endregion
 }

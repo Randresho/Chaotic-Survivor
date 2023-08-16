@@ -341,6 +341,7 @@ Transform:
   m_Children:
   - {fileID: 5139523835213562986}
   - {fileID: 5166036043238550535}
+  - {fileID: 6218837305361054353}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -497,6 +498,9 @@ MonoBehaviour:
   originalMaterial: {fileID: 0}
   electroShocktimer: 0
   freezeMaterial: {fileID: 2100000, guid: 6c4b49f5b36065e4692f4302bd3ccdac, type: 2}
+  burnFX: {fileID: 7297811795407549657}
+  burnAnimator: {fileID: 213531179126942143}
+  burnSound: {fileID: 2124663048816619506}
 --- !u!82 &-8628344890511215257
 AudioSource:
   m_ObjectHideFlags: 0
@@ -669,6 +673,85 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1001 &6526599445501152511
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 2
+    m_TransformParent: {fileID: 4805832396719046046}
+    m_Modifications:
+    - target: {fileID: 927350137123354222, guid: 5593fde6abb752f41a1b9dd822c8d2ec, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 927350137123354222, guid: 5593fde6abb752f41a1b9dd822c8d2ec, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 927350137123354222, guid: 5593fde6abb752f41a1b9dd822c8d2ec, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 927350137123354222, guid: 5593fde6abb752f41a1b9dd822c8d2ec, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 927350137123354222, guid: 5593fde6abb752f41a1b9dd822c8d2ec, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 927350137123354222, guid: 5593fde6abb752f41a1b9dd822c8d2ec, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 927350137123354222, guid: 5593fde6abb752f41a1b9dd822c8d2ec, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 927350137123354222, guid: 5593fde6abb752f41a1b9dd822c8d2ec, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 927350137123354222, guid: 5593fde6abb752f41a1b9dd822c8d2ec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 927350137123354222, guid: 5593fde6abb752f41a1b9dd822c8d2ec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 927350137123354222, guid: 5593fde6abb752f41a1b9dd822c8d2ec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4599348073422370854, guid: 5593fde6abb752f41a1b9dd822c8d2ec, type: 3}
+      propertyPath: m_Name
+      value: BurnEffect
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_AddedGameObjects: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5593fde6abb752f41a1b9dd822c8d2ec, type: 3}
+--- !u!95 &213531179126942143 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 6369707135052244288, guid: 5593fde6abb752f41a1b9dd822c8d2ec, type: 3}
+  m_PrefabInstance: {fileID: 6526599445501152511}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &2124663048816619506 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 5183487405260759821, guid: 5593fde6abb752f41a1b9dd822c8d2ec, type: 3}
+  m_PrefabInstance: {fileID: 6526599445501152511}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &6218837305361054353 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 927350137123354222, guid: 5593fde6abb752f41a1b9dd822c8d2ec, type: 3}
+  m_PrefabInstance: {fileID: 6526599445501152511}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7297811795407549657 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4599348073422370854, guid: 5593fde6abb752f41a1b9dd822c8d2ec, type: 3}
+  m_PrefabInstance: {fileID: 6526599445501152511}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6700892725348171404
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -138,6 +138,22 @@ MonoBehaviour:
     m_Localized: Accept
     m_Metadata:
       m_Items: []
+  - m_Id: 111879608075300864
+    m_Localized: My Stats
+    m_Metadata:
+      m_Items: []
+  - m_Id: 111880441831632896
+    m_Localized: 'Coins Collected:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 111880677153058816
+    m_Localized: 'Enemies defeated:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 111881740178436096
+    m_Localized: 'Attemps:'
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:

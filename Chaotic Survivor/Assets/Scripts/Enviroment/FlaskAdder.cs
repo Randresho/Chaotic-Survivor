@@ -52,7 +52,7 @@ public class FlaskAdder : MonoBehaviour
                             obj.GetComponent<PlayerActions>().playerHP += (obj.GetComponent<PlayerActions>().playerMaxHP * 0.75f);
                             break;
                         case FlaskSize.Big:
-                            obj.GetComponent<PlayerActions>().playerHP = obj.GetComponent<PlayerActions>().playerMaxHP;
+                            obj.GetComponent<PlayerActions>().playerHP += obj.GetComponent<PlayerActions>().playerMaxHP;
                             break;
                         default:
                             break;
@@ -79,7 +79,7 @@ public class FlaskAdder : MonoBehaviour
                             levelManager.playerLevelFloat += (levelManager.playerLevelMaxFloat * 0.75f);
                             break;
                         case FlaskSize.Big:
-                            levelManager.playerLevelFloat = levelManager.playerLevelMaxFloat;
+                            levelManager.playerLevelFloat += levelManager.playerLevelMaxFloat;
                             break;
                         default:
                             break;
@@ -106,7 +106,7 @@ public class FlaskAdder : MonoBehaviour
                             levelManager.playerMana += (levelManager.playerMaxMana * 0.75f);
                             break;
                         case FlaskSize.Big:
-                            levelManager.playerMana = (levelManager.playerMaxMana);
+                            levelManager.playerMana += (levelManager.playerMaxMana);
                             break;
                         default:
                             break;

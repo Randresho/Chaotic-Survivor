@@ -22,6 +22,11 @@ public class GameManager : MonoBehaviour
     [Header("Persistent Objects")]
     [SerializeField] private GameObject[] persistentObjects = null;
 
+    [Header("Total Game Info")]
+    public int coinsAmount = 0;
+    public int enemiesAmount = 0;
+    public int deadsAmount = 0;
+
     [Header("Level Data")]
     public int currentLevelNumber = 0;
     public float porcentageLevel = 0;
@@ -30,6 +35,7 @@ public class GameManager : MonoBehaviour
     public int playerAdCurLevel = 5;
     public bool firstTimePlaying = false;
     public int instruccionInt = 0;
+
 
     [Header("Transition Controller")]
     [SerializeField] private float transitionTimer = 1f;

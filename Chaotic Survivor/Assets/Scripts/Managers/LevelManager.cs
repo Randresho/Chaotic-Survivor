@@ -382,6 +382,13 @@ public class LevelManager : MonoBehaviour
         uiManager.DisplayTimer(timerValue, uiManager.scoreTimerTxt, uiManager.scoreTimerInfoTxt);
         uiManager.DisplayMatchInfo(uiManager.scoreLevelTxt, playerLevel, uiManager.scoreEnemiesTxt, enemiesKilled, uiManager.scoreCoinsTxt, coinsGrab);
         uiManager.ActiveAnimation(gameOverAnimator);
+
+        //Save Stats
+        gameManager.coinsAmount += coinsGrab;
+        gameManager.enemiesAmount += enemiesKilled;
+        gameManager.deadsAmount++;
+
+        saveNLoad.SaveStatsInfo(gameManager.coinsAmount,gameManager.enemiesAmount,gameManager.deadsAmount);
     }
     #endregion
 

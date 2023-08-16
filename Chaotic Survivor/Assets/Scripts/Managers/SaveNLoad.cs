@@ -31,6 +31,8 @@ public class SaveNLoad : MonoBehaviour
     [Header("Game Data")]
     public int firstTimePlayingInt;
 
+    public int deadsAmount;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -59,6 +61,14 @@ public class SaveNLoad : MonoBehaviour
         PlayerPrefs.SetInt("FirstTimePlaying", firstTimePlayingInt);
     }
 
+    public void SaveStatsInfo(int coins,int enemies,int deads)
+    {
+        PlayerPrefs.SetInt("CoinsStats", coins);
+        PlayerPrefs.SetInt("EnemiesStats", enemies);
+        PlayerPrefs.SetInt("DeadsStats", deads);
+    }
+
+    #region Options
     public void SaveMilliseconds()
     {
         millisecondsOn = optionsManager.millisecondsInt;
@@ -82,6 +92,7 @@ public class SaveNLoad : MonoBehaviour
         autoAimOn = optionsManager.autoAimInt;
         PlayerPrefs.SetInt("AutoAimSave", autoAimOn);
     }
+    #endregion
 
     public void LoadData()
     {
@@ -89,6 +100,7 @@ public class SaveNLoad : MonoBehaviour
         enemiesKilledData = PlayerPrefs.GetInt("EnemiesKilled");
         coinGrabData = PlayerPrefs.GetInt("CoinsGrab");
         levelData = PlayerPrefs.GetInt("LevelD");
+
         
         uiManager.DisplayTimer(timerData, uiManager.highscoreTimerTxt, uiManager.highscoreTimerInfoTxt);
         uiManager.DisplayMatchInfo(uiManager.highscoreLevelTxt, levelData, uiManager.highscoreEnemiesTxt, enemiesKilledData, uiManager.highscoreCoinsTxt, coinGrabData);        
@@ -97,6 +109,12 @@ public class SaveNLoad : MonoBehaviour
     public void LoadGameData()
     {
         firstTimePlayingInt = PlayerPrefs.GetInt("FirstTimePlaying");
+
+        gameManager.coinsAmount = PlayerPrefs.GetInt("CoinsStats");
+        gameManager.enemiesAmount = PlayerPrefs.GetInt("EnemiesStats");
+        gameManager.deadsAmount = PlayerPrefs.GetInt("DeadsStats");
+
+        uiManager.DisplayStats();
     }
 
     public void LoadOptions()
