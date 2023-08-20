@@ -305,7 +305,6 @@ public class LevelManager : MonoBehaviour
                 timerToSpawnCurrent = timerToSpawn;
             }
         }
-
     }
     #endregion
 
@@ -376,8 +375,6 @@ public class LevelManager : MonoBehaviour
         //Save Data
         if (timerValue > saveNLoad.timerData && enemiesKilled > saveNLoad.enemiesKilledData && coinsGrab > saveNLoad.coinGrabData && playerLevel > saveNLoad.levelData)
             saveNLoad.SaveData(timerValue, enemiesKilled, coinsGrab, playerLevel);
-        else
-            Debug.Log("No se supero el record");
 
         uiManager.DisplayTimer(timerValue, uiManager.scoreTimerTxt, uiManager.scoreTimerInfoTxt);
         uiManager.DisplayMatchInfo(uiManager.scoreLevelTxt, playerLevel, uiManager.scoreEnemiesTxt, enemiesKilled, uiManager.scoreCoinsTxt, coinsGrab);

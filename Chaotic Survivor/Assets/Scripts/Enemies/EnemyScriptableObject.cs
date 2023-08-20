@@ -36,6 +36,7 @@ public class EnemyScriptableObject : MonoBehaviour
     public float damagePlayer;
     [Space]
     public bool moveRight;
+    private bool canMoveIt;
     [SerializeField] private float timerToDestroy;
 
     [Header("Spawner Item")]
@@ -54,19 +55,22 @@ public class EnemyScriptableObject : MonoBehaviour
     [Header("Reations Effects")]
     //Electro Shock
     public float electroShocktimer;
+    [SerializeField] private GameObject electroFX;
+    [SerializeField] private AudioSource electroSound;
 
     //Freeze
     [Space]
     [SerializeField] private Material freezeMaterial;
+    [SerializeField] private AudioSource freezeSound;
     private bool isFreezeActive;
 
     //Burn
     [Space]
+    [SerializeField] private GameObject burnFX;
+    [SerializeField] private AudioSource burnSound;
     private float timeBurning;
     private bool isBurnActive;
-    [SerializeField] private GameObject burnFX;
-    [SerializeField] private Animator burnAnimator;
-    [SerializeField] private AudioSource burnSound;
+
     void Awake()
     {
         levelManager = FindObjectOfType<LevelManager>();
@@ -92,7 +96,6 @@ public class EnemyScriptableObject : MonoBehaviour
         isBurnActive = false;
         isFreezeActive = false;
 
-
         transform.position = levelManager.outsideCam;
 
         hp = maxHp;
@@ -104,6 +107,7 @@ public class EnemyScriptableObject : MonoBehaviour
 
         deadObjVfx.SetActive(false);
         burnFX.SetActive(false);
+        electroFX.SetActive(false);
 
         moveRight = false;
 
@@ -154,14 +158,34 @@ public class EnemyScriptableObject : MonoBehaviour
         {
             spriteRenderer.enabled = false;
             collider.enabled = false;
+
+            if(canMoveIt)
+            {
+                transform.position = levelManager.outsideCam;
+                levelManager.UpdateCameraPoint();
+
+                hp = maxHp;
+                hpSlider.maxValue = hp;
+                hpSlider.value = hp;
+
+                deadObjVfx.SetActive(false);
+                burnFX.SetActive(false);
+                electroFX.SetActive(false);
+
+                spriteRenderer.material = originalMaterial;
+
+                canMoveIt = false;
+            }
+
             return;
         }
         else
         {
-            if (hp <= 0.05)
+            /*if (hp <= 0.05)
                 spriteRenderer.enabled = false;
-            else
-                spriteRenderer.enabled = true;
+            else*/
+            canMoveIt = true;
+            spriteRenderer.enabled = true;
         }
     }
     #endregion
@@ -175,6 +199,9 @@ public class EnemyScriptableObject : MonoBehaviour
         if (!isFreezeActive)
             Flash();
 
+        if(isBurnActive)
+            StartCoroutine(DamageBurnFX());        
+
         if (hp <= 0.05)
         {
             deadSound.Play();
@@ -186,15 +213,32 @@ public class EnemyScriptableObject : MonoBehaviour
         }
     }
 
+    //Burn Damage
+    private IEnumerator DamageBurnFX()
+    {
+        burnFX.SetActive(true);
+        burnSound.Play();
+        yield return new WaitForSeconds(0.5f);
+        burnFX.SetActive(false);
+    }
+
+    //Electro Damage
+    private IEnumerator DamageElectroFX()
+    {
+        electroFX.SetActive(true);
+        electroSound.Play();
+        yield return new WaitForSeconds(0.5f);
+        electroFX.SetActive(false);
+    }
+
     public IEnumerator DestroyObj()
     {
         yield return new WaitForSeconds(timerToDestroy);
         levelManager.enemiesSpawned--;
         levelManager.enemiesKilled++;
-        //levelManager.enemies.Remove(this);
         levelManager.playerLevelFloat += experience;
-        levelManager.AddMana(1f);
         levelManager.levelPlayer();
+        levelManager.AddMana(1f);
 
         //Instantiate(itemDropPrefab[Random.Range(0, itemDropPrefab.Length)], transform.position, transform.rotation, levelManager.transform);
         GameObject coinObj = ObjectPoolCoins.instance.GetPooledObject();
@@ -233,7 +277,6 @@ public class EnemyScriptableObject : MonoBehaviour
             }
         }
     }
-
 
     private void OnTriggerExit2D(Collider2D collision)
     {
@@ -296,8 +339,8 @@ public class EnemyScriptableObject : MonoBehaviour
         {
             electroShocktimer += Time.fixedDeltaTime;
             ReciveDamage(randomAbilities.electroShockDamage);
-            //Efectos de rayos
-            //Sonido de rayos
+            StartCoroutine(DamageElectroFX());
+
             isFreezeActive = true;
         }
         yield return new WaitForSeconds(randomAbilities.maxElectroShockTimer);
@@ -309,11 +352,10 @@ public class EnemyScriptableObject : MonoBehaviour
     private IEnumerator Freezed()
     {
         isFreezeActive = true;
-        spriteRenderer.material = freezeMaterial;
         m_rigidbodys.bodyType = RigidbodyType2D.Static;
         animator.speed = 0f;
-        //Efecto de congelacion
-        //Sonido de congelado
+        spriteRenderer.material = freezeMaterial;
+        freezeSound.Play();
 
         yield return new WaitForSeconds(randomAbilities.maxFreezeTimer);
 
@@ -334,14 +376,12 @@ public class EnemyScriptableObject : MonoBehaviour
             do
             {
                 timeBurning += 5f;
-                //Debug.Log("Estoy apunto de quemarme");
-                burnFX.SetActive(false);
+
                 yield return new WaitForSeconds(randomAbilities.MaxNextBurning);
+
                 ReciveDamage(randomAbilities.burnDamage);
-                //Debug.Log("Me quemo");
-                burnFX.SetActive(true);
-                burnAnimator.Play("BurnFX");
-                burnSound.Play();
+
+                yield return new WaitForSeconds(0.5f);
             }
             while (timeBurning <= randomAbilities.maxBurningTimer);
 
@@ -350,15 +390,6 @@ public class EnemyScriptableObject : MonoBehaviour
             //Debug.Log("Ya no me quemo");
             isBurnActive = false;
         }
-    }
-    #endregion
-
-    #region Instant Kill
-    private IEnumerator InstantKill()
-    {
-        //Sonido de instant kill
-        StartCoroutine(DestroyObj());
-        yield return null;
     }
     #endregion
     #endregion
