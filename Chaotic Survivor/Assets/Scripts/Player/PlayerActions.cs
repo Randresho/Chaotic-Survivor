@@ -111,7 +111,7 @@ public class PlayerActions : MonoBehaviour
         }
     }
 
-    private void UpdateHp()
+    public void UpdateHp()
     {
         playerHPSlider.value = playerHP;
 

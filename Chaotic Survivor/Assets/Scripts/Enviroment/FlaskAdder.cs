@@ -12,6 +12,7 @@ public class FlaskAdder : MonoBehaviour
     #region Scripts
     private GameManager gameManager;
     private LevelManager levelManager;
+    private UiManager uiManager;
     #endregion
 
     [SerializeField] private FlaskType flaskType = FlaskType.Empty;
@@ -22,6 +23,7 @@ public class FlaskAdder : MonoBehaviour
     {
         gameManager = FindObjectOfType<GameManager>();
         levelManager = FindObjectOfType<LevelManager>();
+        uiManager = FindObjectOfType<UiManager>();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -34,6 +36,7 @@ public class FlaskAdder : MonoBehaviour
             {
                 case FlaskType.Empty:
                     break;
+
                 #region Life
                 case FlaskType.Life:
                     #region Size flask
@@ -58,9 +61,11 @@ public class FlaskAdder : MonoBehaviour
                             break;
                     }
                     #endregion
+                    obj.GetComponent<PlayerActions>().UpdateHp();
                     levelManager.SpawnLife();
                     break;
                 #endregion
+
                 #region Level
                 case FlaskType.Level:
                     #region Size flask
@@ -85,28 +90,30 @@ public class FlaskAdder : MonoBehaviour
                             break;
                     }
                     #endregion
+                    uiManager.levelSlider.value = levelManager.playerLevelFloat;
                     levelManager.SpawnLevelUpItem();
                     break;
                 #endregion
+
                 #region Mana
                 case FlaskType.Mana:
                     #region Size flask
                     switch (flaskSize)
                     {
                         case FlaskSize.XS:
-                            levelManager.playerMana += (levelManager.playerMaxMana * 0.1f);
+                            levelManager.AddMana(levelManager.playerMaxMana * 0.1f);
                             break;
                         case FlaskSize.Small:
-                            levelManager.playerMana += (levelManager.playerMaxMana * 0.25f);
+                            levelManager.AddMana(levelManager.playerMaxMana * 0.25f);
                             break;
                         case FlaskSize.Normal:
-                            levelManager.playerMana += (levelManager.playerMaxMana * 0.5f);
+                            levelManager.AddMana(levelManager.playerMaxMana * 0.5f);
                             break;
                         case FlaskSize.Medium:
-                            levelManager.playerMana += (levelManager.playerMaxMana * 0.75f);
+                            levelManager.AddMana(levelManager.playerMaxMana * 0.75f);
                             break;
                         case FlaskSize.Big:
-                            levelManager.playerMana += (levelManager.playerMaxMana);
+                            levelManager.AddMana(levelManager.playerMaxMana);
                             break;
                         default:
                             break;

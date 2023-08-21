@@ -159,7 +159,7 @@ public class EnemyScriptableObject : MonoBehaviour
             spriteRenderer.enabled = false;
             collider.enabled = false;
 
-            if(canMoveIt)
+            /*if(canMoveIt)
             {
                 transform.position = levelManager.outsideCam;
                 levelManager.UpdateCameraPoint();
@@ -175,7 +175,7 @@ public class EnemyScriptableObject : MonoBehaviour
                 spriteRenderer.material = originalMaterial;
 
                 canMoveIt = false;
-            }
+            }*/
 
             return;
         }
@@ -184,7 +184,7 @@ public class EnemyScriptableObject : MonoBehaviour
             /*if (hp <= 0.05)
                 spriteRenderer.enabled = false;
             else*/
-            canMoveIt = true;
+            //canMoveIt = true;
             spriteRenderer.enabled = true;
         }
     }
@@ -356,6 +356,7 @@ public class EnemyScriptableObject : MonoBehaviour
         animator.speed = 0f;
         spriteRenderer.material = freezeMaterial;
         freezeSound.Play();
+        levelManager.enemyScriptables.Remove(this);
 
         yield return new WaitForSeconds(randomAbilities.maxFreezeTimer);
 
@@ -365,6 +366,9 @@ public class EnemyScriptableObject : MonoBehaviour
 
         m_rigidbodys.bodyType = RigidbodyType2D.Dynamic;
         animator.speed = 1f;
+
+        if(hp > 0.05f)
+            levelManager.enemyScriptables.Add(this);
     }    
     #endregion
 
