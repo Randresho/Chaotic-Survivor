@@ -22,6 +22,8 @@ public class OffScreenIndicator : MonoBehaviour
 
     public static Action<Target, bool> TargetStateChanged;
 
+    [SerializeField] private PlayerActions playerActions;
+
     public void Awake()
     {        
         mainCamera = FindObjectOfType<Camera>();
@@ -33,6 +35,11 @@ public class OffScreenIndicator : MonoBehaviour
     void LateUpdate()
     {
         //DrawIndicators();
+    }
+
+    public void SetPlayer(PlayerActions player)
+    {
+        playerActions = player;
     }
 
     /// <summary>
@@ -51,6 +58,7 @@ public class OffScreenIndicator : MonoBehaviour
             {
                 screenPosition.z = 0;
                 indicator = GetIndicator(ref target.indicator, IndicatorType.BOX); // Gets the box indicator from the pool.
+                indicator.typeFlask = target.TypeFlask;
             }
             else if(target.NeedArrowIndicator && !isTargetVisible)
             {
@@ -58,13 +66,29 @@ public class OffScreenIndicator : MonoBehaviour
                 OffScreenIndicatorCore.GetArrowIndicatorPositionAndAngle(ref screenPosition, ref angle, screenCentre, screenBounds);
                 indicator = GetIndicator(ref target.indicator, IndicatorType.ARROW); // Gets the arrow indicator from the pool.
                 indicator.transform.rotation = Quaternion.Euler(0, 0, angle * Mathf.Rad2Deg); // Sets the rotation for the arrow indicator.
+                indicator.typeFlask = target.TypeFlask;
             }
             if(indicator)
             {
+                //playerActions.indicators.Add(indicator);
                 indicator.SetImageColor(target.TargetColor);// Sets the image color of the indicator.
                 indicator.SetDistanceText(distanceFromCamera); //Set the distance text for the indicator.
                 indicator.transform.position = screenPosition; //Sets the position of the indicator on the screen.
                 indicator.SetTextRotation(Quaternion.identity); // Sets the rotation of the distance text of the indicator.
+            }
+            if (indicator.typeFlask == IndicatorTypeFlask.life)
+                indicator.GetComponent<RectTransform>().sizeDelta = new Vector2((75 + (75 - ((playerActions.playerHP / playerActions.playerMaxHP)*75))), (75 + (75 - ((playerActions.playerHP / playerActions.playerMaxHP) * 75))));
+            if (playerActions.panicMode)
+            {
+                if (indicator.typeFlask != IndicatorTypeFlask.life)
+                    indicator.GetComponent<RectTransform>().sizeDelta = new Vector2(75, 75);
+            }
+            else
+            {
+                if (indicator.typeFlask == IndicatorTypeFlask.level || indicator.typeFlask == IndicatorTypeFlask.mana)
+                {
+                    indicator.GetComponent<RectTransform>().sizeDelta = new Vector2(75, 75);
+                }
             }
         }
     }

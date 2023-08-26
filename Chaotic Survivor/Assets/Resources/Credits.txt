@@ -28,7 +28,7 @@ Randres
 Easy UI Animator(Gaba Games)
 
 
-!Ui Design
+!Ui Graphic Design
 Studios SoulAres
 
 
@@ -40,11 +40,7 @@ xDeviruchi
 Ivan Voirol (Backgrounds)
 Bonsaiheldin
 Atelier Pixerelia
-
-
-!Publish stores art
-@kimi65_23
-
+BDragon1727
 
 
 !Game Testers
@@ -55,7 +51,6 @@ Aluciga
 
 
 !Traductions
-
 !Randres
 Spanish(ES)
 English(EN)

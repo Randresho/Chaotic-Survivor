@@ -15,6 +15,7 @@ public class EnemyScriptableObject : MonoBehaviour
 
     [Header("Player")]
     [SerializeField] private Transform playerPos;
+    [SerializeField] private PlayerActions playerActions;
 
     [Header("Enemy Data")]
     [SerializeField] private Sprite sprite;
@@ -83,6 +84,7 @@ public class EnemyScriptableObject : MonoBehaviour
         collider = GetComponent<Collider2D>();
         maxSpeed = speed;
         originalMaterial = spriteRenderer.material;
+        playerActions = FindObjectOfType<PlayerActions>();
         //ActiveEnemy();
     }
 
@@ -122,7 +124,10 @@ public class EnemyScriptableObject : MonoBehaviour
     {
         if (!levelManager.leveUp || !isFreezeActive)
         {
-            speed = maxSpeed;
+            if(playerActions.panicMode)
+                speed = maxSpeed + 10;
+            else
+                speed = maxSpeed;
         }
 
         if (levelManager.leveUp || isFreezeActive)
@@ -159,23 +164,26 @@ public class EnemyScriptableObject : MonoBehaviour
             spriteRenderer.enabled = false;
             collider.enabled = false;
 
-            /*if(canMoveIt)
-            {
-                transform.position = levelManager.outsideCam;
-                levelManager.UpdateCameraPoint();
+            if(!isFreezeActive || !isBurnActive)
+            { 
+                if (canMoveIt)
+                {
+                    transform.position = levelManager.outsideCam;
+                    levelManager.UpdateCameraPoint();
 
-                hp = maxHp;
-                hpSlider.maxValue = hp;
-                hpSlider.value = hp;
+                    hp = maxHp;
+                    hpSlider.maxValue = hp;
+                    hpSlider.value = hp;
 
-                deadObjVfx.SetActive(false);
-                burnFX.SetActive(false);
-                electroFX.SetActive(false);
+                    deadObjVfx.SetActive(false);
+                    burnFX.SetActive(false);
+                    electroFX.SetActive(false);
 
-                spriteRenderer.material = originalMaterial;
+                    spriteRenderer.material = originalMaterial;
 
-                canMoveIt = false;
-            }*/
+                    canMoveIt = false;
+                } 
+            }
 
             return;
         }
@@ -184,7 +192,7 @@ public class EnemyScriptableObject : MonoBehaviour
             /*if (hp <= 0.05)
                 spriteRenderer.enabled = false;
             else*/
-            //canMoveIt = true;
+            canMoveIt = true;
             spriteRenderer.enabled = true;
         }
     }

@@ -23146,6 +23146,7 @@ MonoBehaviour:
   scenes:
   - BGData2
   - GameData
+  - HowToPlay
   levels:
   - Level
 --- !u!4 &1786075453

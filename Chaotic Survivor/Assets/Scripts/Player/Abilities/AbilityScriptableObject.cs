@@ -195,20 +195,18 @@ public class AbilityScriptableObject : MonoBehaviour
                 changeOptionsObj.SetActive(true);
             }
         }
-
-        if (isMagnetActive && !isSpinActive)
+        else if (isMagnetActive && !isSpinActive)
         {
             buttons[0].type = (AbilityType)abiltityRandomA;
             buttons[1].type = AbilityType.Spin;
         }
-
-        if (!isMagnetActive && isSpinActive)
+        else if (!isMagnetActive && isSpinActive)
         {
             buttons[0].type = AbilityType.Magnet;
             buttons[1].type = (AbilityType)abiltityRandomB;
         }
-
-        if (!isMagnetActive && !isSpinActive)
+        //f (!isMagnetActive && !isSpinActive)
+        else
         {
             changeOptionsObj.SetActive(false);
         }

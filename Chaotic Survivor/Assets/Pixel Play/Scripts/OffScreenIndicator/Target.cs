@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 
+
+public enum IndicatorTypeFlask { mana, life, level }
 /// <summary>
 /// Attach this script to all the target game objects in the scene.
 /// </summary>
@@ -17,6 +19,8 @@ public class Target : MonoBehaviour
 
     [Tooltip("Select if distance text is required for this target")]
     [SerializeField] private bool needDistanceText = true;
+
+    [SerializeField] private IndicatorTypeFlask typeFlask;
 
     /// <summary>
     /// Please do not assign its value yourself without understanding its use.
@@ -100,5 +104,13 @@ public class Target : MonoBehaviour
     {
         float distanceFromCamera = Vector3.Distance(cameraPosition, transform.position);
         return distanceFromCamera;
+    }
+
+    public IndicatorTypeFlask TypeFlask
+    {
+        get 
+        { 
+            return typeFlask; 
+        }
     }
 }

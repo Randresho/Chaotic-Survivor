@@ -377,11 +377,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 283
-        y: 970
+        y: 971
         width: 36
         height: 37
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -389,6 +389,153 @@ TextureImporter:
       bones: []
       spriteID: 7c3f7755d7166a94eaa8e57656ec21b0
       internalID: 921506405
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BurnSpin_0
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee7174521db77464ebe7dad62023d5b0
+      internalID: -555604893
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BurnSpin_1
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 193
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c50fa165bbf460945a5284bb482433f4
+      internalID: 1513739314
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BurnSpin_2
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 870aaae3507d31f409e67631303a1007
+      internalID: -344751402
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BurnSpin_3
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f72a2a880773cd748b0bbeb7fb810da5
+      internalID: 984186412
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BurnSpin_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1105
+        width: 64
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39f0177a49c0d41449549487ea6251e3
+      internalID: 2045715929
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BurnSpin_5
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 1105
+        width: 64
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 148769c208c646f4d970dfec41aee4dd
+      internalID: 1360154736
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BurnSpin_6
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 1105
+        width: 64
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cafc7abc65244b04da0dc92fedba0644
+      internalID: 1220261981
       vertices: []
       indices: 
       edges: []
@@ -413,7 +560,9 @@ TextureImporter:
       Retro Impact Effect Pack 2 A_4: -1713144045
       Retro Impact Effect Pack 2 A_115: 2007693331
       Retro Impact Effect Pack 2 A_226: -2144712314
+      BurnSpin_1: 1130630696
       Retro Impact Effect Pack 2 A_118: 1482895523
+      BurnSpin_2: 2095704939
       Retro Impact Effect Pack 2 A_283: 530092968
       Retro Impact Effect Pack 2 A_229: -1906778716
       Retro Impact Effect Pack 2 A_125: 653665577
@@ -441,14 +590,15 @@ TextureImporter:
       Retro Impact Effect Pack 2 A_165: 823816460
       Retro Impact Effect Pack 2 A_11: 2118040266
       Retro Impact Effect Pack 2 A_192: -878429323
+      Retro Impact Effect Pack 2 A_233: 196233856
       Retro Impact Effect Pack 2 A_301: -1599338836
       Retro Impact Effect Pack 2 A_180: -1454932489
-      Retro Impact Effect Pack 2 A_221: -650780691
-      Retro Impact Effect Pack 2 A_233: 196233856
       Retro Impact Effect Pack 2 A_67: 1658351780
+      Retro Impact Effect Pack 2 A_221: -650780691
       Retro Impact Effect Pack 2 A_289: 1459873400
       Retro Impact Effect Pack 2 A_149: -1074682762
       Retro Impact Effect Pack 2 A_123: -1823173563
+      BurnSpin_6: 1220261981
       Retro Impact Effect Pack 2 A_49: -353080730
       Retro Impact Effect Pack 2 A_108: -1756220042
       Retro Impact Effect Pack 2 A_64: -1877748316
@@ -456,6 +606,7 @@ TextureImporter:
       Retro Impact Effect Pack 2 A_235: 1460731335
       Retro Impact Effect Pack 2 A_13: 531990826
       Retro Impact Effect Pack 2 A_30: -1904479787
+      BurnSpin_0: -555604893
       Retro Impact Effect Pack 2 A_58: -886960234
       Retro Impact Effect Pack 2 A_271: -1537913480
       Retro Impact Effect Pack 2 A_119: 1977972091
@@ -493,6 +644,7 @@ TextureImporter:
       Retro Impact Effect Pack 2 A_272: -467806352
       Retro Impact Effect Pack 2 A_24: 2141488196
       Retro Impact Effect Pack 2 A_121: 1386241171
+      BurnSpin_4: 2113931956
       Retro Impact Effect Pack 2 A_75: 1129721756
       Retro Impact Effect Pack 2 A_23: -244321745
       Retro Impact Effect Pack 2 A_170: 1271232189
@@ -533,12 +685,10 @@ TextureImporter:
       Retro Impact Effect Pack 2 A_251: -196211260
       Retro Impact Effect Pack 2 A_178: 2142225012
       Retro Impact Effect Pack 2 A_286: 2126634072
-      Retro Impact Effect Pack 2 A_1: 1130630696
       Retro Impact Effect Pack 2 A_28: -1888675081
       Retro Impact Effect Pack 2 A_101: -930238227
       Retro Impact Effect Pack 2 A_130: -1305159804
       Retro Impact Effect Pack 2 A_207: -2044619544
-      Retro Impact Effect Pack 2 A_3: 2113931956
       Retro Impact Effect Pack 2 A_193: 721924405
       Retro Impact Effect Pack 2 A_288: -1773819182
       Retro Impact Effect Pack 2 A_62: -959242587
@@ -621,6 +771,7 @@ TextureImporter:
       Retro Impact Effect Pack 2 A_117: 469105408
       Retro Impact Effect Pack 2 A_214: 1164265126
       Retro Impact Effect Pack 2 A_256: -130842775
+      BurnSpin_3: 2045715929
       Retro Impact Effect Pack 2 A_31: -1397339536
       Retro Impact Effect Pack 2 A_237: -490537214
       Retro Impact Effect Pack 2 A_20: 1261030850
@@ -641,7 +792,6 @@ TextureImporter:
       Retro Impact Effect Pack 2 A_213: 179725770
       Retro Impact Effect Pack 2 A_22: -630770986
       Retro Impact Effect Pack 2 A_241: 1121256108
-      Retro Impact Effect Pack 2 A_2: 2095704939
       Retro Impact Effect Pack 2 A_239: 2108690068
       Retro Impact Effect Pack 2 A_143: 898028655
       Retro Impact Effect Pack 2 A_51: -2123664462
@@ -699,6 +849,7 @@ TextureImporter:
       Retro Impact Effect Pack 2 A_9: -1963439350
       Retro Impact Effect Pack 2 A_5: 987082747
       Retro Impact Effect Pack 2 A_244: -213804406
+      BurnSpin_5: 1360154736
       Retro Impact Effect Pack 2 A_137: -10078705
       Retro Impact Effect Pack 2 A_29: 2076217047
       Retro Impact Effect Pack 2 A_56: -788668428

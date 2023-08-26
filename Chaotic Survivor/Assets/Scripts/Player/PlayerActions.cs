@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
 using UnityEngine.UI;
 
 public class PlayerActions : MonoBehaviour
@@ -32,6 +34,9 @@ public class PlayerActions : MonoBehaviour
     public float timerToReduceLife = 1;
     [SerializeField] private float reducerLife = 0.5f;
     [SerializeField] private Animator animator = null;
+    public bool panicMode = false;
+    [SerializeField] private Volume postProcesingVolume = null;
+    [SerializeField] private OffScreenIndicator offScreenIndicator = null;
 
     [Header("Hit FX")]
     [SerializeField] private SpriteRenderer spriteRenderer = null;
@@ -58,6 +63,9 @@ public class PlayerActions : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         originalMaterial = spriteRenderer.material;
         animator = GetComponent<Animator>();
+        postProcesingVolume = FindObjectOfType<Volume>();
+        offScreenIndicator = FindObjectOfType<OffScreenIndicator>();
+        offScreenIndicator.SetPlayer(this);
     }
 
     // Update is called once per frame
@@ -82,7 +90,7 @@ public class PlayerActions : MonoBehaviour
                 {
                     playerAbilities.abilities[i].abilityEnable = false;
                 }
-            }
+            }            
         }
         else
         {
@@ -122,13 +130,17 @@ public class PlayerActions : MonoBehaviour
             else
             {
                 if(playerHP > 15)
-                    playerHP -= Time.fixedDeltaTime * reducerLife;
+                {
+                    playerHP -= Time.fixedDeltaTime * reducerLife;                    
+                }
                 else
                 { 
                     for (int i = 0; i < m_LevelManager.enemies.Count; i++)
                     {
                         m_LevelManager.enemies[i].moveRight = false;
                     }
+                    //Panic Mode
+                    panicMode = true;                    
                 }                
             }
         }
@@ -141,8 +153,17 @@ public class PlayerActions : MonoBehaviour
             Debug.Log("Se tiene la vida completa");
         }
 
+        if(playerHP > 15)
+        {
+            //Panic Mode
+            panicMode = false;
+        }
+
         animator.SetFloat("HP", playerHP);
+        postProcesingVolume.weight = (1 - (playerHP / playerMaxHP));
     }
+
+
 
     private void OnCollisionEnter2D(Collision2D other)
     {

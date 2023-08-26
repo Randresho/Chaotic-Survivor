@@ -260,6 +260,7 @@ MonoBehaviour:
   needBoxIndicator: 1
   needArrowIndicator: 1
   needDistanceText: 1
+  typeFlask: 2
   indicator: {fileID: 0}
 --- !u!114 &-4410829369393551254
 MonoBehaviour:

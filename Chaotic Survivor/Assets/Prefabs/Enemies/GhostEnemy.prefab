@@ -14,7 +14,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!224 &9072337973633308543
 RectTransform:
@@ -53,7 +53,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!224 &6001019520769264310
 RectTransform:
@@ -128,7 +128,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!224 &2724568914917650234
 RectTransform:
@@ -219,7 +219,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!224 &7909449023915731859
 RectTransform:
@@ -299,7 +299,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &4805832396719046046
 Transform:
@@ -592,7 +592,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!224 &3393124714724910333
 RectTransform:
@@ -721,6 +721,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FX001_01
       objectReference: {fileID: 0}
+    - target: {fileID: 1967835574231978638, guid: 3e196c9e632c76841a71cb6e2dc6d010, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 3e196c9e632c76841a71cb6e2dc6d010, type: 3}
@@ -750,6 +754,10 @@ PrefabInstance:
     - target: {fileID: 923926998772553534, guid: c265e62ac012bfa49b0336863b04f6e5, type: 3}
       propertyPath: m_Name
       value: ElectroEffect
+      objectReference: {fileID: 0}
+    - target: {fileID: 923926998772553534, guid: c265e62ac012bfa49b0336863b04f6e5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 8100343948161274574, guid: c265e62ac012bfa49b0336863b04f6e5, type: 3}
       propertyPath: m_RootOrder
@@ -885,6 +893,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BurnEffect
       objectReference: {fileID: 0}
+    - target: {fileID: 4599348073422370854, guid: 5593fde6abb752f41a1b9dd822c8d2ec, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 5593fde6abb752f41a1b9dd822c8d2ec, type: 3}
@@ -958,6 +970,10 @@ PrefabInstance:
     - target: {fileID: 3110776072479170148, guid: 78f1663906727714a916ac65057def24, type: 3}
       propertyPath: m_Name
       value: FreezeEffect
+      objectReference: {fileID: 0}
+    - target: {fileID: 3110776072479170148, guid: 78f1663906727714a916ac65057def24, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []

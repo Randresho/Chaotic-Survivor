@@ -1,13 +1,15 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using Unity.VisualScripting;
 
 /// <summary>
 /// Assign this script to the indicator prefabs.
 /// </summary>
 public class Indicator : MonoBehaviour
 {
-    [SerializeField] private IndicatorType indicatorType;
+    public IndicatorType indicatorType;
+    public IndicatorTypeFlask typeFlask;
     private Image indicatorImage;
     private TextMeshProUGUI distanceText;
 
@@ -81,3 +83,4 @@ public enum IndicatorType
     BOX,
     ARROW
 }
+
