@@ -8,12 +8,14 @@ public class EnemyScriptableObject : MonoBehaviour
 {
     [SerializeField] private LevelManager levelManager;
     [SerializeField] private ObjectPolling objectPolling;
+    [SerializeField] private RandomAbilities randomAbilities;
     [Header("Enemy Type")]
     [SerializeField] private enemyType enemyType;
     [SerializeField] private Canvas canvas;
 
     [Header("Player")]
     [SerializeField] private Transform playerPos;
+    [SerializeField] private PlayerActions playerActions;
 
     [Header("Enemy Data")]
     [SerializeField] private Sprite sprite;
@@ -25,6 +27,7 @@ public class EnemyScriptableObject : MonoBehaviour
     [Space]
     [SerializeField] private float hp;
     [SerializeField] private float maxHp;
+    [SerializeField] private float hpAdder;
     [SerializeField] private Slider hpSlider;
     [SerializeField] private SpriteRenderer spriteRenderer;
     [Space]
@@ -34,6 +37,7 @@ public class EnemyScriptableObject : MonoBehaviour
     public float damagePlayer;
     [Space]
     public bool moveRight;
+    private bool canMoveIt;
     [SerializeField] private float timerToDestroy;
 
     [Header("Spawner Item")]
@@ -49,11 +53,31 @@ public class EnemyScriptableObject : MonoBehaviour
     [SerializeField] private Material originalMaterial;
     private Coroutine flashRoutine;
 
+    [Header("Reations Effects")]
+    //Electro Shock
+    public float electroShocktimer;
+    [SerializeField] private GameObject electroFX;
+    [SerializeField] private AudioSource electroSound;
+
+    //Freeze
+    [Space]
+    [SerializeField] private Material freezeMaterial;
+    [SerializeField] private AudioSource freezeSound;
+    private bool isFreezeActive;
+
+    //Burn
+    [Space]
+    [SerializeField] private GameObject burnFX;
+    [SerializeField] private AudioSource burnSound;
+    private float timeBurning;
+    private bool isBurnActive;
+
     // Start is called before the first frame update
     void Awake()
     {
         levelManager = FindObjectOfType<LevelManager>();
         objectPolling = FindObjectOfType<ObjectPolling>();
+        randomAbilities = FindObjectOfType<RandomAbilities>();
         m_rigidbodys = GetComponent<Rigidbody2D>();
         playerPos = FindObjectOfType<PlayerMovement>().transform;
         canvas.worldCamera = FindObjectOfType<Camera>();
@@ -61,6 +85,7 @@ public class EnemyScriptableObject : MonoBehaviour
         collider = GetComponent<Collider2D>();
         maxSpeed = speed;
         originalMaterial = spriteRenderer.material;
+        playerActions = FindObjectOfType<PlayerActions>();
         //ActiveEnemy();
     }
 
@@ -145,31 +170,6 @@ public class EnemyScriptableObject : MonoBehaviour
         }      
     }
 
-    public IEnumerator DestroyObj()
-    {
-        yield return new WaitForSeconds(timerToDestroy);
-        levelManager.enemiesSpawned--;
-        levelManager.enemiesKilled++;
-        //levelManager.enemies.Remove(this);
-        levelManager.playerLevelFloat += experience;
-        levelManager.levelPlayer();
-
-        //Instantiate(itemDropPrefab[Random.Range(0, itemDropPrefab.Length)], transform.position, transform.rotation, levelManager.transform);
-        GameObject coinObj = ObjectPoolCoins.instance.GetPooledObject();
-        if (coinObj != null)
-        {
-            coinObj.transform.position = transform.position;
-            coinObj.transform.rotation = Quaternion.identity;
-            coinObj.SetActive(true);
-        }
-
-        gameObject.SetActive(false);
-
-        levelManager.enemyScriptables.Remove(this);
-        ActiveEnemy();
-        //Destroy(gameObject);
-    }
-
     private void OnTriggerEnter2D(Collider2D other)
     {
         GameObject obj = other.gameObject;
@@ -203,4 +203,159 @@ public class EnemyScriptableObject : MonoBehaviour
         spriteRenderer.material = originalMaterial;
         flashRoutine = null;
     }
+
+    #region Damage
+    private void ReciveDamage(float damage)
+    {
+        hp -= damage;
+        hpSlider.value = hp;
+
+        if (!isFreezeActive)
+            Flash();
+
+        if(isBurnActive)
+            StartCoroutine(DamageBurnFX());        
+
+        if (hp <= 0.05)
+        {
+            deadSound.Play();
+            spriteRenderer.enabled = false;
+
+            deadObjVfx.SetActive(true);
+            deadVfx.Play("Anim");
+            StartCoroutine(DestroyObj());
+        }
+    }
+
+    //Burn Damage
+    private IEnumerator DamageBurnFX()
+    {
+        burnFX.SetActive(true);
+        burnSound.Play();
+        yield return new WaitForSeconds(0.5f);
+        burnFX.SetActive(false);
+    }
+
+    //Electro Damage
+    private IEnumerator DamageElectroFX()
+    {
+        electroFX.SetActive(true);
+        electroSound.Play();
+        yield return new WaitForSeconds(0.5f);
+        electroFX.SetActive(false);
+    }
+
+    public IEnumerator DestroyObj()
+    {
+        yield return new WaitForSeconds(timerToDestroy);
+        levelManager.enemiesSpawned--;
+        levelManager.enemiesKilled++;
+        levelManager.playerLevelFloat += experience;
+        levelManager.levelPlayer();
+        levelManager.AddMana(1f);
+
+        //Instantiate(itemDropPrefab[Random.Range(0, itemDropPrefab.Length)], transform.position, transform.rotation, levelManager.transform);
+        GameObject coinObj = ObjectPoolCoins.instance.GetPooledObject();
+        if (coinObj != null)
+        {
+            coinObj.transform.position = transform.position;
+            coinObj.transform.rotation = Quaternion.identity;
+            coinObj.SetActive(true);
+        }
+
+        gameObject.SetActive(false);
+
+        levelManager.enemyScriptables.Remove(this);
+
+        maxHp += hpAdder;
+
+        ActiveEnemy();
+    }
+    #endregion
+
+    #region Reations
+    public void AbilityReaction()
+    {
+        switch (randomAbilities.RandomAbility)
+        {
+            case RandomAbilityEnum.ElectroShock:
+                StartCoroutine(ElectroShocking());
+                break;
+
+            case RandomAbilityEnum.Freeze:
+                StartCoroutine(Freezed());
+                break;
+
+            case RandomAbilityEnum.Burn:
+                isBurnActive = true;
+                StartCoroutine(ReciveBurnDamage());
+                break;
+        }
+    }
+
+    #region Electro Shock
+    private IEnumerator ElectroShocking()
+    {
+        while (electroShocktimer <= randomAbilities.maxElectroShockTimer)
+        {
+            electroShocktimer += Time.fixedDeltaTime;
+            ReciveDamage(randomAbilities.electroShockDamage);
+            StartCoroutine(DamageElectroFX());
+
+            isFreezeActive = true;
+        }
+        yield return new WaitForSeconds(randomAbilities.maxElectroShockTimer);
+        isFreezeActive = false;
+    }
+    #endregion
+
+    #region Freeze
+    private IEnumerator Freezed()
+    {
+        isFreezeActive = true;
+        m_rigidbodys.bodyType = RigidbodyType2D.Static;
+        animator.speed = 0f;
+        spriteRenderer.material = freezeMaterial;
+        freezeSound.Play();
+        levelManager.enemyScriptables.Remove(this);
+
+        yield return new WaitForSeconds(randomAbilities.maxFreezeTimer);
+
+        spriteRenderer.material = originalMaterial;
+
+        isFreezeActive = false;
+
+        m_rigidbodys.bodyType = RigidbodyType2D.Dynamic;
+        animator.speed = 1f;
+
+        if (hp > 0.05f)
+            levelManager.enemyScriptables.Add(this);
+    }
+    #endregion
+
+    #region Burn
+    private IEnumerator ReciveBurnDamage()
+    {
+        while (isBurnActive)
+        {
+            do
+            {
+                timeBurning += 5f;
+
+                yield return new WaitForSeconds(randomAbilities.MaxNextBurning);
+
+                ReciveDamage(randomAbilities.burnDamage);
+
+                yield return new WaitForSeconds(0.5f);
+            }
+            while (timeBurning <= randomAbilities.maxBurningTimer);
+
+            yield return new WaitForSeconds(randomAbilities.maxBurningTimer);
+            timeBurning = 0f;
+            //Debug.Log("Ya no me quemo");
+            isBurnActive = false;
+        }
+    }
+    #endregion
+    #endregion
 }

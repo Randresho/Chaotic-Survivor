@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using static UnityEngine.InputSystem.DefaultInputActions;
 
 /// <summary>
 /// Attach the script to the off screen indicator panel.
@@ -22,6 +23,8 @@ public class OffScreenIndicator : MonoBehaviour
 
     public static Action<Target, bool> TargetStateChanged;
 
+    [SerializeField] private PlayerActions playerActions;
+
     public void Awake()
     {        
         mainCamera = FindObjectOfType<Camera>();
@@ -33,6 +36,11 @@ public class OffScreenIndicator : MonoBehaviour
     void LateUpdate()
     {
         //DrawIndicators();
+    }
+
+    public void SetPlayer(PlayerActions player)
+    {
+        playerActions = player;
     }
 
     /// <summary>

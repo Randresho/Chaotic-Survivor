@@ -22,6 +22,11 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private string[] infoTextString = null;
     [SerializeField] private bool timerRunning = false;
 
+    public bool TimerRunning
+    {
+        get { return timerRunning; }
+    }
+
     [Header("Camera Spawner")]
     public Camera cameraMain = null;
     [SerializeField] private float timerToSpawn = 0;
@@ -41,7 +46,7 @@ public class LevelManager : MonoBehaviour
     public float playerLevelMaxFloat = 0;
     public PlayerActions playerActions = null;
     public PlayerMovement playerMovement = null;
-    [SerializeField] private Animator animator;    
+    [SerializeField] private Animator animator;
 
     [Header("Game Data")]
     public int enemiesKilled = 0;
@@ -58,14 +63,19 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private LocalizedString localizedStringLevelUp;
     [SerializeField] private float musicTimer;
 
-    [Header("Life Spawner")]
-    public GameObject[] lifePrefab;
-    public Transform[] lifeSpawnPoint;
-    public int spawnPointLifeNumber;
+    [Header("Items Spawners")]
+    [SerializeField] private Transform[] lifeSpawnPoint;
+    private int spawnPointLifeNumber;
     [Space]
-    public GameObject[] levelUpItemPrefab;
-    public Transform[] levelUpItemSpawnPoint;
-    public int spawnPointlevelUpItemNumber;
+    [SerializeField] private Transform[] levelUpItemSpawnPoint;
+    private int spawnPointlevelUpItemNumber;
+    [Space]
+    [SerializeField] private Transform[] manaItemSpawnPoint;
+    private int spawnManaNumber;
+
+    [Header("New Random Abilies")]
+    public float playerMana = 0f;
+    public float playerMaxMana = 0f;
 
     [Space]
     [SerializeField] private AbilityScriptableObject abilityScriptable;
@@ -76,20 +86,33 @@ public class LevelManager : MonoBehaviour
     {
         gameManager = FindObjectOfType<GameManager>();
         gameManager.SetLevelManager(this);
+
         uiManager = FindObjectOfType<UiManager>();
-        optionsManager = FindObjectOfType<OptionsManager>();
-        cameraMain = FindObjectOfType<Camera>();
-        playerActions = FindObjectOfType<PlayerActions>();
         uiManager.levelSlider.maxValue = playerLevelMaxFloat;
+        uiManager.manaSlider.maxValue = playerMaxMana;
+
+        optionsManager = FindObjectOfType<OptionsManager>();
+
+        cameraMain = FindObjectOfType<Camera>();
+
+        playerActions = FindObjectOfType<PlayerActions>();
+
         animator = playerActions.GetComponent<Animator>();
+
         saveNLoad = FindObjectOfType<SaveNLoad>();
+
         soundManager = FindObjectOfType<SoundManager>();
+
         backButtonMobile = FindObjectOfType<BackButtonMobile>();
+
         timerRunning = true;
+
         abilityScriptable = FindObjectOfType<AbilityScriptableObject>();
         abilityScriptable.SetLevelManager(this);
+
         offScreenIndicator = FindObjectOfType<OffScreenIndicator>();
         offScreenIndicator.Awake();
+
         levelPlayer();
     }
 
@@ -97,6 +120,7 @@ public class LevelManager : MonoBehaviour
     {
         SpawnLife();
         SpawnLevelUpItem();
+        SpawnMana();
         UpdateCameraPoint();
     }
 
@@ -204,6 +228,31 @@ public class LevelManager : MonoBehaviour
     }
     #endregion
 
+    #region Mana
+    public void ManaUsage(float usedMana)
+    {
+        playerMana -= usedMana;
+
+        if (playerMana <= 0)
+            playerMana = 0;
+
+        uiManager.manaSlider.value = playerMana;
+    }
+
+    public void AddMana(float addMana)
+    {
+        if (playerMana <= playerMaxMana)
+        {
+            playerMana += addMana;
+
+            if (playerMana > playerMaxMana)
+                playerMana = playerMaxMana;
+
+            uiManager.manaSlider.value = playerMana;
+        }
+    }
+    #endregion
+
     #region Enemies 
     public void UpdateCameraPoint()
     {
@@ -289,6 +338,19 @@ public class LevelManager : MonoBehaviour
             levelUpItem.SetActive(true);
         }
     }
+
+    public void SpawnMana()
+    {
+        spawnManaNumber = Random.Range(0, manaItemSpawnPoint.Length);
+
+        GameObject manaItem = ObjectPoolMana.instance.GetPooledObject();
+        if (manaItem != null)
+        {
+            manaItem.transform.position = manaItemSpawnPoint[spawnManaNumber].position;
+            manaItem.transform.rotation = Quaternion.identity;
+            manaItem.SetActive(true);
+        }
+    }
     #endregion
 
     #region Game Over
@@ -322,11 +384,19 @@ public class LevelManager : MonoBehaviour
 
         uiManager.DisplayTimer(timerValue, uiManager.scoreTimerTxt, uiManager.scoreTimerInfoTxt);
         uiManager.DisplayMatchInfo(uiManager.scoreLevelTxt, playerLevel, uiManager.scoreEnemiesTxt, enemiesKilled, uiManager.scoreCoinsTxt, coinsGrab);
+        uiManager.ActiveAnimation(gameOverAnimator);
+
+        //Save Stats
+        gameManager.coinsAmount += coinsGrab;
+        gameManager.enemiesAmount += enemiesKilled;
+        gameManager.deadsAmount++;
+
+        saveNLoad.SaveStatsInfo(gameManager.coinsAmount, gameManager.enemiesAmount, gameManager.deadsAmount);
 
         PlayGameLogros.instance.SendScore((int)timerValue);
 
-        uiManager.ActiveAnimation(gameOverAnimator);
         backButtonMobile.ChooseUi(7);
+
     }
     #endregion
 

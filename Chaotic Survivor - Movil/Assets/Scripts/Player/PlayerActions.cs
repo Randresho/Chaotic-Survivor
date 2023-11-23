@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Animations;
 using UnityEngine.InputSystem;
+using UnityEngine.Rendering;
 using UnityEngine.UI;
 using static UnityEngine.InputSystem.DefaultInputActions;
 
@@ -33,6 +34,9 @@ public class PlayerActions : MonoBehaviour
     public float timerToReduceLife = 1;
     [SerializeField] private float reducerLife = 0.5f;
     [SerializeField] private Animator animator = null;
+    public bool panicMode = false;
+    [SerializeField] private Volume postProcesingVolume = null;
+    [SerializeField] private OffScreenIndicator offScreenIndicator = null;
 
     [Header("Hit FX")]
     [SerializeField] private SpriteRenderer spriteRenderer = null;
@@ -59,6 +63,9 @@ public class PlayerActions : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         originalMaterial = spriteRenderer.material;
         animator = GetComponent<Animator>();
+        postProcesingVolume = FindObjectOfType<Volume>();
+        offScreenIndicator = FindObjectOfType<OffScreenIndicator>();
+        offScreenIndicator.SetPlayer(this);
     }
 
     // Update is called once per frame
@@ -116,7 +123,7 @@ public class PlayerActions : MonoBehaviour
     #endregion
 
     #region Update HP
-    private void UpdateHp()
+    public void UpdateHp()
     {
         playerHPSlider.value = playerHP;
 
@@ -147,6 +154,7 @@ public class PlayerActions : MonoBehaviour
         }
 
         animator.SetFloat("HP", playerHP);
+        postProcesingVolume.weight = (1 - (playerHP / playerMaxHP));
     }
     #endregion
 

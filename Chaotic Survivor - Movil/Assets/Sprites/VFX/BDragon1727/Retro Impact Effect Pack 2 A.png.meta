@@ -1,0 +1,869 @@
+fileFormatVersion: 2
+guid: 1fc33599269afa240bfb0959df34d097
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: BurnEnemy_0
+      rect:
+        serializedVersion: 2
+        x: 335
+        y: 975
+        width: 36
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98f6166e6c5a30743ade8070aa2252cc
+      internalID: -1737304050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BurnEnemy_1
+      rect:
+        serializedVersion: 2
+        x: 399
+        y: 973
+        width: 36
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e568f6d123a68914bb00f4a17e63d569
+      internalID: 594460212
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BurnEnemy_2
+      rect:
+        serializedVersion: 2
+        x: 463
+        y: 970
+        width: 36
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd99692599853e94bbe9b265d35ab2b4
+      internalID: 1047053260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BurnEnemy_3
+      rect:
+        serializedVersion: 2
+        x: 526
+        y: 972
+        width: 37
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: abba7ebf95974284a97010e74fceb41a
+      internalID: 1921040837
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BurnEnemy_4
+      rect:
+        serializedVersion: 2
+        x: 591
+        y: 977
+        width: 27
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ee0a3e262df23e459027e67fe07017b
+      internalID: 314833462
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro Impact Effect Pack 2 A_106
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 728
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd02eccd1b33a7c4e9ea0a2e1db88c27
+      internalID: -580342331
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro Impact Effect Pack 2 A_174
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 412
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f570407f890275e4c83fd099547cd306
+      internalID: 722209186
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AffectArea_0
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 74
+        width: 41
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06b7d43d1e6ad384eaffd64c7e9473e6
+      internalID: -1246357856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AffectArea_1
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 76
+        width: 44
+        height: 42
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa400fd38425ba849bf09eb4513e6d6e
+      internalID: -180806134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AffectArea_2
+      rect:
+        serializedVersion: 2
+        x: 139
+        y: 74
+        width: 41
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1835b0d70a312e24384c36ef7e2fe7c6
+      internalID: -643111003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AffectArea_3
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 76
+        width: 44
+        height: 42
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 627a5de5dd818bc449596b1b120962d1
+      internalID: -2078678010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BurnEnemy_5
+      rect:
+        serializedVersion: 2
+        x: 283
+        y: 971
+        width: 36
+        height: 37
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c3f7755d7166a94eaa8e57656ec21b0
+      internalID: 921506405
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BurnSpin_0
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee7174521db77464ebe7dad62023d5b0
+      internalID: -555604893
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BurnSpin_1
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 193
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c50fa165bbf460945a5284bb482433f4
+      internalID: 1513739314
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BurnSpin_2
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 870aaae3507d31f409e67631303a1007
+      internalID: -344751402
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BurnSpin_3
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f72a2a880773cd748b0bbeb7fb810da5
+      internalID: 984186412
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BurnSpin_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1105
+        width: 64
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39f0177a49c0d41449549487ea6251e3
+      internalID: 2045715929
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BurnSpin_5
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 1105
+        width: 64
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 148769c208c646f4d970dfec41aee4dd
+      internalID: 1360154736
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BurnSpin_6
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 1105
+        width: 64
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cafc7abc65244b04da0dc92fedba0644
+      internalID: 1220261981
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Retro Impact Effect Pack 2 A_269: -1008340517
+      Retro Impact Effect Pack 2 A_45: -1559270771
+      Retro Impact Effect Pack 2 A_224: -1241767195
+      Retro Impact Effect Pack 2 A_182: -914166675
+      Retro Impact Effect Pack 2 A_155: -65284685
+      Retro Impact Effect Pack 2 A_179: 527294942
+      Retro Impact Effect Pack 2 A_4: -1713144045
+      Retro Impact Effect Pack 2 A_115: 2007693331
+      Retro Impact Effect Pack 2 A_226: -2144712314
+      BurnSpin_1: 1130630696
+      Retro Impact Effect Pack 2 A_118: 1482895523
+      BurnSpin_2: 2095704939
+      Retro Impact Effect Pack 2 A_283: 530092968
+      Retro Impact Effect Pack 2 A_229: -1906778716
+      Retro Impact Effect Pack 2 A_125: 653665577
+      Retro Impact Effect Pack 2 A_114: -1865298189
+      Retro Impact Effect Pack 2 A_65: -557523863
+      Retro Impact Effect Pack 2 A_95: 2101408433
+      Retro Impact Effect Pack 2 A_254: 1364233393
+      Retro Impact Effect Pack 2 A_76: 1645586282
+      Retro Impact Effect Pack 2 A_14: -1056387122
+      Retro Impact Effect Pack 2 A_270: 1592537418
+      Retro Impact Effect Pack 2 A_12: 1358671208
+      Retro Impact Effect Pack 2 A_104: 1235912096
+      Retro Impact Effect Pack 2 A_86: 1426334780
+      Retro Impact Effect Pack 2 A_106: -580342331
+      Retro Impact Effect Pack 2 A_168: 1814525405
+      Retro Impact Effect Pack 2 A_110: -735831029
+      Retro Impact Effect Pack 2 A_228: -263324097
+      Retro Impact Effect Pack 2 A_202: 1688140151
+      BurnEnemy_4: 314833462
+      Retro Impact Effect Pack 2 A_183: 79576656
+      Retro Impact Effect Pack 2 A_246: -1830948563
+      Retro Impact Effect Pack 2 A_276: 1157480532
+      Retro Impact Effect Pack 2 A_26: 1356600192
+      Retro Impact Effect Pack 2 A_73: -141246765
+      Retro Impact Effect Pack 2 A_165: 823816460
+      Retro Impact Effect Pack 2 A_11: 2118040266
+      Retro Impact Effect Pack 2 A_192: -878429323
+      Retro Impact Effect Pack 2 A_233: 196233856
+      Retro Impact Effect Pack 2 A_301: -1599338836
+      Retro Impact Effect Pack 2 A_180: -1454932489
+      Retro Impact Effect Pack 2 A_67: 1658351780
+      Retro Impact Effect Pack 2 A_221: -650780691
+      Retro Impact Effect Pack 2 A_289: 1459873400
+      Retro Impact Effect Pack 2 A_149: -1074682762
+      Retro Impact Effect Pack 2 A_123: -1823173563
+      BurnSpin_6: 1220261981
+      Retro Impact Effect Pack 2 A_49: -353080730
+      Retro Impact Effect Pack 2 A_108: -1756220042
+      Retro Impact Effect Pack 2 A_64: -1877748316
+      Retro Impact Effect Pack 2 A_160: 2000546925
+      Retro Impact Effect Pack 2 A_235: 1460731335
+      Retro Impact Effect Pack 2 A_13: 531990826
+      Retro Impact Effect Pack 2 A_30: -1904479787
+      BurnSpin_0: -555604893
+      Retro Impact Effect Pack 2 A_58: -886960234
+      Retro Impact Effect Pack 2 A_271: -1537913480
+      Retro Impact Effect Pack 2 A_119: 1977972091
+      Retro Impact Effect Pack 2 A_68: -101694548
+      BurnEnemy_3: 1921040837
+      Retro Impact Effect Pack 2 A_17: 645844543
+      Retro Impact Effect Pack 2 A_232: 1430067426
+      Retro Impact Effect Pack 2 A_6: -661206417
+      Retro Impact Effect Pack 2 A_77: 330459246
+      Retro Impact Effect Pack 2 A_18: 588711380
+      Retro Impact Effect Pack 2 A_80: -1653250953
+      Retro Impact Effect Pack 2 A_83: -812506358
+      Retro Impact Effect Pack 2 A_157: 25537610
+      Retro Impact Effect Pack 2 A_238: 815555945
+      Retro Impact Effect Pack 2 A_94: -850029644
+      Retro Impact Effect Pack 2 A_249: 1165953733
+      Retro Impact Effect Pack 2 A_206: -1720615746
+      Retro Impact Effect Pack 2 A_278: 1335063777
+      Retro Impact Effect Pack 2 A_305: -2134664975
+      Retro Impact Effect Pack 2 A_142: 1827334266
+      BurnEnemy_0: -1737304050
+      Retro Impact Effect Pack 2 A_247: 917537493
+      Retro Impact Effect Pack 2 A_81: -1821065282
+      Retro Impact Effect Pack 2 A_98: -1684340325
+      Retro Impact Effect Pack 2 A_136: 1674282472
+      Retro Impact Effect Pack 2 A_72: -2102080820
+      Retro Impact Effect Pack 2 A_88: 810841827
+      Retro Impact Effect Pack 2 A_297: 112705371
+      Retro Impact Effect Pack 2 A_304: -1308317457
+      Retro Impact Effect Pack 2 A_218: 1179636437
+      Retro Impact Effect Pack 2 A_275: 1952634066
+      Retro Impact Effect Pack 2 A_203: 489723926
+      Retro Impact Effect Pack 2 A_174: 722209186
+      Retro Impact Effect Pack 2 A_274: -285992406
+      Retro Impact Effect Pack 2 A_272: -467806352
+      Retro Impact Effect Pack 2 A_24: 2141488196
+      Retro Impact Effect Pack 2 A_121: 1386241171
+      BurnSpin_4: 2113931956
+      Retro Impact Effect Pack 2 A_75: 1129721756
+      Retro Impact Effect Pack 2 A_23: -244321745
+      Retro Impact Effect Pack 2 A_170: 1271232189
+      Retro Impact Effect Pack 2 A_263: -400368389
+      Retro Impact Effect Pack 2 A_82: 765915183
+      Retro Impact Effect Pack 2 A_279: 278095889
+      Retro Impact Effect Pack 2 A_120: 709329515
+      Retro Impact Effect Pack 2 A_287: 1746334071
+      Retro Impact Effect Pack 2 A_259: 933109929
+      Retro Impact Effect Pack 2 A_161: -1182626425
+      Retro Impact Effect Pack 2 A_116: -1034640577
+      Retro Impact Effect Pack 2 A_258: -1354624913
+      Retro Impact Effect Pack 2 A_257: 1940741271
+      Retro Impact Effect Pack 2 A_219: 520950703
+      Retro Impact Effect Pack 2 A_84: -384304399
+      Retro Impact Effect Pack 2 A_205: 1195112869
+      Retro Impact Effect Pack 2 A_152: 1502718128
+      Retro Impact Effect Pack 2 A_109: 1191420643
+      Retro Impact Effect Pack 2 A_128: -1622771685
+      Retro Impact Effect Pack 2 A_198: -681080834
+      Retro Impact Effect Pack 2 A_175: -2059917622
+      Retro Impact Effect Pack 2 A_222: -1077334561
+      Retro Impact Effect Pack 2 A_294: 2093405209
+      Retro Impact Effect Pack 2 A_37: 1570357750
+      Retro Impact Effect Pack 2 A_144: 1317415008
+      Retro Impact Effect Pack 2 A_299: 861912527
+      Retro Impact Effect Pack 2 A_201: 1643787766
+      Retro Impact Effect Pack 2 A_184: 1682821742
+      Retro Impact Effect Pack 2 A_74: -1533388376
+      Retro Impact Effect Pack 2 A_280: 2143089362
+      Retro Impact Effect Pack 2 A_200: -1502571189
+      AffectArea_1: -180806134
+      Retro Impact Effect Pack 2 A_19: -1569419043
+      Retro Impact Effect Pack 2 A_285: -241162775
+      Retro Impact Effect Pack 2 A_134: -366447414
+      BurnEnemy_2: 1047053260
+      Retro Impact Effect Pack 2 A_273: -547454785
+      Retro Impact Effect Pack 2 A_251: -196211260
+      Retro Impact Effect Pack 2 A_178: 2142225012
+      Retro Impact Effect Pack 2 A_286: 2126634072
+      Retro Impact Effect Pack 2 A_28: -1888675081
+      Retro Impact Effect Pack 2 A_101: -930238227
+      Retro Impact Effect Pack 2 A_130: -1305159804
+      Retro Impact Effect Pack 2 A_207: -2044619544
+      Retro Impact Effect Pack 2 A_193: 721924405
+      Retro Impact Effect Pack 2 A_288: -1773819182
+      Retro Impact Effect Pack 2 A_62: -959242587
+      Retro Impact Effect Pack 2 A_234: -1161703843
+      Retro Impact Effect Pack 2 A_15: -1829179587
+      Retro Impact Effect Pack 2 A_124: 451640647
+      Retro Impact Effect Pack 2 A_96: -884743517
+      Retro Impact Effect Pack 2 A_199: 1934484524
+      Retro Impact Effect Pack 2 A_21: -935674640
+      Retro Impact Effect Pack 2 A_296: -1206651852
+      BurnEnemy_5: -1372971310
+      Retro Impact Effect Pack 2 A_166: -526312943
+      Retro Impact Effect Pack 2 A_176: -2036225595
+      Retro Impact Effect Pack 2 A_122: -1400608594
+      Retro Impact Effect Pack 2 A_141: 1060012321
+      Retro Impact Effect Pack 2 A_230: 389077984
+      Retro Impact Effect Pack 2 A_50: -1137125393
+      Retro Impact Effect Pack 2 A_33: -301251277
+      Retro Impact Effect Pack 2 A_140: -591881630
+      Retro Impact Effect Pack 2 A_147: -1492481826
+      Retro Impact Effect Pack 2 A_181: 44874229
+      Retro Impact Effect Pack 2 A_53: -675027075
+      Retro Impact Effect Pack 2 A_197: -895994369
+      Retro Impact Effect Pack 2 A_264: 708107624
+      Retro Impact Effect Pack 2 A_127: 570221077
+      Retro Impact Effect Pack 2 A_59: 2023181616
+      Retro Impact Effect Pack 2 A_169: -1760124831
+      Retro Impact Effect Pack 2 A_277: -1960057518
+      Retro Impact Effect Pack 2 A_185: -1101559919
+      Retro Impact Effect Pack 2 A_187: -1257609421
+      Retro Impact Effect Pack 2 A_223: 1265447998
+      Retro Impact Effect Pack 2 A_284: -1314192808
+      Retro Impact Effect Pack 2 A_302: -1142658888
+      Retro Impact Effect Pack 2 A_220: -1827409724
+      Retro Impact Effect Pack 2 A_303: -1757268747
+      Retro Impact Effect Pack 2 A_209: -267659424
+      Retro Impact Effect Pack 2 A_44: 363258930
+      Retro Impact Effect Pack 2 A_298: -509614888
+      Retro Impact Effect Pack 2 A_39: -1228721399
+      Retro Impact Effect Pack 2 A_92: -1557536287
+      Retro Impact Effect Pack 2 A_242: 1522811542
+      Retro Impact Effect Pack 2 A_90: -112581630
+      Retro Impact Effect Pack 2 A_186: -674974730
+      Retro Impact Effect Pack 2 A_133: -1353826078
+      Retro Impact Effect Pack 2 A_154: -1687935787
+      BurnEnemy_1: 594460212
+      Retro Impact Effect Pack 2 A_282: 358248385
+      Retro Impact Effect Pack 2 A_158: -104530059
+      Retro Impact Effect Pack 2 A_55: -150258933
+      Retro Impact Effect Pack 2 A_113: -1722126618
+      Retro Impact Effect Pack 2 A_99: 148216522
+      Retro Impact Effect Pack 2 A_210: -266968368
+      Retro Impact Effect Pack 2 A_52: 588417126
+      Retro Impact Effect Pack 2 A_85: 1635568701
+      Retro Impact Effect Pack 2 A_32: 232929169
+      Retro Impact Effect Pack 2 A_191: -234981647
+      Retro Impact Effect Pack 2 A_63: 643931442
+      Retro Impact Effect Pack 2 A_163: -653011912
+      Retro Impact Effect Pack 2 A_16: 1654261030
+      Retro Impact Effect Pack 2 A_38: 1959358843
+      Retro Impact Effect Pack 2 A_148: -2058474365
+      Retro Impact Effect Pack 2 A_69: 1392648992
+      Retro Impact Effect Pack 2 A_91: 145047229
+      Retro Impact Effect Pack 2 A_267: 454668257
+      Retro Impact Effect Pack 2 A_111: -2009394014
+      Retro Impact Effect Pack 2 A_54: 655381170
+      Retro Impact Effect Pack 2 A_40: -271341153
+      Retro Impact Effect Pack 2 A_212: 241773096
+      Retro Impact Effect Pack 2 A_211: -1218137988
+      Retro Impact Effect Pack 2 A_236: -119554590
+      Retro Impact Effect Pack 2 A_295: 935637471
+      Retro Impact Effect Pack 2 A_196: 1013819044
+      Retro Impact Effect Pack 2 A_131: -1613746478
+      Retro Impact Effect Pack 2 A_217: 545668420
+      Retro Impact Effect Pack 2 A_139: 92490143
+      Retro Impact Effect Pack 2 A_167: 1396902786
+      Retro Impact Effect Pack 2 A_177: 581859375
+      Retro Impact Effect Pack 2 A_260: 1909331259
+      Retro Impact Effect Pack 2 A_7: 1323492089
+      Retro Impact Effect Pack 2 A_117: 469105408
+      Retro Impact Effect Pack 2 A_214: 1164265126
+      Retro Impact Effect Pack 2 A_256: -130842775
+      BurnSpin_3: 2045715929
+      Retro Impact Effect Pack 2 A_31: -1397339536
+      Retro Impact Effect Pack 2 A_237: -490537214
+      Retro Impact Effect Pack 2 A_20: 1261030850
+      Retro Impact Effect Pack 2 A_126: 1487061623
+      Retro Impact Effect Pack 2 A_135: -1901109098
+      Retro Impact Effect Pack 2 A_266: -1355048728
+      Retro Impact Effect Pack 2 A_215: -1633744694
+      Retro Impact Effect Pack 2 A_306: -1451476305
+      Retro Impact Effect Pack 2 A_268: 154705692
+      Retro Impact Effect Pack 2 A_188: 702936985
+      Retro Impact Effect Pack 2 A_151: -1406859167
+      Retro Impact Effect Pack 2 A_225: -1652314703
+      Retro Impact Effect Pack 2 A_248: -1396211226
+      Retro Impact Effect Pack 2 A_61: 950567303
+      Retro Impact Effect Pack 2 A_89: -604281607
+      Retro Impact Effect Pack 2 A_8: 2044145051
+      Retro Impact Effect Pack 2 A_97: 1253878652
+      Retro Impact Effect Pack 2 A_213: 179725770
+      Retro Impact Effect Pack 2 A_22: -630770986
+      Retro Impact Effect Pack 2 A_241: 1121256108
+      Retro Impact Effect Pack 2 A_239: 2108690068
+      Retro Impact Effect Pack 2 A_143: 898028655
+      Retro Impact Effect Pack 2 A_51: -2123664462
+      Retro Impact Effect Pack 2 A_103: -1536036099
+      Retro Impact Effect Pack 2 A_173: -1864722533
+      Retro Impact Effect Pack 2 A_216: 1506896236
+      Retro Impact Effect Pack 2 A_262: -1336175184
+      Retro Impact Effect Pack 2 A_171: 816998455
+      Retro Impact Effect Pack 2 A_112: 819866463
+      Retro Impact Effect Pack 2 A_27: -370034095
+      Retro Impact Effect Pack 2 A_100: -1957958889
+      Retro Impact Effect Pack 2 A_190: 1816537273
+      Retro Impact Effect Pack 2 A_78: 59645488
+      Retro Impact Effect Pack 2 A_102: -1552976734
+      Retro Impact Effect Pack 2 A_162: 844479503
+      Retro Impact Effect Pack 2 A_156: 1510785137
+      Retro Impact Effect Pack 2 A_35: 358491341
+      Retro Impact Effect Pack 2 A_153: -166257351
+      Retro Impact Effect Pack 2 A_107: -1581226220
+      Retro Impact Effect Pack 2 A_172: 1494351935
+      Retro Impact Effect Pack 2 A_146: -663458153
+      Retro Impact Effect Pack 2 A_265: 1515370242
+      Retro Impact Effect Pack 2 A_300: 1012031488
+      AffectArea_0: -1246357856
+      Retro Impact Effect Pack 2 A_36: -507822333
+      Retro Impact Effect Pack 2 A_48: 66365556
+      Retro Impact Effect Pack 2 A_208: -1231422907
+      Retro Impact Effect Pack 2 A_243: 1938197361
+      Retro Impact Effect Pack 2 A_281: -1320879379
+      AffectArea_2: -643111003
+      Retro Impact Effect Pack 2 A_34: 256624097
+      Retro Impact Effect Pack 2 A_129: -828408420
+      Retro Impact Effect Pack 2 A_87: 985545749
+      Retro Impact Effect Pack 2 A_159: 140472487
+      Retro Impact Effect Pack 2 A_253: -1579820317
+      Retro Impact Effect Pack 2 A_57: 678263716
+      Retro Impact Effect Pack 2 A_66: -4438523
+      Retro Impact Effect Pack 2 A_255: 1316931942
+      Retro Impact Effect Pack 2 A_227: -1674948065
+      Retro Impact Effect Pack 2 A_231: -1204347431
+      Retro Impact Effect Pack 2 A_204: 102192296
+      Retro Impact Effect Pack 2 A_60: -2030449413
+      Retro Impact Effect Pack 2 A_70: -998400085
+      Retro Impact Effect Pack 2 A_10: -280805878
+      Retro Impact Effect Pack 2 A_189: 1396031120
+      Retro Impact Effect Pack 2 A_252: -417003516
+      Retro Impact Effect Pack 2 A_261: -1312590774
+      Retro Impact Effect Pack 2 A_93: -310077868
+      Retro Impact Effect Pack 2 A_250: -1709762445
+      Retro Impact Effect Pack 2 A_240: -290084743
+      Retro Impact Effect Pack 2 A_138: 128355063
+      Retro Impact Effect Pack 2 A_195: 697622824
+      Retro Impact Effect Pack 2 A_164: -2048555357
+      Retro Impact Effect Pack 2 A_132: 1347575413
+      Retro Impact Effect Pack 2 A_9: -1963439350
+      Retro Impact Effect Pack 2 A_5: 987082747
+      Retro Impact Effect Pack 2 A_244: -213804406
+      BurnSpin_5: 1360154736
+      Retro Impact Effect Pack 2 A_137: -10078705
+      Retro Impact Effect Pack 2 A_29: 2076217047
+      Retro Impact Effect Pack 2 A_56: -788668428
+      AffectArea_3: -2078678010
+      Retro Impact Effect Pack 2 A_25: -1775913248
+      Retro Impact Effect Pack 2 A_71: 401346553
+      Retro Impact Effect Pack 2 A_79: -19128110
+      Retro Impact Effect Pack 2 A_145: -130197872
+      Retro Impact Effect Pack 2 A_105: 649930516
+      Retro Impact Effect Pack 2 A_245: -197578598
+      Retro Impact Effect Pack 2 A_150: 790771508
+      Retro Impact Effect Pack 2 A_194: 554695827
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

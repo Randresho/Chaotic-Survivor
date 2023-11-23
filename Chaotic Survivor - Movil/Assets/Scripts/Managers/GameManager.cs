@@ -23,6 +23,11 @@ public class GameManager : MonoBehaviour
     [Header("Persistent Objects")]
     [SerializeField] private GameObject[] persistentObjects = null;
 
+    [Header("Total Game Info")]
+    public int coinsAmount = 0;
+    public int enemiesAmount = 0;
+    public int deadsAmount = 0;
+
     [Header("Level Data")]
     public int currentLevelNumber = 0;
     public float porcentageLevel = 0;
@@ -45,6 +50,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private PlayerAbilities abilities = null;
     [SerializeField] private MagnetItem magnetItem = null;
     [SerializeField] private SpinWeapon spinWeapon = null;
+    [SerializeField] private RandomAbilities randomAbilities = null;
     #region Non in the inspector
     [HideInInspector] public bool isInGame = false;
     #endregion
@@ -311,6 +317,17 @@ public class GameManager : MonoBehaviour
     public void SelectSpin(int option)
     {
 
+    }
+
+    //Random Abilities
+    public void RandomAbilities(RandomAbilities newAbilities)
+    {
+        randomAbilities = newAbilities;
+    }
+
+    public void UseRandomAbility()
+    {
+        randomAbilities.UseAbility();
     }
     #endregion
 

@@ -42,7 +42,7 @@ public class ObjectPoolLevel : MonoBehaviour
     {
         for (int i = 0; i < pooledObjects.Count; i++)
         {
-            random = Random.Range(0, levelManager.levelUpItemPrefab.Length);
+            random = Random.Range(0, objectPrefab.Length);
 
             if (!pooledObjects[random].activeInHierarchy)
                 return pooledObjects[random];

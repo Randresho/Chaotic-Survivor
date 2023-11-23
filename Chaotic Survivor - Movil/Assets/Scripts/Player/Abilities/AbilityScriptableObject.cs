@@ -4,12 +4,10 @@ using UnityEngine;
 using UnityEngine.Localization;
 using UnityEngine.Localization.Components;
 
-public enum AbilityType { Bullet, Normal, Spin, Magnet, }
+public enum AbilityType { Bullet, Normal, Spin, RandomAbility, Magnet }
 public class AbilityScriptableObject : MonoBehaviour
 {
-    [SerializeField] private LevelManager levelManager;
-    [SerializeField] private LocalSettingsManager localSettingsManager;
-
+    #region Languages
     [System.Serializable]
     public class Language
     {
@@ -18,20 +16,56 @@ public class AbilityScriptableObject : MonoBehaviour
         public string[] description;
     }
 
+    [System.Serializable]
+    public class RandomDescriptionLanguage
+    {
+        public string name;
+        public string[] description;
+    }
+
+    [System.Serializable]
+    public class RandomLanguage
+    {
+        public string name;
+        public string[] title;
+        public RandomDescriptionLanguage[] description;
+    }
+    #endregion
+
+    #region Scripts
+    [SerializeField] private LevelManager levelManager;
+    private UiManager uiManager;
+    [SerializeField] private LocalSettingsManager localSettingsManager;
+    #endregion 
+
+    #region Active Abilities
+    [Header("Active Abilities")]
+    public bool isMagnetActive;
+    public bool isSpinActive;
+    #endregion
+
+    #region Buttons
+    [Header("Buttons")]
+    public GameObject[] optionsButtons;
     public AbiltyButtonInfo[] buttons;
-    
+    [Space]
+    public GameObject changeOptionsObj;
+    [Space]
+    public GameObject[] buttonActivatorObj;
+    public AbiltyButtonInfo[] buttonsAcivator;
+    #endregion
+
+    #region Abilities Types
     [Header("Abilities Type")]
     public int minAbilities;
     public int minCurAbilities;
     public int maxAbilities;
     public int maxCurAbilities;
+    #endregion
 
-    [Header("Active Abilities")]
-    public bool isMagnetActive;
-    public bool isSpinActive;
-    public GameObject[] buttonActivatorObj;
-    public AbiltyButtonInfo[] buttonsAcivator;
-
+    #region Abilities
+    //To Fix this
+    #region Magnet
     [Header("Magnet")]
     [SerializeField] private MagnetItem magnetItem;
     [SerializeField] private float increaseMagnet = 0.25f;
@@ -43,8 +77,9 @@ public class AbilityScriptableObject : MonoBehaviour
     [SerializeField] private string magnetTitle;
     [SerializeField] private string[] magnetDescription;
     [SerializeField] private Language[] _magnetLanguage;
-   
+    #endregion
 
+    #region Spin
     [Header("Spin")]
     [SerializeField] private SpinWeapon spinWeapon = null;
     [SerializeField] private int increaseWeapon = 1;
@@ -57,7 +92,9 @@ public class AbilityScriptableObject : MonoBehaviour
     [SerializeField] private string spinTitle;
     [SerializeField] private string[] spinDescription;
     [SerializeField] private Language[] spinLanguage;
+    #endregion
 
+    #region Normal Shoot
     [Header("Normal Shoot")]
     [SerializeField] private PlayerAbilities abilities;
     [Space]
@@ -65,25 +102,44 @@ public class AbilityScriptableObject : MonoBehaviour
     [SerializeField] private string normalTitle;
     [SerializeField] private string normalDescription;
     [SerializeField] private Language[] _normalLanguage;
+    #endregion
 
-    /*[Header("Life")]
-    [SerializeField] private int lifeRandom;
+    #region Random Abilities
+    [Header("Rando Abilities")]
+    [SerializeField] private RandomAbilities randomAbilities = null;
+    [SerializeField] private Sprite[] randomAbilitySprite = null;
+    [SerializeField] private int randomAbilityCurChoose;
+    [SerializeField] private int randomAbilityChoose;
+    //Electro Shock
     [Space]
-    [SerializeField] private int lifeCurChoose;
-    [SerializeField] private int lifeChoose;
-    [SerializeField] private int[] lifeAdder;
-    [SerializeField] private Sprite lifeSprite;
-    [SerializeField] private string lifeTitle;
-    [SerializeField] private string[] lifeDescription;*/
+    [SerializeField] private float electroShockDamage;
+    [SerializeField] private float electroShockTimer;
+    //Freeze
+    [Space]
+    [SerializeField] private float freezeTimer;
+    //Burn
+    [Space]
+    [SerializeField] private float burnDamage;
+    [SerializeField] private float burnTimer;
+    //Enemies
+    [Space]
+    [SerializeField] private int enemiesLimit;
+    [SerializeField] private float manaLimit;
+    [Space]
 
-    [Header("Buttons")]
+    [SerializeField] private string[] randomAbilityTitle;
+    [SerializeField] private RandomLanguage[] _randomAbilitiesLanguage;
+    #endregion
+    #endregion
+
+    #region Bullets
+    [Header("Bullets")]
     [SerializeField] private GameObject[] bulletPrefab;
     [SerializeField] private Sprite bulletSprite;
     [SerializeField] private string bulletTitle;
     [SerializeField] private string[] bulletDescription;
     [SerializeField] private Language[] bulletLanguage;
     [Space]
-    public GameObject[] optionsButtons;
     public float shootTimer = 0.05f;
     public float shootMaxTimer = 0.1f;
     [Space]
@@ -92,29 +148,34 @@ public class AbilityScriptableObject : MonoBehaviour
     public float damage;
     public int maxEnemiesHit;
     public float bulletSpeed;
+    #endregion
 
+    #region Updates
     [Header("Update")]
     public int abiltityRandomA;
     public int abiltityRandomB;
-
     [Space]
     [SerializeField] private int ChangeOption;
     [SerializeField] private int maxChangeOption = 3;
-    public GameObject changeOptionsObj;
-
+    #endregion
     
     [SerializeField] private PlayerActions playerActions;
 
     private void Awake()
     {
         localSettingsManager = FindObjectOfType<LocalSettingsManager>();
+        uiManager = FindObjectOfType<UiManager>();
         changeOptionsObj.SetActive(false);
     }
 
-    private void FixedUpdate()
+    private void UpdateData()
     {
-        if (abiltityRandomB == abiltityRandomA)
+        while (abiltityRandomB == abiltityRandomA)
+        {
             abiltityRandomB = Random.Range(minAbilities, maxAbilities);
+            return;
+        }
+        Debug.Log("No eran iguales");
 
         //Update
         if (isMagnetActive && isSpinActive)
@@ -133,17 +194,17 @@ public class AbilityScriptableObject : MonoBehaviour
                 changeOptionsObj.SetActive(true);
             }
         }
-        else if(isMagnetActive && !isSpinActive)
+        else if (isMagnetActive && !isSpinActive)
         {
             buttons[0].type = (AbilityType)abiltityRandomA;
             buttons[1].type = AbilityType.Spin;
-            maxCurAbilities = 3;
         }
-        else if(!isMagnetActive && isSpinActive)
+        else if (!isMagnetActive && isSpinActive)
         {
             buttons[0].type = AbilityType.Magnet;
             buttons[1].type = (AbilityType)abiltityRandomB;
         }
+        //f (!isMagnetActive && !isSpinActive)
         else
         {
             changeOptionsObj.SetActive(false);
@@ -163,6 +224,9 @@ public class AbilityScriptableObject : MonoBehaviour
             case AbilityType.Magnet:
                 buttons[0].SetInfo(magnetSprite, _magnetLanguage[localSettingsManager.languageNumber].title, _magnetLanguage[localSettingsManager.languageNumber].description[magnetChoose]);
                 break;
+            case AbilityType.RandomAbility:
+                buttons[0].SetInfo(randomAbilitySprite[randomAbilityChoose], _randomAbilitiesLanguage[localSettingsManager.languageNumber].title[randomAbilityChoose], _randomAbilitiesLanguage[localSettingsManager.languageNumber].description[randomAbilityChoose].description[randomAbilityCurChoose]);
+                break;
             default:
                 break;
         }
@@ -181,11 +245,15 @@ public class AbilityScriptableObject : MonoBehaviour
             case AbilityType.Magnet:
                 buttons[1].SetInfo(magnetSprite, _magnetLanguage[localSettingsManager.languageNumber].title, _magnetLanguage[localSettingsManager.languageNumber].description[magnetChoose]);
                 break;
+            case AbilityType.RandomAbility:
+                buttons[1].SetInfo(randomAbilitySprite[randomAbilityChoose], _randomAbilitiesLanguage[localSettingsManager.languageNumber].title[randomAbilityChoose], _randomAbilitiesLanguage[localSettingsManager.languageNumber].description[randomAbilityChoose].description[randomAbilityCurChoose]);
+                break;
             default:
                 break;
         }
     }
 
+   
     #region Set scripts
     public void SetLevelManager(LevelManager newLevelManageR)
     {
@@ -220,17 +288,22 @@ public class AbilityScriptableObject : MonoBehaviour
     {
         spinWeapon = newSpinWeapon;
     }
-    #endregion
 
+    public void SetRandomAbilities(RandomAbilities newRandomAbilities)
+    {
+        randomAbilities = newRandomAbilities;
+    }
+    #endregion
 
     #region Select Options
     public void SelectRandomNumbers()
     {
+
         //Magnet Check
-        if (magnetItem.transform.localScale.x <= increaseMaxMagnet || magnetItem.transform.localScale.y <= increaseMaxMagnet || magnetItem.transform.localScale.z <= increaseMaxMagnet)
-            maxCurAbilities = 3;
+        if (magnetItem.transform.localScale.x >= increaseMaxMagnet && magnetItem.transform.localScale.y >= increaseMaxMagnet && magnetItem.transform.localScale.z >= increaseMaxMagnet)
+            maxCurAbilities = 4;
         else
-            maxCurAbilities = maxAbilities;  
+            maxCurAbilities = maxAbilities;
 
         //Spin Check
         if (spinWeapon.currentBulletPoint <= 0)
@@ -239,31 +312,39 @@ public class AbilityScriptableObject : MonoBehaviour
         if (spinWeapon.rotationSpeed >= increaseSpinMaxSpeed)
             spinCurChoose = 3;
 
+        //Enemies check
+        if (randomAbilities.enemyCountLimit >= levelManager.maxEnemiesSpawn)
+        {
+            while (randomAbilityChoose == 3)
+            {
+                randomAbilityChoose = Random.Range(0, randomAbilityTitle.Length);
+                randomAbilityCurChoose = Random.Range(0, (_randomAbilitiesLanguage[randomAbilityChoose].description[randomAbilityChoose].description.Length));
+                return;
+            }
+        }
+
         //Random
         abiltityRandomA = Random.Range(minCurAbilities, maxCurAbilities);
         abiltityRandomB = Random.Range(minCurAbilities, maxCurAbilities);
-        //lifeRandom = Random.Range(0, buttons.Length);
+
         bulletChoose = Random.Range(0, bulletDescription.Length);
         magnetChoose = Random.Range(magnetCurChoose, magnetDescription.Length);
         spinChoose = Random.Range(spinCurChoose, spinDescription.Length);
-        //lifeChoose = Random.Range(lifeCurChoose, lifeTitle.Length);
+        randomAbilityChoose = Random.Range(0, randomAbilityTitle.Length);
+        randomAbilityCurChoose = Random.Range(0, (_randomAbilitiesLanguage[randomAbilityChoose].description[randomAbilityChoose].description.Length));
 
         //Acctive Magnet
         if (!isMagnetActive)
         {
-            //buttonsAcivator[0].SetInfo(magnetSprite, magnetTitle, magnetDescription[0]);
             buttonsAcivator[0].SetInfo(magnetSprite, _magnetLanguage[localSettingsManager.languageNumber].title, _magnetLanguage[localSettingsManager.languageNumber].description[0]);
             buttonActivatorObj[0].SetActive(true);
-            //optionsButtons[0].SetActive(false);
         }
 
         //Active Spin
         if (!isSpinActive)
         {
-            //buttonsAcivator[1].SetInfo(spinSprite, spinTitle, spinDescription[0]);
             buttonsAcivator[1].SetInfo(spinSprite, spinLanguage[localSettingsManager.languageNumber].title, spinLanguage[localSettingsManager.languageNumber].description[0]);
             buttonActivatorObj[1].SetActive(true);
-            //optionsButtons[1].SetActive(false);
         }
 
         //Restore life
@@ -282,8 +363,12 @@ public class AbilityScriptableObject : MonoBehaviour
             }
         }
 
+
+
         //Change Add
         ChangeOption++;
+
+        UpdateData();
     }
     #endregion
 
@@ -352,6 +437,7 @@ public class AbilityScriptableObject : MonoBehaviour
                     else
                         abilities.timerToSpawn = shootMaxTimer;
                     break;
+                //Spin
                 case AbilityType.Spin:
                     switch (spinChoose)
                     {
@@ -370,8 +456,73 @@ public class AbilityScriptableObject : MonoBehaviour
                             break;
                     }
                     break;
+                //Magnet
                 case AbilityType.Magnet:
-                    magnetItem.transform.localScale += new Vector3(increaseMagnet,increaseMagnet, increaseMagnet);
+                    magnetItem.transform.localScale += new Vector3(increaseMagnet, increaseMagnet, increaseMagnet);
+                    break;
+                //Random
+                case AbilityType.RandomAbility:
+                    switch (randomAbilityChoose)
+                    {
+                        case 0: //Electro Shock
+                            switch (randomAbilityCurChoose)
+                            {
+                                case 0:
+                                    randomAbilities.electroShockDamage += electroShockDamage;
+                                    break;
+                                case 1:
+                                    randomAbilities.maxElectroShockTimer += electroShockTimer;
+                                    break;
+                                default:
+                                    break;
+                            }
+                            break;
+                        case 1: //Freeze
+                            switch (randomAbilityCurChoose)
+                            {
+                                case 0:
+                                    randomAbilities.maxFreezeTimer += freezeTimer;
+                                    break;
+                                default:
+                                    break;
+                            }
+                            break;
+                        case 2: //Burn
+                            switch (randomAbilityCurChoose)
+                            {
+                                case 0:
+                                    randomAbilities.burnDamage += burnDamage;
+                                    break;
+                                case 1:
+                                    randomAbilities.maxBurningTimer += burnTimer;
+                                    break;
+                                default:
+                                    break;
+                            }
+                            break;
+                        case 3: //Enemies
+                            switch (randomAbilityCurChoose)
+                            {
+                                case 0:
+                                    randomAbilities.enemyCountLimit += enemiesLimit;
+                                    break;
+                                default:
+                                    break;
+                            }
+                            break;
+
+                        case 4: //Mana
+                            switch (randomAbilityCurChoose)
+                            {
+                                case 0:
+                                    levelManager.playerMaxMana += manaLimit;
+                                    uiManager.manaSlider.maxValue = levelManager.playerMaxMana;
+                                    break;
+                                default:
+                                    break;
+                            }
+                            break;
+                    }
                     break;
                 default:
                     break;

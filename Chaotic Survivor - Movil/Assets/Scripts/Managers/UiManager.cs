@@ -45,7 +45,7 @@ public class UiManager : MonoBehaviour
     [Header("All Animation Controllers")]
     [SerializeField] private UiAnimationController[] uiAnimationControllers = null;
 
-    [Header("")]
+    [Header("Privacy Polices")]
     public TextMeshProUGUI TextLinkInfo = null;
 
     [Header("Main Menu")]
@@ -75,6 +75,15 @@ public class UiManager : MonoBehaviour
     public TextMeshProUGUI levelNumber = null;
     public TextMeshProUGUI levelUpTxt = null;
     [Space]
+    public TextMeshProUGUI enemiesManaCount = null;
+    public Slider manaSlider = null;
+    public Button manaButton = null;
+    public Image manaRandomAbility = null;
+    public Sprite[] manaNewImage = null;
+    public Image manaCoolDown = null;
+    public TextMeshProUGUI manaConsume = null;
+    public TextMeshProUGUI manaText = null;
+    [Space]
     public TextMeshProUGUI scoreTimerTxt = null;
     public TextMeshProUGUI scoreTimerInfoTxt = null;
     public TextMeshProUGUI scoreLevelTxt = null;
@@ -84,11 +93,14 @@ public class UiManager : MonoBehaviour
     public GameObject[] joystickEasyMode = null;
     public GameObject oneJoystickEasyMode = null;
 
+    [Header("Total Game Info")]
+    public TextMeshProUGUI totalEnemies = null;
+    public TextMeshProUGUI totalCoins = null;
+    public TextMeshProUGUI totalDeads = null;
+
     [Header("Timer")]
     public string[] infoTextString = null;
     public TimerTextInfo[] timerTextInfo = null;
-
-
 
     [Header("Loading")]
     public Slider loadingSlider = null;
@@ -217,6 +229,14 @@ public class UiManager : MonoBehaviour
         levelTxt.text = "" + levelData;
         enemiesTxt.text = "" + enemiesData;
         coinsTxt.text = "" + coinsData;
+    }
+
+    //Stats
+    public void DisplayStats()
+    {
+        totalCoins.text = "" + gameManager.coinsAmount;
+        totalEnemies.text = "" + gameManager.enemiesAmount;
+        totalDeads.text = "" + gameManager.deadsAmount;
     }
     #endregion
 }

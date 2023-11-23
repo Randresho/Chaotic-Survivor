@@ -22031,6 +22031,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   screenBoundOffset: 0.9
   mainCamera: {fileID: 0}
+  playerActions: {fileID: 0}
 --- !u!114 &1747885552
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24542,7 +24543,7 @@ MonoBehaviour:
   enemiesLimit: 2
   manaLimit: 10
   randomAbilityTitle:
-  - Electro Shock
+  - Electroshock
   - Freeze
   - Burning
   - Enemies
@@ -24550,7 +24551,7 @@ MonoBehaviour:
   _randomAbilitiesLanguage:
   - name: EN
     title:
-    - Electro Shock
+    - Electroshock
     - Freeze
     - Burning
     - Enemies
@@ -24575,26 +24576,26 @@ MonoBehaviour:
       - Add more mana limit
   - name: FR
     title:
-    - Electro Shock
-    - Freeze
-    - Burning
-    - Enemies
+    - "\xC9lectrochoc"
+    - Geler
+    - "Br\xFBlant"
+    - Ennemis
     - Mana
     description:
-    - name: Electro Shock
+    - name: "\xC9lectrochoc"
       description:
-      - Add more electro shock damage
-      - Add more electro shock time
-    - name: Freeze
+      - "Ajouter plus de d\xE9g\xE2ts par \xE9lectrochocs"
+      - "Ajouter plus de temps d'\xE9lectrochoc"
+    - name: Geler
       description:
-      - Add more Freeze time
-    - name: Burning
+      - Ajouter plus de temps de gel
+    - name: "Br\xFBlant"
       description:
-      - Add more burning damage
-      - Add more burning time
-    - name: Enemies
+      - "Ajouter plus de d\xE9g\xE2ts de br\xFBlure"
+      - Ajouter plus de temps de combustion
+    - name: Ennemis
       description:
-      - Add more enemies to be affected
+      - "Ajouter plus d'ennemis \xE0 affecter"
     - name: Mana
       description:
       - Add more mana limit
@@ -24625,27 +24626,27 @@ MonoBehaviour:
       - Add more mana limit
   - name: IT
     title:
-    - Electro Shock
-    - Freeze
-    - Burning
-    - Enemies
-    - Mana
+    - Elettroshock
+    - Congelare
+    - Bruciando
+    - Nemici
+    - "Man\xE0"
     description:
-    - name: Electro Shock
+    - name: Elettroshock
       description:
-      - Add more electro shock damage
-      - Add more electro shock time
-    - name: Freeze
+      - "Aggiungi pi\xF9 danni da elettroshock"
+      - "Aggiungere pi\xF9 tempo per l'elettroshock"
+    - name: Congelare
       description:
-      - Add more Freeze time
-    - name: Burning
+      - "Aggiungi pi\xF9 tempo di congelamento"
+    - name: Bruciando
       description:
-      - Add more burning damage
-      - Add more burning time
-    - name: Enemies
+      - "Aggiungi pi\xF9 danni da fuoco"
+      - "Aggiungi pi\xF9 tempo di combustione"
+    - name: Nemici
       description:
-      - Add more enemies to be affected
-    - name: Mana
+      - "Aggiungi pi\xF9 nemici da influenzare"
+    - name: "Man\xE0"
       description:
       - Add more mana limit
   - name: NO
@@ -24675,29 +24676,29 @@ MonoBehaviour:
       - Add more mana limit
   - name: ES
     title:
-    - Electro Shock
-    - Freeze
-    - Burning
-    - Enemies
+    - Electrochoque
+    - Congelar
+    - Quemar
+    - Enemigos
     - Mana
     description:
-    - name: Electro Shock
+    - name: Electrochoque
       description:
-      - Add more electro shock damage
-      - Add more electro shock time
-    - name: Freeze
+      - "A\xF1ade m\xE1s da\xF1o por electroshock"
+      - "A\xF1ade m\xE1s tiempo de electroshock"
+    - name: Congelar
       description:
-      - Add more Freeze time
-    - name: Burning
+      - "A\xF1ade m\xE1s tiempo de congelamiento"
+    - name: Quemar
       description:
-      - Add more burning damage
-      - Add more burning time
-    - name: Enemies
+      - "A\xF1ade m\xE1s da\xF1o por quemadora"
+      - "A\xF1ade m\xE1s tiempo de quemadura"
+    - name: Enemigos
       description:
-      - Add more enemies to be affected
+      - "A\xF1ade m\xE1s enemigos a ser afectados"
     - name: Mana
       description:
-      - Add more mana limit
+      - "A\xF1ade m\xE1s limite de mana"
   bulletPrefab:
   - {fileID: 8812460182515355615, guid: e00e0a97e6023b749b788f283c5718aa, type: 3}
   - {fileID: 8812460182515355615, guid: 40e693d114f6abb429e24aa018340f1f, type: 3}
