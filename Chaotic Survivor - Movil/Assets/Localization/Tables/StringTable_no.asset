@@ -137,6 +137,10 @@ MonoBehaviour:
     m_Localized: "H\xF8y poengsum"
     m_Metadata:
       m_Items: []
+  - m_Id: 148575336096870400
+    m_Localized: 
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:

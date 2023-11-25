@@ -125,16 +125,33 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 60713507492999168
-    m_Localized: 
+    m_Localized: Ho letto e accetto la <u><link="https://www.losttrainstudio.com/privacy-policy">politica
+      e privacy</link></u>
     m_Metadata:
       m_Items: []
   - m_Id: 60713657980432384
-    m_Localized: <u><link="https://www.losttrainstudio.com/privacy-policy">Informativa
-      sulla privacy</link></u>
+    m_Localized: <u><link="https://www.losttrainstudio.com/privacy-policy">Politica
+      e privacy</link></u>
     m_Metadata:
       m_Items: []
   - m_Id: 60713727303888896
     m_Localized: Accettare
+    m_Metadata:
+      m_Items: []
+  - m_Id: 111879608075300864
+    m_Localized: Mie statistiche
+    m_Metadata:
+      m_Items: []
+  - m_Id: 111880441831632896
+    m_Localized: 'Monete ottenute:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 111880677153058816
+    m_Localized: 'Nemici sconfitti:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 111881740178436096
+    m_Localized: 'Tentativi:'
     m_Metadata:
       m_Items: []
   references:

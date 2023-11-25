@@ -138,6 +138,22 @@ MonoBehaviour:
       de privacidad</link></u>"
     m_Metadata:
       m_Items: []
+  - m_Id: 148575336096870400
+    m_Localized: Mis estadisticas
+    m_Metadata:
+      m_Items: []
+  - m_Id: 148575625159913472
+    m_Localized: 'Intentos:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 148575599536910336
+    m_Localized: 'Enemigos derrotados:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 148575572626255872
+    m_Localized: 'Monedas obtenidas:'
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:

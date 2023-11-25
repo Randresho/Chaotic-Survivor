@@ -138,6 +138,22 @@ MonoBehaviour:
     m_Localized: Accepter
     m_Metadata:
       m_Items: []
+  - m_Id: 111879608075300864
+    m_Localized: Mes stats
+    m_Metadata:
+      m_Items: []
+  - m_Id: 111880441831632896
+    m_Localized: "Pi\xE8ces collect\xE9es:"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 111880677153058816
+    m_Localized: 'Ennemis vaincus:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 111881740178436096
+    m_Localized: 'Tentatives:'
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:

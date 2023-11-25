@@ -77,7 +77,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 1532568285184
-    m_Localized: Usa millisecondi
+    m_Localized: Conta i millisecondi
     m_Metadata:
       m_Items: []
   - m_Id: 1733320257536
@@ -121,12 +121,12 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 55347791889707008
-    m_Localized: Mira automatica
+    m_Localized: Mirino automatico
     m_Metadata:
       m_Items: []
   - m_Id: 57530737761464320
-    m_Localized: "J'ai lu et j'accepte la <u><link=\"https://www.losttrainstudio.com/privacy-policy\">politique
-      de confidentialit\xE9</link></u>"
+    m_Localized: Ho letto e accetto la <u><link="https://www.losttrainstudio.com/privacy-policy">politica
+      e privacy</link></u>
     m_Metadata:
       m_Items: []
   - m_Id: 57573590546001920
@@ -134,8 +134,24 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 57573532534583296
-    m_Localized: <u><link="https://www.losttrainstudio.com/privacy-policy">Informativa
-      sulla privacy</link></u>
+    m_Localized: <u><link="https://www.losttrainstudio.com/privacy-policy">Politica
+      e privacy</link></u>
+    m_Metadata:
+      m_Items: []
+  - m_Id: 148575336096870400
+    m_Localized: Mie statistiche
+    m_Metadata:
+      m_Items: []
+  - m_Id: 148575572626255872
+    m_Localized: 'Monete ottenute:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 148575599536910336
+    m_Localized: 'Nemici sconfitti:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 148575625159913472
+    m_Localized: 'Tentativi:'
     m_Metadata:
       m_Items: []
   references:

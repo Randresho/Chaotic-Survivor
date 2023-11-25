@@ -131,6 +131,22 @@ MonoBehaviour:
     m_Key: Accept
     m_Metadata:
       m_Items: []
+  - m_Id: 148575336096870400
+    m_Key: TotalInfo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 148575572626255872
+    m_Key: TotalCoins
+    m_Metadata:
+      m_Items: []
+  - m_Id: 148575599536910336
+    m_Key: TotalEnemeies
+    m_Metadata:
+      m_Items: []
+  - m_Id: 148575625159913472
+    m_Key: TotalAttemps
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
