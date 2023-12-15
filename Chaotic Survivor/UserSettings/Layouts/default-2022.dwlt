@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1920
     height: 997
   m_ShowMode: 4
-  m_Title: Inspector
+  m_Title: Hierarchy
   m_RootView: {fileID: 9}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -367,21 +367,21 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Prefabs/Player
+    - Assets/Scenes/Levels
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/Prefabs/Player
+  - Assets/Scenes/Levels
   m_LastFoldersGridSize: 16
   m_LastProjectPath: D:\Documentos\Lost Train\Unity\Chaotic survivors\Chaotic Survivor
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 889}
-    m_SelectedIDs: 76830000
-    m_LastClickedID: 33654
+    scrollPos: {x: 0, y: 949}
+    m_SelectedIDs: 7a830000
+    m_LastClickedID: 33658
     m_ExpandedIDs: 00000000a0820000a2820000a4820000a6820000a8820000aa820000ac820000ae820000b0820000b2820000b4820000b6820000b8820000ba820000bc820000be820000c0820000c2820000c4820000c6820000c8820000ca820000cc820000ce820000d0820000d2820000d4820000d6820000d8820000da820000dc820000de820000e0820000e2820000e4820000e6820000e8820000ea820000ec820000ee820000f0820000f2820000f4820000f6820000f8820000fa820000fc820000fe82000000830000028300000483000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -538,9 +538,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 88780000d8790000ea760000f87a00009a7700009a7900009c750000ee7c0000ca7b0000aa760000
-      m_LastClickedID: 30378
-      m_ExpandedIDs: 20fbffff82750000327600007c760000127700006e770000ac78000030790000c0790000127a0000
+      m_SelectedIDs: f0f2ffff
+      m_LastClickedID: -3344
+      m_ExpandedIDs: 04f3ffff2ef3ffff20fbffff2e86000080880000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -684,8 +684,8 @@ MonoBehaviour:
       containerId: overlay-container--right
       floating: 0
       collapsed: 0
-      displayed: 0
-      snapOffset: {x: 0, y: 0}
+      displayed: 1
+      snapOffset: {x: 0, y: 25}
       snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 0
       id: Scene View/Camera
@@ -855,9 +855,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 404.49423, y: 271.2023, z: -2.1705794}
+    m_Target: {x: -1.3954008, y: -35.649986, z: 0.4612707}
     speed: 2
-    m_Value: {x: -0.27206123, y: 0.23264578, z: -0.080191225}
+    m_Value: {x: -1.3954008, y: -35.649986, z: 0.4612707}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -907,9 +907,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 340.16754
+    m_Target: 51.388493
     speed: 2
-    m_Value: 4.0441284
+    m_Value: 51.388493
   m_Ortho:
     m_Target: 1
     speed: 2
