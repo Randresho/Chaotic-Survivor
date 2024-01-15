@@ -76,6 +76,9 @@ public class LevelManager : MonoBehaviour
     [Header("New Random Abilies")]
     public float playerMana = 0f;
     public float playerMaxMana = 0f;
+    public int enemiesFreezed;
+    public int enemiesBurn;
+    public int enemiesElectroshocked;
 
     [Space]
     [SerializeField] private AbilityScriptableObject abilityScriptable;
@@ -392,8 +395,34 @@ public class LevelManager : MonoBehaviour
         gameManager.deadsAmount++;
 
         saveNLoad.SaveStatsInfo(gameManager.coinsAmount, gameManager.enemiesAmount, gameManager.deadsAmount);
+        saveNLoad.SaveGameplayData(enemiesFreezed, enemiesBurn, enemiesElectroshocked);
+
+        if (saveNLoad.enemiesFreezed >= 100)
+        {
+#if UNITY_ANDROID
+            PlayGameLogros.instance.FreezingTime();
+#endif
+        }
+
+        if (saveNLoad.enemiesElectroshocked >= 100)
+        {
+#if UNITY_ANDROID
+            PlayGameLogros.instance.Electrocuted();
+#endif
+        }
+
+        if (saveNLoad.enemiesBurned >= 100)
+        {
+#if UNITY_ANDROID
+            PlayGameLogros.instance.Pyromaniac();
+#endif
+        }
 
         PlayGameLogros.instance.SendScore((int)timerValue);
+
+        PlayGameLogros.instance.SendScoreFreezed(saveNLoad.enemiesFreezed);
+        PlayGameLogros.instance.SendScoreElectrical(saveNLoad.enemiesElectroshocked);
+        PlayGameLogros.instance.SendScoreBurn(saveNLoad.enemiesBurned);
 
         backButtonMobile.ChooseUi(7);
 

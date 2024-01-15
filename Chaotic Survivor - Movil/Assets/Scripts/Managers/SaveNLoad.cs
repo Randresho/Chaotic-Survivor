@@ -30,6 +30,9 @@ public class SaveNLoad : MonoBehaviour
 
     [Header("Game Data")]
     public int firstTimePlayingInt;
+    public int enemiesFreezed;
+    public int enemiesBurned;
+    public int enemiesElectroshocked;
 
     public int deadsAmount;
 
@@ -68,6 +71,13 @@ public class SaveNLoad : MonoBehaviour
         PlayerPrefs.SetInt("DeadsStats", deads);
     }
 
+    public void SaveGameplayData(int enemiesF, int enemiesB, int enemiesE)
+    {
+        PlayerPrefs.SetInt("EnemiesFreezed", enemiesF);
+        PlayerPrefs.SetInt("EnemiesBurned", enemiesB);
+        PlayerPrefs.SetInt("EnemiesElectroshocked", enemiesE);
+    }
+
     #region Options
     public void SaveMilliseconds()
     {
@@ -100,6 +110,10 @@ public class SaveNLoad : MonoBehaviour
         enemiesKilledData = PlayerPrefs.GetInt("EnemiesKilled");
         coinGrabData = PlayerPrefs.GetInt("CoinsGrab");
         levelData = PlayerPrefs.GetInt("LevelD");
+
+        enemiesFreezed = PlayerPrefs.GetInt("EnemiesFreezed");
+        enemiesBurned = PlayerPrefs.GetInt("EnemiesBurned");
+        enemiesElectroshocked = PlayerPrefs.GetInt("EnemiesElectroshocked");
         
         uiManager.DisplayTimer(timerData, uiManager.highscoreTimerTxt, uiManager.highscoreTimerInfoTxt);
         uiManager.DisplayMatchInfo(uiManager.highscoreLevelTxt, levelData, uiManager.highscoreEnemiesTxt, enemiesKilledData, uiManager.highscoreCoinsTxt, coinGrabData);        
@@ -112,6 +126,7 @@ public class SaveNLoad : MonoBehaviour
         gameManager.coinsAmount = PlayerPrefs.GetInt("CoinsStats");
         gameManager.enemiesAmount = PlayerPrefs.GetInt("EnemiesStats");
         gameManager.deadsAmount = PlayerPrefs.GetInt("DeadsStats");
+
 
         uiManager.DisplayStats();
     }

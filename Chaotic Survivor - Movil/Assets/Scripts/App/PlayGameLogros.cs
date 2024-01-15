@@ -56,12 +56,57 @@ public class PlayGameLogros : MonoBehaviour
 #endif
     }
 
+    public void SendScoreFreezed(int score)
+    {
+#if UNITY_ANDROID
+        if (Social.localUser.authenticated)
+        {
+            Social.ReportScore(score, "CgkIzoyp2dgGEAIQBg", success => { });
+        }
+#endif
+    }
+
+    public void SendScoreBurn(int score)
+    {
+#if UNITY_ANDROID
+        if (Social.localUser.authenticated)
+        {
+            Social.ReportScore(score, "CgkIzoyp2dgGEAIQBw", success => { });
+        }
+#endif
+    }
+
+    public void SendScoreElectrical(int score)
+    {
+#if UNITY_ANDROID
+        if (Social.localUser.authenticated)
+        {
+            Social.ReportScore(score, "CgkIzoyp2dgGEAIQCA", success => { });
+        }
+#endif
+    }
+
     public void ShowRanking()
     {
 #if UNITY_ANDROID
         if (Social.localUser.authenticated)
         {
-            PlayGamesPlatform.Instance.ShowLeaderboardUI("CgkIzoyp2dgGEAIQAQ");
+            PlayGamesPlatform.Instance.ShowLeaderboardUI("CgkIzoyp2dgGEAIQAQ");//First play
+        }
+
+        if (Social.localUser.authenticated)
+        {
+            PlayGamesPlatform.Instance.ShowLeaderboardUI("CgkIzoyp2dgGEAIQBg");//Freezed
+        }
+
+        if (Social.localUser.authenticated)
+        {
+            PlayGamesPlatform.Instance.ShowLeaderboardUI("CgkIzoyp2dgGEAIQCA");//Electrocuted
+        }
+
+        if (Social.localUser.authenticated)
+        {
+            PlayGamesPlatform.Instance.ShowLeaderboardUI("CgkIzoyp2dgGEAIQBw");//Pyromaniac
         }
 #endif
     }
@@ -72,6 +117,39 @@ public class PlayGameLogros : MonoBehaviour
         if (Social.localUser.authenticated)
         {
             Social.ReportProgress("CgkIzoyp2dgGEAIQAg", 100f, succes => { });
+
+        }
+#endif
+    }
+
+    public void FreezingTime()
+    {
+#if UNITY_ANDROID
+        if (Social.localUser.authenticated)
+        {
+            Social.ReportProgress("CgkIzoyp2dgGEAIQAw", 100f, succes => { });
+
+        }
+#endif
+    }
+
+    public void Electrocuted()
+    {
+#if UNITY_ANDROID
+        if (Social.localUser.authenticated)
+        {
+            Social.ReportProgress("CgkIzoyp2dgGEAIQBA", 100f, succes => { });
+
+        }
+#endif
+    }
+
+    public void Pyromaniac()
+    {
+#if UNITY_ANDROID
+        if (Social.localUser.authenticated)
+        {
+            Social.ReportProgress("CgkIzoyp2dgGEAIQBQ", 100f, succes => { });
 
         }
 #endif

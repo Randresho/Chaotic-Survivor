@@ -96,26 +96,42 @@ public class EnemyScriptableObject : MonoBehaviour
 
     public void ActiveEnemy()
     {
+        isBurnActive = false;
+        isFreezeActive = false;
+
         transform.position = levelManager.outsideCam;
+
         hp = maxHp;
         hpSlider.maxValue = hp;
+        hpSlider.value = hp;
+
         collider.enabled = true;
+        m_rigidbodys.bodyType = RigidbodyType2D.Dynamic;
+
         deadObjVfx.SetActive(false);
+        burnFX.SetActive(false);
+        electroFX.SetActive(false);
+
         moveRight = false;
+
         spriteRenderer.material = originalMaterial;
+
         levelManager.enemyScriptables.Add(this);
-        EnemyLife();
-        levelManager.UpdateCameraPoint();
+        levelManager.UpdateCameraPoint(); ;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (!levelManager.leveUp)
+        if (!levelManager.leveUp || !isFreezeActive)
         {
-            speed = maxSpeed;
+            if (playerActions.panicMode)
+                speed = maxSpeed + 10;
+            else
+                speed = maxSpeed;
         }
-        else
+
+        if (levelManager.leveUp || isFreezeActive)
         {
             speed = 0;
         }
@@ -123,6 +139,7 @@ public class EnemyScriptableObject : MonoBehaviour
         MoveEnemy();
     }
 
+    #region Move
     private void MoveEnemy()
     {
         //Move
@@ -147,62 +164,40 @@ public class EnemyScriptableObject : MonoBehaviour
         {
             spriteRenderer.enabled = false;
             collider.enabled = false;
+
+            if (!isFreezeActive || !isBurnActive)
+            {
+                if (canMoveIt)
+                {
+                    transform.position = levelManager.outsideCam;
+                    levelManager.UpdateCameraPoint();
+
+                    hp = maxHp;
+                    hpSlider.maxValue = hp;
+                    hpSlider.value = hp;
+
+                    deadObjVfx.SetActive(false);
+                    burnFX.SetActive(false);
+                    electroFX.SetActive(false);
+
+                    spriteRenderer.material = originalMaterial;
+
+                    canMoveIt = false;
+                }
+            }
+
             return;
         }
         else
         {
-            if (hp <= 0.05)
+            /*if (hp <= 0.05)
                 spriteRenderer.enabled = false;
-            else
-                spriteRenderer.enabled = true;
+            else*/
+            canMoveIt = true;
+            spriteRenderer.enabled = true;
         }
     }
-
-    private void EnemyLife()
-    {
-        //Hp
-        hpSlider.value = hp;
-        if (hp <= 0.05)
-        {
-            deadObjVfx.SetActive(true);
-            deadVfx.Play("Anim");
-            StartCoroutine(DestroyObj());
-        }      
-    }
-
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        GameObject obj = other.gameObject;
-        if (obj.GetComponent<BulletBehavior>() != null)
-        {
-            hp -= obj.GetComponent<BulletBehavior>().damage;
-            EnemyLife();
-            Flash();
-            if (hp <= 0.06)
-            {
-                deadSound.Play();
-                spriteRenderer.enabled = false;                
-            }
-        }
-    }
-
-    public void Flash()
-    {
-        if( flashRoutine != null)
-        {
-            StopCoroutine(flashRoutine);
-        }
-
-        flashRoutine = StartCoroutine(FlashRoutine());
-    }
-
-    private IEnumerator FlashRoutine()
-    {
-        spriteRenderer.material = flashMaterial;
-        yield return new WaitForSeconds(duration);
-        spriteRenderer.material = originalMaterial;
-        flashRoutine = null;
-    }
+    #endregion
 
     #region Damage
     private void ReciveDamage(float damage)
@@ -213,8 +208,8 @@ public class EnemyScriptableObject : MonoBehaviour
         if (!isFreezeActive)
             Flash();
 
-        if(isBurnActive)
-            StartCoroutine(DamageBurnFX());        
+        if (isBurnActive)
+            StartCoroutine(DamageBurnFX());
 
         if (hp <= 0.05)
         {
@@ -273,6 +268,59 @@ public class EnemyScriptableObject : MonoBehaviour
     }
     #endregion
 
+    #region Triggers
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        GameObject obj = other.gameObject;
+        if (obj.GetComponent<BulletBehavior>() != null)
+        {
+            ReciveDamage(obj.GetComponent<BulletBehavior>().damage);
+        }
+
+        if (obj.GetComponent<RandomAbilities>() != null)
+        {
+            if (randomAbilities.enemyCount <= randomAbilities.enemyCountLimit)
+            {
+                randomAbilities.enemyScripts.Add(this);
+                randomAbilities.enemyCount++;
+            }
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        GameObject obj = collision.gameObject;
+        if (obj.GetComponent<RandomAbilities>() != null)
+        {
+            if (obj.GetComponent<RandomAbilities>().enemyScripts.Contains(this))
+            {
+                randomAbilities.enemyScripts.Remove(this);
+                randomAbilities.enemyCount--;
+            }
+        }
+    }
+    #endregion
+
+    #region Flash enemy
+    public void Flash()
+    {
+        if (flashRoutine != null)
+        {
+            StopCoroutine(flashRoutine);
+        }
+
+        flashRoutine = StartCoroutine(FlashRoutine(flashMaterial));
+    }
+
+    private IEnumerator FlashRoutine(Material flashing)
+    {
+        spriteRenderer.material = flashing;
+        yield return new WaitForSeconds(duration);
+        spriteRenderer.material = originalMaterial;
+        flashRoutine = null;
+    }
+    #endregion   
+
     #region Reations
     public void AbilityReaction()
     {
@@ -305,6 +353,7 @@ public class EnemyScriptableObject : MonoBehaviour
             isFreezeActive = true;
         }
         yield return new WaitForSeconds(randomAbilities.maxElectroShockTimer);
+        levelManager.enemiesElectroshocked++;
         isFreezeActive = false;
     }
     #endregion
@@ -317,7 +366,9 @@ public class EnemyScriptableObject : MonoBehaviour
         animator.speed = 0f;
         spriteRenderer.material = freezeMaterial;
         freezeSound.Play();
+        levelManager.enemiesFreezed++;
         levelManager.enemyScriptables.Remove(this);
+        
 
         yield return new WaitForSeconds(randomAbilities.maxFreezeTimer);
 
@@ -352,6 +403,7 @@ public class EnemyScriptableObject : MonoBehaviour
 
             yield return new WaitForSeconds(randomAbilities.maxBurningTimer);
             timeBurning = 0f;
+            levelManager.enemiesBurn++;
             //Debug.Log("Ya no me quemo");
             isBurnActive = false;
         }

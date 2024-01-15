@@ -6425,7 +6425,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_rigidbody2D: {fileID: 0}
-  m_PlayerSpeed: 5
+  m_PlayerSpeed: 4
   m_PlayerSpeedMax: 0
   animator: {fileID: 8495364885573339909}
   levelManager: {fileID: 0}
